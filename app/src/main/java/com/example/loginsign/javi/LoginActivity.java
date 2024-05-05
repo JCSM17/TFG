@@ -1,4 +1,4 @@
-package com.example.loginsign;
+package com.example.loginsign.javi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.util.Patterns; // Método de validación de direcciones de correo
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.loginsign.MainActivity;
 import com.example.loginsign.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -52,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.signupRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, com.example.loginsign.SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
             }
         });

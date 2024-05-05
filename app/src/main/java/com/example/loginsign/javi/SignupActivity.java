@@ -1,4 +1,4 @@
-package com.example.loginsign;
+package com.example.loginsign.javi;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.loginsign.DatabaseHelper;
 
 import com.example.loginsign.databinding.ActivitySignupBinding;
 
