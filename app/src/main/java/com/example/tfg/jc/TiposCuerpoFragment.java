@@ -1,4 +1,4 @@
-package com.example.loginsign.jc;
+package com.example.tfg.jc;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -6,11 +6,11 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.RadioButton;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
 
 public class TiposCuerpoFragment extends Fragment {
 
@@ -18,9 +18,9 @@ public class TiposCuerpoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tipos_cuerpo, container, false);
 
-        Button bodyType1Button = view.findViewById(R.id.bodyType1Button);
-        Button bodyType2Button = view.findViewById(R.id.bodyType2Button);
-        Button bodyType3Button = view.findViewById(R.id.bodyType3Button);
+        RadioButton bodyType1Button = view.findViewById(R.id.bodyType1RadioButton);
+        RadioButton bodyType2Button = view.findViewById(R.id.bodyType2RadioButton);
+        RadioButton bodyType3Button = view.findViewById(R.id.bodyType3RadioButton);
 
         bodyType1Button.setOnClickListener(new View.OnClickListener() {
             @Override

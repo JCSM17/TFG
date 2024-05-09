@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.loginsign"
+    namespace = "com.example.tfg"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.loginsign"
+        applicationId = "com.example.tfg"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

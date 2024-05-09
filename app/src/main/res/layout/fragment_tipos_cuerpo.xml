@@ -7,7 +7,9 @@
 
     <include
         android:id="@+id/header"
-        layout="@layout/fragment_header" />
+        layout="@layout/fragment_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/questionText"
@@ -25,10 +27,9 @@
     <RadioGroup
         android:id="@+id/bodyTypeRadioGroup"
         android:layout_width="410dp"
-        android:layout_height="510dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText"
         app:layout_constraintVertical_bias="0.156">
@@ -44,7 +45,7 @@
                 android:id="@+id/bodyType1Image"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/ectomorfo" />
+                android:src="@drawable/ectomorfo2" />
 
 
             <TextView
@@ -58,10 +59,9 @@
 
             <RadioButton
                 android:id="@+id/bodyType1RadioButton"
-
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="48dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="40dp" />
         </LinearLayout>
 
@@ -75,7 +75,7 @@
                 android:id="@+id/bodyType2Image"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/mesomorfo" />
+                android:src="@drawable/mesomorfo2" />
 
             <TextView
                 android:id="@+id/bodyType2Text"
@@ -90,7 +90,7 @@
                 android:id="@+id/bodyType2RadioButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="48dp"
+                android:layout_marginStart="42dp"
                 android:layout_marginTop="40dp" />
         </LinearLayout>
 
@@ -104,7 +104,7 @@
                 android:id="@+id/bodyType3Image"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/endomorfo1" />
+                android:src="@drawable/endomorfo2" />
 
             <TextView
                 android:id="@+id/bodyType3Text"
@@ -130,7 +130,7 @@
         android:id="@+id/separator2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-
+        android:layout_marginTop="16dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

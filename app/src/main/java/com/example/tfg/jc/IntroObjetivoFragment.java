@@ -1,4 +1,4 @@
-package com.example.loginsign.jc;
+package com.example.tfg.jc;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,8 +14,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
 
 public class IntroObjetivoFragment extends Fragment {
 
@@ -56,7 +58,14 @@ public class IntroObjetivoFragment extends Fragment {
                     editor.apply();
 
                     // Proceder a la siguiente pantalla
-                    // Aquí necesitarás implementar la lógica para cambiar a otro Fragment o Activity
+                    TiposCuerpoFragment tiposCuerpoFragment = new TiposCuerpoFragment();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    if (fragmentManager != null) {
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+               // Hay qe meter el fragmento de javi anterior         fragmentTransaction.replace(R.id.fragment_container, tiposCuerpoFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                    }
                 }
             }
         });

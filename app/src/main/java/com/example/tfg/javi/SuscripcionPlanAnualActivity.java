@@ -1,4 +1,4 @@
-package com.example.loginsign.javi;
+package com.example.tfg.javi;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
 
-public class SuscripcionPlanMensualActivity extends AppCompatActivity {
+public class SuscripcionPlanAnualActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suscripcionplanmensual);
+        setContentView(R.layout.activity_suscripcionplananual);
 
         // Obtener referencia al botón "Suscribirme ahora"
         Button suscribirmeButton = findViewById(R.id.button4);
@@ -23,7 +23,7 @@ public class SuscripcionPlanMensualActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Crear un intent para iniciar la actividad SuscripcionMensualAnualConfirmActivity
-                Intent intent = new Intent(SuscripcionPlanMensualActivity.this, SuscripcionMensualAnualConfirmActivity.class);
+                Intent intent = new Intent(SuscripcionPlanAnualActivity.this, SuscripcionMensualAnualConfirmActivity.class);
                 startActivity(intent); // Iniciar la actividad
             }
         });

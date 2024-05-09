@@ -1,4 +1,4 @@
-package com.example.loginsign.javi;
+package com.example.tfg.javi;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
 
 public class SuscripcionMensualAnualConfirmActivity extends AppCompatActivity {
 

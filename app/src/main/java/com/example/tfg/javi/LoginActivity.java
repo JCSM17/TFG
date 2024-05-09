@@ -1,4 +1,4 @@
-package com.example.loginsign.javi;
+package com.example.tfg.javi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.util.Patterns; // Método de validación de direcciones de correo
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.loginsign.databinding.ActivityLoginBinding;
+import com.example.tfg.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 

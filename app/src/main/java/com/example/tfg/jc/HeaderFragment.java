@@ -1,4 +1,4 @@
-package com.example.loginsign.jc;
+package com.example.tfg.jc;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
 
 public class HeaderFragment extends Fragment {
 

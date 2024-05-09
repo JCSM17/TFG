@@ -1,11 +1,11 @@
-package com.example.loginsign.javi;
+package com.example.tfg.javi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
 
 public class MainActivity extends AppCompatActivity {
 

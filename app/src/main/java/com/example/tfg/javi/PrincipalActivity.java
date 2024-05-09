@@ -1,12 +1,10 @@
-package com.example.loginsign.javi;
+package com.example.tfg.javi;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
 
 public class PrincipalActivity extends AppCompatActivity {
 
