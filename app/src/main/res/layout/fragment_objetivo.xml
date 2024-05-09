@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="15dp">
 
     <include
         android:id="@+id/header"
-        layout="@layout/header_layout" />
+        layout="@layout/fragment_header" />
 
     <TextView
         android:id="@+id/questionText"
@@ -37,13 +37,15 @@
             android:id="@+id/radioOption1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:text="Definición"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
         <RadioButton
             android:id="@+id/radioOption2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:text="Volumen"
             android:textSize="17dp" />
 
@@ -51,6 +53,7 @@
             android:id="@+id/radioOption3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:text="Recomendado"
             android:textSize="17dp" />
     </RadioGroup>
@@ -64,6 +67,7 @@
         android:layout_marginEnd="40dp"
         android:hint="Estatura en cm"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -77,6 +81,7 @@
         android:layout_marginEnd="40dp"
         android:hint="Edad en años"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heightInput" />
@@ -84,7 +89,7 @@
     <Spinner
         android:id="@+id/genderSpinner"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="40dp"
@@ -96,11 +101,10 @@
         android:id="@+id/separator2"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="184dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="128dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderSpinner" />
 
@@ -108,10 +112,11 @@
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="16dp"
         android:text="Siguiente"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
