@@ -26,7 +26,7 @@
 
     <RadioGroup
         android:id="@+id/bodyTypeRadioGroup"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <ImageView
@@ -46,7 +47,6 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ectomorfo2" />
-
 
             <TextView
                 android:id="@+id/bodyType1Text"
@@ -69,6 +69,7 @@
             android:id="@+id/bodyType2"
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <ImageView
@@ -98,6 +99,7 @@
             android:id="@+id/bodyType3"
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <ImageView

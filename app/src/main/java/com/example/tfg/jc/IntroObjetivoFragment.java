@@ -62,7 +62,7 @@ public class IntroObjetivoFragment extends Fragment {
                     FragmentManager fragmentManager = getFragmentManager();
                     if (fragmentManager != null) {
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-               // Hay qe meter el fragmento de javi anterior         fragmentTransaction.replace(R.id.fragment_container, tiposCuerpoFragment);
+                        // Hay qe meter el fragmento de javi anterior         fragmentTransaction.replace(R.id.fragment_container, tiposCuerpoFragment);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
                     }

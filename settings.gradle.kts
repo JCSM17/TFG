@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "LoginSign"
+rootProject.name = "tfg"
 include(":app")
  
