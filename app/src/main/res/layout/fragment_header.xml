@@ -37,7 +37,7 @@
                 android:id="@+id/appName"
                 android:layout_width="306dp"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/robotocondensedbold"
+                android:fontFamily="@font/RobotoCondensedBlack"
                 android:gravity="center"
                 android:text="@string/app_name"
                 android:textColor="@color/black"
