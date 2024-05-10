@@ -87,8 +87,8 @@
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="184dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:baselineAligned="false"
         android:text="Iniciar sesión"
@@ -102,8 +102,8 @@
 
     <TextView
         android:id="@+id/signupRedirectText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="46dp"
@@ -127,8 +127,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

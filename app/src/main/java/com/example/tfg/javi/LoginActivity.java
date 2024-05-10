@@ -1,12 +1,13 @@
 package com.example.tfg.javi;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Patterns; // Método de validación de direcciones de correo electrónico
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.databinding.ActivityLoginBinding;
 
@@ -14,8 +15,6 @@ public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +39,25 @@ public class LoginActivity extends AppCompatActivity {
                     Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
 
                     if (checkCredentials) {
-                        Toast.makeText(LoginActivity.this, "¡Has iniciado sesión exitosamente!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
+                        // Verificar si el usuario ya ha pagado
+                        SharedPreferences prefs = getSharedPreferences("PREFS", MODE_PRIVATE);
+                        boolean pagado = prefs.getBoolean("pagado", false);
+
+                        if (pagado) {
+                            // Si ya ha pagado, ir directamente a la actividad principal
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish(); // Finaliza la actividad actual para que no pueda volver atrás
+                        } else {
+                            // Si no ha pagado, marcar como pagado y luego ir a la actividad principal
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putBoolean("pagado", true);
+                            editor.apply();
+
+                            Toast.makeText(LoginActivity.this, "¡Has iniciado sesión exitosamente!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
                     } else {
                         Toast.makeText(LoginActivity.this, "Credenciales no válidas", Toast.LENGTH_SHORT).show();
                     }
@@ -53,12 +68,9 @@ public class LoginActivity extends AppCompatActivity {
         binding.signupRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                Intent intent = new Intent(LoginActivity.this, com.example.tfg.javi.SignupActivity.class);
                 startActivity(intent);
             }
         });
-
-
-
     }
 }

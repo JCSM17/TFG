@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tfg.javi.SuscripcionPlanMensualActivity;
 import com.example.tfg.R;
 
 public class PlanMensualActivity extends AppCompatActivity {
@@ -15,7 +16,7 @@ public class PlanMensualActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planmensual);
 
-        // Obtener referencia al botón "VERPELPLANANUAL"
+        // Obtener referencia al botón "VERPELPLANANUAL"zz
         Button verPlanAnualButton = findViewById(R.id.buttonVerPlanAnual);
 
         // Configurar el OnClickListener para el botón

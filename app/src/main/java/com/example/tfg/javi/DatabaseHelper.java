@@ -17,11 +17,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
-        MyDatabase.execSQL("create Table users(email TEXT primary key," +
-                                               "password TEXT," +
-                                               "nombre TEXT, " +
-                                               "apellido TEXT," +
-                                               "telefono TEXT)");
+        MyDatabase.execSQL("CREATE TABLE iniciosesion(email TEXT PRIMARY KEY, password TEXT)");
+        MyDatabase.execSQL("create Table registro(email TEXT primary key," +
+                "password TEXT," +
+                "nombre TEXT, " +
+                "apellido TEXT," +
+                "telefono TEXT)");
+        MyDatabase.execSQL("CREATE TABLE suscripanual(email TEXT PRIMARY KEY, " +
+                "nombre TEXT,"+
+                "apellido TEXT,"+
+                "dni TEXT,"+
+                "telefono TEXT,"+
+                "creditcard NUMBER,"+
+                "expirationdate DATE,"+
+                "cvc NUMBER)");
+        MyDatabase.execSQL("CREATE TABLE suscripmensual(email TEXT PRIMARY KEY, " +
+                "nombre1 TEXT,"+
+                "apellido1 TEXT,"+
+                "dni1 TEXT,"+
+                "telefono1 TEXT,"+
+                "creditcard1 NUMBER,"+
+                "expirationdate1 DATE,"+
+                "cvc1 NUMBER)");
     }
 
     @Override
