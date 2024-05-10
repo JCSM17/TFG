@@ -1,14 +1,22 @@
 package com.example.tfg.jesus;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.example.loginsign.R;
+import com.example.tfg.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +65,35 @@ public class RutinasFragment extends Fragment {
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_rutinas, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Map of button IDs to YouTube URLs
+        Map<Integer, String> buttonToUrlMap = new HashMap<>();
+        buttonToUrlMap.put(R.id.button13, "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        buttonToUrlMap.put(R.id.button14, "https://www.youtube.com/watch?v=3tmd-ClpJxA");
+        // Add more button IDs and URLs as needed
+
+        // Set up click listeners for each button
+        for (Map.Entry<Integer, String> entry : buttonToUrlMap.entrySet()) {
+            Button button = view.findViewById(entry.getKey());
+            button.setOnClickListener(v -> openYoutubeVideo(entry.getValue()));
+        }
+    }
+
+    private void openYoutubeVideo(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
 }
