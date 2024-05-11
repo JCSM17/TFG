@@ -79,12 +79,12 @@ public class RutinasFragment extends Fragment {
 
         // Map of button IDs to YouTube URLs
         Map<Integer, String> buttonToUrlMap = new HashMap<>();
-        buttonToUrlMap.put(R.id.buttonPressBanca, "https://www.youtube.com/shorts/i14IBMNQDQQ");
-        buttonToUrlMap.put(R.id.buttonFondosParalelas, "https://www.youtube.com/shorts/lC7lLkjDZ_k");
-        buttonToUrlMap.put(R.id.buttonPoleaBaja, "https://www.youtube.com/shorts/wHKYSABOpGY");
+        buttonToUrlMap.put(R.id.botonVideoPressBanca, "https://www.youtube.com/shorts/i14IBMNQDQQ");
+        buttonToUrlMap.put(R.id.botonVideoFondos, "https://www.youtube.com/shorts/lC7lLkjDZ_k");
+        buttonToUrlMap.put(R.id.botonVideoPolea, "https://www.youtube.com/shorts/wHKYSABOpGY");
         buttonToUrlMap.put(R.id.buttonFrancesMancuerna, "https://www.youtube.com/shorts/DFFD1LU_iXw");
-        buttonToUrlMap.put(R.id.buttonTricepsPolea, "https://www.youtube.com/shorts/JVc1KAB_HLY");
-        buttonToUrlMap.put(R.id.buttonPressPalof, "https://www.youtube.com/shorts/r3fM413P3W0");
+        buttonToUrlMap.put(R.id.botonVideoExtTriceps, "https://www.youtube.com/shorts/JVc1KAB_HLY");
+        buttonToUrlMap.put(R.id.botonVideoPressPalof, "https://www.youtube.com/shorts/r3fM413P3W0");
         // Add more button IDs and URLs as needed
 
         // Set up click listeners for each button
