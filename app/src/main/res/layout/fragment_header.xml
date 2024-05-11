@@ -27,8 +27,8 @@
 
             <ImageButton
                 android:id="@+id/optionsButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Opciones"
                 android:scaleType="fitStart"
@@ -48,8 +48,8 @@
 
             <ImageButton
                 android:id="@+id/settingsButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Ajustes"
                 android:scaleType="fitEnd"
