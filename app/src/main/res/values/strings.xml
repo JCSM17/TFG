@@ -1,6 +1,58 @@
 <resources>
     <string name="app_name">JJJFIT</string>
-    <string name="video">Video</string>
+
+    <!-- Strings para el fragmento de rutinas -->
+    <string name="dificultad">Ta dificil</string>
+    <string name="treinta">30</string>
+    <string name="calentamiento">Calienta Panza</string>
+
+
+    <string name="texto_recomendado">Recomendado</string>
+    <string name="texto_objetivo">Objetivo:</string>
+    <string name="texto_volumen">Volumen</string>
+    <string name="texto_dificultad">Dificultad</string>
+    <string name="texto_semanas">Semanas:</string>
+    <string name="texto_sesiones">Sesiones:</string>
+    <string name="texto_semana_enero">Semana 1 - Enero</string>
+    <string name="texto_dia_ejercicio">Jueves</string>
+    <string name="texto_ptc">PECHO TRICEPS CORE</string>
+    <string name="texto_calentamiento">Calentamiento</string>
+    <string name="texto_press_banca_pesado">PRESS BANCA PESADO</string>
+    <string name="reps_press_banca">3x4 RP</string>
+    <string name="texto_fondos_cerrados">FONDOS CERRADOS EN PARALELAS</string>
+    <string name="reps_fondos">3x6-8 + 2DS</string>
+    <string name="texto_cruce_polea">CRUCE DE POLEA BAJA</string>
+    <string name="reps_polea_baja">2x12-15 + 1xFALLO</string>
+    <string name="texto_press_frances_mancuerna">PRESS FRANCÉS MANCUERNA</string>
+    <string name="reps_press_frances">3x10-12</string>
+    <string name="texto_ext_triceps">EXT. TRICEPS EN POLEA</string>
+    <string name="reps_extension_triceps">3x12 + 1XMYOREPS</string>
+    <string name="texto_press_palof">PRESS PALOF</string>
+    <string name="reps_press_palof">3x10</string>
+
+    <string name="boton_video">Video</string>
+    <string name="descripcion_boton_video_press_banca">Video de Press Banca</string>
+    <string name="descripcion_boton_video_fondos">Video de Fondos</string>
+    <string name="descripcion_boton_video_polea">Video de Polea</string>
+    <string name="descripcion_boton_video_frances_mancuerna">Video de Press Francés con Mancuerna</string>
+    <string name="descripcion_boton_video_ext_triceps">Video de Extensión de Tríceps en Polea</string>
+    <string name="descripcion_boton_video_press_palof">Video de Press Palof</string>
+    <string name="descripcion_image_press_frances">Descripción de la imagen de Press Francés</string>
+    <string name="descripcion_icono_pesas">Descripción del icono de pesas</string>
+    <string name="descripcion_icono_bulldog">Descripción del icono de bulldog</string>
+    <string name="descripcion_icono_definicion">Descripción del icono de definición</string>
+    <string name="descripcion_icono_nivel">Descripción del icono de nivel</string>
+    <string name="descripcion_imagen_pbp">Descripción de la imagen PBP</string>
+    <string name="descripcion_imagen_fondos">Descripción de la imagen de fondos</string>
+    <string name="descripcion_imagen_cruces">Descripción de la imagen de cruces</string>
+    <string name="descripcion_imagen_ext_triceps">Descripción de la imagen de extensión de tríceps</string>
+    <string name="descripcion_imagen_palof">Descripción de la imagen de Palof</string>
+    <string name="descripcion_imagen_check">Otro éxito</string>
+
+
+    <string name="descripcion_texto_press_palof">Texto de Press Palof</string>
+    <string name="descripcion_reps_press_palof">3x10</string>
+
 
     <string-array name="gender_array">
         <item>Hombre</item>
