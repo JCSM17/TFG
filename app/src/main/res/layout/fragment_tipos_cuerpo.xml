@@ -13,7 +13,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/questionText"
+        android:id="@+id/textoCronometro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionText"
+        app:layout_constraintTop_toBottomOf="@+id/textoCronometro"
         app:layout_constraintVertical_bias="0.156">
 
         <LinearLayout
