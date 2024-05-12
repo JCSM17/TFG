@@ -123,7 +123,7 @@ public class RutinasFragment extends Fragment {
 
     // Configura el temporizador de cuenta regresiva
     private void setupCountDownTimer(View view) {
-        TextView questionText = view.findViewById(R.id.textoCronometro);
+        TextView questionText = view.findViewById(R.id.botonCronometro);
         TextView timeRemaining = view.findViewById(R.id.timeRemaining);
         questionText.setOnClickListener(v -> startCountDownTimer(timeRemaining));
     }

@@ -7,12 +7,12 @@
     tools:context=".jc.CronometroFragment">
 
 
-    <TextView
-        android:id="@+id/textoCronometro"
+    <Button
+        android:id="@+id/botonCronometro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cronómetro"
-        android:textSize="24sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoCronometro" />
+        app:layout_constraintTop_toBottomOf="@+id/botonCronometro" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
