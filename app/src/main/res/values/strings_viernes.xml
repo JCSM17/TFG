@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">JJJFIT</string>
+
+    <!-- Strings para el fragmento de rutinas -->
+    <string name="dificultad">Ta dificil</string>
+    <string name="treinta">30</string>
+    <string name="calentamiento">Calienta Panza</string>
+
+
+    <string name="texto_recomendado">Recomendado</string>
+    <string name="texto_objetivo">Objetivo:</string>
+    <string name="texto_volumen">Volumen</string>
+    <string name="texto_dificultad">Dificultad</string>
+    <string name="texto_semanas">Semanas:</string>
+    <string name="texto_sesiones">Sesiones:</string>
+    <string name="texto_semana_enero">Semana 1 - Enero</string>
+    <string name="texto_dia_ejercicio">Jueves</string>
+    <string name="texto_ptc2">FULLBOODY</string>
+    <string name="texto_calentamiento">Calentamiento</string>
+    <string name="texto_dominadas_pronas">DOMINADAS PRONAS</string>
+    <string name="reps_dominadas">3x10-15 </string>
+    <string name="texto_peso_muerto">PESO MUERTO</string>
+    <string name="reps_peso">3x5 -7 GRABATE</string>
+    <string name="texto_press_banca_mancuernas">PRESS BANCA MANCUERNAS</string>
+    <string name="reps_press_banca_m">3x8-10 + 1RP</string>
+    <string name="texto_laterales_polea">ELEVACIÓNES LATERALES EN POLEA</string>
+    <string name="reps_laterales_p">3x12-14 + 2DS</string>
+    <string name="texto_curl_mancuernas">CURL INCLINADO MANCUERNAS</string>
+    <string name="reps_curl_m">2x12 +1XMYOREPS</string>
+    <string name="texto_ext_polea">EXT.TRICEPS EN POLEA</string>
+    <string name="descripcion_reps_extencion_polea">2x15 + 1XMYOREPS</string>
+
+    <string name="boton_video">Video</string>
+    <string name="descripcion_boton_video_dominadas_pronas">Video de Dominadas Pronas</string>
+    <string name="descripcion_boton_video_fondos">Video de peso muerto</string>
+    <string name="descripcion_boton_video_press">Video press banca mancuernas</string>
+    <string name="descripcion_boton_video_elevacion_polea">Video de Elevacion Laterales en polea</string>
+    <string name="descripcion_boton_video_curl_m">Video de curl inclinado con mancuernas</string>
+    <string name="descripcion_boton_video_extencion_triceps_polea">Video de Extencion de tricepes polea</string>
+    <string name="descripcion_imagen_peso_muerto">Descripción de la imagen de peso muerto</string>
+    <string name="descripcion_icono_pesas">Descripción del icono de pesas</string>
+    <string name="descripcion_icono_bulldog">Descripción del icono de bulldog</string>
+    <string name="descripcion_icono_definicion">Descripción del icono de definición</string>
+    <string name="descripcion_icono_nivel">Descripción del icono de nivel</string>
+    <string name="descripcion_imagen_polea">Descripción de la imagen Polea</string>
+    <string name="descripcion_imagen_dominadas_p">Descripción de la imagen de dominas pronas</string>
+    <string name="descripcion_imagen_pressm">Descripción de la imagen de press banca mancuernas</string>
+    <string name="descripcion_imagen_curl_m">Descripción de la imagen de curl inclinado mancuernas</string>
+    <string name="descripcion_imagen_triceps">Descripción de la imagen de extencion de triceps polea</string>
+    <string name="descripcion_imagen_check">Otro éxito</string>
+    <string name="descripcion_texto_press_palof">Texto de Press Palof</string>
+    <string name="descripcion_reps_press_palof">3x10</string>
+
+
+    <string-array name="gender_array">
+        <item>Hombre</item>
+        <item>Mujer</item>
+        <item>Otro</item>
+
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
