@@ -76,7 +76,7 @@
             android:id="@+id/iconoDefinicion"
             android:layout_width="26dp"
             android:layout_height="28dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="45dp"
             android:layout_marginTop="15dp"
             android:contentDescription="@string/descripcion_icono_definicion"
             android:src="@drawable/definicion"
@@ -181,15 +181,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textoDiaEjercicio" />
+            app:layout_constraintTop_toTopOf="@+id/textoJueves" />
 
         <TextView
-            android:id="@+id/textoDiaEjercicio"
+            android:id="@+id/textoJueves"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="4dp"
-            android:text="@string/texto_dia_ejercicio"
+            android:text="@string/texto_jueves"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -204,7 +204,7 @@
             android:text="@string/texto_ptc"
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoDiaEjercicio" />
+            app:layout_constraintTop_toBottomOf="@+id/textoJueves" />
 
 
         <TextView
@@ -248,9 +248,10 @@
 
         <ImageView
             android:id="@+id/imagenPBP"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_image_press_frances"
             android:src="@drawable/pressBancaPesado"
@@ -312,8 +313,8 @@
 
         <ImageView
             android:id="@+id/imagenFondos"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_fondos"
             android:src="@drawable/fondosCerradosParalelas"
@@ -375,8 +376,8 @@
 
         <ImageView
             android:id="@+id/imagenCruces"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_cruces"
             android:src="@drawable/crucePoleaBaja"
@@ -434,8 +435,8 @@
 
         <ImageView
             android:id="@+id/imagePressFrances"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/descripcion_imagen_pbp"
             android:src="@drawable/pressFrancesMancuerna"
@@ -495,8 +496,8 @@
 
         <ImageView
             android:id="@+id/imagenExtTriceps"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_ext_triceps"
             android:src="@drawable/extTricepsPolea"
@@ -554,8 +555,8 @@
 
         <ImageView
             android:id="@+id/imagenPalof"
-            android:layout_width="200dp"
-            android:layout_height="120dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_palof"
             android:src="@drawable/pressPalofArrodillado"

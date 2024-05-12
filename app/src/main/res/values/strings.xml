@@ -24,11 +24,11 @@
     <string name="texto_definicion">Definicion</string>
 
     <!-- Strings para el fragmento VOLUMEN -->
-    <string name="texto_volumen">Volumen</string>
+    <string name="texto_volumen">Volumen:</string>
 
     <!-- Strings para el fragmento Volumen Jueves -->
     <string name="texto_semana_enero">Semana 1 - Enero</string>
-    <string name="texto_dia_ejercicio">Jueves</string>
+    <string name="texto_jueves">Jueves</string>
     <string name="texto_ptc">PECHO TRICEPS CORE</string>
     <string name="texto_press_banca_pesado">PRESS BANCA PESADO</string>
     <string name="reps_press_banca">3x4 RP</string>
@@ -64,17 +64,19 @@
     <string name="descripcion_reps_press_palof">3x10</string>
 
     <!-- Strings para el Fragmento Volumen Viernes -->
-    <string name="texto_ptc2">FULLBOODY</string>
+    <string name="texto_viernes">Viernes</string>
+
+    <string name="texto_ptc2">FULLBODY</string>
     <string name="texto_dominadas_pronas">DOMINADAS PRONAS</string>
     <string name="reps_dominadas">3x10-15 </string>
     <string name="texto_peso_muerto">PESO MUERTO</string>
-    <string name="reps_peso">3x5 -7 GRABATE</string>
+    <string name="reps_peso">3x5 - 7</string>
     <string name="texto_press_banca_mancuernas">PRESS BANCA MANCUERNAS</string>
     <string name="reps_press_banca_m">3x8-10 + 1RP</string>
     <string name="texto_laterales_polea">ELEVACIÓNES LATERALES EN POLEA</string>
     <string name="reps_laterales_p">3x12-14 + 2DS</string>
     <string name="texto_curl_mancuernas">CURL INCLINADO MANCUERNAS</string>
-    <string name="reps_curl_m">2x12 +1XMYOREPS</string>
+    <string name="reps_curl_m">2x12 + 1XMYOREPS</string>
     <string name="texto_ext_polea">EXT.TRICEPS EN POLEA</string>
     <string name="reps_extencion_polea">2x15 + 1XMYOREPS</string>
     <string name="descripcion_boton_video_dominadas_pronas">Video de Dominadas Pronas</string>
@@ -90,7 +92,6 @@
     <string name="descripcion_imagen_curl_m">Descripción de la imagen de curl inclinado mancuernas</string>
     <string name="descripcion_imagen_triceps">Descripción de la imagen de extencion de triceps polea</string>
     <string name="descripcion_texto_extencion_trcieps_polea">Texto de extencion triceps polea</string>
-
 
 </resources>
 
