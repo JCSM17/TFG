@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    tools:context=".jesus.RutinasFragmentViernes">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/fragment_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textoRecomendado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="92dp"
+            android:text="@string/texto_recomendado"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/header" />
+
+        <ImageView
+            android:id="@+id/iconoPesas"
+            android:layout_width="26dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="91dp"
+            android:contentDescription="@string/descripcion_icono_pesas"
+            android:src="@drawable/pesas"
+            app:layout_constraintStart_toEndOf="@+id/textoRecomendado"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textoObjetivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/texto_objetivo"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoRecomendado" />
+
+        <ImageView
+            android:id="@+id/iconoBulldog"
+            android:layout_width="26dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/descripcion_icono_bulldog"
+            android:src="@drawable/bulldog"
+            app:layout_constraintStart_toEndOf="@+id/textoObjetivo"
+            app:layout_constraintTop_toBottomOf="@+id/iconoPesas" />
+
+        <TextView
+            android:id="@+id/textoVolumen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/texto_volumen"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoObjetivo" />
+
+        <ImageView
+            android:id="@+id/iconoDefinicion"
+            android:layout_width="26dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/descripcion_icono_definicion"
+            android:src="@drawable/definicion"
+            app:layout_constraintStart_toEndOf="@+id/textoVolumen"
+            app:layout_constraintTop_toBottomOf="@+id/iconoBulldog" />
+
+
+        <TextView
+            android:id="@+id/textoDificultad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="40dp"
+            android:contentDescription="@string/dificultad"
+            android:text="@string/texto_dificultad"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toStartOf="@+id/iconoNivel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iconoNivel"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="94dp"
+            android:layout_marginEnd="23dp"
+            android:background="#FF4500"
+            android:contentDescription="@string/descripcion_icono_nivel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Image.Circle.WithBorder" />
+
+        <TextView
+            android:id="@+id/textoSemanas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/texto_semanas"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toStartOf="@+id/textoNumSemanas"
+            app:layout_constraintTop_toBottomOf="@+id/textoDificultad" />
+
+        <TextView
+            android:id="@+id/textoNumSemanas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:contentDescription="@string/treinta"
+            android:text="@string/treinta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconoNivel" />
+
+        <TextView
+            android:id="@+id/textoSesiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/texto_sesiones"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toStartOf="@+id/textoNumSesiones"
+            app:layout_constraintTop_toBottomOf="@+id/textoSemanas" />
+
+        <TextView
+            android:id="@+id/textoNumSesiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="25dp"
+            android:contentDescription="@string/treinta"
+            android:text="@string/treinta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoNumSemanas" />
+
+        <View
+            android:id="@+id/separador2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="28dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/textoNumSesiones"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/textoSemanaEnero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_semana_enero"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador2" />
+
+        <TextView
+            android:id="@+id/textoDiaEjercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/texto_dia_ejercicio"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoSemanaEnero" />
+
+        <TextView
+            android:id="@+id/textoPTC2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/texto_ptc2"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoDiaEjercicio" />
+
+        <TextView
+            android:id="@+id/textoCalentamiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/calentamiento"
+            android:text="@string/texto_calentamiento"
+            android:textColor="#D00000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoPTC2" />
+
+        <TextView
+            android:id="@+id/textoPressBanca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/texto_dominadas_pronas"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoCalentamiento" />
+
+        <TextView
+            android:id="@+id/repsDominadasPronas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="167dp"
+            android:text="@string/reps_dominadas"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toEndOf="@+id/textoPressBanca"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador2" />
+
+        <ImageView
+            android:id="@+id/imagenPBP"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_imagen_dominadas_p"
+            android:src="@drawable/dominadaspronas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoPressBanca" />
+
+        <Button
+            android:id="@+id/botonVideoDominadasPronas"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/descripcion_boton_video_press_banca"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenPBP"
+            app:layout_constraintTop_toBottomOf="@+id/textoPressBanca" />
+
+        <View
+            android:id="@+id/separador3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagenPBP" />
+
+        <TextView
+            android:id="@+id/textoFondosCerrados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_peso_muerto"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador3" />
+
+        <TextView
+            android:id="@+id/repsFondos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/reps_peso"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toEndOf="@+id/textoFondosCerrados"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador3" />
+
+        <ImageView
+            android:id="@+id/imagenFondos"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/descripcion_imagen_peso_muerto"
+            android:src="@drawable/pesomuerto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoFondosCerrados" />
+
+        <Button
+            android:id="@+id/botonVideoPesoMuerto"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_fondos"
+            android:text="@string/boton_video"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenCruces"
+            app:layout_constraintTop_toBottomOf="@+id/repsFondos" />
+
+        <View
+            android:id="@+id/separador4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagenFondos" />
+
+        <TextView
+            android:id="@+id/textoCrucePolea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_press_banca_mancuernas"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador4" />
+
+        <TextView
+            android:id="@+id/repsPoleaBaja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/reps_press_banca_m"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toEndOf="@+id/textoCrucePolea"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador4" />
+
+        <ImageView
+            android:id="@+id/imagenCruces"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/descripcion_imagen_pressm"
+            android:src="@drawable/pressbancamancuernas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoCrucePolea" />
+
+        <Button
+            android:id="@+id/botonVideoPressBancaMancuernas"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_polea"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenCruces"
+            app:layout_constraintTop_toBottomOf="@+id/repsPoleaBaja" />
+
+        <View
+            android:id="@+id/separador5"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/imagenCruces" />
+
+        <TextView
+            android:id="@+id/textoPressMancuerna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_laterales_polea"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador5" />
+
+        <TextView
+            android:id="@+id/repsPressFrances"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reps_laterales_p"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textoPressMancuerna"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador5" />
+
+        <ImageView
+            android:id="@+id/imagePressFrances"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/descripcion_imagen_polea"
+            android:src="@drawable/elevacionpolea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoPressMancuerna" />
+
+
+        <Button
+            android:id="@+id/buttonVideoElevacionPolea"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_elevacion_polea"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagePressFrances"
+            app:layout_constraintTop_toBottomOf="@+id/repsPressFrances" />
+
+        <View
+            android:id="@+id/separador6"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/imagePressFrances" />
+
+        <TextView
+            android:id="@+id/textoExtTriceps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_curl_mancuernas"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador6" />
+
+
+        <TextView
+            android:id="@+id/repsExtensionTriceps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reps_curl_m"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textoExtTriceps"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador6" />
+
+        <ImageView
+            android:id="@+id/imagenExtTriceps"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/descripcion_imagen_curl_m"
+            android:src="@drawable/curlinclinadom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoExtTriceps" />
+
+        <Button
+            android:id="@+id/botonVideoCurlInclinadoMancuernas"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_curl_m"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenExtTriceps"
+            app:layout_constraintTop_toBottomOf="@+id/repsExtensionTriceps" />
+
+        <View
+            android:id="@+id/separador7"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/imagenExtTriceps" />
+
+        <TextView
+            android:id="@+id/textoPressPalof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_ext_polea"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/separador7" />
+
+        <TextView
+            android:id="@+id/repsPressPalof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/descripcion_reps_extencion_polea"
+            android:text="@string/reps_extencion_polea"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toEndOf="@+id/textoPressPalof"
+            app:layout_constraintTop_toTopOf="@+id/separador7" />
+
+        <ImageView
+            android:id="@+id/imagenPalof"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/descripcion_imagen_triceps"
+            android:src="@drawable/extenciontricepspolea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoPressPalof" />
+
+        <Button
+            android:id="@+id/botonVideoExtencionTricepsPolea"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_extencion_triceps_polea"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenPalof"
+            app:layout_constraintTop_toBottomOf="@+id/repsPressPalof" />
+
+        <ImageView
+            android:id="@+id/imagenCheck"
+            android:layout_width="92dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="52dp"
+            android:contentDescription="@string/descripcion_imagen_check"
+            android:src="@drawable/check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagenPalof" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
