@@ -43,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
-        MyDB.execSQL("drop Table if exists users");
+        MyDB.execSQL("drop Table if exists registro");
     }
 
     public Boolean insertData(String email, String password, String nombre, String apellido, String telefono){
@@ -54,7 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("nombre", nombre);
         contentValues.put("apellido", apellido);
         contentValues.put("telefono", telefono);
-        long result = MyDatabase.insert("users", null, contentValues);
+        long result = MyDatabase.insert("registro", null, contentValues);
 
         if (result == -1) {
             return false;
@@ -63,9 +63,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Boolean insertData(String email, String password){
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email", email);
+        contentValues.put("password", password);
+        long result = MyDatabase.insert("iniciosesion", null, contentValues);
+        return result != -1;
+    }
+
+    public boolean insertData(String email, String nombre, String apellido, String dni, String telefono, long creditcard, String expirationdate, int cvc) {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email", email);
+        contentValues.put("nombre", nombre);
+        contentValues.put("apellido", apellido);
+        contentValues.put("dni", dni);
+        contentValues.put("telefono", telefono);
+        contentValues.put("creditcard", creditcard);
+        contentValues.put("expirationdate", expirationdate);
+        contentValues.put("cvc", cvc);
+        long result = MyDatabase.insert("suscripanual", null, contentValues);
+        return result != -1;
+    }
+
+
     public Boolean checkEmail(String email){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from users where email = ?", new String[]{email});
+        Cursor cursor = MyDatabase.rawQuery("Select * from registro where email = ?", new String[]{email});
 
         if(cursor.getCount() > 0) {
             return true;
@@ -75,7 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public Boolean checkEmailPassword(String email, String password){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from users where email = ? and password = ?", new String[]{email, password});
+        Cursor cursor = MyDatabase.rawQuery("Select * from registro where email = ? and password = ?", new String[]{email, password});
 
         if (cursor.getCount() > 0) {
             return true;

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.databinding.ActivityLoginBinding;
+import com.example.tfg.javi.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,24 +40,31 @@ public class LoginActivity extends AppCompatActivity {
                     Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
 
                     if (checkCredentials) {
-                        // Verificar si el usuario ya ha pagado
-                        SharedPreferences prefs = getSharedPreferences("PREFS", MODE_PRIVATE);
-                        boolean pagado = prefs.getBoolean("pagado", false);
+                        // Insertar datos de inicio de sesión en la tabla iniciosesion
+                        boolean insertSuccess = databaseHelper.insertData(email, password);
 
-                        if (pagado) {
-                            // Si ya ha pagado, ir directamente a la actividad principal
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish(); // Finaliza la actividad actual para que no pueda volver atrás
+                        if (insertSuccess) {
+                            // Verificar si el usuario ya ha pagado
+                            SharedPreferences prefs = getSharedPreferences("PREFS", MODE_PRIVATE);
+                            boolean pagado = prefs.getBoolean("pagado", false);
+
+                            if (pagado) {
+                                // Si ya ha pagado, ir directamente a la actividad principal
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish(); // Finaliza la actividad actual para que no pueda volver atrás
+                            } else {
+                                // Si no ha pagado, marcar como pagado y luego ir a la actividad principal
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putBoolean("pagado", true);
+                                editor.apply();
+
+                                Toast.makeText(LoginActivity.this, "¡Has iniciado sesión exitosamente!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
                         } else {
-                            // Si no ha pagado, marcar como pagado y luego ir a la actividad principal
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putBoolean("pagado", true);
-                            editor.apply();
-
-                            Toast.makeText(LoginActivity.this, "¡Has iniciado sesión exitosamente!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
+                            Toast.makeText(LoginActivity.this, "Error al insertar datos de inicio de sesión", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(LoginActivity.this, "Credenciales no válidas", Toast.LENGTH_SHORT).show();
