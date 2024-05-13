@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Array con las URLs de la Rutina Volumen Jueves -->
+    <string-array name="urls_volumen_jueves">
+        <item>https://www.youtube.com/shorts/i14IBMNQDQQ</item>
+        <item>https://www.youtube.com/shorts/lC7lLkjDZ_k</item>
+        <item>https://www.youtube.com/shorts/wHKYSABOpGY</item>
+        <item>https://www.youtube.com/shorts/DFFD1LU_iXw</item>
+        <item>https://www.youtube.com/shorts/JVc1KAB_HLY</item>
+        <item>https://www.youtube.com/shorts/r3fM413P3W0</item>
+    </string-array>
+
+    <!-- Define arrays para otras Rutinas si es necesario -->
+</resources>

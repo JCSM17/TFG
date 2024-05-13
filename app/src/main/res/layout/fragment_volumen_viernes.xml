@@ -18,160 +18,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textoRecomendado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="92dp"
-            android:text="@string/texto_recomendado"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/header" />
-
-        <ImageView
-            android:id="@+id/iconoPesas"
-            android:layout_width="26dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="91dp"
-            android:contentDescription="@string/descripcion_icono_pesas"
-            android:src="@drawable/pesas"
-            app:layout_constraintStart_toEndOf="@+id/textoRecomendado"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textoObjetivo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/texto_objetivo"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoRecomendado" />
-
-        <ImageView
-            android:id="@+id/iconoBulldog"
-            android:layout_width="26dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="15dp"
-            android:contentDescription="@string/descripcion_icono_bulldog"
-            android:src="@drawable/bulldog"
-            app:layout_constraintStart_toEndOf="@+id/textoObjetivo"
-            app:layout_constraintTop_toBottomOf="@+id/iconoPesas" />
-
-        <TextView
-            android:id="@+id/textoVolumen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/texto_volumen"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoObjetivo" />
-
-        <ImageView
-            android:id="@+id/iconoDefinicion"
-            android:layout_width="26dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="15dp"
-            android:contentDescription="@string/descripcion_icono_definicion"
-            android:src="@drawable/definicion"
-            app:layout_constraintStart_toEndOf="@+id/textoVolumen"
-            app:layout_constraintTop_toBottomOf="@+id/iconoBulldog" />
-
-
-        <TextView
-            android:id="@+id/textoDificultad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="92dp"
-            android:layout_marginEnd="40dp"
-            android:contentDescription="@string/dificultad"
-            android:text="@string/texto_dificultad"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toStartOf="@+id/iconoNivel"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iconoNivel"
-            android:layout_width="21dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="94dp"
-            android:layout_marginEnd="23dp"
-            android:background="#FF4500"
-            android:contentDescription="@string/descripcion_icono_nivel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Image.Circle.WithBorder" />
-
-        <TextView
-            android:id="@+id/textoSemanas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
-            android:text="@string/texto_semanas"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toStartOf="@+id/textoNumSemanas"
-            app:layout_constraintTop_toBottomOf="@+id/textoDificultad" />
-
-        <TextView
-            android:id="@+id/textoNumSemanas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:contentDescription="@string/treinta"
-            android:text="@string/treinta"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iconoNivel" />
-
-        <TextView
-            android:id="@+id/textoSesiones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
-            android:text="@string/texto_sesiones"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toStartOf="@+id/textoNumSesiones"
-            app:layout_constraintTop_toBottomOf="@+id/textoSemanas" />
-
-        <TextView
-            android:id="@+id/textoNumSesiones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:layout_marginEnd="25dp"
-            android:contentDescription="@string/treinta"
-            android:text="@string/treinta"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoNumSemanas" />
-
-        <View
-            android:id="@+id/separador2"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="28dp"
-            android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/textoNumSesiones"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <TextView
-            android:id="@+id/textoSemanaEnero"
+            android:id="@+id/textoSemanaVolumen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/texto_semana_enero"
+            android:text="@string/texto_semana_volumen"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separador2" />
+            app:layout_constraintTop_toBottomOf="@+id/header" />
 
         <include
             layout="@layout/fragment_cronometro"
@@ -193,7 +49,7 @@
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoSemanaEnero" />
+            app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
 
         <TextView
             android:id="@+id/textoPTC2"
@@ -235,14 +91,14 @@
             android:id="@+id/repsDominadasPronas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="167dp"
+            android:layout_marginTop="121dp"
             android:text="@string/reps_dominadas"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toEndOf="@+id/textoPressBanca"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/separador2" />
+            app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
 
         <ImageView
             android:id="@+id/imagenPronas"

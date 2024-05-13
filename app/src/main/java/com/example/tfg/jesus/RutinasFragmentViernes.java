@@ -23,40 +23,11 @@ import java.util.Map;
 
 public class RutinasFragmentViernes extends Fragment {
 
-    // Constantes para los nombres de los argumentos que este fragmento puede aceptar
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // Variables de instancia para almacenar los valores de los argumentos
-    private String mParam1;
-    private String mParam2;
-
     // Constructor vacío requerido para instanciar el fragmento
     public RutinasFragmentViernes() {
-        // Required empty public constructor
     }
 
-    // Método de fábrica estático para crear una nueva instancia de RutinasFragment con los argumentos proporcionados
-    public static RutinasFragment newInstance(String param1, String param2) {
-        RutinasFragment fragment = new RutinasFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    // Este método se llama cuando se crea el fragmento. Aquí se recuperan los argumentos pasados al fragmento y se almacenan en las variables de instancia
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    // Este método se llama para inflar la vista del fragmento. Aquí se infla el layout fragment_volumen_jueves
+    // Este método se llama para inflar la vista del fragmento. Aquí se infla el layout fragment_volumen_viernes
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
