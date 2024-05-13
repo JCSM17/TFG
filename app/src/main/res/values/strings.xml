@@ -67,7 +67,6 @@
 
     <!-- Strings para el Fragmento Volumen Viernes -->
     <string name="texto_viernes">Viernes</string>
-
     <string name="texto_ptc2">FULLBODY</string>
     <string name="texto_dominadas_pronas">DOMINADAS PRONAS</string>
     <string name="reps_dominadas">3x10-15 </string>
@@ -81,12 +80,18 @@
     <string name="reps_curl_m">2x12 + 1XMYOREPS</string>
     <string name="texto_ext_polea">EXT.TRICEPS EN POLEA</string>
     <string name="reps_extencion_polea">2x15 + 1XMYOREPS</string>
+
+
+    <!-- Descripcion para el Fragmento Volumen button Viernes -->
     <string name="descripcion_boton_video_dominadas_pronas">Video de Dominadas Pronas</string>
     <string name="descripcion_boton_video_peso_muerto">Video de peso muerto</string>
     <string name="descripcion_boton_video_press">Video press banca mancuernas</string>
     <string name="descripcion_boton_video_elevacion_polea">Video de Elevacion Laterales en polea</string>
     <string name="descripcion_boton_video_curl_m">Video de curl inclinado con mancuernas</string>
     <string name="descripcion_boton_video_extencion_triceps_polea">Video de Extencion de tricepes polea</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Viernes Hombre-->
     <string name="descripcion_imagen_peso_muerto">Descripción de la imagen de peso muerto</string>
     <string name="descripcion_imagen_polea">Descripción de la imagen Polea</string>
     <string name="descripcion_imagen_dominadas_p">Descripción de la imagen de dominas pronas</string>
@@ -94,6 +99,52 @@
     <string name="descripcion_imagen_curl_m">Descripción de la imagen de curl inclinado mancuernas</string>
     <string name="descripcion_imagen_triceps">Descripción de la imagen de extencion de triceps polea</string>
     <string name="descripcion_texto_extencion_trcieps_polea">Texto de extencion triceps polea</string>
+
+
+
+
+    <!-- Strings para el fragmento Definicion Lunes Mujer -->
+    <string name="texto_semana_definicion">Semana 1 - Definición</string>
+    <string name="texto_lunes">Lunes</string>
+    <string name="texto_pierna">TIRON + PIERNA</string>
+    <string name="texto_dominadas">DOMINADAS (PUEDES LASTRARTE)</string>
+    <string name="reps_dominadas2">3x5 -7</string>
+    <string name="texto_remo_mancuerna">REMO MANCUERNA (APOYADO BANCO)</string>
+    <string name="reps_remo_mancuerna">3x8 -10</string>
+    <string name="texto_peso_muerto_rumano">PESO MUERTO RUMANO</string>
+    <string name="reps_peso_muerto_rumano">3x8 -10</string>
+    <string name="texto_jalon_prono_pecho">JALÓN PRONO AL PECHO</string>
+    <string name="reps_jalon_prono_pecho">3x10-12</string>
+    <string name="texto_face_pull">FACEPULL</string>
+    <string name="reps_press_facepull">2x13-15</string>
+    <string name="texto_curl_barra">CURL BARRA</string>
+    <string name="reps_curl_barra">3x8-10</string>
+
+
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Lunes Mujer -->
+    <string name="descripcion_imagen_dominadas">Descripción de la imagen de dominas</string>
+    <string name="descripcion_imagen_remo_mancuernas">Descripción de la imagen de remo mancuernas</string>
+    <string name="descripcion_imagen_peso_muerto_rumano">Descripción de la imagen de peso muerto rumano</string>
+    <string name="descripcion_imagen_jalon_prono_pecho">Descripción de la imagen de jalon prono al pecho</string>
+    <string name="descripcion_imagen_face_pull">Descripción de la imagen de FacePull</string>
+    <string name="descripcion_imagen_curl_barra">Descripción de la imagen de Curl Barra</string>
+
+
+
+    <!-- Descripcion para el Fragmento Definicion videos Lunes Mujer -->
+    <string name="descripcion_boton_video_dominadas">Video de Dominadas</string>
+    <string name="descripcion_boton_video_remo_mancuernas">Video de Remo Mancuernas</string>
+    <string name="descripcion_boton_video_peso_muerto_rumano">Video de Peso Muerto Rumano</string>
+    <string name="descripcion_boton_video_jalon_prono_pecho">Video de Jalon Prono al Pecho</string>
+    <string name="descripcion_boton_video_FacePull">Video de FacePull</string>
+    <string name="descripcion_boton_video_curl_barra">Video de Curl Barra</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
 
 </resources>
 
