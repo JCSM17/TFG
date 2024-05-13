@@ -17,6 +17,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <include
+            layout="@layout/fragment_cronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textoLunes" />
+
         <TextView
             android:id="@+id/textoSemanaDefinicion"
             android:layout_width="wrap_content"
@@ -28,16 +38,6 @@
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header" />
-
-        <include
-            layout="@layout/fragment_cronometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textoLunes" />
 
         <TextView
             android:id="@+id/textoLunes"
@@ -107,7 +107,7 @@
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_dominadas"
-            android:src="@drawable/dominadaspronas"
+            android:src="@drawable/dominadas_pronas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,12 +169,11 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_remo_mancuernas"
-            android:src="@drawable/remomancuernas"
+            android:src="@drawable/remo_mancuernas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoRemoMancuerna" />
-        
 
 
         <Button
@@ -234,7 +233,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_peso_muerto_rumano"
-            android:src="@drawable/pesomuertorumano"
+            android:src="@drawable/peso_muerto_rumano"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -293,7 +292,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/descripcion_imagen_jalon_prono_pecho"
-            android:src="@drawable/jalonpronopecho"
+            android:src="@drawable/jalon_prono_pecho"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -354,7 +353,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_face_pull"
-            android:src="@drawable/facepull"
+            android:src="@drawable/facepull_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -412,7 +411,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_curl_barra"
-            android:src="@drawable/curlbarra"
+            android:src="@drawable/curl_barra"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -442,9 +441,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagenCurlBarra" />
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

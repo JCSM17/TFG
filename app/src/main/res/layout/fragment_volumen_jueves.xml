@@ -17,6 +17,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <include
+            layout="@layout/fragment_cronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textoJueves" />
+
         <TextView
             android:id="@+id/textoSemanaVolumen"
             android:layout_width="wrap_content"
@@ -29,15 +39,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header" />
 
-        <include
-            layout="@layout/fragment_cronometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textoJueves" />
 
         <TextView
             android:id="@+id/textoJueves"
@@ -110,7 +111,7 @@
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_image_press_frances"
-            android:src="@drawable/pressBancaPesado"
+            android:src="@drawable/press_banca_pesado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +122,6 @@
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:layout_marginEnd="4dp"
             android:contentDescription="@string/descripcion_boton_video_press_banca"
             android:text="@string/boton_video"
             android:textStyle="bold"
@@ -173,7 +173,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_fondos"
-            android:src="@drawable/fondosCerradosParalelas"
+            android:src="@drawable/fondos_cerrados_paralelas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -236,7 +236,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_cruces"
-            android:src="@drawable/crucePoleaBaja"
+            android:src="@drawable/cruce_polea_baja"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -289,13 +289,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
+
+        <!-- No encontre la imagen en formato webp, la que esta es gif -->
         <ImageView
             android:id="@+id/imagePressFrances"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/descripcion_imagen_pbp"
-            android:src="@drawable/pressFrancesMancuerna"
+            android:src="@drawable/press_frances_mancuernas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -356,7 +358,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_ext_triceps"
-            android:src="@drawable/extTricepsPolea"
+            android:src="@drawable/ext_triceps_polea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -415,7 +417,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_palof"
-            android:src="@drawable/pressPalofArrodillado"
+            android:src="@drawable/press_palof_arrodillado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"

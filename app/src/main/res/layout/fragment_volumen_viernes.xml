@@ -17,6 +17,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <include
+            layout="@layout/fragment_cronometro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textoViernes" />
+
         <TextView
             android:id="@+id/textoSemanaVolumen"
             android:layout_width="wrap_content"
@@ -28,16 +38,6 @@
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header" />
-
-        <include
-            layout="@layout/fragment_cronometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textoViernes" />
 
         <TextView
             android:id="@+id/textoViernes"
@@ -107,7 +107,7 @@
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_dominadas_p"
-            android:src="@drawable/dominadaspronas"
+            android:src="@drawable/dominadas_pronas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +169,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_peso_muerto"
-            android:src="@drawable/pesomuerto"
+            android:src="@drawable/peso_muerto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -232,7 +232,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_pressm"
-            android:src="@drawable/pressbancamancuernas"
+            android:src="@drawable/press_banca_mancuernas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -291,7 +291,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/descripcion_imagen_polea"
-            android:src="@drawable/elevacionpolea"
+            android:src="@drawable/elevacion_polea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -352,7 +352,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_curl_m"
-            android:src="@drawable/curlinclinadom"
+            android:src="@drawable/curl_inclinado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -397,7 +397,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:contentDescription="@string/descripcion_reps_extencion_polea"
+            android:contentDescription="@string/descripcion_texto_press_palof"
             android:text="@string/reps_extencion_polea"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
@@ -411,7 +411,7 @@
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:contentDescription="@string/descripcion_imagen_triceps"
-            android:src="@drawable/extenciontricepspolea"
+            android:src="@drawable/ext_triceps_polea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
