@@ -101,8 +101,6 @@
     <string name="descripcion_texto_extencion_trcieps_polea">Texto de extencion triceps polea</string>
 
 
-
-
     <!-- Strings para el fragmento Definicion Lunes Mujer -->
     <string name="texto_semana_definicion">Semana 1 - Definición</string>
     <string name="texto_lunes">Lunes</string>
@@ -121,7 +119,6 @@
     <string name="reps_curl_barra">3x8-10</string>
 
 
-
     <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Lunes Mujer -->
     <string name="descripcion_imagen_dominadas">Descripción de la imagen de dominas</string>
     <string name="descripcion_imagen_remo_mancuernas">Descripción de la imagen de remo mancuernas</string>
@@ -129,7 +126,6 @@
     <string name="descripcion_imagen_jalon_prono_pecho">Descripción de la imagen de jalon prono al pecho</string>
     <string name="descripcion_imagen_face_pull">Descripción de la imagen de FacePull</string>
     <string name="descripcion_imagen_curl_barra">Descripción de la imagen de Curl Barra</string>
-
 
 
     <!-- Descripcion para el Fragmento Definicion videos Lunes Mujer -->
@@ -140,10 +136,45 @@
     <string name="descripcion_boton_video_FacePull">Video de FacePull</string>
     <string name="descripcion_boton_video_curl_barra">Video de Curl Barra</string>
 
+
+    <!-- Strings para el fragmento Definicion Martes Mujer -->
+    <string name="texto_martes">Martes</string>
+    <string name="texto_torso">TORSO</string>
+    <string name="texto_press_militar_barra">PRESS MILITAR BARRA</string>
+    <string name="reps_press_militar_barra">3x8 -10</string>
+    <string name="texto_jalon_neutro_pecho">JALÓN NEUTRO AL PECHO</string>
+    <string name="reps_jalon_neutro_pecho">3x10-12</string>
+    <string name="texto_peso_press_plano_mancuernas">PRESS PLANO MANCUERNAS</string>
+    <string name="reps_press_plano_mancuernas">3x10 -12</string>
+    <string name="texto_cruce_polea_baja_unilateral">CRUCE POLEA BAJA UNILATERAL</string>
+    <string name="reps_cruce_polea_baja_unilateral">3x15-20</string>
+    <string name="texto_remo_neutro_polea">REMO NEUTRO EN POLEA</string>
+    <string name="reps_remo_neutro_polea">3x12-14</string>
+    <string name="texto_laterales_polea_torso">ELEV.LATERALES EN POLEA TORSO INCLINADO</string>
+    <string name="reps_laterales_polea_torso">3x12-14</string>
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Martes Mujer -->
+    <string name="descripcion_imagen_press_militar_barra">Descripción de la imagen de Press Militar Barra</string>
+    <string name="descripcion_imagen_jalon_neutro_pecho">Descripción de la imagen de Jalon Neutro al Pecho</string>
+    <string name="descripcion_imagen_press_plano_mancuernas">Descripción de la imagen de Press Plano Mancuernas</string>
+    <string name="descripcion_imagen_cruce_polea_baja_unilateral">Descripción de la imagen de Cruce Polea Baja Unilateral</string>
+    <string name="descripcion_imagen_remo_neutro_polea">Descripción de la imagen de Remo Neutro en Polea</string>
+    <string name="descripcion_imagen_laterales_polea_torso">Descripción de la imagen de Laterales Polea Torso</string>
+
+    <!-- Descripcion para el Fragmento Definicion videos Martes Mujer -->
+    <string name="descripcion_boton_video_press_militar_barra">Video de Press Militar Barra</string>
+    <string name="descripcion_boton_video_jalon_neutro_pecho">Video de Jalon Neutro al Pecho</string>
+    <string name="descripcion_boton_video_press_plano_mancuernas">Video de Press Plano Mancuernas</string>
+    <string name="descripcion_boton_video_cruce_polea_baja_unilateral">Video de Cruce Polea Baja Unilateral</string>
+    <string name="descripcion_boton_video_remo_neutro_polea">Video de Remo Neutro Polea</string>
+    <string name="descripcion_boton_video_laterales_polea_torso">Video de Laterales Polea Torso</string>
+
+
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
 
 
 </resources>
