@@ -40,11 +40,11 @@
             app:layout_constraintTop_toTopOf="@+id/textoViernes" />
 
         <TextView
-            android:id="@+id/textoSemanaDefinicion"
+            android:id="@+id/textoAbdominales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/texto_semana_definicion"
+            android:text="@string/texto_abdominales"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -61,7 +61,7 @@
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoSemanaDefinicion" />
+            app:layout_constraintTop_toBottomOf="@+id/textoAbdominales" />
 
         <TextView
             android:id="@+id/textoCalentamiento"
@@ -99,7 +99,7 @@
             app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toEndOf="@+id/textoRuedaAbsPie"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoSemanaDefinicion" />
+            app:layout_constraintTop_toBottomOf="@+id/textoAbdominales" />
 
         <ImageView
             android:id="@+id/imagenRuedaAbsPie"

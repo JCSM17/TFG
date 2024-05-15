@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="42dp"
         android:text="@string/texto_sesiones"
         android:textSize="17sp"
         app:layout_constraintEnd_toStartOf="@+id/textoNumSesiones"

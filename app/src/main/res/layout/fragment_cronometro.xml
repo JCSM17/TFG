@@ -1,33 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".jc.CronometroFragment">
 
+    tools:context=".jesus.CountdownFragment">
 
-    <Button
-        android:id="@+id/botonCronometro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cronómetro"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ProgressBar
+        android:id="@+id/circularProgressBar"
+        android:layout_width="200dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        app:layout_constraintHorizontal_bias="0.50" />
 
-    <!-- TextView para mostrar el tiempo restante -->
     <TextView
-        android:id="@+id/timeRemaining"
+        android:id="@+id/timeTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_alignStart="@id/circularProgressBar"
+        android:layout_alignTop="@id/circularProgressBar"
+        android:layout_alignEnd="@id/circularProgressBar"
+        android:layout_alignBottom="@id/circularProgressBar"
+        android:gravity="center"
+        android:text="00"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonCronometro" />
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.50" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/circularProgressBar"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/pauseBtn"
+            android:layout_width="60dp"
+            android:layout_height="48dp"
+            android:text="Pause"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/playBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="2dp"
+
+            android:text="Play"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/resetBtn"
+            android:layout_width="60dp"
+            android:layout_height="48dp"
+            android:text="Reset"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+</RelativeLayout>
