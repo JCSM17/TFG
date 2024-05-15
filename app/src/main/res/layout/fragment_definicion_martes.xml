@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="dp"
+            android:layout_marginTop="4dp"
             android:text="@string/texto_martes"
             android:textSize="17sp"
             android:textStyle="bold"
