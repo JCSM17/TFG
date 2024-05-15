@@ -11,7 +11,7 @@ import com.example.tfg.jesus.RutinasFragment;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/*
 public class RutinasActivity extends AppCompatActivity {
 
     @Override
@@ -57,7 +57,6 @@ public class RutinasActivity extends AppCompatActivity {
     }
 
     // Método para obtener el mapeo de botones a URL desde los recursos definidos en arrays.xml
-
     private Map<Integer, String> getButtonToUrlMapFromResources(int arrayResourceId) {
         Map<Integer, String> buttonToUrlMap = new HashMap<>();
         Resources resources = getResources();
@@ -77,3 +76,4 @@ public class RutinasActivity extends AppCompatActivity {
         return defaultButtonToUrlMap;
     }
 }
+*/

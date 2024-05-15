@@ -18,7 +18,6 @@ public class HeaderFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_header, container, false);
 
         ImageButton optionsButton = view.findViewById(R.id.optionsButton);
-        TextView appName = view.findViewById(R.id.appName);
         ImageButton settingsButton = view.findViewById(R.id.settingsButton);
 
         // Configurar el listener para el botón de opciones
