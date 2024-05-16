@@ -260,9 +260,7 @@
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_boton_video_press_plano_mancuernas"
-            android:scaleType="fitXY"
             android:text="@string/boton_video"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -318,9 +316,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoCrucePoleaBajaUnilateral" />
 
-
         <ImageButton
-            android:id="@+id/buttonVideoCrucePoleaBajaUnilateral"
+            android:id="@+id/botonVideoCrucePoleaBajaUnilateral"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"

@@ -9,6 +9,9 @@
         <item>https://www.youtube.com/shorts/xMzePXdnx7s</item>
     </string-array>
 
+
+    <!-- Rutinas de DEFINICION -->
+
     <!-- Array con las URLs de la Rutina Definicion Lunes -->
     <string-array name="urls_definicion_lunes">
         <item>https://www.youtube.com/shorts/LerajxEGimU</item>
@@ -48,6 +51,9 @@
         <item>https://www.youtube.com/shorts/Y-faAKz2ebw</item>
         <item>https://www.youtube.com/shorts/BAOF9vEVioo</item>
     </string-array>
+
+
+    <!-- Rutinas de VOLUMEN-->
 
     <!-- Array con las URLs de la Rutina Volumen Jueves -->
     <string-array name="urls_volumen_jueves">

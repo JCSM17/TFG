@@ -1,8 +1,5 @@
 package com.example.tfg.jesus;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +9,12 @@ import android.widget.ImageButton;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.os.Handler;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.jc.YoutubeUtils;
 
 public class DefinicionMartesFragment extends Fragment {
 
@@ -30,7 +27,7 @@ public class DefinicionMartesFragment extends Fragment {
             R.id.botonVideoPressMilitarBarra,
             R.id.botonVideoJalonNeutroPecho,
             R.id.botonVideoPressPlanoMancuernas,
-            R.id.buttonVideoCrucePoleaBajaUnilateral,
+            R.id.botonVideoCrucePoleaBajaUnilateral,
             R.id.botonVideoRemoNeutroPolea,
             R.id.botonVideoLateralesPoleaTorso
     };
@@ -54,7 +51,7 @@ public class DefinicionMartesFragment extends Fragment {
         for (int i = 0; i < button_ids_definicion_martes.length; i++) {
             Button button = view.findViewById(button_ids_definicion_martes[i]);
             int finalI = i; // Variable final para ser usada en la lambda
-            button.setOnClickListener(v -> openYoutubeVideo(urls[finalI]));
+            button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
         }
 
         // Array de lista de IDs de las ImageView a las que quieres aplicar la animación
@@ -76,22 +73,6 @@ public class DefinicionMartesFragment extends Fragment {
 
                 new Handler().postDelayed(() -> imageButton.clearAnimation(), 3000);
             });
-        }
-    }
-
-    // Este método se utiliza para abrir un video de YouTube en la app y sino en el navegador. Se crea un Intent con la acción Intent.ACTION_VIEW y la URL del video de YouTube, y luego se inicia este Intent
-    private void openYoutubeVideo(String url) {
-        Intent intentApp = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        intentApp.setPackage("com.google.android.youtube");
-
-        Intent intentBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-
-        try {
-            // Intenta abrir la aplicación de YouTube
-            startActivity(intentApp);
-        } catch (ActivityNotFoundException e) {
-            // Si la aplicación de YouTube no está instalada, abre el video en el navegador
-            startActivity(intentBrowser);
         }
     }
 }
