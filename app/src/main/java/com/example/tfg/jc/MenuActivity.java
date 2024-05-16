@@ -9,45 +9,45 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.R;
 
-public class SeleccionActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seleccion);
+        setContentView(R.layout.activity_menu);
 
         // Definir los botones para cada opción
-        Button btnVolumen = findViewById(R.id.btnVolumen);
-        Button btnDefinicion = findViewById(R.id.btnDefinicion);
-        Button btnAbdominales = findViewById(R.id.btnAbdominales);
-        Button btnCardio = findViewById(R.id.btnCardio);
+        Button btnEntrenamiento = findViewById(R.id.btnEntrenamiento);
+        Button btnNutricion = findViewById(R.id.btnNutricion);
+        Button btnPerfil = findViewById(R.id.btnPerfil);
+        Button btnProximamente = findViewById(R.id.btnProximamente);
 
         // Establecer OnClickListener para cada botón
-        btnVolumen.setOnClickListener(new View.OnClickListener() {
+        btnEntrenamiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirRutinasActivity("volumen");
+                abrirRutinasActivity("entrenamiento");
             }
         });
 
-        btnDefinicion.setOnClickListener(new View.OnClickListener() {
+        btnNutricion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirRutinasActivity("definicion");
+                abrirRutinasActivity("nutricion");
             }
         });
 
-        btnAbdominales.setOnClickListener(new View.OnClickListener() {
+        btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirRutinasActivity("abdominales");
+                abrirRutinasActivity("perfil");
             }
         });
 
-        btnCardio.setOnClickListener(new View.OnClickListener() {
+        btnProximamente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirRutinasActivity("cardio");
+                abrirRutinasActivity("proximamente");
             }
         });
     }

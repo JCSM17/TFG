@@ -242,6 +242,7 @@
 
     <!-- Strings para el fragmento Definicion Jueves Mujer -->
     <string name="texto_Viernes">Viernes</string>
+    <string name="texto_abdominales">Abdominales</string>
     <string name="texto_rueda_abs_pie">RUEDA ABS DE PIE</string>
     <string name="reps_rueda_abs_pie">3x15 RP</string>
     <string name="texto_dragon_flag">DRAGON FLAG</string>
@@ -264,10 +265,6 @@
     <string name="descripcion_boton_video_dragon_flag">Video de Dragon Flag</string>
     <string name="descripcion_boton_video_stir_the_pot">Video de Stir the Pot</string>
     <string name="descripcion_boton_video_giros_rusos_barra">Video de Patada de Giros Rusos Barra</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

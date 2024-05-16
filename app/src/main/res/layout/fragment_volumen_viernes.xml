@@ -30,14 +30,14 @@
 
         <include
             layout="@layout/fragment_cronometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="180dp"
+            android:layout_height="205dp"
+            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento"
-            app:layout_constraintTop_toTopOf="@+id/textoViernes" />
+            app:layout_constraintTop_toTopOf="@+id/textoSemanaVolumen" />
 
         <TextView
             android:id="@+id/textoSemanaVolumen"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="40dp"
             android:text="@string/texto_viernes"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -90,7 +90,7 @@
             android:id="@+id/textoPressBanca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="74dp"
             android:text="@string/texto_dominadas_pronas"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -103,7 +103,7 @@
             android:id="@+id/repsDominadasPronas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="121dp"
+            android:layout_marginTop="212dp"
             android:text="@string/reps_dominadas"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"

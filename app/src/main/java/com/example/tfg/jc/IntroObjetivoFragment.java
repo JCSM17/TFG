@@ -26,23 +26,23 @@ public class IntroObjetivoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_objetivo, container, false);
 
         RadioGroup radioGroup = view.findViewById(R.id.radioGroup);
-        EditText heightInput = view.findViewById(R.id.heightInput);
-        EditText ageInput = view.findViewById(R.id.ageInput);
-        Spinner genderSpinner = view.findViewById(R.id.genderSpinner);
+        EditText estaturaInput = view.findViewById(R.id.estaturaInput);
+        EditText ageInput = view.findViewById(R.id.aniosInput);
+        Spinner generoSpinner = view.findViewById(R.id.generoSpinner);
         Button nextButton = view.findViewById(R.id.nextButton);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                 R.array.gender_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        genderSpinner.setAdapter(adapter);
+        generoSpinner.setAdapter(adapter);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int selectedId = radioGroup.getCheckedRadioButtonId();
-                String height = heightInput.getText().toString();
+                String height = estaturaInput.getText().toString();
                 String age = ageInput.getText().toString();
-                String gender = genderSpinner.getSelectedItem().toString();
+                String gender = generoSpinner.getSelectedItem().toString();
 
                 // Validar las entradas del usuario
                 if (selectedId == -1 || height.isEmpty() || age.isEmpty() || gender.equals("Género")) {

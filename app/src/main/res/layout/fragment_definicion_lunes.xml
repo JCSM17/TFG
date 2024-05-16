@@ -30,14 +30,14 @@
 
         <include
             layout="@layout/fragment_cronometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="180dp"
+            android:layout_height="205dp"
+            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento"
-            app:layout_constraintTop_toTopOf="@+id/textoLunes" />
+            app:layout_constraintTop_toTopOf="@+id/textoSemanaDefinicion" />
 
         <TextView
             android:id="@+id/textoSemanaDefinicion"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="40dp"
             android:text="@string/texto_lunes"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -90,7 +90,7 @@
             android:id="@+id/textoDominadas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="78dp"
             android:text="@string/texto_dominadas"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -103,7 +103,7 @@
             android:id="@+id/repsDominadasPronas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="121dp"
+            android:layout_marginTop="212dp"
             android:text="@string/reps_dominadas2"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,13 +112,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaDefinicion" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenDominadas"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_dominadas"
+            android:scaleType="fitCenter"
             android:src="@drawable/dominadas_pronas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -175,12 +176,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador3" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenRemoMancuernas"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_remo_mancuernas"
+            android:scaleType="fitCenter"
             android:src="@drawable/remo_mancuernas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -239,12 +242,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador4" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenPesoMuertoRumano"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_peso_muerto_rumano"
+            android:scaleType="fitCenter"
             android:src="@drawable/peso_muerto_rumano"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -298,12 +303,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageJalonPronoPecho"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_jalon_prono_pecho"
+            android:scaleType="fitCenter"
             android:src="@drawable/jalon_prono_pecho"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -359,12 +366,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenFacePull"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_face_pull"
+            android:scaleType="fitCenter"
             android:src="@drawable/facepull_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -417,12 +426,14 @@
             app:layout_constraintStart_toEndOf="@+id/textoCurlBarra"
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenCurlBarra"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_curl_barra"
+            android:scaleType="fitCenter"
             android:src="@drawable/curl_barra"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"

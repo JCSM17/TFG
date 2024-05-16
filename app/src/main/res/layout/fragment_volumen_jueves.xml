@@ -30,14 +30,14 @@
 
         <include
             layout="@layout/fragment_cronometro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="180dp"
+            android:layout_height="205dp"
+            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento"
-            app:layout_constraintTop_toTopOf="@+id/textoJueves" />
+            app:layout_constraintTop_toTopOf="@+id/textoSemanaVolumen" />
 
         <TextView
             android:id="@+id/textoSemanaVolumen"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="40dp"
             android:text="@string/texto_jueves"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -92,7 +92,7 @@
             android:id="@+id/textoPressBanca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="78dp"
             android:text="@string/texto_press_banca_pesado"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -105,7 +105,7 @@
             android:id="@+id/repsPressBanca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="121dp"
+            android:layout_marginTop="212dp"
             android:text="@string/reps_press_banca"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,7 +114,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenPBP"
             android:layout_width="130dp"
             android:layout_height="130dp"
@@ -122,6 +122,7 @@
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_image_press_frances"
+            android:scaleType="fitCenter"
             android:src="@drawable/press_banca_pesado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -178,12 +179,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador3" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenFondos"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_fondos"
+            android:scaleType="fitCenter"
             android:src="@drawable/fondos_cerrados_paralelas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -241,12 +244,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador4" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenCruces"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_cruces"
+            android:scaleType="fitCenter"
             android:src="@drawable/cruce_polea_baja"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -302,12 +307,14 @@
 
 
         <!-- No encontre la imagen en formato webp, la que esta es gif -->
-        <ImageView
+        <ImageButton
             android:id="@+id/imagePressFrances"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_pbp"
+            android:scaleType="fitCenter"
             android:src="@drawable/press_frances_mancuernas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -363,12 +370,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenExtTriceps"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_ext_triceps"
+            android:scaleType="fitCenter"
             android:src="@drawable/ext_triceps_polea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -422,12 +431,14 @@
             app:layout_constraintStart_toEndOf="@+id/textoPressPalof"
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenPalof"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_palof"
+            android:scaleType="fitCenter"
             android:src="@drawable/press_palof_arrodillado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"

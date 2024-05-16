@@ -59,7 +59,7 @@
                 android:textSize="15sp" />
 
             <RadioButton
-                android:id="@+id/bodyType1RadioButton"
+                android:id="@+id/botonTipoEctomorfo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="50dp"
@@ -89,7 +89,7 @@
                 android:textSize="15sp" />
 
             <RadioButton
-                android:id="@+id/bodyType2RadioButton"
+                android:id="@+id/botonTipoMesomorfo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="42dp"
@@ -119,7 +119,7 @@
                 android:textSize="15sp" />
 
             <RadioButton
-                android:id="@+id/bodyType3RadioButton"
+                android:id="@+id/botonTipoEndomorfo"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="48dp"
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bodyTypeRadioGroup" />
 
     <Button
-        android:id="@+id/finishButton"
+        android:id="@+id/botonFinalizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

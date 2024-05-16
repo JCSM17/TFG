@@ -1,8 +1,10 @@
 package com.example.tfg.jesus;
 
+import android.content.Context;
 import android.os.CountDownTimer;
 
 public class CustomCountdownTimer {
+    private Context context;
     private long millisInFuture;
     private long countDownInterval;
     private long millisUntilFinished;
@@ -11,7 +13,8 @@ public class CustomCountdownTimer {
     private OnTick onTick;
     private OnFinish onFinish;
 
-    public CustomCountdownTimer(long millisInFuture, long countDownInterval) {
+    public CustomCountdownTimer(Context context, long millisInFuture, long countDownInterval) {
+        this.context = context;
         this.millisInFuture = millisInFuture;
         this.countDownInterval = countDownInterval;
         this.millisUntilFinished = millisInFuture;

@@ -52,7 +52,6 @@ public class RutinasFragment extends Fragment {
 
         setupButtons(view);
         setupImageViewAnimations(view);
-        setupCountDownTimer(view);
     }
 
     // Configura los listeners de los botones para abrir los videos de YouTube correspondientes cuando se hace clic en ellos
@@ -85,26 +84,6 @@ public class RutinasFragment extends Fragment {
         imageView.startAnimation(animation);
     }
 
-    // Configura el temporizador de cuenta regresiva
-    private void setupCountDownTimer(View view) {
-        TextView questionText = view.findViewById(R.id.botonCronometro);
-        TextView timeRemaining = view.findViewById(R.id.timeRemaining);
-        questionText.setOnClickListener(v -> startCountDownTimer(timeRemaining));
-    }
-
-    private void startCountDownTimer(TextView timeRemaining) {
-        new CountDownTimer(60000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                long secondsRemaining = millisUntilFinished / 1000;
-                timeRemaining.setText(String.valueOf(secondsRemaining));
-            }
-
-            public void onFinish() {
-                timeRemaining.setText("0");
-                vibrateAndPlayBeep();
-            }
-        }.start();
-    }
 
     // Vibra el teléfono tres veces y reproduce un sonido de pitido
     private void vibrateAndPlayBeep() {

@@ -31,12 +31,13 @@
         <include
             layout="@layout/fragment_cronometro"
             android:layout_width="180dp"
-            android:layout_height="210dp"
+            android:layout_height="205dp"
+            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento"
-            app:layout_constraintTop_toTopOf="@+id/textoMartes" />
+            app:layout_constraintTop_toTopOf="@+id/textoSemanaDefinicion" />
 
         <TextView
             android:id="@+id/textoSemanaDefinicion"
@@ -55,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="40dp"
             android:text="@string/texto_martes"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -89,7 +90,7 @@
             android:id="@+id/textoPressMilitarBarra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="78dp"
             android:text="@string/texto_press_militar_barra"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -102,7 +103,7 @@
             android:id="@+id/repsPressMilitarBarra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="215dp"
+            android:layout_marginTop="212dp"
             android:text="@string/reps_press_militar_barra"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,14 +112,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaDefinicion" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenPressMilitarBarra"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_press_militar_barra"
-            android:src="@drawable/pressmilitarbarra"
+            android:scaleType="fitCenter"
+            android:src="@drawable/press_militar_barra"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -174,18 +176,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador3" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenJalonNeutroPecho"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_jalon_neutro_pecho"
-            android:src="@drawable/jalonneutropecho"
+            android:scaleType="fitCenter"
+            android:src="@drawable/jalon_neutro_pecho"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoJalonNeutroPecho" />
-
 
         <Button
             android:id="@+id/botonVideoJalonNeutroPecho"
@@ -238,24 +241,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador4" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenPressPlanoMancuernas"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_press_plano_mancuernas"
-            android:src="@drawable/pressplanomancuernas"
+            android:scaleType="fitCenter"
+            android:src="@drawable/press_plano_mancuernas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoPressPlanoMancuernas" />
 
-        <Button
+        <ImageButton
             android:id="@+id/botonVideoPressPlanoMancuernas"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_boton_video_press_plano_mancuernas"
+            android:scaleType="fitXY"
             android:text="@string/boton_video"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -297,20 +304,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imageCrucePoleaBajaUnilateral"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_cruce_polea_baja_unilateral"
-            android:src="@drawable/crucepoleabajaunilateral"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cruce_polea_baja_unilateral"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoCrucePoleaBajaUnilateral" />
 
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonVideoCrucePoleaBajaUnilateral"
             android:layout_width="80dp"
             android:layout_height="50dp"
@@ -358,13 +367,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenRemoNeutroPolea"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_remo_neutro_polea"
-            android:src="@drawable/remoneutropolea"
+            android:scaleType="fitCenter"
+            android:src="@drawable/remo_neutro_polea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -416,13 +427,15 @@
             app:layout_constraintStart_toEndOf="@+id/textoLaterales_Polea_Torso"
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenLateralesPoleaTorso"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_laterales_polea_torso"
-            android:src="@drawable/lateralespoleatorso"
+            android:scaleType="fitCenter"
+            android:src="@drawable/laterales_polea_torso"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
