@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,7 +19,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/descripcion_imagen_jalon_neutro_pecho"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/foto_jc" />
 
     <LinearLayout
@@ -28,21 +27,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEntrenamiento"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_entrenamiento_logo"
-            android:text="Entrenamiento" />
+            android:text="Entrenamiento"
+            android:textSize="12sp"
+            app:icon="@drawable/icono_entrenamiento"
+            app:iconGravity="top"
+            app:iconSize="@dimen/icon_size" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNutricion"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_nutricion_logo"
-            android:text="Nutrición" />
+            android:text="Nutrición"
+            android:textSize="12sp"
+            app:icon="@drawable/icon_food"
+            app:iconGravity="textTop" />
 
     </LinearLayout>
 
@@ -51,21 +57,27 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnPerfil"
-            android:layout_width="2dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_perfil_logo"
-            android:text="Perfil" />
+            android:text="Perfil"
+            android:textSize="12sp"
+            app:icon="@drawable/icono_perfil"
+            app:iconGravity="top" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnProximamente"
-            android:layout_width="2dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_proximamente_logo"
-            android:text="Próximamente" />
+            android:text="Próximamente"
+            android:textSize="12sp"
+            app:icon="@drawable/icono_proximamente"
+            app:iconGravity="top" />
 
     </LinearLayout>
 

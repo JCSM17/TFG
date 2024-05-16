@@ -1,6 +1,7 @@
 package com.example.tfg.jc;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,12 @@ public class MenuActivity extends AppCompatActivity {
         Button btnNutricion = findViewById(R.id.btnNutricion);
         Button btnPerfil = findViewById(R.id.btnPerfil);
         Button btnProximamente = findViewById(R.id.btnProximamente);
+
+        // Ajusta el tamaño del icono
+        adjustIconSize(btnEntrenamiento);
+        adjustIconSize(btnNutricion);
+        adjustIconSize(btnPerfil);
+        adjustIconSize(btnProximamente);
 
         // Establecer OnClickListener para cada botón
         btnEntrenamiento.setOnClickListener(new View.OnClickListener() {
@@ -58,4 +65,23 @@ public class MenuActivity extends AppCompatActivity {
         intent.putExtra("categoria_seleccionada", opcionSeleccionada);
         startActivity(intent);
     }
+
+    private void adjustIconSize(Button button) {
+        // Define el tamaño deseado para el icono
+        int iconSize = Math.round(getResources().getDimension(R.dimen.icon_size));
+
+        // Obtén los drawables
+        Drawable[] drawables = button.getCompoundDrawables();
+
+        // Asegúrate de que el drawable superior (índice 1) no es nulo
+        if (drawables[1] != null) {
+            // Crea un nuevo drawable con el tamaño deseado
+            Drawable resizedDrawable = drawables[1].mutate();
+            resizedDrawable.setBounds(0, 0, iconSize, iconSize);
+
+            // Establece el drawable en el botón
+            button.setCompoundDrawables(null, resizedDrawable, null, null);
+        }
+    }
 }
+

@@ -51,8 +51,8 @@ public class CountdownFragment extends Fragment {
             public void onFinish() {
                 timerFormat(0, timeTxt);
                 // Reproduce el sonido cuando el temporizador termina
-         /*       mediaPlayer = MediaPlayer.create(getActivity(), R.raw.end_timer_sound);
-                mediaPlayer.start();*/
+                mediaPlayer = MediaPlayer.create(getActivity(), R.raw.end_timer_sound);
+                mediaPlayer.start();
             }
 
             @Override

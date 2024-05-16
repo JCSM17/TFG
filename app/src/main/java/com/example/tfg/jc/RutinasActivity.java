@@ -7,17 +7,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tfg.R;
-import com.example.tfg.jesus.RutinasFragment;
+import com.example.tfg.jesus.VolumenJuevesFragment;
 
 import java.util.HashMap;
 import java.util.Map;
-/*
+
 public class RutinasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rutinas);
+        setContentView(R.layout.activity_menu);
 
         // Recibir el identificador de la rutina seleccionada (definición o volumen) del Intent o de cualquier otra fuente
         // Supongamos que recibimos este valor en una variable llamada "rutinaSeleccionada"
@@ -40,19 +40,19 @@ public class RutinasActivity extends AppCompatActivity {
             // Agrega más casos según sea necesario para otras rutinas
             default:
                 // Si no coincide con ninguna rutina conocida, establece un valor predeterminado
-                layoutId = R.layout.fragment_default; // Puedes cambiar esto según tus necesidades
+                layoutId = R.layout.activity_menu; // Puedes cambiar esto según tus necesidades
                 buttonToUrlMap = getDefaultButtonToUrlMap();
                 break;
         }
 
-        RutinasFragment rutinasFragment = new RutinasFragment(buttonToUrlMap);
+        VolumenJuevesFragment volumenJuevesFragment = new VolumenJuevesFragment(buttonToUrlMap);
         Bundle args = new Bundle();
         args.putInt("layout_id", layoutId);
-        rutinasFragment.setArguments(args);
+        volumenJuevesFragment.setArguments(args);
 
         // Añade el fragmento al contenedor correspondiente
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, rutinasFragment); // Reemplaza el contenido del contenedor con el fragmento seleccionado
+        transaction.replace(R.id.fragment_container, volumenJuevesFragment); // Reemplaza el contenido del contenedor con el fragmento seleccionado
         transaction.commit();
     }
 
@@ -76,4 +76,3 @@ public class RutinasActivity extends AppCompatActivity {
         return defaultButtonToUrlMap;
     }
 }
-*/

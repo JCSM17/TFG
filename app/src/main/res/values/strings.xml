@@ -170,8 +170,8 @@
     <string name="descripcion_boton_video_laterales_polea_torso">Video de Laterales Polea Torso</string>
 
 
-    <!-- Strings para el fragmento Definicion Miercoles Mujer -->
-    <string name="texto_miercoles">Miercoles</string>
+    <!-- Strings para el fragmento Definicion Jueves Mujer -->
+    <string name="texto_jueves">Jueves</string>
     <string name="texto_empuje_pierna">EMPUJE + PIERNA</string>
     <string name="texto_press_banca_plano_barra">PRESS BANCA PLANO CON BARRA</string>
     <string name="reps_press_banca_plano_barra">3x6 -8</string>
@@ -205,11 +205,11 @@
     <string name="descripcion_boton_video_elevacion_lateral">Video de ElevacionLateral</string>
 
 
-    <!-- Strings para el fragmento Definicion Jueves Mujer -->
-    <string name="texto_Jueves">Jueves</string>
+    <!-- Strings para el fragmento Definicion Viernes Mujer -->
+    <string name="texto_Vierness">Viernes</string>
     <string name="texto_pierna_brazo_core">PIERNA BRAZO CORE</string>
-    <string name="texto_peso_muerto_jueves">PESO MUERTO</string>
-    <string name="reps_peso_muerto_jueves">3x5 7</string>
+    <string name="texto_peso_muerto_viernes">PESO MUERTO</string>
+    <string name="reps_peso_muerto_viernes">3x5 7</string>
     <string name="texto_zancadas_estaticas_multipower">ZANCADAS ESTÁTICAS MULTIPOWER</string>
     <string name="reps_zancadas_estaticas_multipower">3x10-12</string>
     <string name="texto_prensa_inclinada">PRENSA INCLINADA</string>
@@ -223,7 +223,7 @@
 
 
     <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Jueves Mujer -->
-    <string name="descripcion_imagen_peso_muerto_jueves">Descripción de la imagen de PESO MUERTO</string>
+    <string name="descripcion_imagen_peso_muerto_viernes">Descripción de la imagen de PESO MUERTO</string>
     <string name="descripcion_imagen_zancadas_estaticas_multipower">Descripción de la imagen Zancadas Estaticas Multipower</string>
     <string name="descripcion_imagen_prensa_inclinada">Descripción de la imagen de Prensa Inclinada</string>
     <string name="descripcion_imagen_patada_triceps_polea">Descripción de la imagen de Patada de Triceps Polea</string>
@@ -232,7 +232,7 @@
 
 
     <!-- Descripcion para el Fragmento Definicion videos Jueves Mujer -->
-    <string name="descripcion_boton_video_peso_muerto_jueves">Video de Peso Muerto</string>
+    <string name="descripcion_boton_video_peso_muerto_viernes">Video de Peso Muerto</string>
     <string name="descripcion_boton_video_zancadas_estaticas_multipower">Video de Zancadas Estaticas Multipower</string>
     <string name="descripcion_boton_video_prensa_inclinada">Video de Prensa Inclinada</string>
     <string name="descripcion_boton_video_patada_triceps_polea">Video de Patada de Triceps Polea</string>
