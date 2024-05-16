@@ -112,13 +112,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenPronas"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_dominadas_p"
+            android:scaleType="fitCenter"
             android:src="@drawable/dominadas_pronas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -175,12 +176,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador3" />
 
-        <ImageView
-            android:id="@+id/imagenFondos"
+        <ImageButton
+            android:id="@+id/imagenPesoMuerto"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_peso_muerto"
+            android:scaleType="fitCenter"
             android:src="@drawable/peso_muerto"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -198,7 +201,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenCruces"
+            app:layout_constraintStart_toEndOf="@+id/imagenPressBancaMancuernas"
             app:layout_constraintTop_toBottomOf="@+id/repsFondos" />
 
         <View
@@ -210,7 +213,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenFondos" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPesoMuerto" />
 
         <TextView
             android:id="@+id/textoCrucePolea"
@@ -238,12 +241,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador4" />
 
-        <ImageView
-            android:id="@+id/imagenCruces"
+        <ImageButton
+            android:id="@+id/imagenPressBancaMancuernas"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_pressm"
+            android:scaleType="fitCenter"
             android:src="@drawable/press_banca_mancuernas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -260,7 +265,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenCruces"
+            app:layout_constraintStart_toEndOf="@+id/imagenPressBancaMancuernas"
             app:layout_constraintTop_toBottomOf="@+id/repsPoleaBaja" />
 
         <View
@@ -269,7 +274,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagenCruces" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPressBancaMancuernas" />
 
         <TextView
             android:id="@+id/textoPressMancuerna"
@@ -297,12 +302,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
-        <ImageView
-            android:id="@+id/imagePressFrances"
+        <ImageButton
+            android:id="@+id/imageElevacionPolea"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_polea"
+            android:scaleType="fitCenter"
             android:src="@drawable/elevacion_polea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -311,7 +318,7 @@
 
 
         <Button
-            android:id="@+id/buttonVideoElevacionPolea"
+            android:id="@+id/botonVideoElevacionPolea"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
@@ -320,7 +327,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagePressFrances"
+            app:layout_constraintStart_toEndOf="@+id/imageElevacionPolea"
             app:layout_constraintTop_toBottomOf="@+id/repsPressFrances" />
 
         <View
@@ -329,7 +336,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagePressFrances" />
+            app:layout_constraintTop_toBottomOf="@+id/imageElevacionPolea" />
 
         <TextView
             android:id="@+id/textoExtTriceps"
@@ -358,12 +365,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
 
-        <ImageView
-            android:id="@+id/imagenExtTriceps"
+        <ImageButton
+            android:id="@+id/imagenInclinadoMancuernas"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_curl_m"
+            android:scaleType="fitCenter"
             android:src="@drawable/curl_inclinado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -380,7 +389,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenExtTriceps"
+            app:layout_constraintStart_toEndOf="@+id/imagenInclinadoMancuernas"
             app:layout_constraintTop_toBottomOf="@+id/repsExtensionTriceps" />
 
         <View
@@ -389,7 +398,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagenExtTriceps" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenInclinadoMancuernas" />
 
         <TextView
             android:id="@+id/textoPressPalof"
@@ -417,12 +426,14 @@
             app:layout_constraintStart_toEndOf="@+id/textoPressPalof"
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
-        <ImageView
-            android:id="@+id/imagenPalof"
+        <ImageButton
+            android:id="@+id/imagenExtTricepsPoleaViernes"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_triceps"
+            android:scaleType="fitCenter"
             android:src="@drawable/ext_triceps_polea"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
@@ -439,20 +450,22 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenPalof"
+            app:layout_constraintStart_toEndOf="@+id/imagenExtTricepsPoleaViernes"
             app:layout_constraintTop_toBottomOf="@+id/repsPressPalof" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/imagenCheck"
             android:layout_width="92dp"
             android:layout_height="28dp"
             android:layout_marginTop="50dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
+            android:scaleType="fitCenter"
             android:src="@drawable/check"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenPalof" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenExtTricepsPoleaViernes" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

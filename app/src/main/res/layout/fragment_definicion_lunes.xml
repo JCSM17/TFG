@@ -317,7 +317,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoJalon_Prono_Pecho" />
 
-
         <Button
             android:id="@+id/buttonVideoJalonPronoPecho"
             android:layout_width="80dp"
