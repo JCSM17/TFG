@@ -44,6 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists registro");
+        MyDB.execSQL("drop Table if exists iniciosesion");
+        MyDB.execSQL("drop Table if exists suscripanual");
     }
 
     public Boolean insertData(String email, String password, String nombre, String apellido, String telefono){
@@ -72,7 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean insertData(String email, String nombre, String apellido, String dni, String telefono, long creditcard, String expirationdate, int cvc) {
+    public boolean insertDataSuscripcionAnual(String email, String nombre, String apellido, String dni, String telefono, String tarjeta, String fechaExpiracion, String cvc) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("email", email);
@@ -80,8 +82,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("apellido", apellido);
         contentValues.put("dni", dni);
         contentValues.put("telefono", telefono);
-        contentValues.put("creditcard", creditcard);
-        contentValues.put("expirationdate", expirationdate);
+        contentValues.put("creditcard", tarjeta);
+        contentValues.put("expirationdate", fechaExpiracion);
         contentValues.put("cvc", cvc);
         long result = MyDatabase.insert("suscripanual", null, contentValues);
         return result != -1;

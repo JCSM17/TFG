@@ -35,7 +35,6 @@ public class SuscripcionPlanAnualActivity extends AppCompatActivity {
 
         // Obtener referencia al botón "Suscribirme ahora"
         Button suscribirmeButton = findViewById(R.id.button4);
-z
         // Configurar el OnClickListener para el botón
         suscribirmeButton.setOnClickListener(new View.OnClickListener() {
             @Override
