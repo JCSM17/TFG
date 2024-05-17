@@ -59,9 +59,9 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
-    // Método para abrir RutinasActivity con la opción seleccionada como un extra
+    // Método para abrir RutinasVolumenActivity con la opción seleccionada como un extra
     private void abrirRutinasActivity(String opcionSeleccionada) {
-        Intent intent = new Intent(this, RutinasActivity.class);
+        Intent intent = new Intent(this, RutinasVolumenActivity.class);
         intent.putExtra("categoria_seleccionada", opcionSeleccionada);
         startActivity(intent);
     }
