@@ -14,7 +14,7 @@ public class SuscripcionMensualAnualConfirmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suscripcionmesualanualconfirm);
+        setContentView(R.layout.activity_suscripcion_mensual_anual_confirm);
 
         // Aquí puedes realizar cualquier inicialización adicional que necesites
 

@@ -13,7 +13,7 @@ public class PlanAnualActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plananual);
+        setContentView(R.layout.activity_plan_anual);
 
         // Obtener referencia al botón "Ver el plan mensual"
         Button verPlanMensualButton = findViewById(R.id.button2);
