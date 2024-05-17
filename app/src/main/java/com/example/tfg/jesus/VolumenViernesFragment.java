@@ -21,10 +21,10 @@ import com.example.tfg.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RutinasFragmentJueves extends Fragment {
+public class VolumenViernesFragment extends Fragment {
 
     // Constructor vacío requerido para instanciar el fragmento
-    public RutinasFragmentJueves() {
+    public VolumenViernesFragment() {
     }
 
     // Este método se llama para inflar la vista del fragmento. Aquí se infla el layout fragment_volumen_viernes
@@ -41,12 +41,12 @@ public class RutinasFragmentJueves extends Fragment {
 
         // Crear un mapa de IDs de botones a URLs de YouTube
         Map<Integer, String> buttonToUrlMap = new HashMap<>();
-        buttonToUrlMap.put(R.id.botonVideoPesoMuertoJueves, "https://www.youtube.com/shorts/3EhkrUEEPOg");
-        buttonToUrlMap.put(R.id.botonVideoZancadaEstaticaMultipower, "https://www.youtube.com/shorts/40Iar2hiApU");
-        buttonToUrlMap.put(R.id.botonVideoPrensaInclinada, "https://www.youtube.com/shorts/5w4qHGQ_qls");
-        buttonToUrlMap.put(R.id.buttonVideoPatadaTricepsPolea, "https://www.youtube.com/shorts/35_gCUE3SmM");
-        buttonToUrlMap.put(R.id.botonVideoCurlBicepsAlternoSentadoMancuernas, "https://www.youtube.com/shorts/Y-faAKz2ebw");
-        buttonToUrlMap.put(R.id.botonVideoExtencionTricepsOverhead, "https://www.youtube.com/shorts/BAOF9vEVioo");
+        buttonToUrlMap.put(R.id.botonVideoDominadasPronas, "https://www.youtube.com/shorts/w9QEAH6ANt8");
+        buttonToUrlMap.put(R.id.botonVideoPesoMuerto, "https://www.youtube.com/shorts/3EhkrUEEPOg");
+        buttonToUrlMap.put(R.id.botonVideoPressBancaMancuernas, "https://www.youtube.com/shorts/48L0oQApm_0");
+        buttonToUrlMap.put(R.id.buttonVideoElevacionPolea, "https://www.youtube.com/shorts/AqB70P2Yt4w");
+        buttonToUrlMap.put(R.id.botonVideoCurlInclinadoMancuernas, "https://www.youtube.com/shorts/jktjmrPmOrs");
+        buttonToUrlMap.put(R.id.botonVideoExtencionTricepsPolea, "https://www.youtube.com/shorts/EWsq_UbGqPY");
 
         // Configurar los listeners de los botones para abrir los videos de YouTube correspondientes cuando se hace clic en ellos
         for (Map.Entry<Integer, String> entry : buttonToUrlMap.entrySet()) {

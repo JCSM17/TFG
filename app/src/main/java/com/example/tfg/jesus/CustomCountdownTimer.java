@@ -27,6 +27,8 @@ public class CustomCountdownTimer {
 
     public interface OnFinish {
         void onFinish();
+
+        void onVibrate();
     }
 
     private class InternalTimer extends CountDownTimer {

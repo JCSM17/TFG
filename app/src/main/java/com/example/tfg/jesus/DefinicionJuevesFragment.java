@@ -21,10 +21,10 @@ import com.example.tfg.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RutinasFragmentLunes extends Fragment {
+public class DefinicionJuevesFragment extends Fragment {
 
     // Constructor vacío requerido para instanciar el fragmento
-    public RutinasFragmentLunes() {
+    public DefinicionJuevesFragment() {
     }
 
     // Este método se llama para inflar la vista del fragmento. Aquí se infla el layout fragment_volumen_viernes
@@ -41,12 +41,12 @@ public class RutinasFragmentLunes extends Fragment {
 
         // Crear un mapa de IDs de botones a URLs de YouTube
         Map<Integer, String> buttonToUrlMap = new HashMap<>();
-        buttonToUrlMap.put(R.id.botonVideoDominadas, "https://www.youtube.com/shorts/LerajxEGimU");
-        buttonToUrlMap.put(R.id.botonVideoRemoMancuernas, "https://www.youtube.com/shorts/y8PqAF9gYH8");
-        buttonToUrlMap.put(R.id.botonVideoPesoMuertoRumano, "https://www.youtube.com/shorts/k3Bz0Bfpf7Q");
-        buttonToUrlMap.put(R.id.buttonVideoJalonPronoPecho, "https://www.youtube.com/shorts/YR4Ytkhtihs");
-        buttonToUrlMap.put(R.id.botonVideoFacePull, "https://www.youtube.com/shorts/kDIyUGVPKXE");
-        buttonToUrlMap.put(R.id.botonVideoExtencionTricepsPolea, "https://www.youtube.com/shorts/EWsq_UbGqPY");
+        buttonToUrlMap.put(R.id.botonVideoPressBancaPlano, "https://www.youtube.com/shorts/i14IBMNQDQQ");
+        buttonToUrlMap.put(R.id.botonVideoSentadilla, "https://www.youtube.com/shorts/ik7kBOHKvvs");
+        buttonToUrlMap.put(R.id.botonVideoPressmilitarmancuerna, "https://www.youtube.com/shorts/7R0P0dVbKWk");
+        buttonToUrlMap.put(R.id.buttonVideoPressInclinadoMancuerna, "https://www.youtube.com/shorts/fPY39mb4_GA");
+        buttonToUrlMap.put(R.id.botonVideoCrucePoleaBaja, "https://www.youtube.com/shorts/nP9KArjEDeU");
+        buttonToUrlMap.put(R.id.botonVideoelevacionlateral, "https://www.youtube.com/shorts/DCS8eFTiddM");
 
         // Configurar los listeners de los botones para abrir los videos de YouTube correspondientes cuando se hace clic en ellos
         for (Map.Entry<Integer, String> entry : buttonToUrlMap.entrySet()) {

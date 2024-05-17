@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="15dp"
-    tools:context=".jesus.RutinasFragmentJueves">
+    tools:context=".jesus.DefinicionJuevesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -57,19 +57,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="40dp"
-            android:text="@string/texto_Jueves"
+            android:text="@string/texto_jueves"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaDefinicion" />
 
         <TextView
-            android:id="@+id/textoPiernaBrazoCore"
+            android:id="@+id/textoEmpujePierna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="12dp"
-            android:text="@string/texto_pierna_brazo_core"
+            android:text="@string/texto_empuje_pierna"
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoJueves" />
@@ -84,14 +84,14 @@
             android:text="@string/texto_calentamiento"
             android:textColor="#D00000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoPiernaBrazoCore" />
+            app:layout_constraintTop_toBottomOf="@+id/textoEmpujePierna" />
 
         <TextView
-            android:id="@+id/textoPesoMuertoJueves"
+            android:id="@+id/textoPressBancaPlano"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="78dp"
-            android:text="@string/texto_peso_muerto_jueves"
+            android:text="@string/texto_press_banca_plano_barra"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,44 +100,44 @@
             app:layout_constraintTop_toBottomOf="@+id/textoCalentamiento" />
 
         <TextView
-            android:id="@+id/repsPesoMuertoJueves"
+            android:id="@+id/repsPressBancaPlano"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="212dp"
-            android:text="@string/reps_peso_muerto_jueves"
+            android:text="@string/reps_press_banca_plano_barra"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.90"
-            app:layout_constraintStart_toEndOf="@+id/textoPesoMuertoJueves"
+            app:layout_constraintStart_toEndOf="@+id/textoPressBancaPlano"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaDefinicion" />
 
         <ImageButton
-            android:id="@+id/imagenPesoMuertoJueves"
+            android:id="@+id/imagenPressBancaPlano"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/descripcion_imagen_peso_muerto_jueves"
+            android:contentDescription="@string/descripcion_imagen_press_banca_plano_barra"
             android:scaleType="fitCenter"
-            android:src="@drawable/peso_muerto"
+            android:src="@drawable/press_banca_plano_barra"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoPesoMuertoJueves" />
+            app:layout_constraintTop_toBottomOf="@+id/textoPressBancaPlano" />
 
         <Button
-            android:id="@+id/botonVideoPesoMuertoJueves"
+            android:id="@+id/botonVideoPressBancaPlano"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:contentDescription="@string/descripcion_boton_video_peso_muerto_jueves"
+            android:contentDescription="@string/descripcion_boton_video_press_banca_plano_barra"
             android:text="@string/boton_video"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenPesoMuertoJueves"
-            app:layout_constraintTop_toBottomOf="@+id/textoPesoMuertoJueves" />
+            app:layout_constraintStart_toEndOf="@+id/imagenPressBancaPlano"
+            app:layout_constraintTop_toBottomOf="@+id/textoPressBancaPlano" />
 
         <View
             android:id="@+id/separador3"
@@ -148,14 +148,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenPesoMuertoJueves" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPressBancaPlano" />
 
         <TextView
-            android:id="@+id/textoZancadasEstaticasMultipower"
+            android:id="@+id/textoSentadilla"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/texto_zancadas_estaticas_multipower"
+            android:text="@string/texto_sentadilla"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,46 +164,45 @@
             app:layout_constraintTop_toBottomOf="@+id/separador3" />
 
         <TextView
-            android:id="@+id/repsZancadasEstaticasMultipower"
+            android:id="@+id/repsSentadillas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/reps_zancadas_estaticas_multipower"
+            android:text="@string/reps_sentadilla"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.90"
-            app:layout_constraintStart_toEndOf="@+id/textoZancadasEstaticasMultipower"
+            app:layout_constraintStart_toEndOf="@+id/textoSentadilla"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador3" />
 
         <ImageButton
-            android:id="@+id/imagenZancadasEstaticasMultipower"
+            android:id="@+id/imagenSentadilla"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/descripcion_imagen_zancadas_estaticas_multipower"
+            android:contentDescription="@string/descripcion_imagen_sentadilla"
             android:scaleType="fitCenter"
-            android:src="@drawable/zancadas_estaticas_multipower"
+            android:src="@drawable/sentadilla"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoZancadasEstaticasMultipower" />
-
+            app:layout_constraintTop_toBottomOf="@+id/textoSentadilla" />
 
         <Button
-            android:id="@+id/botonVideoZancadaEstaticaMultipower"
+            android:id="@+id/botonVideoSentadilla"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:contentDescription="@string/descripcion_boton_video_zancadas_estaticas_multipower"
+            android:contentDescription="@string/descripcion_boton_video_sentadilla"
             android:text="@string/boton_video"
             android:textColor="#000000"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenPrensaInclinada"
-            app:layout_constraintTop_toBottomOf="@+id/repsZancadasEstaticasMultipower" />
+            app:layout_constraintStart_toEndOf="@+id/imagenPressmilitarmancuerna"
+            app:layout_constraintTop_toBottomOf="@+id/repsSentadillas" />
 
         <View
             android:id="@+id/separador4"
@@ -214,14 +213,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenZancadasEstaticasMultipower" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenSentadilla" />
 
         <TextView
-            android:id="@+id/textoPrensaInclinada"
+            android:id="@+id/textoPressmilitarmancuerna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/texto_prensa_inclinada"
+            android:text="@string/texto_press_militar_mancuerna"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -230,44 +229,44 @@
             app:layout_constraintTop_toBottomOf="@+id/separador4" />
 
         <TextView
-            android:id="@+id/repsPrensaInclinada"
+            android:id="@+id/repsPoleaBaja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/reps_prensa_inclinada"
+            android:text="@string/reps_press_plano_mancuerna"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.90"
-            app:layout_constraintStart_toEndOf="@+id/textoPrensaInclinada"
+            app:layout_constraintStart_toEndOf="@+id/textoPressmilitarmancuerna"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador4" />
 
         <ImageButton
-            android:id="@+id/imagenPrensaInclinada"
+            android:id="@+id/imagenPressmilitarmancuerna"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/descripcion_imagen_prensa_inclinada"
+            android:contentDescription="@string/descripcion_imagen_press_militar_mancuerna"
             android:scaleType="fitCenter"
-            android:src="@drawable/prensa_inclinada"
+            android:src="@drawable/press_militar_mancuerna"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoPrensaInclinada" />
+            app:layout_constraintTop_toBottomOf="@+id/textoPressmilitarmancuerna" />
 
         <Button
-            android:id="@+id/botonVideoPrensaInclinada"
+            android:id="@+id/botonVideoPressmilitarmancuerna"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:contentDescription="@string/descripcion_boton_video_prensa_inclinada"
+            android:contentDescription="@string/descripcion_boton_video_press_plano_mancuernas"
             android:text="@string/boton_video"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenPrensaInclinada"
-            app:layout_constraintTop_toBottomOf="@+id/repsPrensaInclinada" />
+            app:layout_constraintStart_toEndOf="@+id/imagenPressmilitarmancuerna"
+            app:layout_constraintTop_toBottomOf="@+id/repsPoleaBaja" />
 
         <View
             android:id="@+id/separador5"
@@ -275,14 +274,14 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagenPrensaInclinada" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPressmilitarmancuerna" />
 
         <TextView
-            android:id="@+id/textoPatadaTricepsPolea"
+            android:id="@+id/textoPressInclinadoMancuerna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/texto_patada_triceps_polea"
+            android:text="@string/texto_press_inclinado_mancuerna"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -291,45 +290,45 @@
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
         <TextView
-            android:id="@+id/repsPatadaTricepsPolea"
+            android:id="@+id/repsPressInclinadoMancuerna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:text="@string/reps_patada_triceps_polea"
+            android:text="@string/reps_press_inclinado_mancuerna"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textoPatadaTricepsPolea"
+            app:layout_constraintStart_toEndOf="@+id/textoPressInclinadoMancuerna"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
         <ImageButton
-            android:id="@+id/imagePatadaTricepsPolea"
+            android:id="@+id/imagePressInclinadoMancuerna"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/descripcion_imagen_patada_triceps_polea"
+            android:contentDescription="@string/descripcion_imagen_press_inclinado_mancuerna"
             android:scaleType="fitCenter"
-            android:src="@drawable/patada_triceps_polea"
+            android:src="@drawable/press_inclinado_mancuerna"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoPatadaTricepsPolea" />
+            app:layout_constraintTop_toBottomOf="@+id/textoPressInclinadoMancuerna" />
 
 
         <Button
-            android:id="@+id/buttonVideoPatadaTricepsPolea"
+            android:id="@+id/buttonVideoPressInclinadoMancuerna"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:contentDescription="@string/descripcion_boton_video_patada_triceps_polea"
+            android:contentDescription="@string/descripcion_boton_video_press_inclinado_mancuerna"
             android:text="@string/boton_video"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagePatadaTricepsPolea"
-            app:layout_constraintTop_toBottomOf="@+id/repsPatadaTricepsPolea" />
+            app:layout_constraintStart_toEndOf="@+id/imagePressInclinadoMancuerna"
+            app:layout_constraintTop_toBottomOf="@+id/repsPressInclinadoMancuerna" />
 
         <View
             android:id="@+id/separador6"
@@ -337,15 +336,15 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagePatadaTricepsPolea" />
+            app:layout_constraintTop_toBottomOf="@+id/imagePressInclinadoMancuerna" />
 
         <TextView
-            android:id="@+id/textoCurlBicepsAlternoSentadoMancuernas"
+            android:id="@+id/textoCrucePoleaBaja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/texto_curl_biceps_alterno_sentado_mancuernas"
-            android:textSize="15sp"
+            android:text="@string/texto_cruce_polea_baja"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.10"
@@ -354,44 +353,44 @@
 
 
         <TextView
-            android:id="@+id/repsCurlBicepsAlternoSentadoMancuernas"
+            android:id="@+id/repsCrucePoleaBaja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/reps_curl_biceps_alterno_sentado_mancuernas"
+            android:text="@string/reps_cruce_polea_baja"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textoCurlBicepsAlternoSentadoMancuernas"
+            app:layout_constraintStart_toEndOf="@+id/textoCrucePoleaBaja"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
 
         <ImageButton
-            android:id="@+id/imagenCurlBicepsAlternoSentadoMancuernas"
+            android:id="@+id/imagenCrucepoleabaja"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/descripcion_imagen_curl_biceps_alterno_sentado_mancuernas"
+            android:contentDescription="@string/descripcion_imagen_cruce_polea_baja"
             android:scaleType="fitCenter"
-            android:src="@drawable/curl_biceps_sentado_mancuernas"
+            android:src="@drawable/cruce_polea_baja2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoCurlBicepsAlternoSentadoMancuernas" />
+            app:layout_constraintTop_toBottomOf="@+id/textoCrucePoleaBaja" />
 
         <Button
-            android:id="@+id/botonVideoCurlBicepsAlternoSentadoMancuernas"
+            android:id="@+id/botonVideoCrucePoleaBaja"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:contentDescription="@string/descripcion_boton_video_curl_biceps_alterno_sentado_mancuernas"
+            android:contentDescription="@string/descripcion_boton_video_cruce_polea_baja"
             android:text="@string/boton_video"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenCurlBicepsAlternoSentadoMancuernas"
-            app:layout_constraintTop_toBottomOf="@+id/repsCurlBicepsAlternoSentadoMancuernas" />
+            app:layout_constraintStart_toEndOf="@+id/imagenCrucepoleabaja"
+            app:layout_constraintTop_toBottomOf="@+id/repsCrucePoleaBaja" />
 
         <View
             android:id="@+id/separador7"
@@ -399,15 +398,15 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagenCurlBicepsAlternoSentadoMancuernas" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenCrucepoleabaja" />
 
         <TextView
-            android:id="@+id/textoExtencionTricepsOverhead"
+            android:id="@+id/textoelevacionlateral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/texto_ext_triceps_overhead"
-            android:textSize="15sp"
+            android:text="@string/texto_elevacion_lateral"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.10"
@@ -415,43 +414,43 @@
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
         <TextView
-            android:id="@+id/repsExtencionTricepsOverhead"
+            android:id="@+id/repselevacionlateral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/reps_ext_triceps_overhead"
+            android:text="@string/reps_elevacion_lateral"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.90"
-            app:layout_constraintStart_toEndOf="@+id/textoExtencionTricepsOverhead"
+            app:layout_constraintStart_toEndOf="@+id/textoelevacionlateral"
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
         <ImageButton
-            android:id="@+id/imagenExtencionTricepsOverhead"
+            android:id="@+id/imagenelevacionlateral"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/descripcion_imagen_ext_triceps_overhead"
+            android:contentDescription="@string/descripcion_imagen_elevacion_lateral"
             android:scaleType="fitCenter"
-            android:src="@drawable/ext_triceps_overhead"
+            android:src="@drawable/elevacion_lateral"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoExtencionTricepsOverhead" />
+            app:layout_constraintTop_toBottomOf="@+id/textoelevacionlateral" />
 
         <Button
-            android:id="@+id/botonVideoExtencionTricepsOverhead"
+            android:id="@+id/botonVideoelevacionlateral"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
-            android:contentDescription="@string/descripcion_boton_video_ext_triceps_overhead"
+            android:contentDescription="@string/descripcion_boton_video_elevacion_lateral"
             android:text="@string/boton_video"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenExtencionTricepsOverhead"
-            app:layout_constraintTop_toBottomOf="@+id/repsExtencionTricepsOverhead" />
+            app:layout_constraintStart_toEndOf="@+id/imagenelevacionlateral"
+            app:layout_constraintTop_toBottomOf="@+id/repselevacionlateral" />
 
         <ImageView
             android:id="@+id/imagenCheck"
@@ -463,7 +462,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenExtencionTricepsOverhead" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenelevacionlateral" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
