@@ -240,8 +240,8 @@
     <string name="descripcion_boton_video_ext_triceps_overhead">Video de Ext. Triceps overhead con cuerda polea</string>
 
 
-    <!-- Strings para el fragmento Definicion Jueves Mujer -->
-    <string name="texto_Viernes">Viernes</string>
+    <!-- Strings para el fragmento Abdominales -->
+    <string name="texto_miercoles">Miercoles</string>
     <string name="texto_abdominales">Abdominales</string>
     <string name="texto_rueda_abs_pie">RUEDA ABS DE PIE</string>
     <string name="reps_rueda_abs_pie">3x15 RP</string>

@@ -454,10 +454,11 @@
             app:layout_constraintTop_toBottomOf="@+id/repsPressPalof" />
 
         <ImageButton
-            android:id="@+id/imagenCheck"
+            android:id="@+id/imagenCheckVolumenViernes"
             android:layout_width="92dp"
             android:layout_height="28dp"
             android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
             android:scaleType="fitCenter"
