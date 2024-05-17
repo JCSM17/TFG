@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    tools:context=".jesus.DefinicionLunesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/fragment_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/datos_entrenamiento"
+            layout="@layout/fragment_datos_entrenamiento"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header" />
+
+        <include
+            layout="@layout/fragment_cronometro"
+            android:layout_width="180dp"
+            android:layout_height="205dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento"
+            app:layout_constraintTop_toTopOf="@+id/textoSemanaVolumen" />
+
+        <TextView
+            android:id="@+id/textoSemanaVolumen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_volumen"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento" />
+
+        <TextView
+            android:id="@+id/textoLunes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/texto_lunes"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
+
+        <TextView
+            android:id="@+id/textoEspaldaBicepsCore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/texto_espalda_biceps_core"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoLunes" />
+
+        <TextView
+            android:id="@+id/textoCalentamiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/calentamiento"
+            android:text="@string/texto_calentamiento"
+            android:textColor="#D00000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoEspaldaBicepsCore" />
+
+        <TextView
+            android:id="@+id/textoRemoMancuernaVolumen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="78dp"
+            android:text="@string/texto_remo_mancuerna_volumen"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoCalentamiento" />
+
+        <TextView
+            android:id="@+id/repsRemoMancuernaVolumen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="212dp"
+            android:text="@string/reps_remo_mancuerna_volumen"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toEndOf="@+id/textoRemoMancuernaVolumen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
+
+        <ImageButton
+            android:id="@+id/imagenRemoMancuernaVolumen"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_imagen_remo_mancuerna_volumen"
+            android:scaleType="fitCenter"
+            android:src="@drawable/remo_mancuerna_volumen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoRemoMancuernaVolumen" />
+
+        <Button
+            android:id="@+id/botonVideoRemoMancuernaVolumen"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_remo_mancuerna_volumen"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenRemoMancuernaVolumen"
+            app:layout_constraintTop_toBottomOf="@+id/textoRemoMancuernaVolumen" />
+
+        <View
+            android:id="@+id/separador3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagenRemoMancuernaVolumen" />
+
+        <TextView
+            android:id="@+id/textoJalonUnilateralSentado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_jalon_unilateral_sentado"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador3" />
+
+        <TextView
+            android:id="@+id/repsJalonUnilateralSentado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/reps_jalon_unilateral_sentado"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toEndOf="@+id/textoJalonUnilateralSentado"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador3" />
+
+        <ImageButton
+            android:id="@+id/imagenJalonUnilateralSentado"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_imagen_jalon_unilateral_sentado"
+            android:scaleType="fitCenter"
+            android:src="@drawable/jalon_unilateral_sentado"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoJalonUnilateralSentado" />
+
+
+        <Button
+            android:id="@+id/botonVideoJalonUnilateralSentado"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_jalon_unilateral_sentado"
+            android:text="@string/boton_video"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenRemoNeutroPoleaVolumen"
+            app:layout_constraintTop_toBottomOf="@+id/repsJalonUnilateralSentado" />
+
+        <View
+            android:id="@+id/separador4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagenJalonUnilateralSentado" />
+
+        <TextView
+            android:id="@+id/textoRemoNeutroPoleaVolumen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_remo_neutro_polea_volumen"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador4" />
+
+        <TextView
+            android:id="@+id/repsRemoNeutroPoleaVolumen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/reps_remo_neutro_polea_volumen"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toEndOf="@+id/textoRemoNeutroPoleaVolumen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador4" />
+
+        <ImageButton
+            android:id="@+id/imagenRemoNeutroPoleaVolumen"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_imagen_remo_neutro_polea_volumen"
+            android:scaleType="fitCenter"
+            android:src="@drawable/remo_neutro_polea_volumen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoRemoNeutroPoleaVolumen" />
+
+        <Button
+            android:id="@+id/botonVideoRemoNeutroPoleaVolumen"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_remo_neutro_polea_volumen"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenRemoNeutroPoleaVolumen"
+            app:layout_constraintTop_toBottomOf="@+id/repsRemoNeutroPoleaVolumen" />
+
+        <View
+            android:id="@+id/separador5"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/imagenRemoNeutroPoleaVolumen" />
+
+        <TextView
+            android:id="@+id/textoCurlBicepsBarraZcott"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_curl_biceps_barra_zcoot"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador5" />
+
+        <TextView
+            android:id="@+id/repsCurlBicepsBarraZcott"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/reps_curl_biceps_barra_zcoot"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textoCurlBicepsBarraZcott"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador5" />
+
+        <ImageButton
+            android:id="@+id/imagenCurlBicepsBarraZcott"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_imagen_curl_biceps_barra_zcoot"
+            android:scaleType="fitCenter"
+            android:src="@drawable/curl_biceps_barra_scoot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoCurlBicepsBarraZcott" />
+
+
+        <Button
+            android:id="@+id/buttonVideoCurlBicepsBarraZcott"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_curl_biceps_barra_zcoot"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenCurlBicepsBarraZcott"
+            app:layout_constraintTop_toBottomOf="@+id/repsCurlBicepsBarraZcott" />
+
+        <View
+            android:id="@+id/separador6"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/imagenCurlBicepsBarraZcott" />
+
+        <TextView
+            android:id="@+id/textoCurlPoleaAlta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/texto_curl_polea_alta"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador6" />
+
+
+        <TextView
+            android:id="@+id/repsCurlPoleaAlta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reps_curl_polea_alta"
+            android:textColor="#D00000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textoCurlPoleaAlta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separador6" />
+
+        <ImageButton
+            android:id="@+id/imagenCurlPoleaAlta"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_imagen_curl_polea_alta"
+            android:scaleType="fitCenter"
+            android:src="@drawable/curls_polea_alta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoCurlPoleaAlta" />
+
+        <Button
+            android:id="@+id/botonVideoCurlPoleaAlta"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="88dp"
+            android:contentDescription="@string/descripcion_boton_video_curl_polea_alta"
+            android:text="@string/boton_video"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintStart_toEndOf="@+id/imagenCurlPoleaAlta"
+            app:layout_constraintTop_toBottomOf="@+id/repsCurlPoleaAlta" />
+
+
+
+        <ImageView
+            android:id="@+id/imagenCheck"
+            android:layout_width="92dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="50dp"
+            android:contentDescription="@string/descripcion_imagen_check"
+            android:src="@drawable/check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagenCurlPoleaAlta" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

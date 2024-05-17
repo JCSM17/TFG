@@ -36,7 +36,7 @@ public class AbdominalesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_abdominales, container, false);
+        return inflater.inflate(R.layout.fragment_definicion_miercoles_abdominales, container, false);
     }
 
     // Este método se llama después de que la vista del fragmento se ha creado. Aquí se configuran los listeners de los botones y la animación de la ImageView
