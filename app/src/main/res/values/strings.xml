@@ -328,5 +328,44 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
+    <!-- Strings para el fragmento Volumen Martes -->
+    <string name="texto_martes_volumen">Martes</string>
+    <string name="texto_pierna_hombro_core">PIERNA HOMBRO CORE</string>
+    <string name="texto_sentadilla_con_barra">SENTADILLA CON BARRA</string>
+    <string name="reps_sentadilla_con_barra">3x8 RP</string>
+    <string name="texto_press_militar">PRESS MILITAR</string>
+    <string name="reps_press_militar">3x6 -8</string>
+    <string name="texto_prensa_inclinadaa">PRENSA INCLINADA</string>
+    <string name="reps_prensa_inclinadaa">3x12 -14 +1RS</string>
+    <string name="texto_elevaciones_laterales_mancuerna">ELEVACIONES LATERALES MANCUERNA</string>
+    <string name="reps_elevaciones_laterales_mancuerna">3x12 -15 +2DS</string>
+    <string name="texto_curl_isquios_tumbados">CURL ISQUIOS TUMBADOS</string>
+    <string name="reps_curl_isquios_tumbados">1x13-15 +1XMYOREPS</string>
+    <string name="texto_facepull">FACEPULL</string>
+    <string name="reps_facepull">3x15</string>
+
+
+    <!-- Descripcion para el Fragmento Volumen Descripcion-Imagen Martes -->
+    <string name="descripcion_imagen_sentadilla_con_barra">Descripción de la imagen de Sentadilla con barra</string>
+    <string name="descripcion_imagen_press_militar">Descripción de la imagen de Press Militar</string>
+    <string name="descripcion_imagen_prensa_inclinadaa">Descripción de la imagen de Prensa Inclinada</string>
+    <string name="descripcion_imagen_elevaciones_laterales_mancuerna">Descripción de la imagen de Elevaciones Laterales Mancuerna</string>
+    <string name="descripcion_imagen_curl_isquios_tumbados">Descripción de la imagen de Curl Isquios Tumbados</string>
+    <string name="descripcion_imagen_facepull">Descripción de la imagen de Facepull</string>
+
+
+    <!-- Descripcion para el Fragmento Volumen videos Martes -->
+    <string name="descripcion_boton_video_sentadilla_con_barra">Video de Sentadilla con barra</string>
+    <string name="descripcion_boton_video_press_militar">Video de Press Militar</string>
+    <string name="descripcion_boton_video_prensa_inclinadaa">Video de Prensa Inclinada</string>
+    <string name="descripcion_boton_video_elevaciones_laterales_mancuerna">Video de Elevaciones Laterales Mancuerna</string>
+    <string name="descripcion_boton_video_curl_isquios_tumbados">Video de Curl Isquios Tumbados</string>
+    <string name="descripcion_boton_video_facepull">Video de Facepull</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
 

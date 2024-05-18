@@ -75,5 +75,15 @@
         <item>https://www.youtube.com/shorts/EWsq_UbGqPY</item>
     </string-array>
 
+    <!-- Array con las URLs de la Rutina Volumen Martes -->
+    <string-array name="urls_volumen_martes">
+        <item>https://www.youtube.com/shorts/NHD0vH7XXgw</item>
+        <item>https://www.youtube.com/shorts/48L0oQApm_0</item>
+        <item>https://www.youtube.com/shorts/5w4qHGQ_qls</item>
+        <item>https://www.youtube.com/shorts/DCS8eFTiddM</item>
+        <item>https://www.youtube.com/shorts/x6Ia1qbldZs</item>
+        <item>https://www.youtube.com/shorts/Dl16Lwh3MiA</item>
+    </string-array>
+
     <!-- Define arrays para otras Rutinas si es necesario -->
 </resources>
