@@ -55,15 +55,6 @@
 
     <!-- Rutinas de VOLUMEN-->
 
-    <!-- Array con las URLs de la Rutina Volumen Lunes -->
-    <string-array name="urls_volumen_lunes">
-        <item>https://www.youtube.com/shorts/w2evAoptdvc</item>
-        <item>https://www.youtube.com/shorts/FfAPkQyUFmg</item>
-        <item>https://www.youtube.com/shorts/7AcBBZNSx-I</item>
-        <item>https://www.youtube.com/shorts/jnEgHJYE-Cw</item>
-        <item>https://www.youtube.com/shorts/V-Pvi5guFKk</item>
-    </string-array>
-
     <!-- Array con las URLs de la Rutina Volumen Jueves -->
     <string-array name="urls_volumen_jueves">
         <item>https://www.youtube.com/shorts/i14IBMNQDQQ</item>
