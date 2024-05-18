@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5f5f5">
+    android:layout_marginTop="10dp">
 
     <include
         android:id="@+id/header"
@@ -14,7 +14,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header">
@@ -32,17 +31,12 @@
             <!-- Card for Lunes Volumen -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardLunesVolumen"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#B6AEAE"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                style="@style/CardViewRutinas"
+                android:layout_columnWeight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="326dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -50,7 +44,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Lunes: Espalda y Bíceps"
-                        android:textColor="#BD5D5D"
+                        android:textColor="#A10000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -59,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/texto_remo_mancuerna_volumen"
-                        android:textColor="#FAF6F6"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -67,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_jalon_unilateral_sentado"
-                        android:textColor="#EFEAEA"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -75,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_remo_neutro_polea_volumen"
-                        android:textColor="#F1ECEC"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -83,7 +77,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_curl_biceps_barra_z_scoot"
-                        android:textColor="#F3F3F3"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -91,9 +85,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_curl_polea_alta"
-                        android:textColor="#F3F3F3"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
-
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -101,16 +94,11 @@
             <!-- Card for Martes Volumen -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMartesVolumen"
-                android:layout_width="1dp"
-                android:layout_height="328dp"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#B6AEAE"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                style="@style/CardViewRutinas"
+                android:layout_columnWeight="1">
 
                 <LinearLayout
-                    android:layout_width="170dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="16dp">
@@ -119,7 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Martes: Pierna y Hombro"
-                        android:textColor="#BD5D5D"
+                        android:textColor="#A10000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -128,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/texto_sentadilla_con_barra"
-                        android:textColor="#EDE9E9"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -136,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_press_militar"
-                        android:textColor="#EDE9E9"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -144,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_prensa_inclinadaa"
-                        android:textColor="#EDE9E9"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -152,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_elevaciones_laterales_mancuerna"
-                        android:textColor="#EDE9E9"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -160,7 +148,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_curl_isquios_tumbados"
-                        android:textColor="#EDE9E9"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -177,17 +165,12 @@
             <!-- Card for Miércoles Volumen -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMiercolesVolumen"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#B6AEAE"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                style="@style/CardViewRutinas"
+                android:layout_columnWeight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="334dp"
+                    android:layout_height="329dp"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -195,7 +178,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Miércoles: Abdominales"
-                        android:textColor="#BD5D5D"
+                        android:textColor="#A10000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -204,7 +187,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/texto_rueda_abs_pie"
-                        android:textColor="#EDE9E9"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -231,20 +214,14 @@
                         android:textColor="#FDF6F6"
                         android:textSize="16sp" />
 
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- Card for Jueves Volumen -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardJuevesVolumen"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#B6AEAE"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                style="@style/CardViewRutinas"
+                android:layout_columnWeight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -256,7 +233,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Jueves: Pecho y Tríceps"
-                        android:textColor="#BD5D5D"
+                        android:textColor="#A10000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -265,7 +242,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/texto_press_banca_pesado"
-                        android:textColor="#F1EDED"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -273,7 +250,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_fondos_cerrados"
-                        android:textColor="#F1ECEC"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -281,7 +258,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_cruce_polea"
-                        android:textColor="#ECE6E6"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -289,7 +266,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_press_frances_mancuerna"
-                        android:textColor="#ECE6E6"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -297,7 +274,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_press_frances_mancuerna"
-                        android:textColor="#ECE6E6"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -305,9 +282,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_press_palof"
-                        android:textColor="#ECE6E6"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
-
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -315,13 +291,8 @@
             <!-- Card for Viernes Volumen -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViernesVolumen"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="#B6AEAE"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                style="@style/CardViewRutinas"
+                android:layout_columnWeight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -333,7 +304,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Viernes: Full Body"
-                        android:textColor="#BD5D5D"
+                        android:textColor="#A10000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -342,7 +313,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/texto_dominadas_pronas"
-                        android:textColor="#ECEAEA"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -350,7 +321,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_peso_muerto"
-                        android:textColor="#F1EAEA"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -358,7 +329,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_press_banca_mancuernas"
-                        android:textColor="#EFE7E7"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -366,7 +337,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_laterales_polea"
-                        android:textColor="#EFE8E8"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -374,7 +345,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_curl_mancuernas"
-                        android:textColor="#ECE8E8"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                     <TextView
@@ -382,7 +353,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_ext_polea"
-                        android:textColor="#E4DEDE"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -396,7 +367,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:background="@drawable/button_selector"
         android:padding="12dp"
         android:text="Menu Principal"
         android:textColor="#131313"
