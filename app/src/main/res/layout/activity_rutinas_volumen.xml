@@ -19,7 +19,9 @@
         android:columnCount="2"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header">
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.983"
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardLunesVolumen"

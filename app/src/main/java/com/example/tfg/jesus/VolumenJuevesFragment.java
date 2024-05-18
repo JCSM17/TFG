@@ -1,5 +1,6 @@
 package com.example.tfg.jesus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +10,13 @@ import android.widget.ImageButton;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.os.Handler;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.jc.MenuActivity;
 import com.example.tfg.jc.YoutubeUtils;
 
 
@@ -58,7 +61,13 @@ public class VolumenJuevesFragment extends Fragment {
             button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
         }
 
-        // Array de lista de IDs de las ImageView a las que quieres aplicar la animación
+        ImageButton imagenCheckVolumenJueves = view.findViewById(R.id.imagenCheckVolumenJueves);
+        imagenCheckVolumenJueves.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MenuActivity.class);
+            startActivity(intent);
+        });
+
+// Array de lista de IDs de las ImageView a las que quieres aplicar la animación
         int[] imageButton_ids_volumen_jueves = {
                 R.id.imagenPBP,
                 R.id.imagenFondos,
@@ -68,7 +77,7 @@ public class VolumenJuevesFragment extends Fragment {
                 R.id.imagenPalof
         };
 
-        // Configurar un listener para cada ImageButton. Cuando se hace clic en un ImageButton, se inicia una animación de rotación que dura 3 segundos. Después de 3 segundos, la animación se detiene
+// Configurar un listener para cada ImageButton. Cuando se hace clic en un ImageButton, se inicia una animación de rotación que dura 3 segundos. Después de 3 segundos, la animación se detiene
         for (int id : imageButton_ids_volumen_jueves) {
             ImageButton imageButton = view.findViewById(id);
             imageButton.setOnClickListener(v -> {

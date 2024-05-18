@@ -171,7 +171,6 @@
 
 
     <!-- Strings para el fragmento Definicion Jueves Mujer -->
-    <string name="texto_jueves">Jueves</string>
     <string name="texto_empuje_pierna">EMPUJE + PIERNA</string>
     <string name="texto_press_banca_plano_barra">PRESS BANCA PLANO CON BARRA</string>
     <string name="reps_press_banca_plano_barra">3x6 -8</string>
@@ -275,7 +274,7 @@
     <string name="reps_jalon_unilateral_sentado">2x12-14 (+1RP)</string>
     <string name="texto_remo_neutro_polea_volumen">REMO NEUTRO EN POLEA</string>
     <string name="reps_remo_neutro_polea_volumen">3x10 -12</string>
-    <string name="texto_curl_biceps_barra_zcoot">CURL BICEPS BARRA ZCOOT</string>
+    <string name="texto_curl_biceps_barra_z_scoot">CURL BICEPS BARRA Z SCOOT</string>
     <string name="reps_curl_biceps_barra_zcoot">3x8-10</string>
     <string name="texto_curl_polea_alta">CURL EN POLEA ALTA</string>
     <string name="reps_curl_polea_alta">3x8-10</string>

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -40,7 +39,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textViewSuscripMensual"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="3dp"
@@ -69,7 +68,7 @@
         app:layout_constraintBottom_toTopOf="@+id/susplmens_lastname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSuscripMensual"
         tools:ignore="DuplicateClickableBoundsCheck,MissingConstraints,TouchTargetSizeCheck" />
 
     <EditText
@@ -209,6 +208,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/susplmens_cvc"
         tools:ignore="MissingConstraints" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

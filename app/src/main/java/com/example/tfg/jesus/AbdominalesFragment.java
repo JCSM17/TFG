@@ -1,5 +1,6 @@
 package com.example.tfg.jesus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -9,11 +10,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.jc.MenuActivity;
 import com.example.tfg.jc.YoutubeUtils;
 
 public class AbdominalesFragment extends Fragment {
@@ -53,6 +56,12 @@ public class AbdominalesFragment extends Fragment {
             int finalI = i; // Variable final para ser usada en la lambda
             button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
         }
+
+        ImageButton imagenCheckAbdominales = view.findViewById(R.id.imagenCheckAbdominales);
+        imagenCheckAbdominales.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MenuActivity.class);
+            startActivity(intent);
+        });
 
         // Array de lista de IDs de las ImageButton a las que quieres aplicar la animación
         int[] imageButton_ids_abdominales = {

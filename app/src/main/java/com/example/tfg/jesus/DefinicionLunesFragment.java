@@ -1,5 +1,6 @@
 package com.example.tfg.jesus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +10,13 @@ import android.widget.ImageButton;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.os.Handler;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.jc.MenuActivity;
 import com.example.tfg.jc.YoutubeUtils;
 
 import java.util.HashMap;
@@ -56,6 +59,13 @@ public class DefinicionLunesFragment extends Fragment {
             int finalI = i; // Variable final para ser usada en la lambda
             button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
         }
+
+        ImageButton imagenCheckDefinicionLunes = view.findViewById(R.id.imagenCheckDefinicionLunes);
+        imagenCheckDefinicionLunes.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MenuActivity.class);
+            startActivity(intent);
+        });
+
 
         // Array de lista de IDs de las ImageView a las que quieres aplicar la animación
         int[] imageButton_ids_definicion_lunes = {

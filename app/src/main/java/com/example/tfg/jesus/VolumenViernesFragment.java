@@ -1,5 +1,6 @@
 package com.example.tfg.jesus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.jc.MenuActivity;
 import com.example.tfg.jc.YoutubeUtils;
 
 public class VolumenViernesFragment extends Fragment {
@@ -58,6 +60,11 @@ public class VolumenViernesFragment extends Fragment {
             button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
         }
 
+        ImageButton imagenCheckVolumenViernes = view.findViewById(R.id.imagenCheckVolumenViernes);
+        imagenCheckVolumenViernes.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MenuActivity.class);
+            startActivity(intent);
+        });
 
         //REPASA LOS IDS DE LAS IMAGENES
         // Array de lista de IDs de las ImageView a las que quieres aplicar la animación
