@@ -156,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/texto_facepull"
-                        android:textColor="#EDE9E9"
+                        android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
                 </LinearLayout>

@@ -96,7 +96,6 @@
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -105,7 +104,6 @@
                 android:id="@+id/cardMartesDefinicion"
                 style="@style/CardViewRutinas"
                 android:layout_columnWeight="1">
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -224,7 +222,6 @@
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
 
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -233,7 +230,6 @@
                 android:id="@+id/cardJuevesDefinicion"
                 style="@style/CardViewRutinas"
                 android:layout_columnWeight="1">
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -296,7 +292,6 @@
                         android:text="@string/texto_elevacion_lateral"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />
-
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
