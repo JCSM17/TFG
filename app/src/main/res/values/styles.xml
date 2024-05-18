@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Define aquí los atributos específicos del tema -->
     </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.Image.Circle.WithBorder" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+        <item name="strokeColor">#000000</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
 </resources>

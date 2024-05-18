@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Array con las URLs de la Rutina Abdominales -->
+    <string-array name="urls_abdominales">
+        <item>https://www.youtube.com/shorts/pTOsnzYMiXc</item>
+        <item>https://www.youtube.com/shorts/BUEFmi6qPg0</item>
+        <item>https://www.youtube.com/shorts/TojWydRDiHY</item>
+        <item>https://www.youtube.com/shorts/xMzePXdnx7s</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Definicion Lunes -->
+    <string-array name="urls_definicion_lunes">
+        <item>https://www.youtube.com/shorts/LerajxEGimU</item>
+        <item>https://www.youtube.com/shorts/y8PqAF9gYH8</item>
+        <item>https://www.youtube.com/shorts/k3Bz0Bfpf7Q</item>
+        <item>https://www.youtube.com/shorts/YR4Ytkhtihs</item>
+        <item>https://www.youtube.com/shorts/kDIyUGVPKXE</item>
+        <item>https://www.youtube.com/shorts/EWsq_UbGqPY</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Definicion Martes -->
+    <string-array name="urls_definicion_martes">
+        <item>https://www.youtube.com/shorts/yaOyBuco_mY</item>
+        <item>https://www.youtube.com/shorts/5QDewQv5uIE</item>
+        <item>https://www.youtube.com/shorts/JcNt92ufIzM</item>
+        <item>https://www.youtube.com/shorts/nP9KArjEDeU</item>
+        <item>https://www.youtube.com/shorts/LCOkqxcr-7I</item>
+        <item>https://www.youtube.com/shorts/AqB70P2Yt4w</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Definicion Jueves -->
+    <string-array name="urls_definicion_jueves">
+        <item>https://www.youtube.com/shorts/i14IBMNQDQQ</item>
+        <item>https://www.youtube.com/shorts/ik7kBOHKvvs</item>
+        <item>https://www.youtube.com/shorts/7R0P0dVbKWk</item>
+        <item>https://www.youtube.com/shorts/fPY39mb4_GA</item>
+        <item>https://www.youtube.com/shorts/nP9KArjEDeU</item>
+        <item>https://www.youtube.com/shorts/DCS8eFTiddM</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Definicion Viernes -->
+    <string-array name="urls_definicion_viernes">
+        <item>https://www.youtube.com/shorts/3EhkrUEEPOg</item>
+        <item>https://www.youtube.com/shorts/40Iar2hiApU</item>
+        <item>https://www.youtube.com/shorts/5w4qHGQ_qls</item>
+        <item>https://www.youtube.com/shorts/35_gCUE3SmM</item>
+        <item>https://www.youtube.com/shorts/Y-faAKz2ebw</item>
+        <item>https://www.youtube.com/shorts/BAOF9vEVioo</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Volumen Jueves -->
+    <string-array name="urls_volumen_jueves">
+        <item>https://www.youtube.com/shorts/i14IBMNQDQQ</item>
+        <item>https://www.youtube.com/shorts/lC7lLkjDZ_k</item>
+        <item>https://www.youtube.com/shorts/wHKYSABOpGY</item>
+        <item>https://www.youtube.com/shorts/DFFD1LU_iXw</item>
+        <item>https://www.youtube.com/shorts/JVc1KAB_HLY</item>
+        <item>https://www.youtube.com/shorts/r3fM413P3W0</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Volumen Viernes -->
+    <string-array name="urls_volumen_viernes">
+        <item>https://www.youtube.com/shorts/w9QEAH6ANt8</item>
+        <item>https://www.youtube.com/shorts/3EhkrUEEPOg</item>
+        <item>https://www.youtube.com/shorts/48L0oQApm_0</item>
+        <item>https://www.youtube.com/shorts/AqB70P2Yt4w</item>
+        <item>https://www.youtube.com/shorts/jktjmrPmOrs</item>
+        <item>https://www.youtube.com/shorts/EWsq_UbGqPY</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Volumen Martes -->
+    <string-array name="urls_volumen_martes">
+        <item>https://www.youtube.com/shorts/NHD0vH7XXgw</item>
+        <item>https://www.youtube.com/shorts/48L0oQApm_0</item>
+        <item>https://www.youtube.com/shorts/5w4qHGQ_qls</item>
+        <item>https://www.youtube.com/shorts/DCS8eFTiddM</item>
+        <item>https://www.youtube.com/shorts/x6Ia1qbldZs</item>
+        <item>https://www.youtube.com/shorts/Dl16Lwh3MiA</item>
+    </string-array>
+
+    <!-- Define arrays para otras Rutinas si es necesario -->
+</resources>

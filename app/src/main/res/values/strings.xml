@@ -1,12 +1,310 @@
 <resources>
     <string name="app_name">JJJFIT</string>
 
+    <!-- Strings para el IntroObjetivoFragment -->
     <string-array name="gender_array">
         <item>Hombre</item>
         <item>Mujer</item>
         <item>Otro</item>
     </string-array>
+
+    <!-- Strings para el Encabezado de TODAS las Rutinas  -->
+    <string name="dificultad">Ta dificil</string>
+    <string name="dieciseis">16</string>
+    <string name="ochenta">80</string>
+    <string name="treinta">30</string>
+    <string name="calentamiento">Calienta Panza</string>
+    <string name="texto_recomendado">Recomendado</string>
+    <string name="texto_objetivo">Objetivo:</string>
+    <string name="texto_dificultad">Dificultad:</string>
+    <string name="texto_semanas">Semanas:</string>
+    <string name="texto_sesiones">Sesiones:</string>
+    <string name="texto_calentamiento">Calentamiento</string>
+    <string name="descripcion_imagen_check">Otro éxito</string>
+
+    <!-- Strings para el fragmento DEFINICION -->
+    <string name="texto_definicion">Definicion</string>
+
+    <!-- Strings para el fragmento VOLUMEN -->
+    <string name="texto_volumen">Volumen:</string>
+
+    <!-- Strings para el fragmento Volumen Jueves -->
+    <string name="texto_semana_volumen">Semana 1 - Volumen</string>
+    <string name="texto_jueves">Jueves</string>
+    <string name="texto_ptc">PECHO TRICEPS CORE</string>
+    <string name="texto_press_banca_pesado">PRESS BANCA PESADO</string>
+    <string name="reps_press_banca">3x4 RP</string>
+    <string name="texto_fondos_cerrados">FONDOS CERRADOS EN PARALELAS</string>
+    <string name="reps_fondos">3x6-8 + 2DS</string>
+    <string name="texto_cruce_polea">CRUCE DE POLEA BAJA</string>
+    <string name="reps_polea_baja">2x12-15 + 1xFALLO</string>
+    <string name="texto_press_frances_mancuerna">PRESS FRANCÉS MANCUERNA</string>
+    <string name="reps_press_frances">3x10-12</string>
+    <string name="texto_ext_triceps">EXT. TRICEPS EN POLEA</string>
+    <string name="reps_extension_triceps">3x12 + 1XMYOREPS</string>
+    <string name="texto_press_palof">PRESS PALOF</string>
+    <string name="reps_press_palof">3x10</string>
+
+    <string name="boton_video">Video</string>
+    <string name="descripcion_boton_video_press_banca">Video de Press Banca</string>
+    <string name="descripcion_boton_video_fondos">Video de Fondos</string>
+    <string name="descripcion_boton_video_polea">Video de Polea</string>
+    <string name="descripcion_boton_video_frances_mancuerna">Video de Press Francés con Mancuerna</string>
+    <string name="descripcion_boton_video_ext_triceps">Video de Extensión de Tríceps en Polea</string>
+    <string name="descripcion_boton_video_press_palof">Video de Press Palof</string>
+    <string name="descripcion_image_press_frances">Descripción de la imagen de Press Francés</string>
+    <string name="descripcion_icono_pesas">Descripción del icono de pesas</string>
+    <string name="descripcion_icono_bulldog">Descripción del icono de bulldog</string>
+    <string name="descripcion_icono_definicion">Descripción del icono de definición</string>
+    <string name="descripcion_icono_nivel">Descripción del icono de nivel</string>
+    <string name="descripcion_imagen_pbp">Descripción de la imagen PBP</string>
+    <string name="descripcion_imagen_fondos">Descripción de la imagen de fondos</string>
+    <string name="descripcion_imagen_cruces">Descripción de la imagen de cruces</string>
+    <string name="descripcion_imagen_ext_triceps">Descripción de la imagen de extensión de tríceps</string>
+    <string name="descripcion_imagen_palof">Descripción de la imagen de Palof</string>
+    <string name="descripcion_texto_press_palof">Texto de Press Palof</string>
+    <string name="descripcion_reps_press_palof">3x10</string>
+
+    <!-- Strings para el Fragmento Volumen Viernes -->
+    <string name="texto_viernes">Viernes</string>
+    <string name="texto_ptc2">FULLBODY</string>
+    <string name="texto_dominadas_pronas">DOMINADAS PRONAS</string>
+    <string name="reps_dominadas">3x10-15 </string>
+    <string name="texto_peso_muerto">PESO MUERTO</string>
+    <string name="reps_peso">3x5 - 7</string>
+    <string name="texto_press_banca_mancuernas">PRESS BANCA MANCUERNAS</string>
+    <string name="reps_press_banca_m">3x8-10 + 1RP</string>
+    <string name="texto_laterales_polea">ELEVACIÓNES LATERALES EN POLEA</string>
+    <string name="reps_laterales_p">3x12-14 + 2DS</string>
+    <string name="texto_curl_mancuernas">CURL INCLINADO MANCUERNAS</string>
+    <string name="reps_curl_m">2x12 + 1XMYOREPS</string>
+    <string name="texto_ext_polea">EXT.TRICEPS EN POLEA</string>
+    <string name="reps_extencion_polea">2x15 + 1XMYOREPS</string>
+
+
+    <!-- Descripcion para el Fragmento Volumen button Viernes -->
+    <string name="descripcion_boton_video_dominadas_pronas">Video de Dominadas Pronas</string>
+    <string name="descripcion_boton_video_peso_muerto">Video de peso muerto</string>
+    <string name="descripcion_boton_video_press">Video press banca mancuernas</string>
+    <string name="descripcion_boton_video_elevacion_polea">Video de Elevacion Laterales en polea</string>
+    <string name="descripcion_boton_video_curl_m">Video de curl inclinado con mancuernas</string>
+    <string name="descripcion_boton_video_extencion_triceps_polea">Video de Extencion de tricepes polea</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Viernes Hombre-->
+    <string name="descripcion_imagen_peso_muerto">Descripción de la imagen de peso muerto</string>
+    <string name="descripcion_imagen_polea">Descripción de la imagen Polea</string>
+    <string name="descripcion_imagen_dominadas_p">Descripción de la imagen de dominas pronas</string>
+    <string name="descripcion_imagen_pressm">Descripción de la imagen de press banca mancuernas</string>
+    <string name="descripcion_imagen_curl_m">Descripción de la imagen de curl inclinado mancuernas</string>
+    <string name="descripcion_imagen_triceps">Descripción de la imagen de extencion de triceps polea</string>
+    <string name="descripcion_texto_extencion_trcieps_polea">Texto de extencion triceps polea</string>
+
+
+    <!-- Strings para el fragmento Definicion Lunes Mujer -->
+    <string name="texto_semana_definicion">Semana 1 - Definición</string>
+    <string name="texto_lunes">Lunes</string>
+    <string name="texto_pierna">TIRON + PIERNA</string>
+    <string name="texto_dominadas">DOMINADAS (PUEDES LASTRARTE)</string>
+    <string name="reps_dominadas2">3x5 -7</string>
+    <string name="texto_remo_mancuerna">REMO MANCUERNA (APOYADO BANCO)</string>
+    <string name="reps_remo_mancuerna">3x8 -10</string>
+    <string name="texto_peso_muerto_rumano">PESO MUERTO RUMANO</string>
+    <string name="reps_peso_muerto_rumano">3x8 -10</string>
+    <string name="texto_jalon_prono_pecho">JALÓN PRONO AL PECHO</string>
+    <string name="reps_jalon_prono_pecho">3x10-12</string>
+    <string name="texto_face_pull">FACEPULL</string>
+    <string name="reps_press_facepull">2x13-15</string>
+    <string name="texto_curl_barra">CURL BARRA</string>
+    <string name="reps_curl_barra">3x8-10</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Lunes Mujer -->
+    <string name="descripcion_imagen_dominadas">Descripción de la imagen de dominas</string>
+    <string name="descripcion_imagen_remo_mancuernas">Descripción de la imagen de remo mancuernas</string>
+    <string name="descripcion_imagen_peso_muerto_rumano">Descripción de la imagen de peso muerto rumano</string>
+    <string name="descripcion_imagen_jalon_prono_pecho">Descripción de la imagen de jalon prono al pecho</string>
+    <string name="descripcion_imagen_face_pull">Descripción de la imagen de FacePull</string>
+    <string name="descripcion_imagen_curl_barra">Descripción de la imagen de Curl Barra</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion videos Lunes Mujer -->
+    <string name="descripcion_boton_video_dominadas">Video de Dominadas</string>
+    <string name="descripcion_boton_video_remo_mancuernas">Video de Remo Mancuernas</string>
+    <string name="descripcion_boton_video_peso_muerto_rumano">Video de Peso Muerto Rumano</string>
+    <string name="descripcion_boton_video_jalon_prono_pecho">Video de Jalon Prono al Pecho</string>
+    <string name="descripcion_boton_video_FacePull">Video de FacePull</string>
+    <string name="descripcion_boton_video_curl_barra">Video de Curl Barra</string>
+
+
+    <!-- Strings para el fragmento Definicion Martes Mujer -->
+    <string name="texto_martes">Martes</string>
+    <string name="texto_torso">TORSO</string>
+    <string name="texto_press_militar_barra">PRESS MILITAR BARRA</string>
+    <string name="reps_press_militar_barra">3x8 -10</string>
+    <string name="texto_jalon_neutro_pecho">JALÓN NEUTRO AL PECHO</string>
+    <string name="reps_jalon_neutro_pecho">3x10-12</string>
+    <string name="texto_peso_press_plano_mancuerna">PRESS PLANO MANCUERNAS</string>
+    <string name="reps_press_plano_mancuerna">3x10 -12</string>
+    <string name="texto_cruce_polea_baja_unilateral">CRUCE POLEA BAJA UNILATERAL</string>
+    <string name="reps_cruce_polea_baja_unilateral">3x15-20</string>
+    <string name="texto_remo_neutro_polea">REMO NEUTRO EN POLEA</string>
+    <string name="reps_remo_neutro_polea">3x12-14</string>
+    <string name="texto_laterales_polea_torso">ELEV.LATERALES EN POLEA TORSO INCLINADO</string>
+    <string name="reps_laterales_polea_torso">3x12-14</string>
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Martes Mujer -->
+    <string name="descripcion_imagen_press_militar_barra">Descripción de la imagen de Press Militar Barra</string>
+    <string name="descripcion_imagen_jalon_neutro_pecho">Descripción de la imagen de Jalon Neutro al Pecho</string>
+    <string name="descripcion_imagen_press_plano_mancuernas">Descripción de la imagen de Press Plano Mancuernas</string>
+    <string name="descripcion_imagen_cruce_polea_baja_unilateral">Descripción de la imagen de Cruce Polea Baja Unilateral</string>
+    <string name="descripcion_imagen_remo_neutro_polea">Descripción de la imagen de Remo Neutro en Polea</string>
+    <string name="descripcion_imagen_laterales_polea_torso">Descripción de la imagen de Laterales Polea Torso</string>
+
+    <!-- Descripcion para el Fragmento Definicion videos Martes Mujer -->
+    <string name="descripcion_boton_video_press_militar_barra">Video de Press Militar Barra</string>
+    <string name="descripcion_boton_video_jalon_neutro_pecho">Video de Jalon Neutro al Pecho</string>
+    <string name="descripcion_boton_video_press_plano_mancuernas">Video de Press Plano Mancuernas</string>
+    <string name="descripcion_boton_video_cruce_polea_baja_unilateral">Video de Cruce Polea Baja Unilateral</string>
+    <string name="descripcion_boton_video_remo_neutro_polea">Video de Remo Neutro Polea</string>
+    <string name="descripcion_boton_video_laterales_polea_torso">Video de Laterales Polea Torso</string>
+
+
+    <!-- Strings para el fragmento Definicion Jueves Mujer -->
+    <string name="texto_jueves">Jueves</string>
+    <string name="texto_empuje_pierna">EMPUJE + PIERNA</string>
+    <string name="texto_press_banca_plano_barra">PRESS BANCA PLANO CON BARRA</string>
+    <string name="reps_press_banca_plano_barra">3x6 -8</string>
+    <string name="texto_sentadilla">SENTADILLA</string>
+    <string name="reps_sentadilla">3x8-10</string>
+    <string name="texto_press_militar_mancuerna">PRESS MILITAR MANCUERNA</string>
+    <string name="reps_press_militar_mancuerna">3x10 -12</string>
+    <string name="texto_press_inclinado_mancuerna">PRESS INCLINADO MANCUERNAS</string>
+    <string name="reps_press_inclinado_mancuerna">2x10-12</string>
+    <string name="texto_cruce_polea_baja">CRUCE POLEA BAJA</string>
+    <string name="reps_cruce_polea_baja">2x3-15</string>
+    <string name="texto_elevacion_lateral">ELEVACION LATERAL</string>
+    <string name="reps_elevacion_lateral">3x15-17</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Miercoles Mujer -->
+    <string name="descripcion_imagen_press_banca_plano_barra">Descripción de la imagen de Press Plano con Barra</string>
+    <string name="descripcion_imagen_sentadilla">Descripción de la imagen de Sentadilla</string>
+    <string name="descripcion_imagen_press_militar_mancuerna">Descripción de la imagen de Press Militar Mancuerna</string>
+    <string name="descripcion_imagen_press_inclinado_mancuerna">Descripción de la imagen de Press Inclinado Mancuernas</string>
+    <string name="descripcion_imagen_cruce_polea_baja">Descripción de la imagen de Cruce Polea Baja</string>
+    <string name="descripcion_imagen_elevacion_lateral">Descripción de la imagen de Elevacion Lateral</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion videos Miercoles Mujer -->
+    <string name="descripcion_boton_video_press_banca_plano_barra">Video de Press Plano Barra</string>
+    <string name="descripcion_boton_video_sentadilla">Video de Sentadilla</string>
+    <string name="descripcion_boton_video_press_militar_mancuerna">Video de Press Militar Mancuerna</string>
+    <string name="descripcion_boton_video_press_inclinado_mancuerna">Video de Press Inclinado Mancuerna</string>
+    <string name="descripcion_boton_video_cruce_polea_baja">Video de Cruce Polea Baja</string>
+    <string name="descripcion_boton_video_elevacion_lateral">Video de ElevacionLateral</string>
+
+
+    <!-- Strings para el fragmento Definicion Viernes Mujer -->
+    <string name="texto_Vierness">Viernes</string>
+    <string name="texto_pierna_brazo_core">PIERNA BRAZO CORE</string>
+    <string name="texto_peso_muerto_viernes">PESO MUERTO</string>
+    <string name="reps_peso_muerto_viernes">3x5 7</string>
+    <string name="texto_zancadas_estaticas_multipower">ZANCADAS ESTÁTICAS MULTIPOWER</string>
+    <string name="reps_zancadas_estaticas_multipower">3x10-12</string>
+    <string name="texto_prensa_inclinada">PRENSA INCLINADA</string>
+    <string name="reps_prensa_inclinada">3x12 -14</string>
+    <string name="texto_patada_triceps_polea">PATADA DE TRICEPS POLEA</string>
+    <string name="reps_patada_triceps_polea">2x15-20</string>
+    <string name="texto_curl_biceps_alterno_sentado_mancuernas">CURL BICEPS ALTERNO SENTADO MANCUER.</string>
+    <string name="reps_curl_biceps_alterno_sentado_mancuernas">3x8-10</string>
+    <string name="texto_ext_triceps_overhead">EXT. TRICEPS OVERHEAD CON CUERDA POLEA</string>
+    <string name="reps_ext_triceps_overhead">3x12-14</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Jueves Mujer -->
+    <string name="descripcion_imagen_peso_muerto_viernes">Descripción de la imagen de PESO MUERTO</string>
+    <string name="descripcion_imagen_zancadas_estaticas_multipower">Descripción de la imagen Zancadas Estaticas Multipower</string>
+    <string name="descripcion_imagen_prensa_inclinada">Descripción de la imagen de Prensa Inclinada</string>
+    <string name="descripcion_imagen_patada_triceps_polea">Descripción de la imagen de Patada de Triceps Polea</string>
+    <string name="descripcion_imagen_curl_biceps_alterno_sentado_mancuernas">Descripción de la imagen de CURL BICEPS ALTERNO SENTADO MANCUER</string>
+    <string name="descripcion_imagen_ext_triceps_overhead">Descripción de la imagen de Ext. Triceps overhead con cuerda polea</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion videos Jueves Mujer -->
+    <string name="descripcion_boton_video_peso_muerto_viernes">Video de Peso Muerto</string>
+    <string name="descripcion_boton_video_zancadas_estaticas_multipower">Video de Zancadas Estaticas Multipower</string>
+    <string name="descripcion_boton_video_prensa_inclinada">Video de Prensa Inclinada</string>
+    <string name="descripcion_boton_video_patada_triceps_polea">Video de Patada de Triceps Polea</string>
+    <string name="descripcion_boton_video_curl_biceps_alterno_sentado_mancuernas">Video de Curl Biceps Alterno Sentado Mancuer</string>
+    <string name="descripcion_boton_video_ext_triceps_overhead">Video de Ext. Triceps overhead con cuerda polea</string>
+
+
+    <!-- Strings para el fragmento Definicion Jueves Mujer -->
+    <string name="texto_Viernes">Viernes</string>
+    <string name="texto_abdominales">Abdominales</string>
+    <string name="texto_rueda_abs_pie">RUEDA ABS DE PIE</string>
+    <string name="reps_rueda_abs_pie">3x15 RP</string>
+    <string name="texto_dragon_flag">DRAGON FLAG</string>
+    <string name="reps_dragon_flag">3x10 RP</string>
+    <string name="texto_stir_the_pot">STIR THE POT</string>
+    <string name="reps_stir_the_pot">3x40 RP</string>
+    <string name="texto_giros_rusos_barra">GIROS RUSOS BARRA</string>
+    <string name="reps_giros_rusos_barra">2x20 RP</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Jueves Mujer -->
+    <string name="descripcion_imagen_rueda_abs_pie">Descripción de la imagen de Rueda ABS de Pie</string>
+    <string name="descripcion_imagen_dragon_flag">Descripción de la imagen Dragon Flag</string>
+    <string name="descripcion_imagen_stir_the_pot">Descripción de la imagen stir the pot</string>
+    <string name="descripcion_imagen_giros_rusos_barra">Descripción de la imagen de Giros Rusos Barra</string>
+
+
+    <!-- Descripcion para el Fragmento Definicion videos Jueves Mujer -->
+    <string name="descripcion_boton_video_rueda_abs_pie">Video de Rueda ABS de Pie</string>
+    <string name="descripcion_boton_video_dragon_flag">Video de Dragon Flag</string>
+    <string name="descripcion_boton_video_stir_the_pot">Video de Stir the Pot</string>
+    <string name="descripcion_boton_video_giros_rusos_barra">Video de Patada de Giros Rusos Barra</string>
+
+
+    <!-- Strings para el fragmento Volumen Martes -->
+    <string name="texto_martes_volumen">Martes</string>
+    <string name="texto_pierna_hombro_core">PIERNA HOMBRO CORE</string>
+    <string name="texto_sentadilla_con_barra">SENTADILLA CON BARRA</string>
+    <string name="reps_sentadilla_con_barra">3x8 RP</string>
+    <string name="texto_press_militar">PRESS MILITAR</string>
+    <string name="reps_press_militar">3x6 -8</string>
+    <string name="texto_prensa_inclinadaa">PRENSA INCLINADA</string>
+    <string name="reps_prensa_inclinadaa">3x12 -14 +1RS</string>
+    <string name="texto_elevaciones_laterales_mancuerna">ELEVACIONES LATERALES MANCUERNA</string>
+    <string name="reps_elevaciones_laterales_mancuerna">3x12 -15 +2DS</string>
+    <string name="texto_curl_isquios_tumbados">CURL ISQUIOS TUMBADOS</string>
+    <string name="reps_curl_isquios_tumbados">1x13-15 +1XMYOREPS</string>
+    <string name="texto_facepull">FACEPULL</string>
+    <string name="reps_facepull">3x15</string>
+
+
+    <!-- Descripcion para el Fragmento Volumen Descripcion-Imagen Martes -->
+    <string name="descripcion_imagen_sentadilla_con_barra">Descripción de la imagen de Sentadilla con barra</string>
+    <string name="descripcion_imagen_press_militar">Descripción de la imagen de Press Militar</string>
+    <string name="descripcion_imagen_prensa_inclinadaa">Descripción de la imagen de Prensa Inclinada</string>
+    <string name="descripcion_imagen_elevaciones_laterales_mancuerna">Descripción de la imagen de Elevaciones Laterales Mancuerna</string>
+    <string name="descripcion_imagen_curl_isquios_tumbados">Descripción de la imagen de Curl Isquios Tumbados</string>
+    <string name="descripcion_imagen_facepull">Descripción de la imagen de Facepull</string>
+
+
+    <!-- Descripcion para el Fragmento Volumen videos Martes -->
+    <string name="descripcion_boton_video_sentadilla_con_barra">Video de Sentadilla con barra</string>
+    <string name="descripcion_boton_video_press_militar">Video de Press Militar</string>
+    <string name="descripcion_boton_video_prensa_inclinadaa">Video de Prensa Inclinada</string>
+    <string name="descripcion_boton_video_elevaciones_laterales_mancuerna">Video de Elevaciones Laterales Mancuerna</string>
+    <string name="descripcion_boton_video_curl_isquios_tumbados">Video de Curl Isquios Tumbados</string>
+    <string name="descripcion_boton_video_facepull">Video de Facepull</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
 </resources>
+

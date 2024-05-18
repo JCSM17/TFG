@@ -18,9 +18,9 @@ public class TiposCuerpoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tipos_cuerpo, container, false);
 
-        RadioButton bodyType1Button = view.findViewById(R.id.bodyType1RadioButton);
-        RadioButton bodyType2Button = view.findViewById(R.id.bodyType2RadioButton);
-        RadioButton bodyType3Button = view.findViewById(R.id.bodyType3RadioButton);
+        RadioButton bodyType1Button = view.findViewById(R.id.botonTipoEctomorfo);
+        RadioButton bodyType2Button = view.findViewById(R.id.botonTipoMesomorfo);
+        RadioButton bodyType3Button = view.findViewById(R.id.botonTipoEndomorfo);
 
         bodyType1Button.setOnClickListener(new View.OnClickListener() {
             @Override
