@@ -55,6 +55,24 @@
 
     <!-- Rutinas de VOLUMEN-->
 
+    <string-array name="urls_volumen_lunes">
+        <item>https://www.youtube.com/shorts/w2evAoptdvc</item>
+        <item>https://www.youtube.com/shorts/FfAPkQyUFmg</item>
+        <item>https://www.youtube.com/shorts/7AcBBZNSx-I</item>
+        <item>https://www.youtube.com/shorts/jnEgHJYE-Cw</item>
+        <item>https://www.youtube.com/shorts/V-Pvi5guFKk</item>
+    </string-array>
+
+    <!-- Array con las URLs de la Rutina Volumen Martes -->
+    <string-array name="urls_volumen_martes">
+        <item>https://www.youtube.com/shorts/NHD0vH7XXgw</item>
+        <item>https://www.youtube.com/shorts/48L0oQApm_0</item>
+        <item>https://www.youtube.com/shorts/5w4qHGQ_qls</item>
+        <item>https://www.youtube.com/shorts/DCS8eFTiddM</item>
+        <item>https://www.youtube.com/shorts/x6Ia1qbldZs</item>
+        <item>https://www.youtube.com/shorts/Dl16Lwh3MiA</item>
+    </string-array>
+
     <!-- Array con las URLs de la Rutina Volumen Jueves -->
     <string-array name="urls_volumen_jueves">
         <item>https://www.youtube.com/shorts/i14IBMNQDQQ</item>
@@ -73,16 +91,6 @@
         <item>https://www.youtube.com/shorts/AqB70P2Yt4w</item>
         <item>https://www.youtube.com/shorts/jktjmrPmOrs</item>
         <item>https://www.youtube.com/shorts/EWsq_UbGqPY</item>
-    </string-array>
-
-    <!-- Array con las URLs de la Rutina Volumen Martes -->
-    <string-array name="urls_volumen_martes">
-        <item>https://www.youtube.com/shorts/NHD0vH7XXgw</item>
-        <item>https://www.youtube.com/shorts/48L0oQApm_0</item>
-        <item>https://www.youtube.com/shorts/5w4qHGQ_qls</item>
-        <item>https://www.youtube.com/shorts/DCS8eFTiddM</item>
-        <item>https://www.youtube.com/shorts/x6Ia1qbldZs</item>
-        <item>https://www.youtube.com/shorts/Dl16Lwh3MiA</item>
     </string-array>
 
     <!-- Define arrays para otras Rutinas si es necesario -->
