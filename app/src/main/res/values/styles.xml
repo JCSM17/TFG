@@ -13,7 +13,7 @@
     </style>
 
     <style name="MyCardViewStyle">
-        <item name="cardBackgroundColor">#990027FF</item>
+        <item name="cardBackgroundColor">#FFA500</item>
         <item name="cardCornerRadius">8dp</item>
     </style>
 
