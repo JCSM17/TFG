@@ -10,48 +10,35 @@
         android:id="@+id/TextViewJJJ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="91dp"
-        android:baselineAligned="false"
+        android:layout_marginStart="114dp"
         android:text="JJJ"
         android:textColor="#FF0000"
-        android:textSize="65sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewBienvenido"
-        app:layout_constraintEnd_toStartOf="@+id/TextViewFIT"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/TextViewFIT"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TextViewFIT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginEnd="14dp"
-        android:baselineAligned="false"
+        android:layout_marginTop="32dp"
         android:text="FIT"
         android:textColor="#000000"
-        android:textSize="65sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/TextViewJJJ"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/TextViewJJJ"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewBienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
         android:text="Bienvenido, ya eres parte de JJJFIT, verifica tu correo electrónico"
         android:textColor="@color/black"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextViewJJJ" />
 
@@ -59,12 +46,12 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="304dp"
         android:onClick="irAPrincipal"
         android:text="Ir a elegir el plan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBienvenido" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

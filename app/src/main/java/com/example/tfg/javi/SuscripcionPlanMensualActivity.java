@@ -6,13 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.R;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class SuscripcionPlanMensualActivity extends AppCompatActivity {
 
@@ -31,7 +28,7 @@ public class SuscripcionPlanMensualActivity extends AppCompatActivity {
                 // Validar los campos de entrada antes de proceder con la suscripción
                 if (validarCampos()) {
                     // Crear un intent para iniciar la actividad SuscripcionMensualAnualConfirmActivity
-                    Intent intent = new Intent(SuscripcionPlanMensualActivity.this, SuscripcionMensualAnualConfirmActivity.class);
+                    Intent intent = new Intent(SuscripcionPlanMensualActivity.this, PasarelaActivity.class);
                     startActivity(intent); // Iniciar la actividad
                 }
             }
@@ -45,9 +42,6 @@ public class SuscripcionPlanMensualActivity extends AppCompatActivity {
         EditText dniEditText = findViewById(R.id.susplmens_dni);
         EditText telefonoEditText = findViewById(R.id.susplmens_phonenumber);
         EditText emailEditText = findViewById(R.id.susplmens_email);
-        EditText tarjetaEditText = findViewById(R.id.susplmens_creditcard);
-        EditText cvcEditText = findViewById(R.id.susplmens_cvc);
-        EditText fechaExpiracionEditText = findViewById(R.id.susplmens_expirationdate);
 
         // Obtener los valores de los campos de texto
         String nombre = nombreEditText.getText().toString().trim();
@@ -55,12 +49,9 @@ public class SuscripcionPlanMensualActivity extends AppCompatActivity {
         String dni = dniEditText.getText().toString().trim();
         String telefono = telefonoEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
-        String tarjeta = tarjetaEditText.getText().toString().trim();
-        String cvc = cvcEditText.getText().toString().trim();
-        String fechaExpiracion = fechaExpiracionEditText.getText().toString().trim();
 
         // Verificar si algún campo está vacío
-        if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || telefono.isEmpty() || email.isEmpty() || tarjeta.isEmpty() || cvc.isEmpty() || fechaExpiracion.isEmpty()) {
+        if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
             Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -82,55 +73,6 @@ public class SuscripcionPlanMensualActivity extends AppCompatActivity {
             Toast.makeText(this, "Por favor, introduce un correo válido (@gmail, @outlook, @yahoo)", Toast.LENGTH_SHORT).show();
             return false;
         }
-
-        // Validar el número de tarjeta (1234-1234-1234-1234-1234-1234)
-        if (!tarjeta.matches("\\d{4}-\\d{4}-\\d{4}-\\d{4}-\\d{4}-\\d{4}")) {
-            Toast.makeText(this, "Por favor, introduce un número de tarjeta válido", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-
-        // Validar la fecha de expiración
-        if (!isValidExpirationDate(fechaExpiracion)) {
-            Toast.makeText(this, "La fecha de expiración debe ser posterior a la fecha actual", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        // Validar el formato del CVC (3 números)
-        if (!cvc.matches("\\d{3}")) {
-            Toast.makeText(this, "Por favor, introduce un CVC válido", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
         return true;
-    }
-
-    // Método para validar el formato de la fecha (dd/MM/yyyy)
-    private boolean isValidExpirationDate(String fechaExpiracion) {
-        String regex = "^\\d{2}/\\d{2}/\\d{4}$";
-        if (!fechaExpiracion.matches(regex)) {
-            return false;
-        }
-
-        // Obtener la fecha actual
-        Date fechaActual = new Date();
-
-        // Convertir la fecha de expiración al formato Date
-        Date fechaExpiracionDate = null;
-        try {
-            fechaExpiracionDate = new SimpleDateFormat("dd/MM/yyyy").parse(fechaExpiracion);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        // Verificar si la fecha de expiración es posterior a la fecha actual y posterior a 2024
-        return !fechaExpiracionDate.before(fechaActual) && getYear(fechaExpiracionDate) >= 2024;
-    }
-
-    // Método para obtener el año de una fecha
-    private int getYear(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
-        return Integer.parseInt(sdf.format(date));
     }
 }

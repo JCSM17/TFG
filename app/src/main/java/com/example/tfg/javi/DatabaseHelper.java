@@ -30,18 +30,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "nombre TEXT,"+
                 "apellido TEXT,"+
                 "dni TEXT,"+
-                "telefono TEXT,"+
-                "creditcard NUMBER,"+
-                "expirationdate DATE,"+
-                "cvc NUMBER)");
+                "telefono TEXT)");
         MyDatabase.execSQL("CREATE TABLE suscripmensual(email TEXT PRIMARY KEY, " +
                 "nombre1 TEXT,"+
                 "apellido1 TEXT,"+
                 "dni1 TEXT,"+
-                "telefono1 TEXT,"+
-                "creditcard1 NUMBER,"+
-                "expirationdate1 DATE,"+
-                "cvc1 NUMBER)");
+                "telefono1 TEXT)");
+
         Log.d("DatabaseHelper", "Tables created.");
     }
 

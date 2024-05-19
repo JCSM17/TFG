@@ -280,7 +280,6 @@
     <string name="reps_curl_polea_alta">3x8-10</string>
 
 
-
     <!-- Descripcion para el Fragmento Volumen Descripcion-Imagen Lunes -->
     <string name="descripcion_imagen_remo_mancuerna_volumen">Descripción de la imagen de Remo con Mancuernas Volumen</string>
     <string name="descripcion_imagen_jalon_unilateral_sentado">Descripción de la imagen Jalon Unilateral Sentado</string>
@@ -289,39 +288,12 @@
     <string name="descripcion_imagen_curl_polea_alta">Descripción de la imagen de CURL   Polea Alta</string>
 
 
-
     <!-- Descripcion para el Fragmento Volumen videos Lunes  -->
     <string name="descripcion_boton_video_remo_mancuerna_volumen">Video de Remo Mancuerna Volumen</string>
     <string name="descripcion_boton_video_jalon_unilateral_sentado">Video de Jalon unilateral Sentado</string>
     <string name="descripcion_boton_video_remo_neutro_polea_volumen">Video de Remo Neutro Polea</string>
     <string name="descripcion_boton_video_curl_biceps_barra_zcoot">Video de Curls Biceps Barra Zcoot</string>
     <string name="descripcion_boton_video_curl_polea_alta">Video de Curl Polea Alta</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -362,9 +334,6 @@
     <string name="descripcion_boton_video_curl_isquios_tumbados">Video de Curl Isquios Tumbados</string>
     <string name="descripcion_boton_video_facepull">Video de Facepull</string>
     <!-- TODO: Remove or change this placeholder text -->
-
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

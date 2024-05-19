@@ -1,6 +1,5 @@
 package com.example.tfg.javi;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,19 +8,21 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.tfg.databinding.ActivitySignupBinding;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tfg.databinding.ActivitySignUpBinding;
 
 import javax.mail.MessagingException;
 
 public class SignupActivity extends AppCompatActivity {
 
-    ActivitySignupBinding binding;
+    ActivitySignUpBinding binding;
     DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySignupBinding.inflate(getLayoutInflater());
+        binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         databaseHelper = new DatabaseHelper(this);
