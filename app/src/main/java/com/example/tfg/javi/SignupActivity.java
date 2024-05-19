@@ -32,18 +32,15 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = binding.signupEmail.getText().toString();
                 String password = binding.signupPassword.getText().toString();
-                String confirmPassword = binding.signupConfirm.getText().toString();
                 String nombre = binding.signupName.getText().toString();
                 String apellido = binding.signupLastname.getText().toString();
                 String telefono = binding.signupPhonenumber.getText().toString();
 
                 // Verifica si todos los campos están llenos
-                if (email.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                if (email.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || password.isEmpty()) {
                     Toast.makeText(SignupActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     Toast.makeText(SignupActivity.this, "Por favor, introduce una dirección de correo electrónico válida", Toast.LENGTH_SHORT).show();
-                } else if (!password.equals(confirmPassword)) {
-                    Toast.makeText(SignupActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                 } else {
                     Boolean checkUser = databaseHelper.checkEmail(email);
                     if (checkUser) {
