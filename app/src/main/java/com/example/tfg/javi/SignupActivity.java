@@ -1,13 +1,17 @@
 package com.example.tfg.javi;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.tfg.databinding.ActivitySignupBinding;
+
+import javax.mail.MessagingException;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -28,41 +32,34 @@ public class SignupActivity extends AppCompatActivity {
                 String email = binding.signupEmail.getText().toString();
                 String password = binding.signupPassword.getText().toString();
                 String confirmPassword = binding.signupConfirm.getText().toString();
-                String name = binding.signupName.getText().toString();
-                String lastName = binding.signupLastname.getText().toString();
-                String phoneNumber = binding.signupPhonenumber.getText().toString();
+                String nombre = binding.signupName.getText().toString();
+                String apellido = binding.signupLastname.getText().toString();
+                String telefono = binding.signupPhonenumber.getText().toString();
 
-                if (email.isEmpty() || !isValidEmail(email)) {
-                    Toast.makeText(SignupActivity.this, "Introduce un correo válido (@gmail, @outlook, @yahoo)", Toast.LENGTH_SHORT).show();
-                } else if (password.isEmpty()) {
-                    Toast.makeText(SignupActivity.this, "Por favor, introduzca su contraseña", Toast.LENGTH_SHORT).show();
+                // Verifica si todos los campos están llenos
+                if (email.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                    Toast.makeText(SignupActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    Toast.makeText(SignupActivity.this, "Por favor, introduce una dirección de correo electrónico válida", Toast.LENGTH_SHORT).show();
                 } else if (!password.equals(confirmPassword)) {
                     Toast.makeText(SignupActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
-                } else if (name.isEmpty()) {
-                    Toast.makeText(SignupActivity.this, "Por favor, introduzca su nombre", Toast.LENGTH_SHORT).show();
-                } else if (lastName.isEmpty()) {
-                    Toast.makeText(SignupActivity.this, "Por favor, introduzca sus apellidos", Toast.LENGTH_SHORT).show();
-                } else if (!isValidName(name)) {
-                    Toast.makeText(SignupActivity.this, "El nombre solo puede contener letras", Toast.LENGTH_SHORT).show();
-                } else if (!isValidName(lastName)) {
-                    Toast.makeText(SignupActivity.this, "Los apellidos solo pueden contener letras", Toast.LENGTH_SHORT).show();
-                } else if (!isValidPhoneNumber(phoneNumber)) {
-                    Toast.makeText(SignupActivity.this, "Por favor, introduce un número de teléfono válido", Toast.LENGTH_SHORT).show();
                 } else {
-                    Boolean checkUserEmail = databaseHelper.checkEmail(email);
-
-                    if (!checkUserEmail) {
-                        Boolean insert = databaseHelper.insertData(email, password, name, lastName, phoneNumber);
-
-                        if (insert) {
-                            Toast.makeText(SignupActivity.this, "¡Te registraste exitosamente!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(SignupActivity.this, "¡Registro fallido!", Toast.LENGTH_SHORT).show();
-                        }
+                    Boolean checkUser = databaseHelper.checkEmail(email);
+                    if (checkUser) {
+                        Toast.makeText(SignupActivity.this, "Ya existe una cuenta con este correo electrónico", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(SignupActivity.this, "¡El usuario ya existe! Por favor, inicia sesión", Toast.LENGTH_SHORT).show();
+                        Boolean insert = databaseHelper.insertData(email, password, nombre, apellido, telefono);
+                        if (insert) {
+                            // Enviar correo de bienvenida
+                            sendWelcomeEmail(email);
+
+                            Toast.makeText(SignupActivity.this, "¡Registro exitoso! Bienvenido", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish(); // Finaliza la actividad actual para que no pueda volver atrás
+                        } else {
+                            Toast.makeText(SignupActivity.this, "El registro ha fallado", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
@@ -77,20 +74,53 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isValidEmail(String email) {
-        // Expresión regular para validar las direcciones de correo electrónico de Gmail, Outlook y Yahoo
-        String emailPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:gmail|outlook|yahoo)\\.(?:com|es|net|org|edu|gov|info|biz|co\\.uk)$";
-        return email.matches(emailPattern);
+    private void sendWelcomeEmail(String recipientEmail) {
+        // Usa las credenciales de una cuenta de correo válida
+        final String username = "cristianito5689@gmail.com";  // Cambia esto por tu correo
+        final String password = "bxvb ccln dqro kynm"; // Cambia esto por tu contraseña de aplicación
+        // Contraseña 2 pasos "bxvb ccln dqro kynm"
+        final String smtpHost = "smtp.gmail.com";      // Host SMTP de Gmail
+        final String smtpPort = "587";                 // Puerto SMTP de Gmail
+
+        new SendEmailTask(this, recipientEmail, username, password, smtpHost, smtpPort).execute();
     }
 
-    private boolean isValidPhoneNumber(String phoneNumber) {
-        // Expresión regular para validar que el número de teléfono contiene solo números y tiene un máximo de 9 dígitos
-        String phonePattern = "^[0-9]{1,9}$";
-        return phoneNumber.matches(phonePattern);
-    }
+    private static class SendEmailTask extends AsyncTask<Void, Void, Boolean> {
 
-    private boolean isValidName(String name) {
-        // Expresión regular para validar que el nombre solo contiene letras
-        return name.matches("[a-zA-Z]+");
+        private final SignupActivity activity;
+        private final String recipientEmail;
+        private final String username;
+        private final String password;
+        private final String smtpHost;
+        private final String smtpPort;
+
+        SendEmailTask(SignupActivity activity, String recipientEmail, String username, String password, String smtpHost, String smtpPort) {
+            this.activity = activity;
+            this.recipientEmail = recipientEmail;
+            this.username = username;
+            this.password = password;
+            this.smtpHost = smtpHost;
+            this.smtpPort = smtpPort;
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+            GmailSender sender = new GmailSender(username, password, smtpHost, smtpPort);
+            try {
+                sender.sendEmail(recipientEmail, "Bienvenido a nuestra App", "¡Gracias por registrarte en nuestra aplicación!");
+                return true;
+            } catch (MessagingException e) {
+                Log.e("SendEmailTask", "Error al enviar el correo: ", e);
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            if (!result) {
+                // No se pudo enviar el correo
+                Toast.makeText(activity, "No se pudo enviar el correo de bienvenida", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
