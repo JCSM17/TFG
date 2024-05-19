@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioButton;
 
 import androidx.fragment.app.Fragment;
@@ -21,6 +22,7 @@ public class TiposCuerpoFragment extends Fragment {
         RadioButton bodyType1Button = view.findViewById(R.id.botonTipoEctomorfo);
         RadioButton bodyType2Button = view.findViewById(R.id.botonTipoMesomorfo);
         RadioButton bodyType3Button = view.findViewById(R.id.botonTipoEndomorfo);
+        Button nextButton = view.findViewById(R.id.nextButton);
 
         bodyType1Button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,11 +14,12 @@
         android:id="@+id/textoObjetivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="¿Cuál es tu objetivo?"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
@@ -26,13 +27,11 @@
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
-        android:scaleType="fitCenter"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoObjetivo">
+        app:layout_constraintTop_toBottomOf="@+id/textoObjetivo"
+        app:layout_constraintWidth_percent="0.8">
 
         <RadioButton
             android:id="@+id/radioOptionDefinicion"
@@ -46,9 +45,9 @@
             android:id="@+id/radioOptionVolumen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
+            android:minHeight="48sp"
             android:text="Volumen"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
         <RadioButton
             android:id="@+id/radioOptionRecomendado"
@@ -56,45 +55,48 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:text="Recomendado"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/estaturaInput"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="15dp"
+        android:autofillHints="height"
         android:hint="Estatura en cm"
         android:inputType="numberDecimal"
-        android:minHeight="48dp"
+        android:maxWidth="488dp"
+        android:minHeight="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/aniosInput"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <EditText
         android:id="@+id/aniosInput"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
+        android:autofillHints="age"
         android:hint="Edad en años"
         android:inputType="number"
-        android:minHeight="48dp"
+        android:maxWidth="488dp"
+        android:minHeight="48sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/estaturaInput" />
 
     <Spinner
         android:id="@+id/generoSpinner"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="48dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aniosInput" />
 
@@ -105,7 +107,6 @@
         android:layout_marginTop="128dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generoSpinner" />
 
@@ -113,10 +114,10 @@
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="Siguiente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintHorizontal_bias="0.90"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separator2" />
 

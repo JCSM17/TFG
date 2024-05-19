@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">JJJFIT</string>
 
-    <!-- Strings para el IntroObjetivoFragment -->
+    <!-- Strings para el ObjetivoFragment -->
     <string-array name="gender_array">
         <item>Hombre</item>
         <item>Mujer</item>

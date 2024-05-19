@@ -11,6 +11,7 @@ import com.example.tfg.R;
 import com.example.tfg.jesus.AbdominalesFragment;
 import com.example.tfg.jesus.VolumenJuevesFragment;
 import com.example.tfg.jesus.VolumenLunesFragment;
+import com.example.tfg.jesus.VolumenMartesFragment;
 import com.example.tfg.jesus.VolumenViernesFragment;
 
 public class RutinasVolumenActivity extends AppCompatActivity {
