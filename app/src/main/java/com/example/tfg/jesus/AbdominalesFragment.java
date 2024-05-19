@@ -1,8 +1,6 @@
 package com.example.tfg.jesus;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -12,13 +10,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.jc.MenuActivity;
+import com.example.tfg.jc.YoutubeUtils;
 
 public class AbdominalesFragment extends Fragment {
 
@@ -40,7 +39,7 @@ public class AbdominalesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_abdominales, container, false);
+        return inflater.inflate(R.layout.fragment_definicion_miercoles_abdominales, container, false);
     }
 
     // Este método se llama después de que la vista del fragmento se ha creado. Aquí se configuran los listeners de los botones y la animación de la ImageView
@@ -55,8 +54,14 @@ public class AbdominalesFragment extends Fragment {
         for (int i = 0; i < button_ids_abdominales.length; i++) {
             Button button = view.findViewById(button_ids_abdominales[i]);
             int finalI = i; // Variable final para ser usada en la lambda
-            button.setOnClickListener(v -> openYoutubeVideo(urls[finalI]));
+            button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
         }
+
+        ImageButton imagenCheckAbdominales = view.findViewById(R.id.imagenCheckAbdominales);
+        imagenCheckAbdominales.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), MenuActivity.class);
+            startActivity(intent);
+        });
 
         // Array de lista de IDs de las ImageButton a las que quieres aplicar la animación
         int[] imageButton_ids_abdominales = {
@@ -74,22 +79,6 @@ public class AbdominalesFragment extends Fragment {
 
                 handler.postDelayed(() -> imageButton.clearAnimation(), 3000);
             });
-        }
-    }
-
-    // Este método se utiliza para abrir un video de YouTube en la app y sino en el navegador. Se crea un Intent con la acción Intent.ACTION_VIEW y la URL del video de YouTube, y luego se inicia este Intent
-    private void openYoutubeVideo(String url) {
-        Intent intentApp = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        intentApp.setPackage("com.google.android.youtube");
-
-        Intent intentBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-
-        try {
-            // Intenta abrir la aplicación de YouTube
-            startActivity(intentApp);
-        } catch (ActivityNotFoundException e) {
-            // Si la aplicación de YouTube no está instalada, abre el video en el navegador
-            startActivity(intentBrowser);
         }
     }
 }

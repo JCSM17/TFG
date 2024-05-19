@@ -201,7 +201,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenPressmilitarmancuerna"
+            app:layout_constraintStart_toEndOf="@+id/imagenPressMilitarMancuerna"
             app:layout_constraintTop_toBottomOf="@+id/repsSentadillas" />
 
         <View
@@ -242,7 +242,7 @@
             app:layout_constraintTop_toBottomOf="@+id/separador4" />
 
         <ImageButton
-            android:id="@+id/imagenPressmilitarmancuerna"
+            android:id="@+id/imagenPressMilitarMancuerna"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
@@ -265,7 +265,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenPressmilitarmancuerna"
+            app:layout_constraintStart_toEndOf="@+id/imagenPressMilitarMancuerna"
             app:layout_constraintTop_toBottomOf="@+id/repsPoleaBaja" />
 
         <View
@@ -274,7 +274,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagenPressmilitarmancuerna" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPressMilitarMancuerna" />
 
         <TextView
             android:id="@+id/textoPressInclinadoMancuerna"
@@ -303,7 +303,7 @@
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
         <ImageButton
-            android:id="@+id/imagePressInclinadoMancuerna"
+            android:id="@+id/imagenPressInclinadoMancuerna"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
@@ -327,7 +327,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagePressInclinadoMancuerna"
+            app:layout_constraintStart_toEndOf="@+id/imagenPressInclinadoMancuerna"
             app:layout_constraintTop_toBottomOf="@+id/repsPressInclinadoMancuerna" />
 
         <View
@@ -336,7 +336,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagePressInclinadoMancuerna" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPressInclinadoMancuerna" />
 
         <TextView
             android:id="@+id/textoCrucePoleaBaja"
@@ -366,7 +366,7 @@
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
 
         <ImageButton
-            android:id="@+id/imagenCrucepoleabaja"
+            android:id="@+id/imagenCrucePoleaBaja"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
@@ -389,7 +389,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenCrucepoleabaja"
+            app:layout_constraintStart_toEndOf="@+id/imagenCrucePoleaBaja"
             app:layout_constraintTop_toBottomOf="@+id/repsCrucePoleaBaja" />
 
         <View
@@ -398,7 +398,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagenCrucepoleabaja" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenCrucePoleaBaja" />
 
         <TextView
             android:id="@+id/textoelevacionlateral"
@@ -414,7 +414,7 @@
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
         <TextView
-            android:id="@+id/repselevacionlateral"
+            android:id="@+id/repsElevacionLateral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -426,7 +426,7 @@
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 
         <ImageButton
-            android:id="@+id/imagenelevacionlateral"
+            android:id="@+id/imagenElevacionLateral"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="24dp"
@@ -449,20 +449,23 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagenelevacionlateral"
-            app:layout_constraintTop_toBottomOf="@+id/repselevacionlateral" />
+            app:layout_constraintStart_toEndOf="@+id/imagenElevacionLateral"
+            app:layout_constraintTop_toBottomOf="@+id/repsElevacionLateral" />
 
-        <ImageView
-            android:id="@+id/imagenCheck"
+        <ImageButton
+            android:id="@+id/imagenCheckDefinicionJueves"
             android:layout_width="92dp"
             android:layout_height="28dp"
             android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
+            android:scaleType="fitCenter"
             android:src="@drawable/check"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenelevacionlateral" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenElevacionLateral" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

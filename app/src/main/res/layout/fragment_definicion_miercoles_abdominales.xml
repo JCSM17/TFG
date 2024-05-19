@@ -52,12 +52,12 @@
             app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento" />
 
         <TextView
-            android:id="@+id/textoViernes"
+            android:id="@+id/textoMiercoles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="50dp"
-            android:text="@string/texto_Viernes"
+            android:text="@string/texto_miercoles"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
             android:text="@string/texto_calentamiento"
             android:textColor="#D00000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textoViernes" />
+            app:layout_constraintTop_toBottomOf="@+id/textoMiercoles" />
 
         <TextView
             android:id="@+id/textoRuedaAbsPie"
@@ -320,12 +320,15 @@
             app:layout_constraintTop_toBottomOf="@+id/repsGirosRusosBarra" />
 
 
-        <ImageView
-            android:id="@+id/imagenCheck"
+        <ImageButton
+            android:id="@+id/imagenCheckAbdominales"
             android:layout_width="92dp"
             android:layout_height="28dp"
             android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
+            android:scaleType="fitCenter"
             android:src="@drawable/check"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

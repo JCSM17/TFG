@@ -12,4 +12,9 @@
         <item name="strokeWidth">2dp</item>
     </style>
 
+    <style name="MyCardViewStyle">
+        <item name="cardBackgroundColor">#990027FF</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+
 </resources>

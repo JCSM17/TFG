@@ -27,7 +27,7 @@ public class IntroObjetivoFragment extends Fragment {
 
         RadioGroup radioGroup = view.findViewById(R.id.radioGroup);
         EditText estaturaInput = view.findViewById(R.id.estaturaInput);
-        EditText ageInput = view.findViewById(R.id.aniosInput);
+        EditText edadInput = view.findViewById(R.id.aniosInput);
         Spinner generoSpinner = view.findViewById(R.id.generoSpinner);
         Button nextButton = view.findViewById(R.id.nextButton);
 
@@ -40,21 +40,21 @@ public class IntroObjetivoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int selectedId = radioGroup.getCheckedRadioButtonId();
-                String height = estaturaInput.getText().toString();
-                String age = ageInput.getText().toString();
-                String gender = generoSpinner.getSelectedItem().toString();
+                String estatura = estaturaInput.getText().toString();
+                String edad = edadInput.getText().toString();
+                String genero = generoSpinner.getSelectedItem().toString();
 
                 // Validar las entradas del usuario
-                if (selectedId == -1 || height.isEmpty() || age.isEmpty() || gender.equals("Género")) {
+                if (selectedId == -1 || estatura.isEmpty() || edad.isEmpty() || genero.equals("Género")) {
                     Toast.makeText(getContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
                     // Guardar los datos del usuario en las preferencias compartidas
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putInt("selectedId", selectedId);
-                    editor.putString("height", height);
-                    editor.putString("age", age);
-                    editor.putString("gender", gender);
+                    editor.putString("estatura", estatura);
+                    editor.putString("edad", edad);
+                    editor.putString("genero", genero);
                     editor.apply();
 
                     // Proceder a la siguiente pantalla

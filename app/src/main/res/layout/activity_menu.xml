@@ -22,6 +22,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/foto_jc" />
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,10 +35,11 @@
             android:layout_margin="4dp"
             android:layout_weight="1"
             android:text="Entrenamiento"
-            android:textSize="12sp"
+            android:textSize="10sp"
             app:icon="@drawable/icono_entrenamiento"
             app:iconGravity="top"
-            app:iconSize="@dimen/icon_size" />
+            app:iconPadding="8dp"
+            app:iconSize="24dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNutricion"
@@ -48,7 +50,9 @@
             android:text="Nutrición"
             android:textSize="12sp"
             app:icon="@drawable/icon_food"
-            app:iconGravity="textTop" />
+            app:iconGravity="top"
+            app:iconPadding="8dp"
+            app:iconSize="24dp" />
 
     </LinearLayout>
 
@@ -66,7 +70,9 @@
             android:text="Perfil"
             android:textSize="12sp"
             app:icon="@drawable/icono_perfil"
-            app:iconGravity="top" />
+            app:iconGravity="top"
+            app:iconPadding="8dp"
+            app:iconSize="24dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnProximamente"
@@ -77,7 +83,9 @@
             android:text="Próximamente"
             android:textSize="12sp"
             app:icon="@drawable/icono_proximamente"
-            app:iconGravity="top" />
+            app:iconGravity="top"
+            app:iconPadding="8dp"
+            app:iconSize="24dp" />
 
     </LinearLayout>
 
