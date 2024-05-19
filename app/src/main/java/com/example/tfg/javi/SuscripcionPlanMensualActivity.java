@@ -19,7 +19,7 @@ public class SuscripcionPlanMensualActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suscripcionplanmensual);
+        setContentView(R.layout.activity_suscripcion_plan_mensual);
 
         // Obtener referencia al botón "Suscribirme ahora"
         Button suscribirmeButton = findViewById(R.id.button4);

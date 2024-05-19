@@ -21,7 +21,7 @@ public class SuscripcionPlanAnualActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suscripcionplananual);
+        setContentView(R.layout.activity_suscripcion_plan_anual);
 
         // Obtener referencias a los EditText
         nombreEditText = findViewById(R.id.susplanual_name);
@@ -35,7 +35,6 @@ public class SuscripcionPlanAnualActivity extends AppCompatActivity {
 
         // Obtener referencia al botón "Suscribirme ahora"
         Button suscribirmeButton = findViewById(R.id.button4);
-z
         // Configurar el OnClickListener para el botón
         suscribirmeButton.setOnClickListener(new View.OnClickListener() {
             @Override
