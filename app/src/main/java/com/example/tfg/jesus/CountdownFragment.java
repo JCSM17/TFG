@@ -20,8 +20,10 @@ import com.example.tfg.R;
 import java.text.DecimalFormat;
 
 public class CountdownFragment extends Fragment {
+
     private static final int VIBRATION_DURATION = 500;
     private static final String TIMER_FORMAT = "00";
+    private static final int[] BUTTON_IDS = {R.id.pauseBtn, R.id.playBtn, R.id.resetBtn};
 
     private TextView timeTxt;
     private ProgressBar circularProgressBar;
@@ -39,12 +41,9 @@ public class CountdownFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cronometro, container, false);
 
         customCountdownTimer = new CustomCountdownTimer(getContext(), clockTime, 1000);
-        customCountdownTimer.setOnTick(new com.example.tfg.jesus.CustomCountdownTimer.OnTick() {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                int secondsLeft = (int) (millisUntilFinished / 1000);
-                timerFormat(secondsLeft, timeTxt);
-            }
+        customCountdownTimer.setOnTick(millisUntilFinished -> {
+            int secondsLeft = (int) (millisUntilFinished / 1000);
+            timerFormat(secondsLeft, timeTxt);
         });
         customCountdownTimer.setOnFinish(new CustomCountdownTimer.OnFinish() {
             @Override
@@ -75,17 +74,19 @@ public class CountdownFragment extends Fragment {
 
         customCountdownTimer.startTimer();
 
-        Button pauseBtn = view.findViewById(R.id.pauseBtn);
-        Button resumeBtn = view.findViewById(R.id.playBtn);
-        Button resetBtn = view.findViewById(R.id.resetBtn);
-        pauseBtn.setOnClickListener(v -> customCountdownTimer.pauseTimer());
-        resumeBtn.setOnClickListener(v -> customCountdownTimer.resumeTimer());
-        resetBtn.setOnClickListener(v -> {
+        setupButton(view, R.id.pauseBtn, () -> customCountdownTimer.pauseTimer());
+        setupButton(view, R.id.playBtn, () -> customCountdownTimer.resumeTimer());
+        setupButton(view, R.id.resetBtn, () -> {
             circularProgressBar.setProgress((int) progressTime);
             customCountdownTimer.restartTimer();
         });
 
         return view;
+    }
+
+    private void setupButton(View view, int buttonId, Runnable action) {
+        Button button = view.findViewById(buttonId);
+        button.setOnClickListener(v -> action.run());
     }
 
     private void timerFormat(int secondsLeft, TextView timeTxt) {

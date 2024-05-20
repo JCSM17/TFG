@@ -13,66 +13,75 @@ import com.example.tfg.R;
 
 public class SuscripcionPlanMensualActivity extends AppCompatActivity {
 
+    private static final String DNI_PATTERN = "\\d{8}[a-zA-Z]";
+    private static final String TELEFONO_PATTERN = "\\d{9}";
+    private static final String EMAIL_PATTERN = "[a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)";
+    private static final String EMPTY_FIELD_MESSAGE = "Por favor, complete todos los campos";
+    private static final String INVALID_DNI_MESSAGE = "Por favor, introduce un DNI válido";
+    private static final String INVALID_TELEFONO_MESSAGE = "Introduce un número de teléfono válido";
+    private static final String INVALID_EMAIL_MESSAGE = "Por favor, introduce un correo válido (@gmail, @outlook, @yahoo)";
+
+    EditText nombreEditText, apellidoEditText, dniEditText, telefonoEditText, emailEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suscripcion_plan_mensual);
 
+        // Obtener referencias a los EditText
+        nombreEditText = findViewById(R.id.susplmens_name);
+        apellidoEditText = findViewById(R.id.susplmens_lastname);
+        dniEditText = findViewById(R.id.susplmens_dni);
+        telefonoEditText = findViewById(R.id.susplmens_phonenumber);
+        emailEditText = findViewById(R.id.susplmens_email);
+
         // Obtener referencia al botón "Suscribirme ahora"
         Button suscribirmeButton = findViewById(R.id.button4);
 
         // Configurar el OnClickListener para el botón
-        suscribirmeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Validar los campos de entrada antes de proceder con la suscripción
-                if (validarCampos()) {
-                    // Crear un intent para iniciar la actividad SuscripcionMensualAnualConfirmActivity
-                    Intent intent = new Intent(SuscripcionPlanMensualActivity.this, PasarelaActivity.class);
-                    startActivity(intent); // Iniciar la actividad
-                }
+        suscribirmeButton.setOnClickListener(v -> {
+            // Validar los campos de entrada antes de proceder con la suscripción
+            if (validarCampos()) {
+                // Crear un intent para iniciar la actividad SuscripcionMensualAnualConfirmActivity
+                Intent intent = new Intent(SuscripcionPlanMensualActivity.this, PasarelaActivity.class);
+                startActivity(intent); // Iniciar la actividad
             }
         });
     }
 
     private boolean validarCampos() {
-        // Obtener referencias a los EditText
-        EditText nombreEditText = findViewById(R.id.susplmens_name);
-        EditText apellidoEditText = findViewById(R.id.susplmens_lastname);
-        EditText dniEditText = findViewById(R.id.susplmens_dni);
-        EditText telefonoEditText = findViewById(R.id.susplmens_phonenumber);
-        EditText emailEditText = findViewById(R.id.susplmens_email);
-
-        // Obtener los valores de los campos de texto
         String nombre = nombreEditText.getText().toString().trim();
         String apellido = apellidoEditText.getText().toString().trim();
         String dni = dniEditText.getText().toString().trim();
         String telefono = telefonoEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
 
-        // Verificar si algún campo está vacío
         if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
-            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+            showToast(EMPTY_FIELD_MESSAGE);
             return false;
         }
 
-        // Validar el formato del DNI (8 números seguidos de una letra)
-        if (!dni.matches("\\d{8}[a-zA-Z]")) {
-            Toast.makeText(this, "Por favor, introduce un DNI válido", Toast.LENGTH_SHORT).show();
+        // Validar el formato del DNI
+        if (!dni.matches(DNI_PATTERN)) {
+            showToast(INVALID_DNI_MESSAGE);
             return false;
         }
 
-        // Validar el número de teléfono (9 números)
-        if (!telefono.matches("\\d{9}")) {
-            Toast.makeText(this, "Introduce un número de teléfono válido", Toast.LENGTH_SHORT).show();
+        // Validar el número de teléfono
+        if (!telefono.matches(TELEFONO_PATTERN)) {
+            showToast(INVALID_TELEFONO_MESSAGE);
             return false;
         }
 
-        // Validar el formato del email (@gmail, @outlook, @yahoo)
-        if (!email.matches("[a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)")) {
-            Toast.makeText(this, "Por favor, introduce un correo válido (@gmail, @outlook, @yahoo)", Toast.LENGTH_SHORT).show();
+        // Validar el formato del email
+        if (!email.matches(EMAIL_PATTERN)) {
+            showToast(INVALID_EMAIL_MESSAGE);
             return false;
         }
         return true;
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

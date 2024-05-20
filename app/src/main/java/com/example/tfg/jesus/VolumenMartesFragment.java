@@ -19,11 +19,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
 
-
 public class VolumenMartesFragment extends Fragment {
 
-    // Array de IDs de botones
-    private final int[] button_ids_volumen_martes = {
+    private static final int ANIMATION_DURATION = 3000;
+    private final int[] buttonIdsVolumenMartes = {
             R.id.botonVideoSentadillaConBarra,
             R.id.botonVideoPressMilitar,
             R.id.botonVideoPrensaInclinadaa,
@@ -32,58 +31,58 @@ public class VolumenMartesFragment extends Fragment {
             R.id.botonVideoFacepull
     };
 
-    // Handler para detener la animación
+    private final int[] imageButtonIdsVolumenJueves = {
+            R.id.imagenPBP,
+            R.id.imagenFondos,
+            R.id.imagenCruces,
+            R.id.imagePressFrances,
+            R.id.imagenExtTriceps,
+            R.id.imagenPalof
+    };
+
     private final Handler handler = new Handler();
 
-    // Constructor vacío requerido para instanciar el fragmento
     public VolumenMartesFragment() {
+        // Constructor vacío requerido
     }
 
-    // Este método se llama para inflar la vista del fragmento. Aquí se infla el layout fragment_volumen_jueves
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_volumen_martes, container, false);
     }
 
-    // Este método se llama después de que la vista del fragmento se ha creado. Aquí se configuran los listeners de los botones y la animación de la ImageView
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Obtener el array de URLs desde strings.xml
         String[] urls = getResources().getStringArray(R.array.urls_volumen_martes);
 
-        // Configurar los listeners de los botones para abrir los videos de YouTube correspondientes cuando se hace clic en ellos
-        for (int i = 0; i < button_ids_volumen_martes.length; i++) {
-            Button button = view.findViewById(button_ids_volumen_martes[i]);
-            int finalI = i; // Variable final para ser usada en la lambda
-            button.setOnClickListener(v -> openYoutubeVideo(urls[finalI]));
-        }
+        setupButtonListeners(view, urls);
+        setupImageButtonListeners(view);
+    }
 
-        // Array de lista de IDs de las ImageView a las que quieres aplicar la animación
-        int[] imageButton_ids_volumen_jueves = {
-                R.id.imagenPBP,
-                R.id.imagenFondos,
-                R.id.imagenCruces,
-                R.id.imagePressFrances,
-                R.id.imagenExtTriceps,
-                R.id.imagenPalof
-        };
-
-        // Configurar un listener para cada ImageButton. Cuando se hace clic en un ImageButton, se inicia una animación de rotación que dura 3 segundos. Después de 3 segundos, la animación se detiene
-        for (int id : imageButton_ids_volumen_jueves) {
-            ImageButton imageButton = view.findViewById(id);
-            imageButton.setOnClickListener(v -> {
-                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
-                imageButton.startAnimation(animation);
-
-                handler.postDelayed(() -> imageButton.clearAnimation(), 3000);
-            });
+    private void setupButtonListeners(View view, String[] urls) {
+        for (int i = 0; i < buttonIdsVolumenMartes.length; i++) {
+            Button button = view.findViewById(buttonIdsVolumenMartes[i]);
+            int index = i;
+            button.setOnClickListener(v -> openYoutubeVideo(urls[index]));
         }
     }
 
-    // Este método se utiliza para abrir un video de YouTube en la app y sino en el navegador. Se crea un Intent con la acción Intent.ACTION_VIEW y la URL del video de YouTube, y luego se inicia este Intent
+    private void setupImageButtonListeners(View view) {
+        for (int id : imageButtonIdsVolumenJueves) {
+            ImageButton imageButton = view.findViewById(id);
+            imageButton.setOnClickListener(v -> startRotationAnimation(imageButton));
+        }
+    }
+
+    private void startRotationAnimation(ImageButton imageButton) {
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
+        imageButton.startAnimation(animation);
+
+        handler.postDelayed(imageButton::clearAnimation, ANIMATION_DURATION);
+    }
+
     private void openYoutubeVideo(String url) {
         Intent intentApp = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         intentApp.setPackage("com.google.android.youtube");
@@ -91,10 +90,8 @@ public class VolumenMartesFragment extends Fragment {
         Intent intentBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 
         try {
-            // Intenta abrir la aplicación de YouTube
             startActivity(intentApp);
         } catch (ActivityNotFoundException e) {
-            // Si la aplicación de YouTube no está instalada, abre el video en el navegador
             startActivity(intentBrowser);
         }
     }

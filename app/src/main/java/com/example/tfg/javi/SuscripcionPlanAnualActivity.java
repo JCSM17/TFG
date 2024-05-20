@@ -13,7 +13,16 @@ import com.example.tfg.R;
 
 public class SuscripcionPlanAnualActivity extends AppCompatActivity {
 
+    private static final String DNI_PATTERN = "\\d{8}[a-zA-Z]";
+    private static final String TELEFONO_PATTERN = "\\d{1,9}";
+    private static final String EMAIL_PATTERN = "[a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)";
+    private static final String EMPTY_FIELD_MESSAGE = "Por favor, complete todos los campos";
+    private static final String INVALID_DNI_MESSAGE = "Por favor, introduce un DNI válido";
+    private static final String INVALID_TELEFONO_MESSAGE = "Introduce un número de teléfono válido.";
+    private static final String INVALID_EMAIL_MESSAGE = "Por favor, introduce un correo válido (@gmail, @outlook, @yahoo)";
+
     EditText nombreEditText, apellidoEditText, dniEditText, telefonoEditText, emailEditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +37,14 @@ public class SuscripcionPlanAnualActivity extends AppCompatActivity {
 
         // Obtener referencia al botón "Suscribirme ahora"
         Button suscribirmeButton = findViewById(R.id.button4);
+
         // Configurar el OnClickListener para el botón
-        suscribirmeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Validar los campos de entrada antes de proceder con la suscripción
-                if (validarCampos()) {
-                    // Crear un intent para iniciar la actividad SuscripcionMensualAnualConfirmActivity
-                    Intent intent = new Intent(SuscripcionPlanAnualActivity.this, PasarelaActivity.class);
-                    startActivity(intent); // Iniciar la actividad
-                }
+        suscribirmeButton.setOnClickListener(v -> {
+            // Validar los campos de entrada antes de proceder con la suscripción
+            if (validarCampos()) {
+                // Crear un intent para iniciar la actividad SuscripcionMensualAnualConfirmActivity
+                Intent intent = new Intent(SuscripcionPlanAnualActivity.this, PasarelaActivity.class);
+                startActivity(intent); // Iniciar la actividad
             }
         });
     }
@@ -50,27 +57,31 @@ public class SuscripcionPlanAnualActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString().trim();
 
         if (nombre.isEmpty() || apellido.isEmpty() || dni.isEmpty() || telefono.isEmpty() || email.isEmpty()) {
-            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+            showToast(EMPTY_FIELD_MESSAGE);
             return false;
         }
 
         // Validar el formato del DNI
-        if (!dni.matches("\\d{8}[a-zA-Z]")) {
-            Toast.makeText(this, "Por favor, introduce un DNI válido", Toast.LENGTH_SHORT).show();
+        if (!dni.matches(DNI_PATTERN)) {
+            showToast(INVALID_DNI_MESSAGE);
             return false;
         }
 
         // Validar el número de teléfono
-        if (!telefono.matches("\\d{1,9}")) {
-            Toast.makeText(this, "Introduce un número de teléfono válido.", Toast.LENGTH_SHORT).show();
+        if (!telefono.matches(TELEFONO_PATTERN)) {
+            showToast(INVALID_TELEFONO_MESSAGE);
             return false;
         }
 
         // Validar el formato del email
-        if (!email.matches("[a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)")) {
-            Toast.makeText(this, "Por favor, introduce un correo válido (@gmail, @outlook, @yahoo)", Toast.LENGTH_SHORT).show();
+        if (!email.matches(EMAIL_PATTERN)) {
+            showToast(INVALID_EMAIL_MESSAGE);
             return false;
         }
         return true;
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

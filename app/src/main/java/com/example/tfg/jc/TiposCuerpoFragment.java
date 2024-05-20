@@ -22,6 +22,9 @@ public class TiposCuerpoFragment extends Fragment {
 
     private static final String BODY_TYPE_KEY = "bodyType";
     private static final String EMAIL_KEY = "email";
+    private static final String ERROR_EMAIL_NOT_FOUND = "Error: Email no encontrado";
+    private static final String ERROR_BODY_TYPE_NOT_SELECTED = "Error: Tipo de cuerpo no seleccionado";
+    private static final String SELECT_BODY_TYPE_MESSAGE = "Por favor, selecciona un tipo de cuerpo";
 
     private DatabaseHelper databaseHelper;
     private String bodyType;
@@ -36,28 +39,22 @@ public class TiposCuerpoFragment extends Fragment {
         // Inicializa DatabaseHelper
         databaseHelper = new DatabaseHelper(getContext());
 
-        bodyTypeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.botonTipoEctomorfo) {
-                    bodyType = "Ectomorfo";
-                } else if (checkedId == R.id.botonTipoMesomorfo) {
-                    bodyType = "Mesomorfo";
-                } else if (checkedId == R.id.botonTipoEndomorfo) {
-                    bodyType = "Endomorfo";
-                }
+        bodyTypeGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.botonTipoEctomorfo) {
+                bodyType = "Ectomorfo";
+            } else if (checkedId == R.id.botonTipoMesomorfo) {
+                bodyType = "Mesomorfo";
+            } else if (checkedId == R.id.botonTipoEndomorfo) {
+                bodyType = "Endomorfo";
             }
         });
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (bodyType != null) {
-                    saveBodyType(bodyType);
-                    navigateToNextScreen();
-                } else {
-                    Toast.makeText(getContext(), "Por favor, selecciona un tipo de cuerpo", Toast.LENGTH_SHORT).show();
-                }
+        nextButton.setOnClickListener(v -> {
+            if (bodyType != null) {
+                saveBodyType(bodyType);
+                navigateToNextScreen();
+            } else {
+                showToast(SELECT_BODY_TYPE_MESSAGE);
             }
         });
 
@@ -77,16 +74,20 @@ public class TiposCuerpoFragment extends Fragment {
                 databaseHelper.updateUserBodyType(email, type);
             } else {
                 // Manejar el caso en el que el email no esté presente
-                Toast.makeText(getContext(), "Error: Email no encontrado", Toast.LENGTH_SHORT).show();
+                showToast(ERROR_EMAIL_NOT_FOUND);
             }
         } else {
             // Manejar el caso en el que el tipo de cuerpo no esté presente
-            Toast.makeText(getContext(), "Error: Tipo de cuerpo no seleccionado", Toast.LENGTH_SHORT).show();
+            showToast(ERROR_BODY_TYPE_NOT_SELECTED);
         }
     }
 
     private void navigateToNextScreen() {
         Intent intent = new Intent(getActivity(), MenuActivity.class);
         startActivity(intent);
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

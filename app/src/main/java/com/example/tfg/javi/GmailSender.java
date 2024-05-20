@@ -1,17 +1,15 @@
 package com.example.tfg.javi;
 
 import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
+import javax.mail.*;
+import javax.mail.internet.*;
 
 public class GmailSender {
+
+    private static final String SMTP_AUTH_KEY = "mail.smtp.auth";
+    private static final String SMTP_STARTTLS_KEY = "mail.smtp.starttls.enable";
+    private static final String SMTP_HOST_KEY = "mail.smtp.host";
+    private static final String SMTP_PORT_KEY = "mail.smtp.port";
 
     private final String username;
     private final String password;
@@ -25,12 +23,12 @@ public class GmailSender {
         this.smtpPort = smtpPort;
     }
 
-    public void sendEmail(String recipientEmail, String subject, String body) throws MessagingException {
+    public void sendEmail(String recipientEmail, String subject, String body) {
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", smtpHost);
-        props.put("mail.smtp.port", smtpPort);
+        props.put(SMTP_AUTH_KEY, "true");
+        props.put(SMTP_STARTTLS_KEY, "true");
+        props.put(SMTP_HOST_KEY, smtpHost);
+        props.put(SMTP_PORT_KEY, smtpPort);
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -38,12 +36,16 @@ public class GmailSender {
             }
         });
 
-        Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(username));
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
-        message.setSubject(subject);
-        message.setText(body);
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+            message.setSubject(subject);
+            message.setText(body);
 
-        Transport.send(message);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            throw new RuntimeException("Error while sending email: " + e.getMessage(), e);
+        }
     }
 }

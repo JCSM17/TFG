@@ -24,12 +24,7 @@ import java.util.Map;
 
 public class DefinicionLunesFragment extends Fragment {
 
-    // Constructor vacío requerido para instanciar el fragmento
-    public DefinicionLunesFragment() {
-    }
-
-    // Array de IDs de botones
-    private final int[] button_ids_definicion_lunes = {
+    private static final int[] BUTTON_IDS_DEFINICION_LUNES = {
             R.id.botonVideoDominadas,
             R.id.botonVideoRemoMancuernas,
             R.id.botonVideoPesoMuertoRumano,
@@ -37,55 +32,62 @@ public class DefinicionLunesFragment extends Fragment {
             R.id.botonVideoFacePull,
             R.id.botonVideoCurlBarra
     };
+    private static final int[] IMAGE_BUTTON_IDS_DEFINICION_LUNES = {
+            R.id.imagenDominadas,
+            R.id.imagenRemoMancuernas,
+            R.id.imagenPesoMuertoRumano,
+            R.id.imageJalonPronoPecho,
+            R.id.imagenFacePull,
+            R.id.imagenCurlBarra
+    };
+    private static final int ANIMATION_DURATION = 3000;
 
-    // Este método se llama para inflar la vista del fragmento. Aquí se infla el layout fragment_definicion_lunes
+    private final Handler handler = new Handler();
+
+    public DefinicionLunesFragment() {
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_definicion_lunes, container, false);
     }
 
-    // Este método se llama después de que la vista del fragmento se ha creado. Aquí se configuran los listeners de los botones y la animación de la ImageView
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Obtener el array de URLs desde strings.xml
         String[] urls = getResources().getStringArray(R.array.urls_definicion_lunes);
 
-        // Configurar los listeners de los botones para abrir los videos de YouTube correspondientes cuando se hace clic en ellos
-        for (int i = 0; i < button_ids_definicion_lunes.length; i++) {
-            Button button = view.findViewById(button_ids_definicion_lunes[i]);
-            int finalI = i; // Variable final para ser usada en la lambda
-            button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
+        for (int i = 0; i < BUTTON_IDS_DEFINICION_LUNES.length; i++) {
+            setupButton(view, BUTTON_IDS_DEFINICION_LUNES[i], urls[i]);
         }
 
-        ImageButton imagenCheckDefinicionLunes = view.findViewById(R.id.imagenCheckDefinicionLunes);
-        imagenCheckDefinicionLunes.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), MenuActivity.class);
+        setupButton(view, R.id.imagenCheckDefinicionLunes, MenuActivity.class);
+
+        for (int id : IMAGE_BUTTON_IDS_DEFINICION_LUNES) {
+            setupImageButton(view, id);
+        }
+    }
+
+    private void setupButton(View view, int buttonId, String url) {
+        Button button = view.findViewById(buttonId);
+        button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), url));
+    }
+
+    private void setupButton(View view, int buttonId, Class<?> activityClass) {
+        Button button = view.findViewById(buttonId);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), activityClass);
             startActivity(intent);
         });
+    }
 
-
-        // Array de lista de IDs de las ImageView a las que quieres aplicar la animación
-        int[] imageButton_ids_definicion_lunes = {
-                R.id.imagenDominadas,
-                R.id.imagenRemoMancuernas,
-                R.id.imagenPesoMuertoRumano,
-                R.id.imageJalonPronoPecho,
-                R.id.imagenFacePull,
-                R.id.imagenCurlBarra
-        };
-
-        // Configurar un listener para cada ImageView. Cuando se hace clic en una ImageView, se inicia una animación de rotación que dura 3 segundos. Después de 3 segundos, la animación se detiene
-        for (int id : imageButton_ids_definicion_lunes) {
-            ImageButton imageButton = view.findViewById(id);
-            imageButton.setOnClickListener(v -> {
-                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
-                imageButton.startAnimation(animation);
-
-                new Handler().postDelayed(() -> imageButton.clearAnimation(), 3000);
-            });
-        }
+    private void setupImageButton(View view, int imageButtonId) {
+        ImageButton imageButton = view.findViewById(imageButtonId);
+        imageButton.setOnClickListener(v -> {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
+            imageButton.startAnimation(animation);
+            handler.postDelayed(() -> imageButton.clearAnimation(), ANIMATION_DURATION);
+        });
     }
 }

@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.os.Handler;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,12 +21,7 @@ import com.example.tfg.jc.YoutubeUtils;
 
 public class DefinicionViernesFragment extends Fragment {
 
-    // Constructor vacío requerido para instanciar el fragmento
-    public DefinicionViernesFragment() {
-    }
-
-    // Array de IDs de botones
-    private final int[] button_ids_definicion_viernes = {
+    private static final int[] BUTTON_IDS_DEFINICION_VIERNES = {
             R.id.botonVideoPesoMuertoViernes,
             R.id.botonVideoZancadaEstaticaMultipower,
             R.id.botonVideoPrensaInclinada,
@@ -33,57 +29,62 @@ public class DefinicionViernesFragment extends Fragment {
             R.id.botonVideoCurlBicepsAlternoSentadoMancuernas,
             R.id.botonVideoExtencionTricepsOverhead
     };
+    private static final int[] IMAGE_BUTTON_IDS_DEFINICION_VIERNES = {
+            R.id.imagenPesoMuertoViernes,
+            R.id.imagenZancadasEstaticasMultipower,
+            R.id.imagenPrensaInclinada,
+            R.id.imagePatadaTricepsPolea,
+            R.id.imagenCurlBicepsAlternoSentadoMancuernas,
+            R.id.imagenExtencionTricepsOverhead
+    };
+    private static final int ANIMATION_DURATION = 3000;
 
-    // Handler para detener la animación
     private final Handler handler = new Handler();
 
-    // Este método se llama para inflar la vista del fragmento. Aquí se infla el layout fragment_definicion_viernes
+    public DefinicionViernesFragment() {
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_definicion_viernes, container, false);
     }
 
-    // Este método se llama después de que la vista del fragmento se ha creado. Aquí se configuran los listeners de los botones y la animación de la ImageView
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Obtener el array de URLs desde strings.xml
         String[] urls = getResources().getStringArray(R.array.urls_definicion_viernes);
 
-        // Configurar los listeners de los botones para abrir los videos de YouTube correspondientes cuando se hace clic en ellos
-        for (int i = 0; i < button_ids_definicion_viernes.length; i++) {
-            Button button = view.findViewById(button_ids_definicion_viernes[i]);
-            int finalI = i; // Variable final para ser usada en la lambda
-            button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
+        for (int i = 0; i < BUTTON_IDS_DEFINICION_VIERNES.length; i++) {
+            setupButton(view, BUTTON_IDS_DEFINICION_VIERNES[i], urls[i]);
         }
 
-        ImageButton imagenCheckDefinicionViernes = view.findViewById(R.id.imagenCheckDefinicionViernes);
-        imagenCheckDefinicionViernes.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), MenuActivity.class);
+        setupButton(view, R.id.imagenCheckDefinicionViernes, MenuActivity.class);
+
+        for (int id : IMAGE_BUTTON_IDS_DEFINICION_VIERNES) {
+            setupImageButton(view, id);
+        }
+    }
+
+    private void setupButton(View view, int buttonId, String url) {
+        Button button = view.findViewById(buttonId);
+        button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), url));
+    }
+
+    private void setupButton(View view, int buttonId, Class<?> activityClass) {
+        Button button = view.findViewById(buttonId);
+        button.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), activityClass);
             startActivity(intent);
         });
+    }
 
-        // Array de lista de IDs de las ImageView a las que quieres aplicar la animación
-        int[] imageButton_ids_definicion_viernes = {
-                R.id.imagenPesoMuertoViernes,
-                R.id.imagenZancadasEstaticasMultipower,
-                R.id.imagenPrensaInclinada,
-                R.id.imagePatadaTricepsPolea,
-                R.id.imagenCurlBicepsAlternoSentadoMancuernas,
-                R.id.imagenExtencionTricepsOverhead
-        };
-
-        // Configurar un listener para cada ImageButton. Cuando se hace clic en un ImageButton, se inicia una animación de rotación que dura 3 segundos. Después de 3 segundos, la animación se detiene
-        for (int id : imageButton_ids_definicion_viernes) {
-            ImageButton imageButton = view.findViewById(id);
-            imageButton.setOnClickListener(v -> {
-                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
-                imageButton.startAnimation(animation);
-
-                handler.postDelayed(() -> imageButton.clearAnimation(), 3000);
-            });
-        }
+    private void setupImageButton(View view, int imageButtonId) {
+        ImageButton imageButton = view.findViewById(imageButtonId);
+        imageButton.setOnClickListener(v -> {
+            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
+            imageButton.startAnimation(animation);
+            handler.postDelayed(() -> imageButton.clearAnimation(), ANIMATION_DURATION);
+        });
     }
 }

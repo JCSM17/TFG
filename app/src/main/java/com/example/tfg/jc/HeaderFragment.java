@@ -19,6 +19,15 @@ import java.util.Map;
 
 public class HeaderFragment extends Fragment {
 
+    private static final String INICIO_SELECTED = "Inicio seleccionado";
+    private static final String MENSAJE_SELECTED = "Mensaje seleccionado";
+    private static final String SINCRONIZAR_SELECTED = "Sincronizar seleccionado";
+    private static final String PAPELERA_SELECTED = "Papelera seleccionada";
+    private static final String CONFIGURACION_SELECTED = "Configuración seleccionada";
+    private static final String INICIO_SESION_SELECTED = "Inicio de sesión seleccionado";
+    private static final String COMPARTIR_SELECTED = "Compartir seleccionado";
+    private static final String CALIFICANOS_SELECTED = "Califícanos seleccionado";
+
     private final Map<Integer, Runnable> actions = new HashMap<>();
 
     @Override
@@ -30,14 +39,14 @@ public class HeaderFragment extends Fragment {
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
 
         // Mapea los IDs de los elementos del menú a las acciones correspondientes
-        actions.put(R.id.nav_home, () -> showToast("Inicio seleccionado"));
-        actions.put(R.id.nav_message, () -> showToast("Mensaje seleccionado"));
-        actions.put(R.id.synch, () -> showToast("Sincronizar seleccionado"));
-        actions.put(R.id.trash, () -> showToast("Papelera seleccionada"));
-        actions.put(R.id.settings, () -> showToast("Configuración seleccionada"));
-        actions.put(R.id.nav_login, () -> showToast("Inicio de sesión seleccionado"));
-        actions.put(R.id.nav_share, () -> showToast("Compartir seleccionado"));
-        actions.put(R.id.nav_rate, () -> showToast("Califícanos seleccionado"));
+        actions.put(R.id.nav_home, this::showInicioSelected);
+        actions.put(R.id.nav_message, this::showMensajeSelected);
+        actions.put(R.id.synch, this::showSincronizarSelected);
+        actions.put(R.id.trash, this::showPapeleraSelected);
+        actions.put(R.id.settings, this::showConfiguracionSelected);
+        actions.put(R.id.nav_login, this::showInicioSesionSelected);
+        actions.put(R.id.nav_share, this::showCompartirSelected);
+        actions.put(R.id.nav_rate, this::showCalificanosSelected);
 
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -53,5 +62,37 @@ public class HeaderFragment extends Fragment {
 
     private void showToast(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showInicioSelected() {
+        showToast(INICIO_SELECTED);
+    }
+
+    private void showMensajeSelected() {
+        showToast(MENSAJE_SELECTED);
+    }
+
+    private void showSincronizarSelected() {
+        showToast(SINCRONIZAR_SELECTED);
+    }
+
+    private void showPapeleraSelected() {
+        showToast(PAPELERA_SELECTED);
+    }
+
+    private void showConfiguracionSelected() {
+        showToast(CONFIGURACION_SELECTED);
+    }
+
+    private void showInicioSesionSelected() {
+        showToast(INICIO_SESION_SELECTED);
+    }
+
+    private void showCompartirSelected() {
+        showToast(COMPARTIR_SELECTED);
+    }
+
+    private void showCalificanosSelected() {
+        showToast(CALIFICANOS_SELECTED);
     }
 }

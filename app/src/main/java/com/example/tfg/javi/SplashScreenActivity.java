@@ -16,6 +16,8 @@ import com.example.tfg.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
+    private static final int SPLASH_SCREEN_DELAY = 2000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +36,10 @@ public class SplashScreenActivity extends AppCompatActivity {
         JJJFITextView.setAnimation(animacion2);
         LogoImagen.setAnimation(animacion1);
 
-        new Handler().postDelayed (new Runnable() {
-            public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }, 2000);
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }, SPLASH_SCREEN_DELAY);
     }
 }

@@ -54,7 +54,7 @@ public class MenuActivity extends AppCompatActivity {
         btnProximamente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirRutinasActivity("proximamente");
+                abrirRutinasActivity("tienda");
             }
         });
     }

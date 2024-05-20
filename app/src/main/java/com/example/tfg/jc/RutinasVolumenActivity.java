@@ -2,6 +2,7 @@ package com.example.tfg.jc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,26 +22,18 @@ public class RutinasVolumenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rutinas_volumen);
 
-        setupCardView(R.id.cardLunesVolumen, VolumenLunesFragment.class);
-        setupCardView(R.id.cardMartesVolumen, VolumenMartesFragment.class);
-        setupCardView(R.id.cardMiercolesVolumen, AbdominalesFragment.class);
-        setupCardView(R.id.cardJuevesVolumen, VolumenJuevesFragment.class);
-        setupCardView(R.id.cardViernesVolumen, VolumenViernesFragment.class);
+        setupView(R.id.cardLunesVolumen, VolumenLunesFragment.class);
+        setupView(R.id.cardMartesVolumen, VolumenMartesFragment.class);
+        setupView(R.id.cardMiercolesVolumen, AbdominalesFragment.class);
+        setupView(R.id.cardJuevesVolumen, VolumenJuevesFragment.class);
+        setupView(R.id.cardViernesVolumen, VolumenViernesFragment.class);
 
-        setupImageButton(R.id.btnMainMenuVolumen, MenuActivity.class);
+        setupView(R.id.btnMainMenuVolumen, MenuActivity.class);
     }
 
-    private void setupCardView(int cardViewId, Class<?> activityClass) {
-        CardView cardView = findViewById(cardViewId);
-        cardView.setOnClickListener(v -> {
-            Intent intent = new Intent(RutinasVolumenActivity.this, activityClass);
-            startActivity(intent);
-        });
-    }
-
-    private void setupImageButton(int imageButtonId, Class<?> activityClass) {
-        ImageButton imageButton = findViewById(imageButtonId);
-        imageButton.setOnClickListener(v -> {
+    private void setupView(int viewId, Class<?> activityClass) {
+        View view = findViewById(viewId);
+        view.setOnClickListener(v -> {
             Intent intent = new Intent(RutinasVolumenActivity.this, activityClass);
             startActivity(intent);
         });

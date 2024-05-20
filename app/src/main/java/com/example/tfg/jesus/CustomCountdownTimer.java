@@ -4,17 +4,15 @@ import android.content.Context;
 import android.os.CountDownTimer;
 
 public class CustomCountdownTimer {
-    private Context context;
     private long millisInFuture;
     private long countDownInterval;
     private long millisUntilFinished;
     private InternalTimer timer;
-    private boolean isRunning;
+
     private OnTick onTick;
     private OnFinish onFinish;
 
-    public CustomCountdownTimer(Context context, long millisInFuture, long countDownInterval) {
-        this.context = context;
+    public CustomCountdownTimer(long millisInFuture, long countDownInterval) {
         this.millisInFuture = millisInFuture;
         this.countDownInterval = countDownInterval;
         this.millisUntilFinished = millisInFuture;
@@ -33,6 +31,7 @@ public class CustomCountdownTimer {
 
     private class InternalTimer extends CountDownTimer {
         private CustomCountdownTimer parent;
+        private boolean isRunning;
 
         public InternalTimer(CustomCountdownTimer parent, long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
@@ -53,6 +52,21 @@ public class CustomCountdownTimer {
             if (parent.onFinish != null) {
                 parent.onFinish.onFinish();
             }
+            isRunning = false;
+        }
+
+        public void startTimer() {
+            this.start();
+            isRunning = true;
+        }
+
+        public void pauseTimer() {
+            this.cancel();
+            isRunning = false;
+        }
+
+        public boolean isRunning() {
+            return isRunning;
         }
     }
 
@@ -65,26 +79,24 @@ public class CustomCountdownTimer {
     }
 
     public void pauseTimer() {
-        timer.cancel();
-        isRunning = false;
+        timer.pauseTimer();
     }
 
     public void resumeTimer() {
-        if (!isRunning && millisUntilFinished > 0) {
+        if (!timer.isRunning() && millisUntilFinished > 0) {
             timer = new InternalTimer(this, millisUntilFinished, countDownInterval);
-            startTimer();
+            timer.startTimer();
         }
     }
 
     public void startTimer() {
-        timer.start();
-        isRunning = true;
+        timer.startTimer();
     }
 
     public void restartTimer() {
         timer.cancel();
         timer = new InternalTimer(this, millisInFuture, countDownInterval);
-        startTimer();
+        timer.startTimer();
     }
 
     public void destroyTimer() {
