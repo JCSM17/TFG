@@ -18,8 +18,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tfg.R;
+import com.example.tfg.javi.DatabaseHelper;
 
 public class IntroObjetivoFragment extends Fragment {
+
+    private DatabaseHelper databaseHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +39,9 @@ public class IntroObjetivoFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         generoSpinner.setAdapter(adapter);
 
+        // Inicializa DatabaseHelper
+        databaseHelper = new DatabaseHelper(getContext());
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,32 +50,47 @@ public class IntroObjetivoFragment extends Fragment {
                 String edad = edadInput.getText().toString();
                 String genero = generoSpinner.getSelectedItem().toString();
 
-                // Validar las entradas del usuario
-                if (selectedId == -1 || estatura.isEmpty() || edad.isEmpty() || genero.equals("Género")) {
-                    Toast.makeText(getContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+                if (!validateInputs(selectedId, estatura, edad, genero)) {
+                    Toast.makeText(getContext(), "Por favor, completa todos los campos correctamente", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Guardar los datos del usuario en las preferencias compartidas
-                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt("selectedId", selectedId);
-                    editor.putString("estatura", estatura);
-                    editor.putString("edad", edad);
-                    editor.putString("genero", genero);
-                    editor.apply();
-
-                    // Proceder a la siguiente pantalla
-                    TiposCuerpoFragment tiposCuerpoFragment = new TiposCuerpoFragment();
-                    FragmentManager fragmentManager = getFragmentManager();
-                    if (fragmentManager != null) {
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        // Hay qe meter el fragmento de javi anterior         fragmentTransaction.replace(R.id.fragment_container, tiposCuerpoFragment);
-                        fragmentTransaction.addToBackStack(null);
-                        fragmentTransaction.commit();
-                    }
+                    saveUserData(selectedId, estatura, edad, genero);
+                    navigateToNextScreen();
                 }
             }
         });
 
         return view;
+    }
+
+    private boolean validateInputs(int selectedId, String estatura, String edad, String genero) {
+        // Aquí puedes agregar más validaciones a los datos del usuario
+        return selectedId != -1 && !estatura.isEmpty() && !edad.isEmpty() && !genero.equals("Género");
+    }
+
+    private void saveUserData(int selectedId, String estatura, String edad, String genero) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("selectedId", selectedId);
+        editor.putString("estatura", estatura);
+        editor.putString("edad", edad);
+        editor.putString("genero", genero);
+        editor.apply();
+
+        String email = sharedPreferences.getString("email", "");
+        boolean success = databaseHelper.insertUserData(email, estatura, edad, genero);
+        if (!success) {
+            Toast.makeText(getContext(), "Error al guardar los datos del usuario", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void navigateToNextScreen() {
+        TiposCuerpoFragment tiposCuerpoFragment = new TiposCuerpoFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        if (fragmentManager != null) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_objetivo, tiposCuerpoFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 }

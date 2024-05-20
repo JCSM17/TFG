@@ -46,8 +46,8 @@ public class SignupActivity extends AppCompatActivity {
                     if (checkUser) {
                         Toast.makeText(SignupActivity.this, "Ya existe una cuenta con este correo electrónico", Toast.LENGTH_SHORT).show();
                     } else {
-                        Boolean insert = databaseHelper.insertData(email, password, nombre, apellido, telefono);
-                        if (insert) {
+                        try {
+                            databaseHelper.insertData(email, password, nombre, apellido, telefono);
                             // Enviar correo de bienvenida
                             sendWelcomeEmail(email);
 
@@ -55,7 +55,7 @@ public class SignupActivity extends AppCompatActivity {
                             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                             startActivity(intent);
                             finish(); // Finaliza la actividad actual para que no pueda volver atrás
-                        } else {
+                        } catch (android.database.SQLException e) {
                             Toast.makeText(SignupActivity.this, "El registro ha fallado", Toast.LENGTH_SHORT).show();
                         }
                     }
