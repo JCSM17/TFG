@@ -34,12 +34,12 @@
         <activity
             android:name=".javi.LoginActivity"
             android:exported="true"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/Theme.LogSign" />
         <activity
             android:name=".javi.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".javi.MainActivity"
+            android:name=".javi.TiendaActivity"
             android:exported="true" />
         <activity
             android:name=".javi.PlanAnualActivity"

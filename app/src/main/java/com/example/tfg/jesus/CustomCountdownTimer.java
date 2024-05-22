@@ -8,11 +8,13 @@ public class CustomCountdownTimer {
     private long countDownInterval;
     private long millisUntilFinished;
     private InternalTimer timer;
+    private final Context context;
 
     private OnTick onTick;
     private OnFinish onFinish;
 
-    public CustomCountdownTimer(long millisInFuture, long countDownInterval) {
+    public CustomCountdownTimer(Context context, long millisInFuture, long countDownInterval) {
+        this.context = context;
         this.millisInFuture = millisInFuture;
         this.countDownInterval = countDownInterval;
         this.millisUntilFinished = millisInFuture;

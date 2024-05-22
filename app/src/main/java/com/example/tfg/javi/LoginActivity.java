@@ -10,9 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.databinding.ActivityLoginBinding;
-import com.example.tfg.javi.MainActivity;
-
-import java.sql.SQLException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -54,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (pagado) {
                             // Si ya ha pagado, ir directamente a la actividad principal
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, TiendaActivity.class);
                             startActivity(intent);
                             finish(); // Finaliza la actividad actual para que no pueda volver atrás
                         } else {
@@ -64,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.apply();
 
                             Toast.makeText(LoginActivity.this, "¡Has iniciado sesión exitosamente!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), TiendaActivity.class);
                             startActivity(intent);
                         }
                     } else {

@@ -72,14 +72,16 @@ public class VolumenViernesFragment extends Fragment {
         });
     }
 
+    private void startAnimation(ImageButton imageButton) {
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
+        imageButton.startAnimation(animation);
+        handler.postDelayed(imageButton::clearAnimation, 3000);
+    }
+
     private void setupImageButtons() {
         for (int id : IMAGE_BUTTON_IDS_VOLUMEN_VIERNES) {
             ImageButton imageButton = binding.getRoot().findViewById(id);
-            imageButton.setOnClickListener(v -> {
-                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
-                imageButton.startAnimation(animation);
-                handler.postDelayed(imageButton::clearAnimation, 3000);
-            });
+            imageButton.setOnClickListener(v -> startAnimation(imageButton));
         }
     }
 
