@@ -8,20 +8,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.tfg.javi.Adapter.PopularAdapter;
 import com.example.tfg.R;
-import com.example.tfg.databinding.ActivityMainBinding;
+import com.example.tfg.databinding.ActivityTiendaBinding;
+import com.example.tfg.javi.Adapter.PopularAdapter;
 import com.example.tfg.javi.domain.PopularDomain;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-    ActivityMainBinding binding;
+public class ProductDisplayActivity extends AppCompatActivity {
+    ActivityTiendaBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityTiendaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
 
@@ -31,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void bottomNavigation() {
-        binding.CarritoBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CarritoActivity.class)));
+        binding.CarritoBtn.setOnClickListener(v -> startActivity(new Intent(ProductDisplayActivity.this, CarritoActivity.class)));
     }
 
-    private void statusBarColor(){
-        Window window=MainActivity.this.getWindow();
-        window.setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.purple_Dark));
+    private void statusBarColor() {
+        Window window = ProductDisplayActivity.this.getWindow();
+        window.setStatusBarColor(ContextCompat.getColor(ProductDisplayActivity.this, R.color.purple_Dark));
     }
 
-    private void initRecyclerView(){
-        ArrayList<PopularDomain> items= new ArrayList<>();
+    private void initRecyclerView() {
+        ArrayList<PopularDomain> items = new ArrayList<>();
         items.add(new PopularDomain("Whey Protein Xtreme", "item_1", 30, 5, 80, "Gold Standard 100% Whey es una mezcla de proteínas de suero de leche que contiene aislado de proteína de suero WPI, Concentrado de Proteína de Suero de Leche e Hidrolizado de Aislado de Suero con Chocolate. Esta mezcla de tres tipos de proteína, hacen de 100% Whey Gold Standard una de las formulaciones de proteína más puras, versátiles y preferidas por todo tipo de atleta en el mundo." +
                 "24 gramos de proteína (80%). 5,5 gramos de BCAA'S. 4 gramos de GlutaGLM y Ácido Glutámico. 1,1 gramos de carbohidrato. Repotenciado con enzimas digestivas (Lactasa). Endulzado con Sucralosa"));
 

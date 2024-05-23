@@ -2,14 +2,13 @@ package com.example.tfg.javi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.tfg.R;
+import com.example.tfg.jc.MenuActivity;
 
 public class SuscripcionMensualAnualConfirmActivity extends AppCompatActivity {
 
@@ -18,7 +17,7 @@ public class SuscripcionMensualAnualConfirmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suscripcion_mensual_anual_confirm);
+        setContentView(R.layout.activity_suscripcion_confirm);
 
         // Aquí puedes realizar cualquier inicialización adicional que necesites
 
@@ -30,7 +29,7 @@ public class SuscripcionMensualAnualConfirmActivity extends AppCompatActivity {
         Button goToMainButton = findViewById(R.id.button5);
 
         // Configurar el OnClickListener para el botón
-        goToMainButton.setOnClickListener(v -> startNewActivity(PrincipalActivity.class));
+        goToMainButton.setOnClickListener(v -> startNewActivity(MenuActivity.class));
     }
 
     private void startNewActivity(Class activityClass) {

@@ -5,29 +5,26 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tfg.databinding.ActivitySignUpBinding;
+import com.example.tfg.databinding.ActivityRegistroBinding;
 
-import javax.mail.MessagingException;
-
-public class SignupActivity extends AppCompatActivity {
+public class RegistroActivity extends AppCompatActivity {
 
     private static final String USERNAME = "cristianito5689@gmail.com";
     private static final String PASSWORD = "bxvb ccln dqro kynm";
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final String SMTP_PORT = "587";
 
-    ActivitySignUpBinding binding;
+    ActivityRegistroBinding binding;
     DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySignUpBinding.inflate(getLayoutInflater());
+        binding = ActivityRegistroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         databaseHelper = new DatabaseHelper(this);
@@ -45,22 +42,22 @@ public class SignupActivity extends AppCompatActivity {
         String telefono = binding.signupPhonenumber.getText().toString();
 
         if (email.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || password.isEmpty()) {
-            Toast.makeText(SignupActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegistroActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(SignupActivity.this, "Por favor, introduce una dirección de correo electrónico válida", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegistroActivity.this, "Por favor, introduce una dirección de correo electrónico válida", Toast.LENGTH_SHORT).show();
         } else {
             Boolean checkUser = databaseHelper.checkEmail(email);
             if (checkUser) {
-                Toast.makeText(SignupActivity.this, "Ya existe una cuenta con este correo electrónico", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegistroActivity.this, "Ya existe una cuenta con este correo electrónico", Toast.LENGTH_SHORT).show();
             } else {
                 try {
                     databaseHelper.insertData(email, password, nombre, apellido, telefono);
                     sendWelcomeEmail(email);
-                    Toast.makeText(SignupActivity.this, "¡Registro exitoso! Bienvenido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "¡Registro exitoso! Bienvenido", Toast.LENGTH_SHORT).show();
                     startNewActivity(LoginActivity.class);
                     finish();
                 } catch (android.database.SQLException e) {
-                    Toast.makeText(SignupActivity.this, "El registro ha fallado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "El registro ha fallado", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -77,14 +74,14 @@ public class SignupActivity extends AppCompatActivity {
 
     private static class SendEmailTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final SignupActivity activity;
+        private final RegistroActivity activity;
         private final String recipientEmail;
         private final String username;
         private final String password;
         private final String smtpHost;
         private final String smtpPort;
 
-        SendEmailTask(SignupActivity activity, String recipientEmail, String username, String password, String smtpHost, String smtpPort) {
+        SendEmailTask(RegistroActivity activity, String recipientEmail, String username, String password, String smtpHost, String smtpPort) {
             this.activity = activity;
             this.recipientEmail = recipientEmail;
             this.username = username;

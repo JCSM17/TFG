@@ -1,4 +1,3 @@
-
 package com.example.tfg.javi.Helper;
 
 import android.content.Context;
@@ -227,18 +226,19 @@ public class TinyDB {
     }
 
 
-    public <T> T getObject(String key, Class<T> classOfT) {
-
+    public Object getObject(String key, Class<?> classOfT) {
         String json = getString(key);
         Object value = new Gson().fromJson(json, classOfT);
         if (value == null)
             throw new NullPointerException();
-        return (T) value;
+        if (classOfT.isInstance(value)) {
+            return value;
+        } else {
+            throw new ClassCastException("El objeto no es de tipo " + classOfT.getName());
+        }
     }
 
-
     // Put methods
-
     public void putInt(String key, int value) {
         checkForNullKey(key);
         preferences.edit().putInt(key, value).apply();

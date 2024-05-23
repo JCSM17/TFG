@@ -41,7 +41,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes.add("/META-INF/LICENSE.md")
             excludes.add("META-INF/NOTICE.md")
@@ -72,6 +72,7 @@ dependencies {
 
     implementation("com.sun.mail:android-mail:1.6.6")
     implementation("com.sun.mail:android-activation:1.6.6")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     implementation(files("libs/SynapPay-release.aar"))
 
@@ -86,4 +87,8 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    tasks.withType<JavaCompile> {
+        options.compilerArgs.add("-Xlint:unchecked")
+    }
 }

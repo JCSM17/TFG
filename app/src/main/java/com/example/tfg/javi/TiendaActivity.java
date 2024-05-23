@@ -13,7 +13,7 @@ public class TiendaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tiendaa);
+        setContentView(R.layout.activity_tienda);
     }
 
     // Método para el clic del botón (definido en el XML)

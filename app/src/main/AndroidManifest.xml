@@ -36,10 +36,10 @@
             android:exported="true"
             android:theme="@style/Theme.LogSign" />
         <activity
-            android:name=".javi.SignupActivity"
+            android:name=".javi.RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".javi.TiendaActivity"
+            android:name=".javi.MainActivity"
             android:exported="true" />
         <activity
             android:name=".javi.PlanAnualActivity"
