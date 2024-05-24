@@ -57,9 +57,6 @@
             android:name=".javi.SuscripcionMensualAnualConfirmActivity"
             android:exported="true" />
         <activity
-            android:name=".javi.PrincipalActivity"
-            android:exported="true" />
-        <activity
             android:name=".javi.PasarelaActivity"
             android:exported="true" />
     </application>
