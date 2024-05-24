@@ -14,17 +14,18 @@
         android:id="@+id/textoObjetivo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="¿Cuál es tu objetivo?"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_container_objetivo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.05" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioObjetivo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -68,12 +69,27 @@
         android:inputType="numberDecimal"
         android:maxWidth="488dp"
         android:minHeight="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/aniosInput"
+        app:layout_constraintBottom_toTopOf="@+id/pesoInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioObjetivo" />
+
+    <EditText
+        android:id="@+id/pesoInput"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:autofillHints="weight"
+        android:hint="Peso en kg"
+        android:inputType="numberDecimal"
+        android:maxWidth="488dp"
+        android:minHeight="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/estaturaInput" />
 
     <EditText
         android:id="@+id/aniosInput"
@@ -88,13 +104,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estaturaInput" />
+        app:layout_constraintTop_toBottomOf="@+id/pesoInput" />
 
     <Spinner
         android:id="@+id/generoSpinner"
         android:layout_width="200dp"
         android:layout_height="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,22 +120,24 @@
         android:id="@+id/separator2"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginTop="128dp"
         android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_container_objetivo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generoSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/generoSpinner"
+        app:layout_constraintVertical_bias="0.30" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.90"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/separator2" />
+        app:layout_constraintTop_toBottomOf="@+id/separator2"
+        app:layout_constraintVertical_bias="0.10" />
 
     <FrameLayout
         android:id="@+id/fragment_container_objetivo"

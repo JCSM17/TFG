@@ -17,9 +17,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="50dp"
             android:gravity="center"
-            android:layout_marginTop="50dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/textView2"
@@ -44,20 +44,20 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/white_background12"
+            android:layout_marginVertical="100dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
-            android:layout_marginVertical="100dp">
+            android:background="@drawable/white_background12">
 
             <TextView
                 android:id="@+id/textViewRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:text="Registrarse"
-                android:layout_marginTop="15dp"
                 android:textColor="@color/black"
-                android:textSize="27dp"
+                android:textSize="27sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/signup_name_layout"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -81,10 +81,10 @@
                     android:id="@+id/signup_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
                     android:layout_marginTop="-15dp"
                     android:hint="Nombre"
                     android:padding="15dp"
+                    android:textColorHint="@color/black"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,10 +131,10 @@
                     android:id="@+id/signup_phonenumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
                     android:layout_marginTop="-15dp"
                     android:hint="Teléfono"
                     android:padding="15dp"
+                    android:textColorHint="@color/black"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,10 +156,10 @@
                     android:id="@+id/signup_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
                     android:layout_marginTop="-15dp"
                     android:hint="Email"
                     android:padding="16dp"
+                    android:textColorHint="@color/black"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,23 +181,22 @@
                     android:id="@+id/signup_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/black"
                     android:layout_marginTop="-15dp"
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="16dp"
+                    android:textColorHint="@color/black"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Sign Up Button -->
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/signup_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/ven"
                 android:text="Registrarse"
                 android:textSize="18sp"
-                app:backgroundTint="@color/ven"
-                app:cornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signup_password_layout" />

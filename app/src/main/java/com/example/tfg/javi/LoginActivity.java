@@ -1,5 +1,6 @@
 package com.example.tfg.javi;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -40,8 +41,12 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (checkCredentials) {
                         // Insertar datos de inicio de sesión en la tabla iniciosesion
+                        // Insertar datos de inicio de sesión en la tabla iniciosesion
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
+                        contentValues.put(DatabaseHelper.COLUMN_PASSWORD, databaseHelper.hashPassword(password));
                         try {
-                            databaseHelper.insertData(email, password);
+                            databaseHelper.insertData(DatabaseHelper.TABLE_INICIOSESION, contentValues);
                         } catch (android.database.SQLException e) {
                             Toast.makeText(LoginActivity.this, "Error al insertar datos de inicio de sesión", Toast.LENGTH_SHORT).show();
                         }

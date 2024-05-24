@@ -5,13 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -26,9 +25,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NOMBRE = "nombre";
     public static final String COLUMN_APELLIDO = "apellido";
     public static final String COLUMN_TELEFONO = "telefono";
+    public static final String COLUMN_OBJETIVO = "objetivo";
     public static final String COLUMN_ESTATURA = "estatura";
     public static final String COLUMN_EDAD = "edad";
     public static final String COLUMN_GENERO = "genero";
+    public static final String COLUMN_PESO = "peso"; // Added this line
     public static final String COLUMN_BODYTYPE = "bodyType";
 
     private static final String SELECT_FROM_WHERE = "SELECT * FROM %s WHERE %s = ?";
@@ -63,7 +64,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_ESTATURA + " TEXT," +
                 COLUMN_EDAD + " TEXT," +
                 COLUMN_GENERO + " TEXT," +
-                COLUMN_BODYTYPE + " TEXT)");
+                COLUMN_PESO + " TEXT," +
+                COLUMN_BODYTYPE + " TEXT," +
+                COLUMN_OBJETIVO + " TEXT)"); // Añade esta línea
 
         Log.d("DatabaseHelper", "Tables created.");
     }
@@ -77,32 +80,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_SUSCRIPMENSUAL);
         // Asegúrate de que también eliminas esta tabla en onUpgrade
         MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_USERDATA);
-
         onCreate(MyDB);
     }
 
-    private boolean insertData(String table, ContentValues contentValues) {
-        SQLiteDatabase MyDatabase = null;
-        try {
-            MyDatabase = this.getWritableDatabase();
+    public boolean insertData(String table, ContentValues contentValues) {
+        try (SQLiteDatabase MyDatabase = this.getWritableDatabase()) {
             MyDatabase.beginTransaction();
-            SQLiteStatement stmt = MyDatabase.compileStatement("INSERT INTO " + table + " VALUES(?, ?, ?, ?, ?)");
-            stmt.bindString(1, contentValues.getAsString(COLUMN_EMAIL));
-            stmt.bindString(2, contentValues.getAsString(COLUMN_PASSWORD));
-            stmt.bindString(3, contentValues.getAsString(COLUMN_NOMBRE));
-            stmt.bindString(4, contentValues.getAsString(COLUMN_APELLIDO));
-            stmt.bindString(5, contentValues.getAsString(COLUMN_TELEFONO));
-            long result = stmt.executeInsert();
+            long result = MyDatabase.insert(table, null, contentValues);
             if (result == -1) {
                 return false;
             }
             MyDatabase.setTransactionSuccessful();
             return true;
-        } finally {
-            if (MyDatabase != null) {
-                MyDatabase.endTransaction();
-                MyDatabase.close();
-            }
         }
     }
 
@@ -114,13 +103,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_APELLIDO, apellido);
         contentValues.put(COLUMN_TELEFONO, telefono);
         return insertData(TABLE_REGISTRO, contentValues);
-    }
-
-    public boolean insertData(String email, String password) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_EMAIL, email);
-        contentValues.put(COLUMN_PASSWORD, hashPassword(password));
-        return insertData(TABLE_INICIOSESION, contentValues);
     }
 
     public boolean insertDataSuscripcionAnual(String email, String nombre, String apellido, String dni, String telefono, String tarjeta, String fechaExpiracion, String cvc) {
@@ -136,13 +118,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertData(TABLE_SUSCRIPANUAL, contentValues);
     }
 
-    public boolean insertUserData(String email, String estatura, String edad, String genero) {
+    public boolean insertUserData(String email, float estatura, int edad, String genero, float peso, String objetivo) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_EMAIL, email);
         contentValues.put(COLUMN_ESTATURA, estatura);
         contentValues.put(COLUMN_EDAD, edad);
         contentValues.put(COLUMN_GENERO, genero);
+        contentValues.put(COLUMN_PESO, peso);
+        contentValues.put(COLUMN_OBJETIVO, objetivo); // Añade esta línea
         return insertData(TABLE_USERDATA, contentValues);
+    }
+
+    public String getUserGoal(String email) {
+        String selectQuery = "SELECT " + COLUMN_OBJETIVO + " FROM " + TABLE_USERDATA + " WHERE " + COLUMN_EMAIL + " = ?";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{email});
+        String objetivo = "";
+        if (cursor.moveToFirst()) {
+            objetivo = cursor.getString(0);
+        }
+        cursor.close();
+        return objetivo;
     }
 
     public boolean updateUserBodyType(String email, String bodyType) {
@@ -154,35 +150,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0;
     }
 
-    public boolean checkEmail(String email) {
-        SQLiteDatabase MyDatabase = this.getReadableDatabase();
-        Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL), new String[]{email});
-        boolean result = cursor.getCount() > 0;
+    public String getUserGoal() {
+        // Asume que tienes una tabla de usuarios y una columna de objetivo
+        String selectQuery = "SELECT objetivo FROM usuarios LIMIT 1"; // Cambia la consulta según tu esquema de base de datos
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        String objetivo = "";
+        if (cursor.moveToFirst()) {
+            objetivo = cursor.getString(0);
+        }
         cursor.close();
-        MyDatabase.close();
-        return result;
+        return objetivo;
     }
 
 
-    public boolean checkEmailPassword(String email, String password) {
-        SQLiteDatabase MyDatabase = null;
-        Cursor cursor = null;
-        try {
-            MyDatabase = this.getReadableDatabase();
-            cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD), new String[]{email, hashPassword(password)});
-            boolean result = cursor.getCount() > 0;
-            return result;
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-            if (MyDatabase != null) {
-                MyDatabase.close();
-            }
+    public boolean checkEmail(String email) {
+        try (SQLiteDatabase MyDatabase = this.getReadableDatabase();
+             Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL), new String[]{email})) {
+            return cursor.getCount() > 0;
         }
     }
 
-    private String hashPassword(String password) {
+    public boolean checkEmailPassword(String email, String password) {
+        try (SQLiteDatabase MyDatabase = this.getReadableDatabase();
+             Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD), new String[]{email, hashPassword(password)})) {
+            return cursor.getCount() > 0;
+        }
+    }
+
+    public String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hash = md.digest(password.getBytes());

@@ -1,12 +1,24 @@
 <resources>
     <string name="app_name">JJJFIT</string>
 
+    <string name="jjj_text">JJJ</string>
+    <string name="fit_text">FIT</string>
+
     <!-- Strings para el ObjetivoFragment -->
     <string-array name="gender_array">
         <item>Hombre</item>
         <item>Mujer</item>
         <item>Otro</item>
     </string-array>
+
+    <!-- Strings para el TiposCuerpoFragment -->
+    <string name="error_email_not_found">Error: Email no encontrado</string>
+    <string name="error_body_type_not_selected">Error: Tipo de cuerpo no seleccionado</string>
+    <string name="select_body_type_message">Por favor, selecciona un tipo de cuerpo</string>
+    <string name="ectomorfo">Ectomorfo</string>
+    <string name="mesomorfo">Mesomorfo</string>
+    <string name="endomorfo">Endomorfo</string>
+
 
     <!-- Strings para el Encabezado de TODAS las Rutinas  -->
     <string name="dificultad">Ta dificil</string>

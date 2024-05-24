@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
-    <style name="Theme.LogSign" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/ven</item>
         <item name="colorPrimaryVariant">@color/ven</item>
@@ -13,8 +14,6 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-
-    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar" />
 
     // Perfil de Masacuato
     <style name="Theme.ProfileUI" parent="Theme.MaterialComponents.DayNight.NoActionBar">
