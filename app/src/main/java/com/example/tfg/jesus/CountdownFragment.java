@@ -33,6 +33,8 @@ public class CountdownFragment extends Fragment {
     private final float progressTime = clockTime / 1000.0f;
 
     private MediaPlayer mediaPlayer;
+    private String state = "Play";
+    private Button actionButton;
 
     private com.example.tfg.jesus.CustomCountdownTimer customCountdownTimer;
 
