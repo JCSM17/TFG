@@ -3,167 +3,170 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/textoFit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="33dp"
-        android:text="FIT"
-        android:textColor="#000000"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imagenBorde"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textoJJJ"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textoJJJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="51dp"
-        android:text="JJJ"
-        android:textColor="#FF0000"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textoPlanAnual"
-        app:layout_constraintEnd_toStartOf="@+id/textoFit"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imagenBorde"
-        android:layout_width="191dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="535dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textoJJJ"
-        app:layout_constraintStart_toEndOf="@+id/textoJJJ"
-        app:layout_constraintTop_toBottomOf="@+id/textoFit"
-        app:srcCompat="@drawable/ven_border" />
-
-    <TextView
-        android:id="@+id/textoAccesoGym"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/baseline_check_24"
-        android:text="ACCESO AL GYM 24/7"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textoClasesProgramadas"
-        app:layout_constraintEnd_toEndOf="@+id/textoRutinas"
-        app:layout_constraintStart_toEndOf="@+id/textoRutinas"
-        app:layout_constraintTop_toBottomOf="@+id/textoCoach" />
+    <include
+        android:id="@+id/jjjfit"
+        layout="@layout/fragment_jjjfit"
+        app:layout_constraintBottom_toTopOf="@+id/imagenBorde" />
 
     <Button
         android:id="@+id/botonVerPlanMensual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="28dp"
         android:text="Ver el plan mensual"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/botonElegirPlanAnual"
-        app:layout_constraintStart_toStartOf="@+id/textoNutricionista"
-        app:layout_constraintTop_toBottomOf="@+id/textoNutricionista" />
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imagenBorde"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imagenBorde"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintWidth_max="400dp"
+        app:srcCompat="@drawable/ven_border" />
 
     <TextView
-        android:id="@+id/textoNutricionista"
+        android:id="@+id/textoPlanAnual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:drawableLeft="@drawable/baseline_check_24"
-        android:text="NUTRICIONISTA"
+        android:text="PLAN ANUAL"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/botonVerPlanMensual"
-        app:layout_constraintStart_toStartOf="@+id/textoComplementos"
-        app:layout_constraintTop_toBottomOf="@+id/textoComplementos" />
-
-    <Button
-        android:id="@+id/botonElegirPlanAnual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="244dp"
-        android:text="Elegir plan anual"
-        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/botonVerPlanMensual"
-        app:layout_constraintTop_toBottomOf="@+id/botonVerPlanMensual" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.60" />
+
+
+    <TextView
+        android:id="@+id/textoAccesoGym"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/baseline_check_24"
+        android:text="ACCESO AL GYM 24/7"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoCoach" />
 
     <TextView
         android:id="@+id/textoClasesProgramadas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/baseline_check_24"
         android:text="CLASES PROGRAMADAS"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textoComplementos"
-        app:layout_constraintStart_toStartOf="@+id/textoAccesoGym"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoAccesoGym" />
 
     <TextView
         android:id="@+id/textoCoach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/baseline_check_24"
         android:text="COACH"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textoAccesoGym"
-        app:layout_constraintStart_toStartOf="@+id/textoRutinas"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoRutinas" />
 
     <TextView
         android:id="@+id/textoRutinas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:drawableLeft="@drawable/baseline_check_24"
         android:text="RUTINAS"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textoCoach"
-        app:layout_constraintStart_toStartOf="@+id/textoPrecio"
-        app:layout_constraintTop_toBottomOf="@+id/textoPrecio" />
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoPlanAnual" />
 
     <TextView
         android:id="@+id/textoComplementos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/baseline_check_24"
         android:text="COMPLEMENTOS"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textoNutricionista"
-        app:layout_constraintStart_toStartOf="@+id/textoClasesProgramadas"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoClasesProgramadas" />
 
     <TextView
-        android:id="@+id/textoPrecio"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="13dp"
-        android:text="250€"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textoRutinas"
-        app:layout_constraintEnd_toStartOf="@+id/textoPlanAnual"
-        app:layout_constraintStart_toStartOf="@+id/imagenBorde"
-        app:layout_constraintTop_toBottomOf="@+id/textoPlanAnual" />
-
-    <TextView
-        android:id="@+id/textoPlanAnual"
+        android:id="@+id/textoNutricionista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
-        android:text="PLAN ANUAL"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/baseline_check_24"
+        android:text="NUTRICIONISTA"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textoPrecio"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoJJJ" />
+        app:layout_constraintTop_toBottomOf="@+id/textoComplementos" />
+
+    <TextView
+        android:id="@+id/textoPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="250 €"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoNutricionista"
+        app:layout_constraintVertical_bias="0.30" />
+
+    <Button
+        android:id="@+id/botonElegirPlanAnual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elegir plan anual"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.30"
+        app:layout_constraintStart_toEndOf="@+id/textoPrecio"
+        app:layout_constraintTop_toBottomOf="@+id/textoNutricionista"
+        app:layout_constraintVertical_bias="0.276" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

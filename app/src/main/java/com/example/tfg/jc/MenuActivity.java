@@ -3,6 +3,7 @@ package com.example.tfg.jc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,8 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity {
-
-    private static final String PREFERENCES_NAME = "com.example.tfg.preferences";
 
     private DatabaseHelper databaseHelper;
 
@@ -49,8 +48,9 @@ public class MenuActivity extends AppCompatActivity {
 
     private void abrirRutinasActivity(String opcionSeleccionada) {
         String userEmail = databaseHelper.getUserEmail();
-        String objetivoStr = databaseHelper.getUserGoal(userEmail);        Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
-        Intent intent = null; // Inicializa intent con un valor por defecto
+        String objetivoStr = databaseHelper.getUserGoal(userEmail);
+        Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
+        Intent intent = null;
         switch (objetivo) {
             case VOLUMEN:
                 intent = new Intent(this, RutinasVolumenActivity.class);
@@ -65,6 +65,7 @@ public class MenuActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             // Maneja el caso en que intent sigue siendo null
+            Toast.makeText(this, "Error: Objetivo no reconocido", Toast.LENGTH_SHORT).show();
         }
     }
 }
