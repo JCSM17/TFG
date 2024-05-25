@@ -7,7 +7,7 @@
     tools:context=".javi.TiendaActivity">
 
     <include
-        android:id="@+id/jjjfit"
+        android:id="@+id/header_jjjfit"
         layout="@layout/fragment_jjjfit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,27 +15,31 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewBienvenido"
-        android:layout_width="wrap_content"
+        android:id="@+id/textoBienvenida"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
         android:gravity="center"
         android:text="Bienvenido, ya eres parte de JJJFIT, verifica tu correo electrónico"
         android:textColor="@color/black"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jjjfit" />
+        app:layout_constraintTop_toBottomOf="@+id/header_jjjfit"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintWidth_max="320dp" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/botonElegirPlan"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:onClick="irAPrincipal"
         android:text="Ir a elegir el plan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.453" />
+        app:layout_constraintTop_toBottomOf="@+id/textoBienvenida"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintWidth_max="320dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

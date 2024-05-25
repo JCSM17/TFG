@@ -10,6 +10,12 @@
     <string name="pause">Pause</string>
     <string name="reset">Reset</string>
 
+    <!-- Para el activity_menu -->
+    <string name="entrenamiento">Entrenamiento</string>
+    <string name="nutricion">Nutrición</string>
+    <string name="perfil">Perfil</string>
+    <string name="tienda">Tienda</string>
+
     <!-- Strings para el ObjetivoFragment -->
     <string-array name="gender_array">
         <item>Hombre</item>
