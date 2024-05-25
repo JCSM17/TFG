@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.databinding.ActivityLoginBinding;
 
+import java.security.NoSuchAlgorithmException;
+
 public class LoginActivity extends AppCompatActivity {
 
     private static final String PREFS = "PREFS";
@@ -51,7 +53,12 @@ public class LoginActivity extends AppCompatActivity {
             if (checkCredentials) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
-                contentValues.put(DatabaseHelper.COLUMN_PASSWORD, databaseHelper.hashPassword(password));
+                try {
+                    contentValues.put(DatabaseHelper.COLUMN_PASSWORD, databaseHelper.hashPassword(password));
+                } catch (NoSuchAlgorithmException e) {
+                    // Manejar la excepción aquí, por ejemplo, imprimir la traza de la pila:
+                    e.printStackTrace();
+                }
                 try {
                     databaseHelper.insertData(DatabaseHelper.TABLE_INICIOSESION, contentValues);
                 } catch (android.database.SQLException e) {

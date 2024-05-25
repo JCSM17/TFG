@@ -1,7 +1,6 @@
 package com.example.tfg.jc;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -10,12 +9,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tfg.R;
 import com.example.tfg.javi.DatabaseHelper;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MenuActivity extends AppCompatActivity {
 
-    private static final String OBJETIVO_KEY = "objetivo";
     private static final String PREFERENCES_NAME = "com.example.tfg.preferences";
 
     private DatabaseHelper databaseHelper;
+
+    private enum Objetivo {
+        VOLUMEN,
+        DEFINICION
+    }
+
+    private final Map<Integer, String> buttonMap = new HashMap<Integer, String>() {{
+        put(R.id.btnEntrenamiento, "entrenamiento");
+        put(R.id.btnNutricion, "nutricion");
+        put(R.id.btnPerfil, "perfil");
+        put(R.id.btnTienda, "tienda");
+    }};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,45 +37,34 @@ public class MenuActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
-        setupButton(R.id.btnEntrenamiento, "entrenamiento");
-        setupButton(R.id.btnNutricion, "nutricion");
-        setupButton(R.id.btnPerfil, "perfil");
-        setupButton(R.id.btnTienda, "tienda");
+        for (Map.Entry<Integer, String> entry : buttonMap.entrySet()) {
+            setupButton(entry.getKey(), entry.getValue());
+        }
     }
 
     private void setupButton(int buttonId, String opcionSeleccionada) {
         Button button = findViewById(buttonId);
-        adjustIconSize(button);
         button.setOnClickListener(v -> abrirRutinasActivity(opcionSeleccionada));
     }
 
     private void abrirRutinasActivity(String opcionSeleccionada) {
-        String objetivo = databaseHelper.getUserGoal();
-        Intent intent;
-
+        String userEmail = databaseHelper.getUserEmail();
+        String objetivoStr = databaseHelper.getUserGoal(userEmail);        Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
+        Intent intent = null; // Inicializa intent con un valor por defecto
         switch (objetivo) {
-            case "volumen":
+            case VOLUMEN:
                 intent = new Intent(this, RutinasVolumenActivity.class);
                 break;
-            case "definicion":
+            case DEFINICION:
                 intent = new Intent(this, RutinasDefinicionActivity.class);
                 break;
-            default:
-                throw new IllegalArgumentException("Objetivo desconocido: " + objetivo);
         }
 
-        intent.putExtra("categoria_seleccionada", opcionSeleccionada);
-        startActivity(intent);
-    }
-
-    private void adjustIconSize(Button button) {
-        int iconSize = Math.round(getResources().getDimension(R.dimen.icon_size));
-        Drawable[] drawables = button.getCompoundDrawables();
-
-        if (drawables[1] != null) {
-            Drawable resizedDrawable = drawables[1].mutate();
-            resizedDrawable.setBounds(0, 0, iconSize, iconSize);
-            button.setCompoundDrawables(null, resizedDrawable, null, null);
+        if (intent != null) {
+            intent.putExtra("categoria_seleccionada", opcionSeleccionada);
+            startActivity(intent);
+        } else {
+            // Maneja el caso en que intent sigue siendo null
         }
     }
 }

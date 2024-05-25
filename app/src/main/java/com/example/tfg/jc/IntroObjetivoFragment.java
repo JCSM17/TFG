@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.tfg.R;
 import com.example.tfg.databinding.FragmentObjetivoBinding;
 import com.example.tfg.javi.DatabaseHelper;
+import com.example.tfg.javi.UserData;
 
 public class IntroObjetivoFragment extends Fragment {
 
@@ -23,16 +24,9 @@ public class IntroObjetivoFragment extends Fragment {
     private static final String ERROR_SAVE_DATA = "Error al guardar los datos del usuario";
     private static final String GENDER_DEFAULT = "Género";
     private static final String EMAIL_KEY = "email";
-    private static final String SELECTED_ID_KEY = "selectedId";
-    private static final String OBJETIVO_KEY = "objetivo";
-    private static final String ESTATURA_KEY = "estatura";
-    private static final String PESO_KEY = "peso";
-    private static final String EDAD_KEY = "edad";
-    private static final String GENERO_KEY = "genero";
 
     private DatabaseHelper databaseHelper;
-    private ArrayAdapter<CharSequence> adapter;
-    private FragmentObjetivoBinding binding; // Añade esta línea
+    private FragmentObjetivoBinding binding;
 
     public IntroObjetivoFragment() {
         // Constructor vacío
@@ -40,7 +34,7 @@ public class IntroObjetivoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        FragmentObjetivoBinding binding = FragmentObjetivoBinding.inflate(inflater, container, false);
+        binding = FragmentObjetivoBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
         binding.nextButton.setOnClickListener(v -> {
@@ -66,7 +60,7 @@ public class IntroObjetivoFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         // Initialize DatabaseHelper and the adapter for generoSpinner
         databaseHelper = new DatabaseHelper(requireContext());
-        adapter = ArrayAdapter.createFromResource(requireContext(),
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(),
                 R.array.gender_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.generoSpinner.setAdapter(adapter);
@@ -93,14 +87,6 @@ public class IntroObjetivoFragment extends Fragment {
             int edadInt = Integer.parseInt(edad);
             float pesoFloat = Float.parseFloat(peso);
 
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt(SELECTED_ID_KEY, selectedId);
-            editor.putFloat(ESTATURA_KEY, estaturaFloat);
-            editor.putInt(EDAD_KEY, edadInt);
-            editor.putString(GENERO_KEY, genero);
-            editor.putFloat(PESO_KEY, pesoFloat);
-
             // Guardar la elección del usuario entre "volumen", "definicion" y "recomendado"
             String objetivo;
             if (selectedId == R.id.radioOptionDefinicion) {
@@ -108,14 +94,21 @@ public class IntroObjetivoFragment extends Fragment {
             } else if (selectedId == R.id.radioOptionVolumen) {
                 objetivo = "volumen";
             } else {
-                if (pesoFloat > estaturaFloat) {
+                if (pesoFloat / 100 > estaturaFloat) {
                     objetivo = "definicion";
                 } else {
                     objetivo = "volumen";
                 }
             }
-            String email = sharedPreferences.getString(EMAIL_KEY, ""); // Añade esta línea
-            boolean success = databaseHelper.insertUserData(email, estaturaFloat, edadInt, genero, pesoFloat, objetivo);
+
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String email = sharedPreferences.getString(EMAIL_KEY, "");
+
+            // Crear una nueva instancia de UserData y establecer sus valores
+            UserData userData = new UserData(email, selectedId, estaturaFloat, edadInt, genero, pesoFloat, objetivo);
+
+            // Asegúrate de que el método insertUserData en la clase DatabaseHelper puede manejar todos los datos
+            boolean success = databaseHelper.insertUserData(userData);
             if (!success) {
                 showToast(ERROR_SAVE_DATA);
             }

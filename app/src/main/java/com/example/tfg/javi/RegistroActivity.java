@@ -1,5 +1,6 @@
 package com.example.tfg.javi;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -51,7 +52,13 @@ public class RegistroActivity extends AppCompatActivity {
                 Toast.makeText(RegistroActivity.this, "Ya existe una cuenta con este correo electrónico", Toast.LENGTH_SHORT).show();
             } else {
                 try {
-                    databaseHelper.insertData(email, password, nombre, apellido, telefono);
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
+                    contentValues.put(DatabaseHelper.COLUMN_PASSWORD, password);
+                    contentValues.put(DatabaseHelper.COLUMN_NOMBRE, nombre);
+                    contentValues.put(DatabaseHelper.COLUMN_APELLIDO, apellido);
+                    contentValues.put(DatabaseHelper.COLUMN_TELEFONO, telefono);
+                    databaseHelper.insertData(DatabaseHelper.TABLE_REGISTRO, contentValues);
                     sendWelcomeEmail(email);
                     Toast.makeText(RegistroActivity.this, "¡Registro exitoso! Bienvenido", Toast.LENGTH_SHORT).show();
                     startNewActivity(LoginActivity.class);
