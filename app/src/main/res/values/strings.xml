@@ -4,6 +4,12 @@
     <string name="jjj_text">JJJ</string>
     <string name="fit_text">FIT</string>
 
+
+    <!-- Strings para el CountDownFragment -->
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+
     <!-- Strings para el ObjetivoFragment -->
     <string-array name="gender_array">
         <item>Hombre</item>
