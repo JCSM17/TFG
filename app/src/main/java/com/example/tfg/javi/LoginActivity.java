@@ -14,6 +14,14 @@ import com.example.tfg.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String PREFS = "PREFS";
+    private static final String PAGADO = "pagado";
+    private static final String INVALID_EMAIL = "Por favor, introduce una dirección de correo electrónico válida";
+    private static final String EMPTY_PASSWORD = "Por favor, introduzca su contraseña";
+    private static final String LOGIN_ERROR = "Error al insertar datos de inicio de sesión";
+    private static final String INVALID_CREDENTIALS = "Credenciales no válidas";
+    private static final String LOGIN_SUCCESS = "¡Has iniciado sesión exitosamente!";
+
     ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
 
@@ -25,63 +33,53 @@ public class LoginActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
-        binding.loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = binding.loginEmail.getText().toString();
-                String password = binding.loginPassword.getText().toString();
+        binding.botonIniciarSesion.setOnClickListener(this::handleLogin);
+        binding.textoRegistro.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, RegistroActivity.class)));
+    }
 
-                // Verifica si el campo de correo electrónico está vacío o si el formato no es válido
-                if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    Toast.makeText(LoginActivity.this, "Por favor, introduce una dirección de correo electrónico válida", Toast.LENGTH_SHORT).show();
-                } else if (password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Por favor, introduzca su contraseña", Toast.LENGTH_SHORT).show();
-                } else {
-                    Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
+    private void handleLogin(View view) {
+        String email = binding.entradaEmail.getText().toString();
+        String password = binding.entradaContrasenia.getText().toString();
 
-                    if (checkCredentials) {
-                        // Insertar datos de inicio de sesión en la tabla iniciosesion
-                        // Insertar datos de inicio de sesión en la tabla iniciosesion
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
-                        contentValues.put(DatabaseHelper.COLUMN_PASSWORD, databaseHelper.hashPassword(password));
-                        try {
-                            databaseHelper.insertData(DatabaseHelper.TABLE_INICIOSESION, contentValues);
-                        } catch (android.database.SQLException e) {
-                            Toast.makeText(LoginActivity.this, "Error al insertar datos de inicio de sesión", Toast.LENGTH_SHORT).show();
-                        }
-                        // Verificar si el usuario ya ha pagado
-                        SharedPreferences prefs = getSharedPreferences("PREFS", MODE_PRIVATE);
-                        boolean pagado = prefs.getBoolean("pagado", false);
+        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(LoginActivity.this, INVALID_EMAIL, Toast.LENGTH_SHORT).show();
+        } else if (password.isEmpty()) {
+            Toast.makeText(LoginActivity.this, EMPTY_PASSWORD, Toast.LENGTH_SHORT).show();
+        } else {
+            Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
 
-                        if (pagado) {
-                            // Si ya ha pagado, ir directamente a la actividad principal
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish(); // Finaliza la actividad actual para que no pueda volver atrás
-                        } else {
-                            // Si no ha pagado, marcar como pagado y luego ir a la actividad principal
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putBoolean("pagado", true);
-                            editor.apply();
-
-                            Toast.makeText(LoginActivity.this, "¡Has iniciado sesión exitosamente!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                        }
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Credenciales no válidas", Toast.LENGTH_SHORT).show();
-                    }
+            if (checkCredentials) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
+                contentValues.put(DatabaseHelper.COLUMN_PASSWORD, databaseHelper.hashPassword(password));
+                try {
+                    databaseHelper.insertData(DatabaseHelper.TABLE_INICIOSESION, contentValues);
+                } catch (android.database.SQLException e) {
+                    Toast.makeText(LoginActivity.this, LOGIN_ERROR, Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
 
-        binding.signupRedirectText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
-                startActivity(intent);
+                SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+                boolean pagado = prefs.getBoolean(PAGADO, false);
+
+                if (pagado) {
+                    navigateToMainActivity();
+                } else {
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean(PAGADO, true);
+                    editor.apply();
+
+                    Toast.makeText(LoginActivity.this, LOGIN_SUCCESS, Toast.LENGTH_SHORT).show();
+                    navigateToMainActivity();
+                }
+            } else {
+                Toast.makeText(LoginActivity.this, INVALID_CREDENTIALS, Toast.LENGTH_SHORT).show();
             }
-        });
+        }
+    }
+
+    private void navigateToMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

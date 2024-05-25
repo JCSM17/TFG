@@ -88,6 +88,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    implementation ("com.google.android.material:material:X.Y.Z")
+
     tasks.withType<JavaCompile> {
         options.compilerArgs.add("-Xlint:unchecked")
     }

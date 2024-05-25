@@ -17,6 +17,15 @@
         <item name="textAppearanceButton">@style/TextAppearance.AppCompat.Button</item>
     </style>
 
+    <style name="MyEditTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="line">
         <item name="android:background">@color/underline</item>
         <item name="android:layout_marginTop">10dp</item>
