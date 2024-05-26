@@ -45,13 +45,13 @@
             android:name=".javi.PlanAnualActivity"
             android:exported="true" />
         <activity
-            android:name=".javi.PlanMensualActivity"
+            android:name=".javi.PlanesFragment"
             android:exported="true" />
         <activity
             android:name=".javi.SuscripcionPlanAnualActivity"
             android:exported="true" />
         <activity
-            android:name=".javi.SuscripcionPlanMensualActivity"
+            android:name=".javi.SuscripcionPlanMensualFragment"
             android:exported="true" />
         <activity
             android:name=".javi.SuscripcionMensualAnualConfirmActivity"

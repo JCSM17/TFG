@@ -81,6 +81,23 @@ public class IntroObjetivoFragment extends Fragment {
         return selectedId != -1 && !estatura.isEmpty() && !edad.isEmpty() && !genero.equals(GENDER_DEFAULT);
     }
 
+    private int getUserId(String email) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        int userId = sharedPreferences.getInt("userId", -1);
+
+        if (userId == -1) {
+            // Si el ID del usuario no está en las preferencias compartidas, obténlo de la base de datos
+            userId = databaseHelper.getUserIdByEmail(email);
+
+            // Guarda el ID del usuario en las preferencias compartidas para uso futuro
+            if (userId != -1) {
+                sharedPreferences.edit().putInt("userId", userId).apply();
+            }
+        }
+
+        return userId;
+    }
+
     private void saveUserData(int selectedId, String estatura, String edad, String genero, String peso) {
         try {
             float estaturaFloat = Float.parseFloat(estatura);
@@ -104,12 +121,14 @@ public class IntroObjetivoFragment extends Fragment {
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
             String email = sharedPreferences.getString(EMAIL_KEY, "");
 
-            // Crear una nueva instancia de UserData y establecer sus valores
-            UserData userData = new UserData(email, selectedId, estaturaFloat, edadInt, genero, pesoFloat, objetivo);
+            // Obtener el id del usuario
+            int userId = getUserId(email); // Este método debe implementarse para obtener el id del usuario a partir del email
 
-            // Asegúrate de que el método insertUserData en la clase DatabaseHelper puede manejar todos los datos
-            boolean success = databaseHelper.insertUserData(userData);
-            if (!success) {
+            // Crear una nueva instancia de UserData con el id del usuario y guardarla en la base de datos
+            UserData userData = new UserData(userId, email, selectedId, estaturaFloat, edadInt, genero, pesoFloat, objetivo);
+            long rowId = databaseHelper.insertUserData(userData);
+
+            if (rowId == -1) {
                 showToast(ERROR_SAVE_DATA);
             }
         } catch (NumberFormatException e) {

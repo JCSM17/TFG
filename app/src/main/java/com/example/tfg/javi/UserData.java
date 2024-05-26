@@ -1,6 +1,7 @@
 package com.example.tfg.javi;
 
 public class UserData {
+    private int id;
     private String email;
     private int selectedId;
     private float estatura;
@@ -9,7 +10,9 @@ public class UserData {
     private float peso;
     private String objetivo;
 
-    public UserData(String email, int selectedId, float estatura, int edad, String genero, float peso, String objetivo) {
+    // Modificar el constructor para aceptar y asignar el id
+    public UserData(int id, String email, int selectedId, float estatura, int edad, String genero, float peso, String objetivo) {
+        this.id = id;
         this.email = email;
         this.selectedId = selectedId;
         this.estatura = estatura;
@@ -18,6 +21,17 @@ public class UserData {
         this.peso = peso;
         this.objetivo = objetivo;
     }
+
+    // Getter para el id
+    public int getId() {
+        return id;
+    }
+
+    // Setter para el id
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getEmail() {
         return email;

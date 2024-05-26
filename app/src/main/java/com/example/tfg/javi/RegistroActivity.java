@@ -47,7 +47,7 @@ public class RegistroActivity extends AppCompatActivity {
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(RegistroActivity.this, "Por favor, introduce una dirección de correo electrónico válida", Toast.LENGTH_SHORT).show();
         } else {
-            Boolean checkUser = databaseHelper.checkEmail(email);
+            Boolean checkUser = databaseHelper.checkUserEmail(email);
             if (checkUser) {
                 Toast.makeText(RegistroActivity.this, "Ya existe una cuenta con este correo electrónico", Toast.LENGTH_SHORT).show();
             } else {

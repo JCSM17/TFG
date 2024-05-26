@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Método para el clic del botón (definido en el XML)
     public void irAPrincipal(View view) {
-        Intent intent = new Intent(this, PlanAnualActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
 
         startActivity(intent);
     }

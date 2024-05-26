@@ -11,6 +11,16 @@
     <string name="pause">Pause</string>
     <string name="reset">Reset</string>
 
+
+    <!-- Strings para el activity_planes -->
+    <string name="rutinas">RUTINAS</string>
+    <string name="nutricionista">NUTRICIONISTA</string>
+    <string name="acceso_gym">ACCESO AL GYM 24/7</string>
+    <string name="clases_programadas">CLASES PROGRAMADAS</string>
+    <string name="complementos">COMPLEMENTOS</string>
+    <string name="coach">COACH</string>
+
+
     <!-- Para el activity_menu -->
     <string name="entrenamiento">Entrenamiento</string>
     <string name="nutricion">Nutrición</string>
