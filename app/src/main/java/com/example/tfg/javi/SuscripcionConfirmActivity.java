@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tfg.R;
 import com.example.tfg.jc.MenuActivity;
 
-public class SuscripcionMensualAnualConfirmActivity extends AppCompatActivity {
+public class SuscripcionConfirmActivity extends AppCompatActivity {
 
     private static final String CONFIRMATION_MESSAGE = "¡Gracias por suscribirte!";
 

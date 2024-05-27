@@ -5,6 +5,18 @@
     <string name="fit_text">FIT</string>
     <string name="food_text">FOOD</string>
 
+    <!-- Strings para el SuscripcionFragment -->
+    <string name="dni_pattern">\\d{8}[a-zA-Z]</string>
+    <string name="telefono_pattern">\\d{9}</string>
+    <string name="email_pattern">[a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)</string>
+    <string name="empty_field_message">Por favor, complete todos los campos</string>
+    <string name="invalid_dni_message">Por favor, introduce un DNI válido</string>
+    <string name="invalid_telefono_message">Introduce un número de teléfono válido</string>
+    <string name="invalid_email_message">Por favor, introduce un correo válido (@gmail, @outlook, @yahoo)</string>
+    <string name="update_failed_message">La actualización falló. Por favor, inténtalo de nuevo.</string>
+    <string name="user_not_found_message">Usuario no encontrado</string>
+    <string name="insert_user_data_failed_message">La inserción de los datos del usuario ha fallado</string>
+
 
     <!-- Strings para el CountDownFragment -->
     <string name="play">Play</string>

@@ -18,6 +18,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_REGISTRO = "registro";
     public static final String COLUMN_ID = "id";
     public static final String TABLE_INICIOSESION = "iniciosesion";
+
+    public static final String COLUMN_SUSCRIPCION = "tipo_suscripcion";
     public static final String TABLE_SUSCRIPANUAL = "suscripanual";
     public static final String TABLE_SUSCRIPMENSUAL = "suscripmensual";
     public static final String TABLE_USERDATA = "userData";
@@ -29,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_OBJETIVO = "objetivo";
     public static final String COLUMN_ESTATURA = "estatura";
     public static final String COLUMN_EDAD = "edad";
-    public static final String COLUMN_GENERO = "genero";
+    public static final String COLUMN_SEXO = "genero";
     public static final String COLUMN_PESO = "peso";
     public static final String COLUMN_BODYTYPE = "bodyType";
 
@@ -48,17 +50,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_PASSWORD + " TEXT," +
                 COLUMN_NOMBRE + " TEXT, " +
                 COLUMN_APELLIDO + " TEXT," +
-                COLUMN_TELEFONO + " TEXT)");
-        MyDatabase.execSQL("CREATE TABLE " + TABLE_SUSCRIPANUAL + "(" + COLUMN_EMAIL + " TEXT PRIMARY KEY, " +
-                COLUMN_NOMBRE + " TEXT," +
-                COLUMN_APELLIDO + " TEXT," +
-                "dni TEXT," +
-                COLUMN_TELEFONO + " TEXT)");
-        MyDatabase.execSQL("CREATE TABLE " + TABLE_SUSCRIPMENSUAL + "(" + COLUMN_EMAIL + " TEXT PRIMARY KEY, " +
-                "nombre1 TEXT," +
-                "apellido1 TEXT," +
-                "dni1 TEXT," +
-                "telefono1 TEXT)");
+                COLUMN_TELEFONO + " TEXT," +
+                COLUMN_SUSCRIPCION + " TEXT)");
+
 
         // Agrega una nueva tabla para los datos del usuario
         MyDatabase.execSQL("CREATE TABLE " + TABLE_USERDATA + "(" +
@@ -66,7 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "selectedId INTEGER," +
                 COLUMN_ESTATURA + " TEXT," +
                 COLUMN_EDAD + " TEXT," +
-                COLUMN_GENERO + " TEXT," +
+                COLUMN_SEXO + " TEXT," +
                 COLUMN_PESO + " TEXT," +
                 COLUMN_BODYTYPE + " TEXT," +
                 COLUMN_OBJETIVO + " TEXT)");
@@ -85,6 +79,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(MyDB);
     }
 
+    public boolean updateSubscriptionType(String email, String subscriptionType) {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("tipo_suscripcion", subscriptionType);
+        int result = MyDatabase.update(TABLE_REGISTRO, contentValues, COLUMN_EMAIL + " = ?", new String[]{email});
+        MyDatabase.close();
+        return result > 0;
+    }
+
     public long insertUserData(UserData userData) {
         try (SQLiteDatabase db = this.getWritableDatabase()) {
             ContentValues contentValues = new ContentValues();
@@ -92,7 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues.put("selectedId", userData.getSelectedId());
             contentValues.put(COLUMN_ESTATURA, userData.getEstatura());
             contentValues.put(COLUMN_EDAD, userData.getEdad());
-            contentValues.put(COLUMN_GENERO, userData.getGenero());
+            contentValues.put(COLUMN_SEXO, userData.getSexo());
             contentValues.put(COLUMN_PESO, userData.getPeso());
             contentValues.put(COLUMN_OBJETIVO, userData.getObjetivo());
             return db.insert(TABLE_USERDATA, null, contentValues);
@@ -123,7 +126,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int selectedIdIndex = cursor.getColumnIndex("selectedId");
                 int estaturaIndex = cursor.getColumnIndex(COLUMN_ESTATURA);
                 int edadIndex = cursor.getColumnIndex(COLUMN_EDAD);
-                int generoIndex = cursor.getColumnIndex(COLUMN_GENERO);
+                int generoIndex = cursor.getColumnIndex(COLUMN_SEXO);
                 int pesoIndex = cursor.getColumnIndex(COLUMN_PESO);
                 int objetivoIndex = cursor.getColumnIndex(COLUMN_OBJETIVO);
 

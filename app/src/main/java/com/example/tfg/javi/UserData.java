@@ -6,18 +6,22 @@ public class UserData {
     private int selectedId;
     private float estatura;
     private int edad;
-    private String genero;
+    private String sexo;
     private float peso;
     private String objetivo;
 
+    // Constructor sin argumentos
+    public UserData() {
+    }
+
     // Modificar el constructor para aceptar y asignar el id
-    public UserData(int id, String email, int selectedId, float estatura, int edad, String genero, float peso, String objetivo) {
+    public UserData(int id, String email, int selectedId, float estatura, int edad, String sexo, float peso, String objetivo) {
         this.id = id;
         this.email = email;
         this.selectedId = selectedId;
         this.estatura = estatura;
         this.edad = edad;
-        this.genero = genero;
+        this.sexo = sexo;
         this.peso = peso;
         this.objetivo = objetivo;
     }
@@ -31,7 +35,6 @@ public class UserData {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getEmail() {
         return email;
@@ -65,12 +68,12 @@ public class UserData {
         this.edad = edad;
     }
 
-    public String getGenero() {
-        return genero;
+    public String getSexo() {
+        return sexo;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public float getPeso() {

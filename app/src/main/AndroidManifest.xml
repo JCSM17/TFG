@@ -54,7 +54,7 @@
             android:name=".javi.SuscripcionPlanMensualFragment"
             android:exported="true" />
         <activity
-            android:name=".javi.SuscripcionMensualAnualConfirmActivity"
+            android:name=".javi.SuscripcionConfirmActivity"
             android:exported="true" />
         <activity
             android:name=".javi.PasarelaActivity"

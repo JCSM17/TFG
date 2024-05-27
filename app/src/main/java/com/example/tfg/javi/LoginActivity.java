@@ -69,14 +69,14 @@ public class LoginActivity extends AppCompatActivity {
                 boolean pagado = prefs.getBoolean(PAGADO, false);
 
                 if (pagado) {
-                    navigateToMainActivity();
+                    navigateToRegistroActivity();
                 } else {
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putBoolean(PAGADO, true);
                     editor.apply();
 
                     Toast.makeText(LoginActivity.this, LOGIN_SUCCESS, Toast.LENGTH_SHORT).show();
-                    navigateToMainActivity();
+                    navigateToRegistroActivity();
                 }
             } else {
                 Toast.makeText(LoginActivity.this, INVALID_CREDENTIALS, Toast.LENGTH_SHORT).show();
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void navigateToMainActivity() {
+    private void navigateToRegistroActivity() {
         Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
         startActivity(intent);
         finish();

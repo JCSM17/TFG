@@ -20,9 +20,21 @@ public class PlanesFragment extends Fragment {
         CardView cardPlanMensual = view.findViewById(R.id.cardPlanMensual);
         CardView cardPlanAnual = view.findViewById(R.id.cardPlanAnual);
 
-        cardPlanMensual.setOnClickListener(v -> replaceFragment(new SuscripcionPlanMensualFragment()));
-        cardPlanAnual.setOnClickListener(v -> replaceFragment(new SuscripcionPlanAnualFragment()));
+        cardPlanMensual.setOnClickListener(v -> {
+            SuscripcionFragment suscripcionFragment = new SuscripcionFragment();
+            Bundle args = new Bundle();
+            args.putString("plan", "mensual");
+            suscripcionFragment.setArguments(args);
+            replaceFragment(suscripcionFragment);
+        });
 
+        cardPlanAnual.setOnClickListener(v -> {
+            SuscripcionFragment suscripcionFragment = new SuscripcionFragment();
+            Bundle args = new Bundle();
+            args.putString("plan", "anual");
+            suscripcionFragment.setArguments(args);
+            replaceFragment(suscripcionFragment);
+        });
         return view;
     }
 
