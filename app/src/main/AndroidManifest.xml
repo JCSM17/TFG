@@ -20,8 +20,7 @@
         <activity
             android:name=".jesus.PerfilActivity"
             android:exported="false"
-            android:label="@string/title_activity_perfil"
-/>
+            android:label="@string/title_activity_perfil" />
         <activity
             android:name=".javi.SplashScreenActivity"
             android:exported="true">
@@ -31,34 +30,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".javi.LoginActivity"
-            android:exported="true"
-     />
-        <activity
-            android:name=".javi.RegistroActivity"
-            android:exported="false" />
+
         <activity
             android:name=".javi.MainActivity"
             android:exported="true" />
-        <activity
-            android:name=".javi.PlanAnualActivity"
-            android:exported="true" />
-        <activity
-            android:name=".javi.PlanesFragment"
-            android:exported="true" />
-        <activity
-            android:name=".javi.SuscripcionPlanAnualActivity"
-            android:exported="true" />
-        <activity
-            android:name=".javi.SuscripcionPlanMensualFragment"
-            android:exported="true" />
-        <activity
-            android:name=".javi.SuscripcionConfirmActivity"
-            android:exported="true" />
-        <activity
-            android:name=".javi.PasarelaFragment"
-            android:exported="true" />
-    </application>
 
+        <activity
+            android:name=".javi.LoginActivity"
+            android:exported="true" />
+
+    </application>
 </manifest>

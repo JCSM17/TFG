@@ -83,12 +83,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(MyDB);
     }
 
-    public boolean updateSubscriptionType(String email, String subscriptionType) {
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+    public boolean updateSubscriptionType(long userId, String subscriptionType) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("tipo_suscripcion", subscriptionType);
-        int result = MyDatabase.update(TABLE_REGISTRO, contentValues, COLUMN_EMAIL + " = ?", new String[]{email});
-        MyDatabase.close();
+        contentValues.put(COLUMN_SUSCRIPCION, subscriptionType);
+        int result = db.update(TABLE_REGISTRO, contentValues, COLUMN_ID + "=?", new String[]{String.valueOf(userId)});
+        db.close();
         return result > 0;
     }
 
