@@ -5,7 +5,16 @@
     <string name="fit_text">FIT</string>
     <string name="food_text">FOOD</string>
 
-    <!-- Strings para el SuscripcionFragment -->
+    <!-- Strings para el LoginActivity -->
+    <string name="invalid_email">Por favor, introduce una dirección de correo electrónico válida</string>
+    <string name="empty_password">Por favor, introduzca su contraseña</string>
+    <string name="login_error">Error al insertar datos de inicio de sesión</string>
+    <string name="invalid_credentials">Credenciales no válidas</string>
+    <string name="login_success">¡Has iniciado sesión exitosamente!</string>
+    <string name="no_subscription_days">No tienes días de suscripción disponibles</string>
+    <string name="user_not_registered">El usuario no está registrado</string>
+
+    <!-- Strings para el RegistroFragment -->
     <string name="dni_pattern">\\d{8}[a-zA-Z]</string>
     <string name="telefono_pattern">\\d{9}</string>
     <string name="email_pattern">[a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)</string>
@@ -16,7 +25,13 @@
     <string name="update_failed_message">La actualización falló. Por favor, inténtalo de nuevo.</string>
     <string name="user_not_found_message">Usuario no encontrado</string>
     <string name="insert_user_data_failed_message">La inserción de los datos del usuario ha fallado</string>
-
+    <string name="complete_fields">Por favor, completa todos los campos</string>
+    <string name="email_exists">Ya existe una cuenta con este correo electrónico</string>
+    <string name="registration_success">¡Registro exitoso! Bienvenido</string>
+    <string name="registration_failed">El registroData ha fallado</string>
+    <string name="welcome_email_subject">Bienvenido a nuestra App</string>
+    <string name="welcome_email_body">¡Gracias por registrarte en nuestra aplicación!</string>
+    <string name="welcome_email_error">No se pudo enviar el correo de bienvenida</string>
 
     <!-- Strings para el CountDownFragment -->
     <string name="play">Play</string>

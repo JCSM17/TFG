@@ -60,7 +60,7 @@ public class RegistroActivity extends AppCompatActivity {
                     contentValues.put(DatabaseHelper.COLUMN_TELEFONO, telefono);
                     databaseHelper.insertData(DatabaseHelper.TABLE_REGISTRO, contentValues);
                     sendWelcomeEmail(email);
-                    Toast.makeText(RegistroActivity.this, "¡Registro exitoso! Bienvenido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroActivity.this, "¡RegistroData exitoso! Bienvenido", Toast.LENGTH_SHORT).show();
                     startNewActivity(LoginActivity.class);
                     finish();
                 } catch (android.database.SQLException e) {

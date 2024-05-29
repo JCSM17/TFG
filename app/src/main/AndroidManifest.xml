@@ -57,7 +57,7 @@
             android:name=".javi.SuscripcionConfirmActivity"
             android:exported="true" />
         <activity
-            android:name=".javi.PasarelaActivity"
+            android:name=".javi.PasarelaFragment"
             android:exported="true" />
     </application>
 

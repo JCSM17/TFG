@@ -44,19 +44,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
         Log.d("DatabaseHelper", "Creating tables...");
-        MyDatabase.execSQL("CREATE TABLE " + TABLE_INICIOSESION + "(" + COLUMN_EMAIL + " TEXT PRIMARY KEY, " + COLUMN_PASSWORD + " TEXT)");
-        MyDatabase.execSQL("CREATE TABLE " + TABLE_REGISTRO + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_EMAIL + " TEXT," +
-                COLUMN_PASSWORD + " TEXT," +
-                COLUMN_NOMBRE + " TEXT, " +
-                COLUMN_APELLIDO + " TEXT," +
-                COLUMN_TELEFONO + " TEXT," +
-                COLUMN_SUSCRIPCION + " TEXT)");
-
+        MyDatabase.execSQL("CREATE TABLE " + TABLE_INICIOSESION + "(" +
+                COLUMN_EMAIL + " TEXT PRIMARY KEY, " +
+                COLUMN_PASSWORD + " TEXT NOT NULL)");
+        MyDatabase.execSQL("CREATE TABLE " + TABLE_REGISTRO + "(" +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_EMAIL + " TEXT UNIQUE NOT NULL," +
+                COLUMN_PASSWORD + " TEXT NOT NULL," +
+                COLUMN_NOMBRE + " TEXT NOT NULL, " +
+                COLUMN_APELLIDO + " TEXT NOT NULL," +
+                COLUMN_TELEFONO + " INTEGER NOT NULL," +
+                COLUMN_SUSCRIPCION + " TEXT," +
+                "subscription_start_date INTEGER," +
+                "subscription_duration INTEGER)");
 
         // Agrega una nueva tabla para los datos del usuario
         MyDatabase.execSQL("CREATE TABLE " + TABLE_USERDATA + "(" +
-                COLUMN_EMAIL + " TEXT PRIMARY KEY," +
+                COLUMN_ID + " INTEGER PRIMARY KEY," + // Use COLUMN_ID as the primary key
                 "selectedId INTEGER," +
                 COLUMN_ESTATURA + " TEXT," +
                 COLUMN_EDAD + " TEXT," +
@@ -88,6 +92,65 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0;
     }
 
+    public RegistroData getRegistroByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_REGISTRO, null, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
+        if (cursor.moveToFirst()) {
+            RegistroData registroData = new RegistroData();
+            int columnIndex;
+
+            columnIndex = cursor.getColumnIndex(COLUMN_ID);
+            if (columnIndex != -1) {
+                registroData.setId(cursor.getInt(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_EMAIL);
+            if (columnIndex != -1) {
+                registroData.setEmail(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_PASSWORD);
+            if (columnIndex != -1) {
+                registroData.setPassword(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_NOMBRE);
+            if (columnIndex != -1) {
+                registroData.setNombre(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_APELLIDO);
+            if (columnIndex != -1) {
+                registroData.setApellido(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_TELEFONO);
+            if (columnIndex != -1) {
+                registroData.setTelefono(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_SUSCRIPCION);
+            if (columnIndex != -1) {
+                registroData.setSuscripcion(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex("subscription_start_date");
+            if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
+                registroData.setSubscriptionStartDate(cursor.getLong(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex("subscription_duration");
+            if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
+                registroData.setSubscriptionDuration(cursor.getInt(columnIndex));
+            }
+
+            cursor.close();
+            return registroData;
+        }
+        cursor.close();
+        return null;
+    }
+
     public long insertUserData(UserData userData) {
         try (SQLiteDatabase db = this.getWritableDatabase()) {
             ContentValues contentValues = new ContentValues();
@@ -102,16 +165,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertData(String table, ContentValues contentValues) {
-        try (SQLiteDatabase MyDatabase = this.getWritableDatabase()) {
-            MyDatabase.beginTransaction();
-            long result = MyDatabase.insert(table, null, contentValues);
-            if (result == -1) {
-                return false;
-            }
-            MyDatabase.setTransactionSuccessful();
-            return true;
-        }
+    public long insertData(String table, ContentValues contentValues) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.insert(table, null, contentValues);
+        db.close();
+        return result;
     }
 
     public UserData getUserData(int userId) {
@@ -203,6 +261,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public int getUserId(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
+        int userId = -1; // Devuelve -1 si no se encuentra el usuario
+        if (cursor.moveToFirst()) {
+            userId = cursor.getInt(0);
+        }
+        cursor.close();
+        db.close();
+        return userId;
+    }
+
     public int getUserIdByEmail(String email) {
         try (SQLiteDatabase db = this.getReadableDatabase();
              Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null)) {
@@ -221,7 +291,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String hashedPassword;
             try {
                 hashedPassword = hashPassword(password);
-            } catch (NoSuchAlgorithmException e) {
+            } catch (Exception e) {
                 // Registra el error y devuelve false
                 Log.e("DatabaseHelper", "Error al hacer hash de la contraseña", e);
                 return false;
@@ -231,8 +301,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean isSubscriptionValid(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_REGISTRO, new String[]{"subscription_start_date", "subscription_duration"}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
+        boolean isValid = false;
+        if (cursor.moveToFirst()) {
+            long subscriptionStartDate = cursor.getLong(0);
+            int subscriptionDuration = cursor.getInt(1);
+            long currentDate = System.currentTimeMillis();
+            long subscriptionEndDate = subscriptionStartDate + subscriptionDuration * 24 * 60 * 60 * 1000; // Convertir la duración de la suscripción de días a milisegundos
+            isValid = currentDate < subscriptionEndDate;
+        }
+        cursor.close();
+        db.close();
+        return isValid;
+    }
+
     public String hashPassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        MessageDigest md;
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        } catch (Exception e) {
+            // Registra el error y devuelve una cadena vacía
+            Log.e("DatabaseHelper", "Error al hacer hash de la contraseña", e);
+            return "";
+        }
         byte[] hash = md.digest(password.getBytes());
         StringBuilder hexString = new StringBuilder();
 

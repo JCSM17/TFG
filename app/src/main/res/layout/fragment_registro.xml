@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".javi.RegistroActivity">
+    android:id="@+id/fragment_container_registro"
+    tools:context=".javi.RegistroFragment">
 
     <include
         android:id="@+id/jjjfit"
@@ -11,26 +12,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/descripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUSCRIPCIÓN DEL PLAN"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jjjfit"
-        app:layout_constraintVertical_bias="0.10" />
-
     <EditText
         android:id="@+id/nombre"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:autofillHints="nombre"
         android:drawableStart="@drawable/baseline_person_24"
         android:drawablePadding="8dp"
@@ -39,11 +24,12 @@
         android:maxWidth="488dp"
         android:minHeight="48sp"
         android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/apellidos"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/jjjfit"
+        app:layout_constraintVertical_bias="0.12" />
 
     <EditText
         android:id="@+id/apellidos"
@@ -58,30 +44,11 @@
         android:maxWidth="488dp"
         android:minHeight="48sp"
         android:padding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/dni"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
-
-    <EditText
-        android:id="@+id/dni"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:autofillHints="dni"
-        android:drawableStart="@drawable/baseline_account_box_24"
-        android:drawablePadding="8dp"
-        android:hint="DNI"
-        android:inputType="textCapCharacters|number"
-        android:maxWidth="488dp"
-        android:minHeight="48sp"
-        android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@+id/telefono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apellidos" />
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
 
     <EditText
         android:id="@+id/telefono"
@@ -100,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dni" />
+        app:layout_constraintTop_toBottomOf="@+id/apellidos" />
 
     <EditText
         android:id="@+id/email"
@@ -119,15 +86,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/telefono" />
 
-    <Button
-        android:id="@+id/boton_suscripcion"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Suscribirme ahora!"
+        android:layout_marginTop="10dp"
+        android:autofillHints="password"
+        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawablePadding="8dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxWidth="488dp"
+        android:minHeight="48sp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <Button
+        android:id="@+id/registrarse"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/ven"
+        android:text="Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintVertical_bias="0.30" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/volverInicioSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Ya estás registrado? Iniciar sesión"
+        android:textAlignment="center"
+        android:textColor="@color/ven"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registrarse"
+        app:layout_constraintVertical_bias="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

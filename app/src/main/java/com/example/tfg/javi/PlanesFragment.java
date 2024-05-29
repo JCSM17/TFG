@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -17,30 +18,37 @@ public class PlanesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_planes, container, false);
 
+        String email = getArguments().getString("email"); // Obtén el correo electrónico del usuario del Bundle
+
         CardView cardPlanMensual = view.findViewById(R.id.cardPlanMensual);
         CardView cardPlanAnual = view.findViewById(R.id.cardPlanAnual);
 
         cardPlanMensual.setOnClickListener(v -> {
-            SuscripcionFragment suscripcionFragment = new SuscripcionFragment();
-            Bundle args = new Bundle();
-            args.putString("plan", "mensual");
-            suscripcionFragment.setArguments(args);
-            replaceFragment(suscripcionFragment);
+            DatabaseHelper db = new DatabaseHelper(getContext());
+            boolean isUpdated = db.updateSubscriptionType(email, "mensual");
+            if (isUpdated) {
+                replaceFragment(new PasarelaFragment());
+            } else {
+                Toast.makeText(getContext(), "Error al actualizar el tipo de suscripción", Toast.LENGTH_SHORT).show();
+            }
         });
 
         cardPlanAnual.setOnClickListener(v -> {
-            SuscripcionFragment suscripcionFragment = new SuscripcionFragment();
-            Bundle args = new Bundle();
-            args.putString("plan", "anual");
-            suscripcionFragment.setArguments(args);
-            replaceFragment(suscripcionFragment);
+            DatabaseHelper db = new DatabaseHelper(getContext());
+            boolean isUpdated = db.updateSubscriptionType(email, "anual");
+            if (isUpdated) {
+                replaceFragment(new PasarelaFragment());
+            } else {
+                Toast.makeText(getContext(), "Error al actualizar el tipo de suscripción", Toast.LENGTH_SHORT).show();
+            }
         });
+
         return view;
     }
 
-    private void replaceFragment(Fragment fragment) {
+    private void replaceFragment(Fragment pasarelaFragment) {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container_planes, fragment);
+        transaction.replace(R.id.fragment_container_planes, pasarelaFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
