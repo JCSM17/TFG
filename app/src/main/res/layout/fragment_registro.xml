@@ -168,7 +168,6 @@
             android:text="¿Ya estás registrado? Iniciar sesión"
             android:textAlignment="center"
             android:textColor="@color/ven"
-
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
