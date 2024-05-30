@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tfg">
 
+    <!-- Permisos requeridos por la aplicación -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,34 +11,57 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTheme"
         tools:targetApi="31">
 
+        <!-- MainActivity es la actividad principal y punto de entrada de la aplicación -->
+        <activity
+            android:name=".javi.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Este intent-filter indica que esta actividad puede ser iniciada por una URL profunda -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Aquí especificas el esquema de la URL profunda. En este caso, es "myapp" -->
+                <data
+                    android:host="open"
+                    android:path="/planes"
+                    android:scheme="myapp" />
+            </intent-filter>
+        </activity>
+
+        <!-- LoginActivity es la actividad para el inicio de sesión del usuario -->
+        <activity
+            android:name=".javi.LoginActivity"
+            android:exported="true" />
+
+        <!-- MenuActivity es la actividad que muestra el menú de la aplicación -->
+        <activity android:name=".jc.MenuActivity" />
+
+        <!-- RutinasDefinicionActivity es la actividad que muestra las rutinas de definición -->
+        <activity android:name=".jc.RutinasDefinicionActivity" />
+
+        <!-- RutinasVolumenActivity es la actividad que muestra las rutinas de volumen -->
+        <activity android:name=".jc.RutinasVolumenActivity" />
+
+        <!-- TiendaActivity es la actividad que muestra la tienda de la aplicación -->
+        <activity android:name=".javi.TiendaActivity" />
+
+        <!-- PerfilActivity es la actividad que muestra el perfil del usuario -->
         <activity
             android:name=".jesus.PerfilActivity"
             android:exported="false"
             android:label="@string/title_activity_perfil" />
-        <activity
-            android:name=".javi.SplashScreenActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".javi.MainActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".javi.LoginActivity"
-            android:exported="true" />
 
     </application>
 </manifest>

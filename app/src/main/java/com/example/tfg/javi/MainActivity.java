@@ -2,30 +2,44 @@ package com.example.tfg.javi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.R;
-import com.example.tfg.javi.Helper.TinyDB;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final int SPLASH_SCREEN_DELAY = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bienvenido);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_main);
 
-        TinyDB tinyDB = new TinyDB(this);
-        String myObject = (String) tinyDB.getObject("myKey", String.class);
+        //Agregar animaciones
+        Animation animacion1 = AnimationUtils.loadAnimation(this, R.anim.desplazamiento_arriba);
+        Animation animacion2 = AnimationUtils.loadAnimation(this, R.anim.desplazamiento_abajo);
 
-        // Ahora puedes usar myObject en tu actividad
-    }
+        ImageView imagenLogo = findViewById(R.id.imagenLogo);
+        TextView textoDesde = findViewById(R.id.textoDesde);
+        TextView textoJJJFIT = findViewById(R.id.textoJJJFIT);
 
-    // Método para el clic del botón (definido en el XML)
-    public void irAPrincipal(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
 
-        startActivity(intent);
+        textoDesde.setAnimation(animacion2);
+        textoJJJFIT.setAnimation(animacion2);
+        imagenLogo.setAnimation(animacion1);
+
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }, SPLASH_SCREEN_DELAY);
     }
 }

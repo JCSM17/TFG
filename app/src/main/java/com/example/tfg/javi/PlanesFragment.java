@@ -15,17 +15,18 @@ import com.example.tfg.R;
 public class PlanesFragment extends Fragment {
 
     private DatabaseHelper db;
-    private final double PRECIO_PLAN_MENSUAL = 10.0; // Define el precio del plan mensual
-    private final double PRECIO_PLAN_ANUAL = 100.0; // Define el precio del plan anual
+    private final double PRECIO_PLAN_MENSUAL = 29.99; // Define el precio del plan mensual
+    private final double PRECIO_PLAN_ANUAL = 249.99; // Define el precio del plan anual
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_planes, container, false);
 
-        String email = getArguments().getString("email");
+        // Obtén el ID del usuario desde la URL profunda
+        long userId = getArguments().getLong("userId");
+
         db = new DatabaseHelper(getContext());
-        RegistroData registroData = db.getRegistroByEmail(email);
-        long userId = registroData.getId();
+        RegistroData registroData = db.getRegistroPorId(userId);
 
         CardView cardPlanMensual = view.findViewById(R.id.cardPlanMensual);
         CardView cardPlanAnual = view.findViewById(R.id.cardPlanAnual);

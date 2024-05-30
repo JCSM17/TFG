@@ -35,6 +35,7 @@ import com.synap.pay.model.security.SynapAuthenticator;
 import com.synap.pay.theming.SynapLightTheme;
 import com.synap.pay.theming.SynapTheme;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -120,7 +121,7 @@ public class PasarelaFragment extends Fragment {
     }
 
     private void showMessage(String message) {
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(requireContext());
         builder1.setMessage(message);
         builder1.setCancelable(true);
 
@@ -128,13 +129,10 @@ public class PasarelaFragment extends Fragment {
                 "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Handler looper = new Handler(getActivity().getApplicationContext().getMainLooper());
-                        looper.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                synapForm.setVisibility(View.GONE);
-                                synapButton.setVisibility(View.GONE);
-                            }
+                        Handler looper = new Handler(requireActivity().getApplicationContext().getMainLooper());
+                        looper.post(() -> {
+                            synapForm.setVisibility(View.GONE);
+                            synapButton.setVisibility(View.GONE);
                         });
                         dialog.cancel();
                     }
@@ -333,14 +331,14 @@ public class PasarelaFragment extends Fragment {
         StringBuilder sb = new StringBuilder();
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
-            byte[] bytes = md.digest(value.getBytes("UTF-8"));
-            for (int i = 0; i < bytes.length; i++) {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            byte[] bytes = md.digest(value.getBytes(StandardCharsets.UTF_8));
+            for (byte b : bytes) {
+                sb.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            // Handle the exception in a way that makes sense for your application
+            throw new RuntimeException("Error generating SHA-512 hash", e);
         }
         return sb.toString();
     }
-
 }

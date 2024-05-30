@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 RegistroData registroData = databaseHelper.getRegistroByEmail(email);
                 if (registroData != null) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long subscriptionEndMillis = registroData.getSubscriptionStartDate() + registroData.getSubscriptionDuration() * 24 * 60 * 60 * 1000;
+                    long subscriptionEndMillis = registroData.getFechaInicioSuscripcion() + registroData.getDuracionSuscripcion() * 24 * 60 * 60 * 1000;
                     if (currentTimeMillis <= subscriptionEndMillis) {
                         // El usuario tiene días de suscripción disponibles
                         // Continúa con el inicio de sesión

@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.R;
+import com.example.tfg.jc.MenuActivity;
 
 public class TiendaActivity extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class TiendaActivity extends AppCompatActivity {
 
     // Método para el clic del botón (definido en el XML)
     public void irAPrincipal(View view) {
-        Intent intent = new Intent(this, PlanAnualActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 }

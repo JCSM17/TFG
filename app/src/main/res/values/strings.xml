@@ -33,13 +33,8 @@
     <string name="welcome_email_body">¡Gracias por registrarte en nuestra aplicación!</string>
     <string name="welcome_email_error">No se pudo enviar el correo de bienvenida</string>
 
-    <!-- Strings para el CountDownFragment -->
-    <string name="play">Play</string>
-    <string name="pause">Pause</string>
-    <string name="reset">Reset</string>
 
-
-    <!-- Strings para el activity_planes -->
+    <!-- Strings para el fragment_planes -->
     <string name="rutinas">RUTINAS</string>
     <string name="nutricionista">NUTRICIONISTA</string>
     <string name="acceso_gym">ACCESO AL GYM 24/7</string>
@@ -47,6 +42,8 @@
     <string name="complementos">COMPLEMENTOS</string>
     <string name="coach">COACH</string>
 
+    <!-- Strings para el fragment_suscripcion_confirm -->
+    <string name="confirmacion_imagen_descripcion">Imagen de confirmación</string>
 
     <!-- Para el activity_menu -->
     <string name="entrenamiento">Entrenamiento</string>
@@ -83,6 +80,12 @@
     <string name="texto_sesiones">Sesiones:</string>
     <string name="texto_calentamiento">Calentamiento</string>
     <string name="descripcion_imagen_check">Otro éxito</string>
+
+
+    <!-- Strings para el CountDownFragment -->
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
 
     <!-- Strings para el fragmento DEFINICION -->
     <string name="texto_definicion">Definicion</string>

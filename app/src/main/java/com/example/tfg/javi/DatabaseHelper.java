@@ -136,12 +136,71 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             columnIndex = cursor.getColumnIndex("subscription_start_date");
             if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
-                registroData.setSubscriptionStartDate(cursor.getLong(columnIndex));
+                registroData.setFechaInicioSuscripcion(cursor.getLong(columnIndex));
             }
 
             columnIndex = cursor.getColumnIndex("subscription_duration");
             if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
-                registroData.setSubscriptionDuration(cursor.getInt(columnIndex));
+                registroData.setDuracionSuscripcion(cursor.getInt(columnIndex));
+            }
+
+            cursor.close();
+            return registroData;
+        }
+        cursor.close();
+        return null;
+    }
+
+    public RegistroData getRegistroPorId(long userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_REGISTRO, null, COLUMN_ID + "=?", new String[]{String.valueOf(userId)}, null, null, null);
+        if (cursor.moveToFirst()) {
+            RegistroData registroData = new RegistroData();
+            int columnIndex;
+
+            columnIndex = cursor.getColumnIndex(COLUMN_ID);
+            if (columnIndex != -1) {
+                registroData.setId(cursor.getInt(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_EMAIL);
+            if (columnIndex != -1) {
+                registroData.setEmail(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_PASSWORD);
+            if (columnIndex != -1) {
+                registroData.setPassword(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_NOMBRE);
+            if (columnIndex != -1) {
+                registroData.setNombre(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_APELLIDO);
+            if (columnIndex != -1) {
+                registroData.setApellido(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_TELEFONO);
+            if (columnIndex != -1) {
+                registroData.setTelefono(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex(COLUMN_SUSCRIPCION);
+            if (columnIndex != -1) {
+                registroData.setSuscripcion(cursor.getString(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex("subscription_start_date");
+            if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
+                registroData.setFechaInicioSuscripcion(cursor.getLong(columnIndex));
+            }
+
+            columnIndex = cursor.getColumnIndex("subscription_duration");
+            if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
+                registroData.setDuracionSuscripcion(cursor.getInt(columnIndex));
             }
 
             cursor.close();

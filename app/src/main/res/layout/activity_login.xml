@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_container_login"
     android:background="@drawable/bg"
     tools:context=".javi.LoginActivity">
 
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="JJJ"
             android:textColor="#FF0000"
-            android:textSize="48sp"
+            android:textSize="55sp"
             android:textStyle="bold" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="FIT"
             android:textColor="@color/white"
-            android:textSize="48sp"
+            android:textSize="55sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -74,9 +74,9 @@
         <EditText
             android:id="@+id/entrada_email"
             style="@style/MyEditTextStyle"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:autofillHints="emailAddress"
             android:hint="Email"
             android:importantForAutofill="yes"
@@ -90,7 +90,7 @@
         <EditText
             android:id="@+id/entrada_contrasenia"
             style="@style/MyEditTextStyle"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:autofillHints="password"
             android:hint="Contraseña"
@@ -104,11 +104,13 @@
 
         <Button
             android:id="@+id/boton_iniciar_sesion"
-            android:layout_width="0dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
+            android:backgroundTint="@color/ven"
             android:text="Iniciar sesión"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +121,7 @@
             android:id="@+id/texto_registro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="¿No estás registrado? Regístrate"
             android:textAlignment="center"
             android:textColor="@color/black"

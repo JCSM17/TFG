@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".javi.PasarelaFragment">
 
+    <include
+        android:id="@+id/jjjfit"
+        layout="@layout/fragment_jjjfit"
+        app:layout_constraintBottom_toTopOf="@+id/imagenLogo" />
+
     <ImageView
-        android:src="@drawable/bulldog"
+        android:id="@+id/LogoImagen"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:contentDescription="TODO"
+        android:src="@drawable/bulldog"
         tools:ignore="ContentDescription,HardcodedText" />
 
     <Space
@@ -19,9 +26,9 @@
 
     <FrameLayout
         android:id="@+id/contenedorTarjetas"
-        android:layout_gravity="center_horizontal|center_vertical"
         android:layout_width="320dp"
-        android:layout_height="220dp">
+        android:layout_height="220dp"
+        android:layout_gravity="center_horizontal|center_vertical">
 
     </FrameLayout>
 
@@ -33,20 +40,19 @@
 
     <Button
         android:id="@+id/btnPagar"
-        android:layout_width="match_parent"
-        android:text="Pagar"
-        android:layout_height="50dp"
-        tools:ignore="HardcodedText">
-
-    </Button>
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/ven"
+        android:text="Pagar" />
 
     <Button
         android:id="@+id/btnContinuar"
-        android:layout_width="match_parent"
-        android:text="Continuar"
-        android:layout_height="50dp"
-        tools:ignore="HardcodedText">
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/ven"
+        android:text="Continuar" />
 
-    </Button>
 
 </LinearLayout>

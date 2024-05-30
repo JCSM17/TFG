@@ -148,7 +148,9 @@ public class RegistroFragment extends Fragment {
         protected Boolean doInBackground(Void... voids) {
             GmailSender sender = new GmailSender(username, password, smtpHost, smtpPort);
             try {
-                sender.sendEmail(recipientEmail, activity.getString(R.string.welcome_email_subject), activity.getString(R.string.welcome_email_body));
+                String htmlBody = "<p>" + activity.getString(R.string.welcome_email_body) + "</p>"
+                        + "<a href=\"myapp://open/planes\" style=\"background-color: #008CBA; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border: none;\">Ir a elegir el plan</a>";
+                sender.sendEmail(recipientEmail, activity.getString(R.string.welcome_email_subject), htmlBody);
                 return true;
             } catch (Exception e) {
                 Log.e("SendEmailTask", "Error al enviar el correo: ", e);

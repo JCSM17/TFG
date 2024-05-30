@@ -8,8 +8,10 @@ public class RegistroData {
     private String apellido;
     private String telefono;
     private String suscripcion;
-    private long subscriptionStartDate;
-    private int subscriptionDuration;
+    private long fechaInicioSuscripcion;
+    private int duracionSuscripcion;
+
+
 
     // Getters and setters
     public int getId() {
@@ -68,19 +70,19 @@ public class RegistroData {
         this.suscripcion = suscripcion;
     }
 
-    public long getSubscriptionStartDate() {
-        return subscriptionStartDate;
+    public long getFechaInicioSuscripcion() {
+        return fechaInicioSuscripcion;
     }
 
-    public void setSubscriptionStartDate(long subscriptionStartDate) {
-        this.subscriptionStartDate = subscriptionStartDate;
+    public void setFechaInicioSuscripcion(long fechaInicioSuscripcion) {
+        this.fechaInicioSuscripcion = fechaInicioSuscripcion;
     }
 
-    public int getSubscriptionDuration() {
-        return subscriptionDuration;
+    public int getDuracionSuscripcion() {
+        return duracionSuscripcion;
     }
 
-    public void setSubscriptionDuration(int subscriptionDuration) {
-        this.subscriptionDuration = subscriptionDuration;
+    public void setDuracionSuscripcion(int duracionSuscripcion) {
+        this.duracionSuscripcion = duracionSuscripcion;
     }
 }
