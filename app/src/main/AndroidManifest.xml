@@ -48,11 +48,11 @@
         <!-- MenuActivity es la actividad que muestra el menú de la aplicación -->
         <activity android:name=".jc.MenuActivity" />
 
-        <!-- RutinasDefinicionActivity es la actividad que muestra las rutinas de definición -->
-        <activity android:name=".jc.RutinasDefinicionActivity" />
-
         <!-- RutinasVolumenActivity es la actividad que muestra las rutinas de volumen -->
         <activity android:name=".jc.RutinasVolumenActivity" />
+
+        <!-- RutinasDefinicionActivity es la actividad que muestra las rutinas de definición -->
+        <activity android:name=".jc.RutinasDefinicionActivity" />
 
         <!-- TiendaActivity es la actividad que muestra la tienda de la aplicación -->
         <activity android:name=".javi.TiendaActivity" />

@@ -109,7 +109,7 @@
             android:layout_marginTop="28dp"
             android:backgroundTint="@color/ven"
             android:text="Iniciar sesión"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
