@@ -9,11 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tfg.R;
 import com.synap.pay.SynapPayButton;
@@ -159,13 +162,18 @@ public class PasarelaFragment extends Fragment {
     }
 
     private void navigateToSuccessScreen() {
-        // Aquí puedes agregar el código para navegar a la pantalla de éxito.
-        // Por ejemplo, si estás usando Navigation Component, puedes usar NavController para navegar a la pantalla de éxito.
+        SuscripcionConfirmFragment suscripcionConfirmFragment = new SuscripcionConfirmFragment();
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        if (fragmentManager != null) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container_pasarela, suscripcionConfirmFragment);
+            fragmentTransaction.commit();
+        }
     }
 
     private void navigateToFailureScreen() {
-        // Aquí puedes agregar el código para navegar a la pantalla de fracaso.
-        // Por ejemplo, si estás usando Navigation Component, puedes usar NavController para navegar a la pantalla de fracaso.
+        // Muestra un mensaje de error en un Toast
+        Toast.makeText(getContext(), "Error en el pago, por favor intenta de nuevo.", Toast.LENGTH_SHORT).show();
     }
 
     private SynapTransaction buildTransaction() {

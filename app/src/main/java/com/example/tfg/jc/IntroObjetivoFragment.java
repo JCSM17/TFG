@@ -142,7 +142,6 @@ public class IntroObjetivoFragment extends Fragment {
         if (fragmentManager != null) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container_objetivo, tiposCuerpoFragment);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
     }

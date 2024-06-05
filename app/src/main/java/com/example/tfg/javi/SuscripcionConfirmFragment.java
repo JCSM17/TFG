@@ -46,7 +46,6 @@ public class SuscripcionConfirmFragment extends Fragment {
         if (fragmentManager != null) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container_suscripcion_confirm, introObjetivoFragment);
-            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
     }

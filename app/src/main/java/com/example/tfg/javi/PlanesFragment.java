@@ -59,7 +59,6 @@ public class PlanesFragment extends Fragment {
 
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container_planes, pasarelaFragment);
-        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

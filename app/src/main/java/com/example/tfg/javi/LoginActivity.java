@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
     private void navigateToFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container_login, fragment);
-        transaction.addToBackStack(null);
         transaction.commit();
     }
 

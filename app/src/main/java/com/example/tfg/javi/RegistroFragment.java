@@ -108,7 +108,6 @@ public class RegistroFragment extends Fragment {
             planesFragment.setArguments(bundle);
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container_registro, planesFragment);
-            transaction.addToBackStack(null);
             transaction.commit();
 
         } catch (android.database.SQLException e) {
