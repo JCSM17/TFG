@@ -1,14 +1,12 @@
 package com.example.tfg.jesus;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.tfg.R;
@@ -16,7 +14,7 @@ import com.example.tfg.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NutricionFragment extends Fragment {
+public class NutricionActivity extends AppCompatActivity {
 
     private LinearLayout desayunoDescription;
     private LinearLayout comidaDescription;
@@ -32,29 +30,28 @@ public class NutricionFragment extends Fragment {
     private TextView totalCaloriesTextView;
     private ProgressBar caloriesProgressBar;
 
-    public NutricionFragment() {
+    public NutricionActivity() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_nutricion, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_nutricion);
 
-        desayunoDescription = view.findViewById(R.id.desayunoDescription);
-        comidaDescription = view.findViewById(R.id.comidaDescription);
-        meriendaDescription = view.findViewById(R.id.meriendaDescription);
-        cenaDescription = view.findViewById(R.id.cenaDescription);
+        desayunoDescription = findViewById(R.id.desayunoDescription);
+        comidaDescription = findViewById(R.id.comidaDescription);
+        meriendaDescription = findViewById(R.id.meriendaDescription);
+        cenaDescription = findViewById(R.id.cenaDescription);
 
-        desayunoViewPager = view.findViewById(R.id.desayunoViewPager);
-        comidaViewPager = view.findViewById(R.id.comidaViewPager);
-        meriendaViewPager = view.findViewById(R.id.meriendaViewPager);
-        cenaViewPager = view.findViewById(R.id.cenaViewPager);
+        desayunoViewPager = findViewById(R.id.desayunoViewPager);
+        comidaViewPager = findViewById(R.id.comidaViewPager);
+        meriendaViewPager = findViewById(R.id.meriendaViewPager);
+        cenaViewPager = findViewById(R.id.cenaViewPager);
 
-        consumedCaloriesTextView = view.findViewById(R.id.consumedCaloriesTextView);
-        totalCaloriesTextView = view.findViewById(R.id.totalCaloriesTextView);
-        caloriesProgressBar = view.findViewById(R.id.caloriesProgressBar);
+        consumedCaloriesTextView = findViewById(R.id.consumedCaloriesTextView);
+        totalCaloriesTextView = findViewById(R.id.totalCaloriesTextView);
+        caloriesProgressBar = findViewById(R.id.caloriesProgressBar);
 
         // Assuming you have methods to get the actual values
         int consumedCalories = getConsumedCalories();
@@ -69,8 +66,8 @@ public class NutricionFragment extends Fragment {
 
         caloriesProgressBar.setProgress(progress);
 
-        TextView remainingCaloriesTextView = view.findViewById(R.id.remainingCaloriesTextView);
-        TextView burnedCaloriesTextView = view.findViewById(R.id.burnedCaloriesTextView);
+        TextView remainingCaloriesTextView = findViewById(R.id.remainingCaloriesTextView);
+        TextView burnedCaloriesTextView = findViewById(R.id.burnedCaloriesTextView);
 
         remainingCaloriesTextView.setText(remainingCalories + "\nRestantes");
         burnedCaloriesTextView.setText(burnedCalories + "\nQuemadas");
@@ -95,22 +92,20 @@ public class NutricionFragment extends Fragment {
         cenaItems.add(new ImageItem(R.drawable.cena3tacos, "Tacos de Pescado: 400 kcal, 18g de grasa, 30g de carbohidratos, 28g de proteína"));
         cenaItems.add(new ImageItem(R.drawable.cena3garbanzos, "Ensalada de Garbanzos: 300 kcal, 14g de grasa, 36g de carbohidratos, 10g de proteína"));
 
-        ImageAdapter desayunoAdapter = new ImageAdapter(getContext(), desayunoItems);
-        ImageAdapter comidaAdapter = new ImageAdapter(getContext(), comidaItems);
-        ImageAdapter meriendaAdapter = new ImageAdapter(getContext(), meriendaItems);
-        ImageAdapter cenaAdapter = new ImageAdapter(getContext(), cenaItems);
+        ImageAdapter desayunoAdapter = new ImageAdapter(this, desayunoItems);
+        ImageAdapter comidaAdapter = new ImageAdapter(this, comidaItems);
+        ImageAdapter meriendaAdapter = new ImageAdapter(this, meriendaItems);
+        ImageAdapter cenaAdapter = new ImageAdapter(this, cenaItems);
 
         desayunoViewPager.setAdapter(desayunoAdapter);
         comidaViewPager.setAdapter(comidaAdapter);
         meriendaViewPager.setAdapter(meriendaAdapter);
         cenaViewPager.setAdapter(cenaAdapter);
 
-        view.findViewById(R.id.desayunoTitle).setOnClickListener(v -> toggleVisibility(desayunoDescription));
-        view.findViewById(R.id.comidaTitle).setOnClickListener(v -> toggleVisibility(comidaDescription));
-        view.findViewById(R.id.meriendaTitle).setOnClickListener(v -> toggleVisibility(meriendaDescription));
-        view.findViewById(R.id.cenaTitle).setOnClickListener(v -> toggleVisibility(cenaDescription));
-
-        return view;
+        findViewById(R.id.desayunoTitle).setOnClickListener(v -> toggleVisibility(desayunoDescription));
+        findViewById(R.id.comidaTitle).setOnClickListener(v -> toggleVisibility(comidaDescription));
+        findViewById(R.id.meriendaTitle).setOnClickListener(v -> toggleVisibility(meriendaDescription));
+        findViewById(R.id.cenaTitle).setOnClickListener(v -> toggleVisibility(cenaDescription));
     }
 
     private void toggleVisibility(View view) {

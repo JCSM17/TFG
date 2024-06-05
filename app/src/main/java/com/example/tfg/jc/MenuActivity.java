@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.R;
 import com.example.tfg.javi.DatabaseHelper;
+import com.example.tfg.jesus.NutricionActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,21 +44,25 @@ public class MenuActivity extends AppCompatActivity {
 
     private void setupButton(int buttonId, String opcionSeleccionada) {
         Button button = findViewById(buttonId);
-        button.setOnClickListener(v -> abrirRutinasActivity(opcionSeleccionada));
+        button.setOnClickListener(v -> abrirSeleccionActivity(opcionSeleccionada));
     }
 
-    private void abrirRutinasActivity(String opcionSeleccionada) {
-        String userEmail = databaseHelper.getUserEmail();
-        String objetivoStr = databaseHelper.getUserGoal(userEmail);
-        Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
+    private void abrirSeleccionActivity(String opcionSeleccionada) {
         Intent intent = null;
-        switch (objetivo) {
-            case VOLUMEN:
-                intent = new Intent(this, RutinasVolumenActivity.class);
-                break;
-            case DEFINICION:
-                intent = new Intent(this, RutinasDefinicionActivity.class);
-                break;
+        if (opcionSeleccionada.equals("nutricion")) {
+            intent = new Intent(this, NutricionActivity.class);
+        } else {
+            String userEmail = databaseHelper.getUserEmail();
+            String objetivoStr = databaseHelper.getUserGoal(userEmail);
+            Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
+            switch (objetivo) {
+                case VOLUMEN:
+                    intent = new Intent(this, RutinasVolumenActivity.class);
+                    break;
+                case DEFINICION:
+                    intent = new Intent(this, RutinasDefinicionActivity.class);
+                    break;
+            }
         }
 
         if (intent != null) {
