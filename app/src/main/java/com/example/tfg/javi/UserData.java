@@ -9,13 +9,14 @@ public class UserData {
     private String sexo;
     private float peso;
     private String objetivo;
+    private float calorias; // Nuevo campo para las calorías
 
     // Constructor sin argumentos
     public UserData() {
     }
 
-    // Modificar el constructor para aceptar y asignar el id
-    public UserData(int id, String email, int selectedId, float estatura, int edad, String sexo, float peso, String objetivo) {
+    // Modificar el constructor para aceptar y asignar el id y las calorías
+    public UserData(int id, String email, int selectedId, float estatura, int edad, String sexo, float peso, String objetivo, float calorias) {
         this.id = id;
         this.email = email;
         this.selectedId = selectedId;
@@ -24,6 +25,7 @@ public class UserData {
         this.sexo = sexo;
         this.peso = peso;
         this.objetivo = objetivo;
+        this.calorias = calorias; // Asignar el valor de las calorías
     }
 
     // Getter para el id
@@ -90,5 +92,13 @@ public class UserData {
 
     public void setObjetivo(String objetivo) {
         this.objetivo = objetivo;
+    }
+
+    public float getCalorias() {
+        return calorias; // Getter para las calorías
+    }
+
+    public void setCalorias(float calorias) {
+        this.calorias = calorias; // Setter para las calorías
     }
 }

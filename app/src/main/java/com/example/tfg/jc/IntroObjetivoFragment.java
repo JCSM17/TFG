@@ -98,6 +98,31 @@ public class IntroObjetivoFragment extends Fragment {
         return userId;
     }
 
+    private float calculateCalories(String genero, float peso, float estatura, int edad, String actividad) {
+        float tmb;
+
+        if (genero.equals("Hombre")) {
+            tmb = (10 * peso) + (6.25f * estatura) - (5 * edad) + 5;
+        } else {
+            tmb = (10 * peso) + (6.25f * estatura) - (5 * edad) - 161;
+        }
+
+        switch (actividad) {
+            case "Sedentario":
+                return tmb * 1.2f;
+            case "Ligero":
+                return tmb * 1.375f;
+            case "Moderado":
+                return tmb * 1.55f;
+            case "Activo":
+                return tmb * 1.725f;
+            case "Muy activo":
+                return tmb * 1.9f;
+            default:
+                return tmb * 1.2f;
+        }
+    }
+
     private void saveUserData(int selectedId, String estatura, String edad, String genero, String peso) {
         try {
             float estaturaFloat = Float.parseFloat(estatura);
@@ -124,8 +149,12 @@ public class IntroObjetivoFragment extends Fragment {
             // Obtener el id del usuario
             int userId = getUserId(email); // Este método debe implementarse para obtener el id del usuario a partir del email
 
+            // Calcular calorías
+            String actividad = "Moderado"; // Aquí puedes ajustar según la actividad del usuario si tienes esta información
+            float calorias = calculateCalories(genero, pesoFloat, estaturaFloat, edadInt, actividad);
+
             // Crear una nueva instancia de UserData con el id del usuario y guardarla en la base de datos
-            UserData userData = new UserData(userId, email, selectedId, estaturaFloat, edadInt, genero, pesoFloat, objetivo);
+            UserData userData = new UserData(userId, email, selectedId, estaturaFloat, edadInt, genero, pesoFloat, objetivo, calorias);
             long rowId = databaseHelper.insertUserData(userData);
 
             if (rowId == -1) {

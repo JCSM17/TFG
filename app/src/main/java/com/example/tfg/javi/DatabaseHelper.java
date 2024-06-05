@@ -34,6 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_SEXO = "genero";
     public static final String COLUMN_PESO = "peso";
     public static final String COLUMN_BODYTYPE = "bodyType";
+    public static final String COLUMN_CALORIAS = "calorias"; // Nuevo campo para las calorías
 
     private static final String SELECT_FROM_WHERE = "SELECT * FROM %s WHERE %s = ?";
 
@@ -67,7 +68,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_SEXO + " TEXT," +
                 COLUMN_PESO + " TEXT," +
                 COLUMN_BODYTYPE + " TEXT," +
-                COLUMN_OBJETIVO + " TEXT)");
+                COLUMN_OBJETIVO + " TEXT," +
+                COLUMN_CALORIAS + " REAL)"); // Agrega el campo de calorías
 
         Log.d("DatabaseHelper", "Tables created.");
     }
@@ -220,6 +222,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues.put(COLUMN_SEXO, userData.getSexo());
             contentValues.put(COLUMN_PESO, userData.getPeso());
             contentValues.put(COLUMN_OBJETIVO, userData.getObjetivo());
+            contentValues.put(COLUMN_CALORIAS, userData.getCalorias());
+
             return db.insert(TABLE_USERDATA, null, contentValues);
         }
     }
@@ -258,7 +262,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     int idIndex = cursor.getColumnIndex(COLUMN_ID);
                     if (idIndex != -1) {
                         int id = cursor.getInt(idIndex);
-                        userData = new UserData(id, email, selectedId, estatura, edad, genero, peso, objetivo);
+                        userData = new UserData(id, email, selectedId, estatura, edad, genero, peso, objetivo, userData.getCalorias());
                     }
                 }
             }
