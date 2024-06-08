@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tfg.R;
 import com.example.tfg.databinding.ActivityLoginBinding;
@@ -42,9 +41,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container_login, fragment);
-        transaction.commit();
+        Intent intent = new Intent(this, FragmentContainerActivity.class);
+        intent.putExtra("fragmentName", fragment.getClass().getName());
+        Log.d("LoginActivity", "Fragment name: " + fragment.getClass().getName()); // Agrega esta línea
+        startActivity(intent);
     }
 
     private void handleLogin(View view) {
@@ -56,62 +56,56 @@ public class LoginActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password)) {
             showToast(getString(R.string.empty_password));
         } else {
-            Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
-            if (checkCredentials) {
-                RegistroData registroData = databaseHelper.getRegistroByEmail(email);
-                if (registroData != null) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long subscriptionEndMillis = registroData.getFechaInicioSuscripcion() + registroData.getDuracionSuscripcion() * 24 * 60 * 60 * 1000;
-                    if (currentTimeMillis <= subscriptionEndMillis) {
-                        // El usuario tiene días de suscripción disponibles
-                        // Continúa con el inicio de sesión
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
-                        try {
-                            contentValues.put(DatabaseHelper.COLUMN_PASSWORD, databaseHelper.hashPassword(password));
-                        } catch (NoSuchAlgorithmException e) {
-                            // Manejar la excepción aquí, por ejemplo, registrar la excepción:
-                            Log.e("LoginActivity", "Error al hashear la contraseña", e);
-                        }
-                        try {
-                            databaseHelper.insertData(DatabaseHelper.TABLE_INICIOSESION, contentValues);
-                        } catch (android.database.SQLException e) {
-                            showToast(getString(R.string.login_error));
-                        }
+            try {
+                String hashedPassword = databaseHelper.hashPassword(password);
+                Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
+                if (checkCredentials) {
+                    RegistroData registroData = databaseHelper.getRegistroByEmail(email);
+                    if (registroData != null) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        long subscriptionEndMillis = registroData.getFechaInicioSuscripcion() + registroData.getDuracionSuscripcion() * 24 * 60 * 60 * 1000;
+                        if (currentTimeMillis <= subscriptionEndMillis) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
+                            contentValues.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
+                            try {
+                                databaseHelper.insertData(DatabaseHelper.TABLE_INICIOSESION, contentValues);
+                            } catch (android.database.SQLException e) {
+                                showToast(getString(R.string.login_error));
+                            }
 
-                        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-                        boolean pagado = prefs.getBoolean(PAGADO, false);
+                            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+                            boolean pagado = prefs.getBoolean(PAGADO, false);
 
-                        if (pagado) {
-                            navigateToActivity(MenuActivity.class);
+                            if (pagado) {
+                                navigateToActivity();
+                            } else {
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putBoolean(PAGADO, true);
+                                editor.apply();
+
+                                showToast(getString(R.string.login_success));
+                                navigateToActivity();
+                            }
                         } else {
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putBoolean(PAGADO, true);
-                            editor.apply();
-
-                            showToast(getString(R.string.login_success));
-                            navigateToActivity(MenuActivity.class);
+                            showToast(getString(R.string.no_subscription_days));
+                            navigateToFragment(new PlanesFragment());
                         }
                     } else {
-                        // El usuario no tiene días de suscripción disponibles
-                        // Muestra un mensaje al usuario y no permitas el inicio de sesión
-                        showToast(getString(R.string.no_subscription_days));
-                        navigateToFragment(new PlanesFragment());
+                        showToast(getString(R.string.user_not_registered));
+                        navigateToFragment(new RegistroFragment());
                     }
                 } else {
-                    // El usuario no está registrado
-                    // Muestra un mensaje al usuario y no permitas el inicio de sesión
-                    showToast(getString(R.string.user_not_registered));
-                    navigateToFragment(new RegistroFragment());
+                    showToast(getString(R.string.invalid_credentials));
                 }
-            } else {
-                showToast(getString(R.string.invalid_credentials));
+            } catch (NoSuchAlgorithmException e) {
+                Log.e("LoginActivity", "Error al hashear la contraseña", e);
             }
         }
     }
 
-    private void navigateToActivity(Class<?> cls) {
-        Intent intent = new Intent(LoginActivity.this, cls);
+    private void navigateToActivity() {
+        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
         finish();
     }

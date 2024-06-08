@@ -3,10 +3,9 @@ package com.example.tfg.jc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
 import com.example.tfg.jesus.AbdominalesFragment;
@@ -22,19 +21,28 @@ public class RutinasVolumenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rutinas_volumen);
 
-        setupView(R.id.cardLunesVolumen, VolumenLunesFragment.class);
-        setupView(R.id.cardMartesVolumen, VolumenMartesFragment.class);
-        setupView(R.id.cardMiercolesVolumen, AbdominalesFragment.class);
-        setupView(R.id.cardJuevesVolumen, VolumenJuevesFragment.class);
-        setupView(R.id.cardViernesVolumen, VolumenViernesFragment.class);
+        setupFragmentView(R.id.cardLunesVolumen, new VolumenLunesFragment());
+        setupFragmentView(R.id.cardMartesVolumen, new VolumenMartesFragment());
+        setupFragmentView(R.id.cardMiercolesVolumen, new AbdominalesFragment());
+        setupFragmentView(R.id.cardJuevesVolumen, new VolumenJuevesFragment());
+        setupFragmentView(R.id.cardViernesVolumen, new VolumenViernesFragment());
 
-        setupView(R.id.btnMainMenuVolumen, MenuActivity.class);
+        setupActivityView(R.id.btnMainMenuVolumen);
     }
 
-    private void setupView(int viewId, Class<?> activityClass) {
+    private void setupFragmentView(int viewId, Fragment fragment) {
         View view = findViewById(viewId);
         view.setOnClickListener(v -> {
-            Intent intent = new Intent(RutinasVolumenActivity.this, activityClass);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+        });
+    }
+
+    private void setupActivityView(int viewId) {
+        View view = findViewById(viewId);
+        view.setOnClickListener(v -> {
+            Intent intent = new Intent(RutinasVolumenActivity.this, MenuActivity.class);
             startActivity(intent);
         });
     }

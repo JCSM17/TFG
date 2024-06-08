@@ -166,7 +166,7 @@ public class PasarelaFragment extends Fragment {
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         if (fragmentManager != null) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container_pasarela, suscripcionConfirmFragment);
+            fragmentTransaction.replace(R.id.fragment_container, suscripcionConfirmFragment);
             fragmentTransaction.commit();
         }
     }

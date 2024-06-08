@@ -3,10 +3,9 @@ package com.example.tfg.jc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
 import com.example.tfg.jesus.DefinicionLunesFragment;
@@ -20,19 +19,28 @@ public class RutinasDefinicionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rutinas_definicion);
 
         // Definition routines
-        setupView(R.id.cardLunesDefinicion, DefinicionLunesFragment.class);
-        setupView(R.id.cardMartesDefinicion, DefinicionMartesFragment.class);
-        setupView(R.id.cardMiercolesDefinicion, DefinicionLunesFragment.class);
-        setupView(R.id.cardJuevesDefinicion, DefinicionMartesFragment.class);
-        setupView(R.id.cardViernesDefinicion, DefinicionMartesFragment.class);
+        setupFragmentView(R.id.cardLunesDefinicion, new DefinicionLunesFragment());
+        setupFragmentView(R.id.cardMartesDefinicion, new DefinicionMartesFragment());
+        setupFragmentView(R.id.cardMiercolesDefinicion, new DefinicionLunesFragment());
+        setupFragmentView(R.id.cardJuevesDefinicion, new DefinicionMartesFragment());
+        setupFragmentView(R.id.cardViernesDefinicion, new DefinicionMartesFragment());
 
-        setupView(R.id.btnMainMenuDefinicion, MenuActivity.class);
+        setupActivityView(R.id.btnMainMenuDefinicion);
     }
 
-    private void setupView(int viewId, Class<?> activityClass) {
+    private void setupFragmentView(int viewId, Fragment fragment) {
         View view = findViewById(viewId);
         view.setOnClickListener(v -> {
-            Intent intent = new Intent(RutinasDefinicionActivity.this, activityClass);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+        });
+    }
+
+    private void setupActivityView(int viewId) {
+        View view = findViewById(viewId);
+        view.setOnClickListener(v -> {
+            Intent intent = new Intent(RutinasDefinicionActivity.this, MenuActivity.class);
             startActivity(intent);
         });
     }

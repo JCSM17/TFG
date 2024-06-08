@@ -45,7 +45,7 @@ public class SuscripcionConfirmFragment extends Fragment {
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
         if (fragmentManager != null) {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container_suscripcion_confirm, introObjetivoFragment);
+            fragmentTransaction.replace(R.id.fragment_container, introObjetivoFragment);
             fragmentTransaction.commit();
         }
     }

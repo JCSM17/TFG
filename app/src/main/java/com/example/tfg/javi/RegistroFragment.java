@@ -106,8 +106,10 @@ public class RegistroFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putLong("userId", userId); // Pass the user id to PlanesFragment
             planesFragment.setArguments(bundle);
+
+            // Clear the back stack
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container_registro, planesFragment);
+            transaction.replace(R.id.fragment_container, planesFragment);
             transaction.commit();
 
         } catch (android.database.SQLException e) {

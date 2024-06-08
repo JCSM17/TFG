@@ -45,6 +45,8 @@
             android:name=".javi.LoginActivity"
             android:exported="true" />
 
+        <activity android:name=".javi.FragmentContainerActivity" />
+
         <!-- MenuActivity es la actividad que muestra el menú de la aplicación -->
         <activity android:name=".jc.MenuActivity" />
 

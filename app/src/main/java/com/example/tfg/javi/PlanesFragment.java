@@ -58,7 +58,7 @@ public class PlanesFragment extends Fragment {
         pasarelaFragment.setArguments(bundle); // Pasa el Bundle al PasarelaFragment
 
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container_planes, pasarelaFragment);
+        transaction.replace(R.id.fragment_container, pasarelaFragment);
         transaction.commit();
     }
 }

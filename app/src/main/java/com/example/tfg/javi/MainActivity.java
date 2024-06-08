@@ -15,7 +15,7 @@ import com.example.tfg.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int SPLASH_SCREEN_DELAY = 2000;
+    private static final int SPLASH_SCREEN_DELAY = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

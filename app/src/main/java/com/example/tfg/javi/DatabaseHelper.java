@@ -359,7 +359,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Log.e("DatabaseHelper", "Error al hacer hash de la contraseña", e);
                 return false;
             }
-            Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD), new String[]{email, hashedPassword});
+            Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ?"), new String[]{email, hashedPassword});
             return cursor.getCount() > 0;
         }
     }
