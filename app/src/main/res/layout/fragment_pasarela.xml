@@ -54,4 +54,12 @@
         android:backgroundTint="@color/ven"
         android:text="Continuar" />
 
+    <Button
+        android:id="@+id/btnFinalizar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/ven"
+        android:text="Finalizar" />
+
 </LinearLayout>

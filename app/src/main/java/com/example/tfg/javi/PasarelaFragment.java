@@ -57,6 +57,8 @@ public class PasarelaFragment extends Fragment {
     private static final String API_KEY = "ab254a10-ddc2-4d84-8f31-d3fab9d49520";
     private static final String SIGNATURE_KEY = "eDpehY%YPYgsoludCSZhu*WLdmKBWfAo";
 
+
+
     private SynapPayButton paymentWidget;
     private FrameLayout synapForm;
     private Button synapButton;
@@ -74,6 +76,9 @@ public class PasarelaFragment extends Fragment {
 
         Button startPayment = view.findViewById(R.id.btnContinuar);
         startPayment.setOnClickListener(v -> startPayment());
+
+        Button btnFinalizar = view.findViewById(R.id.btnFinalizar);
+        btnFinalizar.setOnClickListener(v -> navigateToSuccessScreen());
 
         return view;
     }
