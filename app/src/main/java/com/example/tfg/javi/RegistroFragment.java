@@ -3,8 +3,10 @@ package com.example.tfg.javi;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -20,13 +22,15 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.tfg.R;
 import com.example.tfg.databinding.FragmentRegistroBinding;
 
+import java.security.NoSuchAlgorithmException;
+
 public class RegistroFragment extends Fragment {
 
     private static final String USERNAME = "cristianito5689@gmail.com";
     private static final String PASSWORD = "bxvb ccln dqro kynm";
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final String SMTP_PORT = "587";
-
+    private static final String EMAIL_KEY = "email";
     FragmentRegistroBinding binding;
 
     DatabaseHelper databaseHelper;
@@ -88,9 +92,11 @@ public class RegistroFragment extends Fragment {
         }
 
         try {
+            String hashedPassword = databaseHelper.hashPassword(password); // Hacer hash de la contraseña
+
             ContentValues contentValues = new ContentValues();
             contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
-            contentValues.put(DatabaseHelper.COLUMN_PASSWORD, password);
+            contentValues.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword); // Guardar la contraseña hasheada
             contentValues.put(DatabaseHelper.COLUMN_NOMBRE, nombre);
             contentValues.put(DatabaseHelper.COLUMN_APELLIDO, apellido);
             contentValues.put(DatabaseHelper.COLUMN_TELEFONO, telefono);
@@ -100,6 +106,11 @@ public class RegistroFragment extends Fragment {
             }
             sendWelcomeEmail(email);
             Toast.makeText(activity, getString(R.string.registration_success), Toast.LENGTH_SHORT).show();
+
+            // Guardar el correo electrónico en las preferencias compartidas
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+            sharedPreferences.edit().putString(EMAIL_KEY, email).apply();
+            Log.d("RegistroFragment", "Correo electrónico guardado: " + email);
 
             // Replace the current fragment with PlanesFragment
             PlanesFragment planesFragment = new PlanesFragment();
@@ -114,9 +125,10 @@ public class RegistroFragment extends Fragment {
 
         } catch (android.database.SQLException e) {
             Toast.makeText(activity, getString(R.string.registration_failed), Toast.LENGTH_SHORT).show();
+        } catch (NoSuchAlgorithmException e) {
+            Log.e("RegistroFragment", "Error al hashear la contraseña", e);
         }
     }
-
     private void startLoginActivity() {
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
