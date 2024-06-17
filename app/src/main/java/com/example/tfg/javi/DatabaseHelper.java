@@ -59,8 +59,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_EDAD + " INTEGER," +
                 COLUMN_SEXO + " TEXT," +
                 COLUMN_PESO + " REAL," +
-                COLUMN_BODYTYPE + " TEXT," +
                 COLUMN_OBJETIVO + " TEXT," +
+                COLUMN_BODYTYPE + " TEXT," +
                 COLUMN_CALORIAS + " REAL," + // Agrega el campo de calorías
                 "FOREIGN KEY(" + COLUMN_ID + ") REFERENCES " + TABLE_REGISTRO + "(" + COLUMN_ID + "))"); // Agrega la restricción de clave externa
 
@@ -282,6 +282,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public int getUserId(String email) {
+        if (email == null || email.isEmpty()) {
+            Log.e("DatabaseHelper", "El correo electrónico es nulo o está vacío");
+            return -1;
+        }
+
         Log.d("DatabaseHelper", "getUserId() called with email: " + email);
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);

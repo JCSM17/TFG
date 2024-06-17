@@ -50,7 +50,7 @@ public class MenuActivity extends AppCompatActivity {
             Button button = (Button) view;
             button.setOnClickListener(v -> abrirSeleccionActivity(opcionSeleccionada));
         } else {
-            Log.e("MenuActivity", "The view with id: " + buttonId + " is not a Button.");
+            Log.e("MenuActivity", "La vista con id: " + buttonId + " no es un botón.");
         }
     }
 
