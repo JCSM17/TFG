@@ -2,6 +2,8 @@ package com.example.tfg.jc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -43,8 +45,13 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void setupButton(int buttonId, String opcionSeleccionada) {
-        Button button = findViewById(buttonId);
-        button.setOnClickListener(v -> abrirSeleccionActivity(opcionSeleccionada));
+        View view = findViewById(buttonId);
+        if (view instanceof Button) {
+            Button button = (Button) view;
+            button.setOnClickListener(v -> abrirSeleccionActivity(opcionSeleccionada));
+        } else {
+            Log.e("MenuActivity", "The view with id: " + buttonId + " is not a Button.");
+        }
     }
 
     private void abrirSeleccionActivity(String opcionSeleccionada) {

@@ -10,15 +10,12 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "JJJFit.db";
     public static final String TABLE_REGISTRO = "registro";
     public static final String COLUMN_ID = "id";
-    public static final String TABLE_INICIOSESION = "iniciosesion";
-
     public static final String COLUMN_SUSCRIPCION = "tipo_suscripcion";
     public static final String TABLE_SUSCRIPANUAL = "suscripanual";
     public static final String TABLE_SUSCRIPMENSUAL = "suscripmensual";
@@ -31,13 +28,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_OBJETIVO = "objetivo";
     public static final String COLUMN_ESTATURA = "estatura";
     public static final String COLUMN_EDAD = "edad";
-    public static final String COLUMN_SEXO = "genero";
+    public static final String COLUMN_SEXO = "sexo";
     public static final String COLUMN_PESO = "peso";
     public static final String COLUMN_BODYTYPE = "bodyType";
     public static final String COLUMN_CALORIAS = "calorias"; // Nuevo campo para las calorías
-    public static final String COLUMN_SELECTED_ID = "selectedId";
-    public static final String COLUMN_GENERO = "genero";
-
     private static final String SELECT_FROM_WHERE = "SELECT * FROM %s WHERE %s = ?";
 
     public DatabaseHelper(@Nullable Context context) {
@@ -60,18 +54,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Agrega una nueva tabla para los datos del usuario
         MyDatabase.execSQL("CREATE TABLE " + TABLE_USERDATA + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY," + // Use COLUMN_ID as the primary key
-                COLUMN_EMAIL + " TEXT," + // Agrega la columna email
-                "selectedId INTEGER," +
-                COLUMN_ESTATURA + " TEXT," +
-                COLUMN_EDAD + " TEXT," +
+                COLUMN_ID + " INTEGER," + // Use COLUMN_ID as the foreign key
+                COLUMN_ESTATURA + " REAL," +
+                COLUMN_EDAD + " INTEGER," +
                 COLUMN_SEXO + " TEXT," +
-                COLUMN_PESO + " TEXT," +
+                COLUMN_PESO + " REAL," +
                 COLUMN_BODYTYPE + " TEXT," +
                 COLUMN_OBJETIVO + " TEXT," +
-                COLUMN_CALORIAS + " REAL)"); // Agrega el campo de calorías
+                COLUMN_CALORIAS + " REAL," + // Agrega el campo de calorías
+                "FOREIGN KEY(" + COLUMN_ID + ") REFERENCES " + TABLE_REGISTRO + "(" + COLUMN_ID + "))"); // Agrega la restricción de clave externa
 
         Log.d("DatabaseHelper", "Tables created.");
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        if (!db.isReadOnly()) {
+            db.execSQL("PRAGMA foreign_keys=ON;");
+        }
     }
 
     @Override
@@ -82,7 +83,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         if (oldVersion < newVersion) {
             MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_REGISTRO);
-            MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_INICIOSESION);
             MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_SUSCRIPANUAL);
             MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_SUSCRIPMENSUAL);
             MyDB.execSQL("DROP TABLE IF EXISTS " + TABLE_USERDATA);
@@ -99,9 +99,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0;
     }
 
-    public RegistroData getRegistroByEmail(String email) {
+    public RegistroData getRegistroByColumn(String columnName, String columnValue) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_REGISTRO, null, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
+        Cursor cursor = db.query(TABLE_REGISTRO, null, columnName + "=?", new String[]{columnValue}, null, null, null);
         if (cursor.moveToFirst()) {
             RegistroData registroData = new RegistroData();
             int columnIndex;
@@ -158,74 +158,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    // Usa el nuevo método para obtener un usuario por correo electrónico
+    public RegistroData getRegistroByEmail(String email) {
+        return getRegistroByColumn(COLUMN_EMAIL, email);
+    }
+
+    // Usa el nuevo método para obtener un usuario por ID
     public RegistroData getRegistroPorId(long userId) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_REGISTRO, null, COLUMN_ID + "=?", new String[]{String.valueOf(userId)}, null, null, null);
-        if (cursor.moveToFirst()) {
-            RegistroData registroData = new RegistroData();
-            int columnIndex;
-
-            columnIndex = cursor.getColumnIndex(COLUMN_ID);
-            if (columnIndex != -1) {
-                registroData.setId(cursor.getInt(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex(COLUMN_EMAIL);
-            if (columnIndex != -1) {
-                registroData.setEmail(cursor.getString(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex(COLUMN_PASSWORD);
-            if (columnIndex != -1) {
-                registroData.setPassword(cursor.getString(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex(COLUMN_NOMBRE);
-            if (columnIndex != -1) {
-                registroData.setNombre(cursor.getString(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex(COLUMN_APELLIDO);
-            if (columnIndex != -1) {
-                registroData.setApellido(cursor.getString(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex(COLUMN_TELEFONO);
-            if (columnIndex != -1) {
-                registroData.setTelefono(cursor.getString(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex(COLUMN_SUSCRIPCION);
-            if (columnIndex != -1) {
-                registroData.setSuscripcion(cursor.getString(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex("subscription_start_date");
-            if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
-                registroData.setFechaInicioSuscripcion(cursor.getLong(columnIndex));
-            }
-
-            columnIndex = cursor.getColumnIndex("subscription_duration");
-            if (columnIndex != -1 && !cursor.isNull(columnIndex)) {
-                registroData.setDuracionSuscripcion(cursor.getInt(columnIndex));
-            }
-
-            cursor.close();
-            return registroData;
-        }
-        cursor.close();
-        return null;
+        return getRegistroByColumn(COLUMN_ID, String.valueOf(userId));
     }
 
     public long insertUserData(UserData userData) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_ID, userData.getId());
-        contentValues.put(COLUMN_EMAIL, userData.getEmail());
-        contentValues.put(COLUMN_SELECTED_ID, userData.getSelectedId());
         contentValues.put(COLUMN_ESTATURA, userData.getEstatura());
         contentValues.put(COLUMN_EDAD, userData.getEdad());
-        contentValues.put(COLUMN_GENERO, userData.getGenero());
+        contentValues.put(COLUMN_SEXO, userData.getSexo());
         contentValues.put(COLUMN_PESO, userData.getPeso());
         contentValues.put(COLUMN_OBJETIVO, userData.getObjetivo());
         contentValues.put(COLUMN_CALORIAS, userData.getCalorias());
@@ -242,8 +191,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     public long insertData(String table, ContentValues contentValues) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.insert(table, null, contentValues);
@@ -252,15 +199,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public UserData getUserData(int userId) {
-        SQLiteDatabase db = null;
-        Cursor cursor = null;
-        try {
-            db = this.getReadableDatabase();
-            cursor = db.rawQuery("SELECT * FROM " + TABLE_USERDATA + " WHERE " + COLUMN_ID + " = ?", new String[]{String.valueOf(userId)});
+        Log.d("DatabaseHelper", "getUserData() called with userId: " + userId);
+        try (SQLiteDatabase db = this.getReadableDatabase(); Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USERDATA + " WHERE " + COLUMN_ID + " = ?", new String[]{String.valueOf(userId)})) {
             UserData userData = null;
             if (cursor.moveToFirst()) {
-                int emailIndex = cursor.getColumnIndex(COLUMN_EMAIL);
-                int selectedIdIndex = cursor.getColumnIndex("selectedId");
                 int estaturaIndex = cursor.getColumnIndex(COLUMN_ESTATURA);
                 int edadIndex = cursor.getColumnIndex(COLUMN_EDAD);
                 int generoIndex = cursor.getColumnIndex(COLUMN_SEXO);
@@ -268,9 +210,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 int objetivoIndex = cursor.getColumnIndex(COLUMN_OBJETIVO);
                 int caloriasIndex = cursor.getColumnIndex(COLUMN_CALORIAS); // Obtener el índice de la columna de las calorías
 
-                if (emailIndex != -1 && selectedIdIndex != -1 && estaturaIndex != -1 && edadIndex != -1 && generoIndex != -1 && pesoIndex != -1 && objetivoIndex != -1 && caloriasIndex != -1) {
-                    String email = cursor.getString(emailIndex);
-                    int selectedId = cursor.getInt(selectedIdIndex);
+                if (estaturaIndex != -1 && edadIndex != -1 && generoIndex != -1 && pesoIndex != -1 && objetivoIndex != -1 && caloriasIndex != -1) {
                     float estatura = cursor.getFloat(estaturaIndex);
                     int edad = cursor.getInt(edadIndex);
                     String genero = cursor.getString(generoIndex);
@@ -280,18 +220,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     int idIndex = cursor.getColumnIndex(COLUMN_ID);
                     if (idIndex != -1) {
                         int id = cursor.getInt(idIndex);
-                        userData = new UserData(id, email, selectedId, estatura, edad, genero, peso, objetivo, calorias);
+                        userData = new UserData(id, estatura, edad, genero, peso, objetivo, calorias);
+                        Log.d("DatabaseHelper", "getUserData() returned: " + userData);
                     }
                 }
+            } else {
+                Log.e("DatabaseHelper", "getUserData(): No user data found for userId: " + userId);
             }
             return userData;
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-            if (db != null) {
-                db.close();
-            }
+        } catch (Exception e) {
+            Log.e("DatabaseHelper", "getUserData(): Error retrieving user data for userId: " + userId, e);
+            return null;
         }
     }
 
@@ -356,20 +295,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return userId;
     }
 
+    // Cierra la conexión a la base de datos en el método getUserIdByEmail
     public int getUserIdByEmail(String email) {
-        Log.d("DatabaseHelper", "getUserIdByEmail() called with email: " + email);
-        int userId = -1;
-        try (SQLiteDatabase db = this.getReadableDatabase();
-             Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null)) {
+        try (SQLiteDatabase db = this.getReadableDatabase(); Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null)) {
             if (cursor.moveToFirst()) {
                 int columnIndex = cursor.getColumnIndex(COLUMN_ID);
                 if (columnIndex != -1) {
-                    userId = cursor.getInt(columnIndex);
+                    return cursor.getInt(columnIndex);
                 }
             }
+            Log.d("DatabaseHelper", "getUserIdByEmail() returned: -1");
+            return -1; // Devuelve -1 si no se encontró el usuario o la columna
         }
-        Log.d("DatabaseHelper", "getUserIdByEmail() returned: " + userId);
-        return userId; // Devuelve -1 si no se encontró el usuario o la columna
     }
 
     public boolean checkEmailPassword(String email, String password) {
@@ -403,14 +340,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return isValid;
     }
 
-    public String hashPassword(String password) throws NoSuchAlgorithmException {
+    public String hashPassword(String password) {
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("SHA-256");
         } catch (Exception e) {
-            // Registra el error y devuelve una cadena vacía
             Log.e("DatabaseHelper", "Error al hacer hash de la contraseña", e);
-            return "";
+            return null;
         }
         byte[] hash = md.digest(password.getBytes());
         StringBuilder hexString = new StringBuilder();
@@ -420,9 +356,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (hex.length() == 1) hexString.append('0');
             hexString.append(hex);
         }
-
         return hexString.toString();
     }
-
-
 }

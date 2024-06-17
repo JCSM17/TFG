@@ -17,8 +17,6 @@ import com.example.tfg.R;
 import com.example.tfg.databinding.ActivityLoginBinding;
 import com.example.tfg.jc.MenuActivity;
 
-import java.security.NoSuchAlgorithmException;
-
 public class LoginActivity extends AppCompatActivity {
 
     private static final String PREFS = "PREFS";
@@ -56,55 +54,54 @@ public class LoginActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password)) {
             showToast(getString(R.string.empty_password));
         } else {
-            try {
-                String hashedPassword = databaseHelper.hashPassword(password);
-                Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
-                if (checkCredentials) {
-                    RegistroData registroData = databaseHelper.getRegistroByEmail(email);
-                    if (registroData != null) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        long subscriptionEndMillis = registroData.getFechaInicioSuscripcion() + registroData.getDuracionSuscripcion() * 24 * 60 * 60 * 1000;
-                        if (currentTimeMillis <= subscriptionEndMillis) {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
-                            contentValues.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
-                            try {
-                                databaseHelper.insertData(DatabaseHelper.TABLE_INICIOSESION, contentValues);
-                            } catch (android.database.SQLException e) {
-                                showToast(getString(R.string.login_error));
-                            }
-
-                            SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-                            boolean pagado = prefs.getBoolean(PAGADO, false);
-
-                            if (pagado) {
-                                navigateToActivity();
-                            } else {
-                                SharedPreferences.Editor editor = prefs.edit();
-                                editor.putBoolean(PAGADO, true);
-                                editor.apply();
-
-                                showToast(getString(R.string.login_success));
-                                navigateToActivity();
-                            }
-                        } else {
-                            showToast(getString(R.string.no_subscription_days));
-                            navigateToFragment(new PlanesFragment());
+            String hashedPassword = databaseHelper.hashPassword(password);
+            if (hashedPassword == null) {
+                Log.e("LoginActivity", "Error al hashear la contraseña");
+                return;
+            }
+            Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
+            if (checkCredentials) {
+                RegistroData registroData = databaseHelper.getRegistroByEmail(email);
+                if (registroData != null) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    long subscriptionEndMillis = registroData.getFechaInicioSuscripcion() + registroData.getDuracionSuscripcion() * 24 * 60 * 60 * 1000;
+                    if (currentTimeMillis <= subscriptionEndMillis) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
+                        contentValues.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
+                        try {
+                            databaseHelper.insertData(DatabaseHelper.TABLE_REGISTRO, contentValues);
+                        } catch (android.database.SQLException e) {
+                            showToast(getString(R.string.login_error));
                         }
+
+                        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
+                        boolean pagado = prefs.getBoolean(PAGADO, false);
+
+                        if (!pagado) {
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putBoolean(PAGADO, true);
+                            editor.apply();
+                        }
+
+                        navigateToActivity();
                     } else {
-                        showToast(getString(R.string.user_not_registered));
-                        navigateToFragment(new RegistroFragment());
+                        showToast(getString(R.string.no_subscription_days));
+                        navigateToFragment(new PlanesFragment());
                     }
                 } else {
-                    showToast(getString(R.string.invalid_credentials));
+                    showToast(getString(R.string.user_not_registered));
+                    navigateToFragment(new RegistroFragment());
                 }
-            } catch (NoSuchAlgorithmException e) {
-                Log.e("LoginActivity", "Error al hashear la contraseña", e);
+            } else {
+                showToast(getString(R.string.invalid_credentials));
+                navigateToFragment(new RegistroFragment());
             }
         }
     }
 
     private void navigateToActivity() {
+        showToast(getString(R.string.login_success));
         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
         startActivity(intent);
         finish();

@@ -19,17 +19,14 @@ import com.example.tfg.databinding.FragmentObjetivoBinding;
 import com.example.tfg.javi.DatabaseHelper;
 import com.example.tfg.javi.UserData;
 
+import java.sql.SQLException;
+
 public class IntroObjetivoFragment extends Fragment {
 
     private static final String ERROR_MESSAGE = "Por favor, completa todos los campos correctamente";
     private static final String ERROR_SAVE_DATA = "Error al guardar los datos del usuario";
     private static final String GENDER_DEFAULT = "Género";
     private static final String EMAIL_KEY = "email";
-    private int selectedId;
-    private String estatura;
-    private String edad;
-    private String genero;
-    private String peso;
 
     private DatabaseHelper databaseHelper;
     private FragmentObjetivoBinding binding;
@@ -70,28 +67,15 @@ public class IntroObjetivoFragment extends Fragment {
                 R.array.gender_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.generoSpinner.setAdapter(adapter);
-
-        // Asigna los valores a las variables de instancia aquí
-        selectedId = binding.radioObjetivo.getCheckedRadioButtonId();
-        estatura = binding.estaturaInput.getText().toString();
-        edad = binding.aniosInput.getText().toString();
-        genero = binding.generoSpinner.getSelectedItem().toString();
-        peso = binding.pesoInput.getText().toString();
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String email = sharedPreferences.getString(EMAIL_KEY, "");
-
-        if (email.isEmpty()) {
-            Log.e("IntroObjetivoFragment", "El correo electrónico recuperado es nulo o está vacío");
-        } else {
-            // Llamar al método saveUserData()
-            saveUserData(selectedId, estatura, edad, genero, peso);
-        }
     }
 
-
-
     private boolean validateInputs(int selectedId, String estatura, String edad, String genero, String peso) {
+        // Verificar si las cadenas estatura y peso son números válidos
+        if (!estatura.matches("\\d+(\\.\\d+)?") || !peso.matches("\\d+(\\.\\d+)?")) {
+            showToast("Error: estatura y peso deben ser números válidos");
+            return false;
+        }
+
         try {
             float estaturaFloat = Float.parseFloat(estatura);
             float pesoFloat = Float.parseFloat(peso);
@@ -106,7 +90,7 @@ public class IntroObjetivoFragment extends Fragment {
         return selectedId != -1 && !estatura.isEmpty() && !edad.isEmpty() && !genero.equals(GENDER_DEFAULT);
     }
 
-    private int getUserId(String email) {
+    private int getUserId(String email) throws SQLException {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         int userId = sharedPreferences.getInt("userId", -1);
 
@@ -169,43 +153,19 @@ public class IntroObjetivoFragment extends Fragment {
             }
 
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String email = sharedPreferences.getString(EMAIL_KEY, "");
-            Log.d("IntroObjetivoFragment", "Correo electrónico recuperado: " + email);
+            int userId = sharedPreferences.getInt("userId", -1); // Obtén el userId directamente
 
-            // Verificar si el correo electrónico está vacío
-            if (!email.isEmpty()) {
-                // Obtener el id del usuario
-                int userId = getUserId(email);
-
+            if (userId != -1) {
                 // Calcular calorías
                 String actividad = "Moderado";
                 float calorias = calculateCalories(genero, pesoFloat, estaturaFloat, edadInt, actividad);
 
                 // Crear una nueva instancia de UserData con el id del usuario y guardarla en la base de datos
-                UserData userData = new UserData(userId, email, selectedId, estaturaFloat, edadInt, genero, pesoFloat, objetivo, calorias);
+                UserData userData = new UserData(userId, estaturaFloat, edadInt, genero, pesoFloat, objetivo, calorias);
                 long rowId = databaseHelper.insertUserData(userData);
 
                 if (rowId != -1) {
                     Log.d("IntroObjetivoFragment", "Datos del usuario guardados correctamente en la fila ID: " + rowId);
-
-                    // Recuperar los datos del usuario de la base de datos
-                    UserData savedUserData = databaseHelper.getUserData(userId);
-                    if (savedUserData == null) {
-                        Log.e("IntroObjetivoFragment", "No se pudieron recuperar los datos del usuario de la base de datos");
-
-                        // Crear una nueva instancia de UserData con valores predeterminados y guardarla en la base de datos
-                        UserData defaultUserData = new UserData(userId, email, selectedId, 0.0f, 0, "Desconocido", 0.0f, "Desconocido", 0.0f);
-                        long defaultRowId = databaseHelper.insertUserData(defaultUserData);
-                        if (defaultRowId != -1) {
-                            Log.d("IntroObjetivoFragment", "Datos predeterminados del usuario guardados correctamente en la fila ID: " + defaultRowId);
-                        } else {
-                            Log.e("IntroObjetivoFragment", "Error al guardar los datos predeterminados del usuario: " + defaultUserData);
-                            showToast(ERROR_SAVE_DATA);
-                        }
-                    } else {
-                        // Imprimir los datos del usuario en el registro para verificar que se guardaron correctamente
-                        Log.d("IntroObjetivoFragment", "Datos del usuario recuperados de la base de datos: " + savedUserData);
-                    }
                 } else {
                     Log.e("IntroObjetivoFragment", "Error al guardar los datos del usuario: " + userData);
                     showToast(ERROR_SAVE_DATA);
@@ -218,8 +178,6 @@ public class IntroObjetivoFragment extends Fragment {
             showToast("Error al convertir los datos del usuario a números");
         }
     }
-
-
 
     private void navigateToNextScreen() {
         TiposCuerpoFragment tiposCuerpoFragment = new TiposCuerpoFragment();

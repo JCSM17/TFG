@@ -22,8 +22,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.tfg.R;
 import com.example.tfg.databinding.FragmentRegistroBinding;
 
-import java.security.NoSuchAlgorithmException;
-
 public class RegistroFragment extends Fragment {
 
     private static final String USERNAME = "cristianito5689@gmail.com";
@@ -125,8 +123,6 @@ public class RegistroFragment extends Fragment {
 
         } catch (android.database.SQLException e) {
             Toast.makeText(activity, getString(R.string.registration_failed), Toast.LENGTH_SHORT).show();
-        } catch (NoSuchAlgorithmException e) {
-            Log.e("RegistroFragment", "Error al hashear la contraseña", e);
         }
     }
     private void startLoginActivity() {
