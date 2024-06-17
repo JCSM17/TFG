@@ -2,11 +2,11 @@ package com.example.tfg.javi;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -74,7 +74,7 @@ public class RegistroFragment extends Fragment {
             return false;
         }
 
-        Boolean checkUser = databaseHelper.checkUserEmail(email);
+        boolean checkUser = databaseHelper.checkUserEmail(email);
         if (checkUser) {
             Toast.makeText(requireActivity(), getString(R.string.email_exists), Toast.LENGTH_SHORT).show();
             return false;
@@ -105,10 +105,11 @@ public class RegistroFragment extends Fragment {
             sendWelcomeEmail(email);
             Toast.makeText(activity, getString(R.string.registration_success), Toast.LENGTH_SHORT).show();
 
-            // Guardar el correo electrónico en las preferencias compartidas
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+            // Guardar el correo electrónico y el userId en las preferencias compartidas
+            SharedPreferences sharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
             sharedPreferences.edit().putString(EMAIL_KEY, email).apply();
-            Log.d("RegistroFragment", "Correo electrónico guardado: " + email);
+            sharedPreferences.edit().putInt("userId", (int) userId).apply();
+            Log.d("RegistroFragment", "Correo electrónico y userId guardados: " + email + ", " + userId);
 
             // Replace the current fragment with PlanesFragment
             PlanesFragment planesFragment = new PlanesFragment();
@@ -125,6 +126,7 @@ public class RegistroFragment extends Fragment {
             Toast.makeText(activity, getString(R.string.registration_failed), Toast.LENGTH_SHORT).show();
         }
     }
+
     private void startLoginActivity() {
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
@@ -150,7 +152,6 @@ public class RegistroFragment extends Fragment {
             this.password = password;
             this.smtpHost = smtpHost;
             this.smtpPort = smtpPort;
-
         }
 
         @Override

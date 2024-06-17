@@ -171,6 +171,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public long insertUserData(UserData userData) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COLUMN_ID, userData.getId());
         contentValues.put(COLUMN_ESTATURA, userData.getEstatura());
         contentValues.put(COLUMN_EDAD, userData.getEdad());
@@ -258,11 +259,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return objetivo;
     }
 
-    public boolean updateUserBodyType(String email, String bodyType) {
+    public boolean updateUserBodyType(int userId, String bodyType) {
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_BODYTYPE, bodyType);
-        int result = MyDatabase.update(TABLE_USERDATA, contentValues, COLUMN_EMAIL + " = ?", new String[]{email});
+        int result = MyDatabase.update(TABLE_USERDATA, contentValues, COLUMN_ID + " = ?", new String[]{String.valueOf(userId)});
         MyDatabase.close();
         return result > 0;
     }
@@ -301,17 +302,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Cierra la conexión a la base de datos en el método getUserIdByEmail
-    public int getUserIdByEmail(String email) {
-        try (SQLiteDatabase db = this.getReadableDatabase(); Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null)) {
-            if (cursor.moveToFirst()) {
-                int columnIndex = cursor.getColumnIndex(COLUMN_ID);
-                if (columnIndex != -1) {
-                    return cursor.getInt(columnIndex);
-                }
+    public int getUserIdById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null);
+        int userId = -1;
+        if (cursor != null && cursor.moveToFirst()) {
+            int columnIndex = cursor.getColumnIndex(COLUMN_ID);
+            if (columnIndex != -1) {
+                userId = cursor.getInt(columnIndex);
             }
-            Log.d("DatabaseHelper", "getUserIdByEmail() returned: -1");
-            return -1; // Devuelve -1 si no se encontró el usuario o la columna
+            cursor.close();
         }
+        db.close();
+        return userId;
     }
 
     public boolean checkEmailPassword(String email, String password) {

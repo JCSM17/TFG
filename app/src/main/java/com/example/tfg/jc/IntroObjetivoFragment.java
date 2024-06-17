@@ -1,8 +1,8 @@
 package com.example.tfg.jc;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,14 +19,11 @@ import com.example.tfg.databinding.FragmentObjetivoBinding;
 import com.example.tfg.javi.DatabaseHelper;
 import com.example.tfg.javi.UserData;
 
-import java.sql.SQLException;
-
 public class IntroObjetivoFragment extends Fragment {
 
     private static final String ERROR_MESSAGE = "Por favor, completa todos los campos correctamente";
     private static final String ERROR_SAVE_DATA = "Error al guardar los datos del usuario";
-    private static final String GENDER_DEFAULT = "Género";
-    private static final String EMAIL_KEY = "email";
+    private static final String SEXO_DEFAULT = "Sexo";
 
     private DatabaseHelper databaseHelper;
     private FragmentObjetivoBinding binding;
@@ -87,24 +84,7 @@ public class IntroObjetivoFragment extends Fragment {
             return false;
         }
 
-        return selectedId != -1 && !estatura.isEmpty() && !edad.isEmpty() && !genero.equals(GENDER_DEFAULT);
-    }
-
-    private int getUserId(String email) throws SQLException {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int userId = sharedPreferences.getInt("userId", -1);
-
-        if (userId == -1) {
-            // Si el ID del usuario no está en las preferencias compartidas, obténlo de la base de datos
-            userId = databaseHelper.getUserIdByEmail(email);
-
-            // Guarda el ID del usuario en las preferencias compartidas para uso futuro
-            if (userId != -1) {
-                sharedPreferences.edit().putInt("userId", userId).apply();
-            }
-        }
-
-        return userId;
+        return selectedId != -1 && !estatura.isEmpty() && !edad.isEmpty() && !genero.equals(SEXO_DEFAULT);
     }
 
     private float calculateCalories(String genero, float peso, float estatura, int edad, String actividad) {
@@ -138,7 +118,6 @@ public class IntroObjetivoFragment extends Fragment {
             int edadInt = Integer.parseInt(edad);
             float pesoFloat = Float.parseFloat(peso);
 
-            // Guardar la elección del usuario entre "volumen", "definicion" y "recomendado"
             String objetivo;
             if (selectedId == R.id.radioOptionDefinicion) {
                 objetivo = "definicion";
@@ -152,7 +131,7 @@ public class IntroObjetivoFragment extends Fragment {
                 }
             }
 
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences sharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
             int userId = sharedPreferences.getInt("userId", -1); // Obtén el userId directamente
 
             if (userId != -1) {
@@ -182,11 +161,9 @@ public class IntroObjetivoFragment extends Fragment {
     private void navigateToNextScreen() {
         TiposCuerpoFragment tiposCuerpoFragment = new TiposCuerpoFragment();
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-        if (fragmentManager != null) {
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, tiposCuerpoFragment);
-            fragmentTransaction.commit();
-        }
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, tiposCuerpoFragment);
+        fragmentTransaction.commit();
     }
 
     private void showToast(String message) {

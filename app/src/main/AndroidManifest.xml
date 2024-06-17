@@ -59,6 +59,15 @@
         <!-- TiendaActivity es la actividad que muestra la tienda de la aplicación -->
         <activity android:name=".javi.TiendaActivity" />
 
+        <!-- CarritoActivity es la actividad que muestra la tienda de la aplicación -->
+        <activity android:name=".javi.Activity.CarritoActivity" />
+
+        <!-- DetailActivity es la actividad que muestra la tienda de la aplicación -->
+        <activity android:name=".javi.Activity.DetailActivity" />
+
+        <!-- CarritoActivity es la actividad que muestra la tienda de la aplicación -->
+        <activity android:name=".javi.Activity.ProductDisplayActivity" />
+
         <!-- TiendaActivity es la actividad que muestra la Nutricion de la aplicación -->
         <activity android:name=".jesus.NutricionActivity" />
 
