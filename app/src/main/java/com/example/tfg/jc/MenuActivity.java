@@ -73,8 +73,8 @@ public class MenuActivity extends AppCompatActivity {
             throw new IllegalArgumentException("Opción seleccionada inválida");
         }
 
-        String userEmail = databaseHelper.getUserEmail();
-        String objetivoStr = databaseHelper.getUserGoal(userEmail);
+        int userId = databaseHelper.getUserId();
+        String objetivoStr = databaseHelper.getUserGoal(userId);
         Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
 
         Class<?> activityClass;

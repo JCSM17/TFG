@@ -11,93 +11,105 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/fotoJC"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/descripcion_imagen_jalon_neutro_pecho"
-        android:maxHeight="520dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/foto_jc" />
-
-    <LinearLayout style="@style/ButtonContainer">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/btnEntrenamiento"
-            style="@style/ButtonLayout">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/icono_entrenamiento" />
-
-            <TextView
-                style="@style/ButtonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/entrenamiento" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnNutricion"
-            style="@style/ButtonLayout">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/icono_nutricion" />
-
-            <TextView
-                style="@style/ButtonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nutricion" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout style="@style/ButtonContainer">
-
-        <LinearLayout
-            android:id="@+id/btnPerfil"
-            style="@style/ButtonLayout">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/icono_perfil" />
-
-            <TextView
-                style="@style/ButtonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/perfil" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnTienda"
-            style="@style/ButtonLayout">
-
-            <ImageView
+                android:id="@+id/fotoJC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/icono_tienda" />
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/descripcion_imagen_jalon_neutro_pecho"
+                android:maxHeight="550dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/foto_jc" />
 
-            <TextView
-                style="@style/ButtonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tienda" />
+            <LinearLayout style="@style/ButtonContainer">
+
+                <LinearLayout
+                    android:id="@+id/btnEntrenamiento"
+                    style="@style/ButtonLayout">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/icono_entrenamiento" />
+
+                    <TextView
+                        style="@style/ButtonText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/entrenamiento" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnNutricion"
+                    style="@style/ButtonLayout">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/icono_nutricion" />
+
+                    <TextView
+                        style="@style/ButtonText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nutricion" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout style="@style/ButtonContainer">
+
+                <LinearLayout
+                    android:id="@+id/btnPerfil"
+                    style="@style/ButtonLayout">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/icono_perfil" />
+
+                    <TextView
+                        style="@style/ButtonText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/perfil" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnTienda"
+                    style="@style/ButtonLayout">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/icono_tienda" />
+
+                    <TextView
+                        style="@style/ButtonText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tienda" />
+
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

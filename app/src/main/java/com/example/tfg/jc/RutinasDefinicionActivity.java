@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.jesus.AbdominalesFragment;
 import com.example.tfg.jesus.DefinicionLunesFragment;
 import com.example.tfg.jesus.DefinicionMartesFragment;
 
@@ -21,7 +22,7 @@ public class RutinasDefinicionActivity extends AppCompatActivity {
         // Definition routines
         setupFragmentView(R.id.cardLunesDefinicion, new DefinicionLunesFragment());
         setupFragmentView(R.id.cardMartesDefinicion, new DefinicionMartesFragment());
-        setupFragmentView(R.id.cardMiercolesDefinicion, new DefinicionLunesFragment());
+        setupFragmentView(R.id.cardMiercolesDefinicion, new AbdominalesFragment());
         setupFragmentView(R.id.cardJuevesDefinicion, new DefinicionMartesFragment());
         setupFragmentView(R.id.cardViernesDefinicion, new DefinicionMartesFragment());
 

@@ -246,10 +246,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return email;
     }
 
-    public String getUserGoal(String email) {
-        String selectQuery = "SELECT " + COLUMN_OBJETIVO + " FROM " + TABLE_USERDATA + " WHERE " + COLUMN_EMAIL + " = ?";
+    public String getUserGoal(int userId) {
+        String selectQuery = "SELECT " + COLUMN_OBJETIVO + " FROM " + TABLE_USERDATA + " WHERE " + COLUMN_ID + " = ?";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, new String[]{email});
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(userId)});
         String objetivo = "";
         if (cursor.moveToFirst()) {
             objetivo = cursor.getString(0);
