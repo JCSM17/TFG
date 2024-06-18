@@ -54,7 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Agrega una nueva tabla para los datos del usuario
         MyDatabase.execSQL("CREATE TABLE " + TABLE_USERDATA + "(" +
-                COLUMN_ID + " INTEGER," + // Use COLUMN_ID as the foreign key
+                COLUMN_ID + " INTEGER PRIMARY KEY," +
                 COLUMN_ESTATURA + " REAL," +
                 COLUMN_EDAD + " INTEGER," +
                 COLUMN_SEXO + " TEXT," +
@@ -281,37 +281,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public int getUserId(String email) {
-        if (email == null || email.isEmpty()) {
-            Log.e("DatabaseHelper", "El correo electrónico es nulo o está vacío");
-            return -1;
-        }
-
-        Log.d("DatabaseHelper", "getUserId() called with email: " + email);
+    public int getUserId(String... email) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
-        int userId = -1; // Devuelve -1 si no se encuentra el usuario
+        Cursor cursor;
+        if (email.length > 0 && email[0] != null && !email[0].isEmpty()) {
+            cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_EMAIL + "=?", email, null, null, null);
+        } else {
+            cursor = db.query(TABLE_USERDATA, new String[]{COLUMN_ID}, null, null, null, null, null);
+        }
+        int userId = -1; // Returns -1 if no user is found
         if (cursor.moveToFirst()) {
             userId = cursor.getInt(0);
         }
         cursor.close();
-        db.close();
-        Log.d("DatabaseHelper", "getUserId() returned: " + userId);
-        return userId;
-    }
-
-    // Cierra la conexión a la base de datos en el método getUserIdByEmail
-    public int getUserIdById(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_ID}, COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null);
-        int userId = -1;
-        if (cursor != null && cursor.moveToFirst()) {
-            int columnIndex = cursor.getColumnIndex(COLUMN_ID);
-            if (columnIndex != -1) {
-                userId = cursor.getInt(columnIndex);
-            }
-            cursor.close();
-        }
         db.close();
         return userId;
     }

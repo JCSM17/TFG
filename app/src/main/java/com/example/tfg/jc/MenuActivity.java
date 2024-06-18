@@ -2,9 +2,7 @@ package com.example.tfg.jc;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +16,11 @@ import java.util.Map;
 
 public class MenuActivity extends AppCompatActivity {
 
+    private static final String CATEGORIA_SELECCIONADA = "categoria_seleccionada";
+    private static final String ERROR_OBJETIVO_NO_RECONOCIDO = "Error: Objetivo no reconocido";
+    private static final String ENTRENAMIENTO = "entrenamiento";
+    private static final String NUTRICION = "nutricion";
+
     private DatabaseHelper databaseHelper;
 
     private enum Objetivo {
@@ -26,8 +29,8 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private final Map<Integer, String> buttonMap = new HashMap<Integer, String>() {{
-        put(R.id.btnEntrenamiento, "entrenamiento");
-        put(R.id.btnNutricion, "nutricion");
+        put(R.id.btnEntrenamiento, ENTRENAMIENTO);
+        put(R.id.btnNutricion, NUTRICION);
         put(R.id.btnPerfil, "perfil");
         put(R.id.btnTienda, "tienda");
     }};
@@ -45,39 +48,47 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void setupButton(int buttonId, String opcionSeleccionada) {
-        View view = findViewById(buttonId);
-        if (view instanceof Button) {
-            Button button = (Button) view;
-            button.setOnClickListener(v -> abrirSeleccionActivity(opcionSeleccionada));
-        } else {
-            Log.e("MenuActivity", "La vista con id: " + buttonId + " no es un botón.");
-        }
+        LinearLayout linearLayout = findViewById(buttonId);
+        linearLayout.setOnClickListener(v -> abrirSeleccionActivity(opcionSeleccionada));
     }
 
     private void abrirSeleccionActivity(String opcionSeleccionada) {
-        Intent intent = null;
-        if (opcionSeleccionada.equals("nutricion")) {
+        Intent intent;
+        if (opcionSeleccionada.equals(NUTRICION)) {
             intent = new Intent(this, NutricionActivity.class);
         } else {
-            String userEmail = databaseHelper.getUserEmail();
-            String objetivoStr = databaseHelper.getUserGoal(userEmail);
-            Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
-            switch (objetivo) {
-                case VOLUMEN:
-                    intent = new Intent(this, RutinasVolumenActivity.class);
-                    break;
-                case DEFINICION:
-                    intent = new Intent(this, RutinasDefinicionActivity.class);
-                    break;
-            }
+            intent = getRelevantIntent(opcionSeleccionada);
         }
 
         if (intent != null) {
-            intent.putExtra("categoria_seleccionada", opcionSeleccionada);
+            intent.putExtra(CATEGORIA_SELECCIONADA, opcionSeleccionada);
             startActivity(intent);
         } else {
-            // Maneja el caso en que intent sigue siendo null
-            Toast.makeText(this, "Error: Objetivo no reconocido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ERROR_OBJETIVO_NO_RECONOCIDO, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private Intent getRelevantIntent(String opcionSeleccionada) {
+        if (!opcionSeleccionada.equals(ENTRENAMIENTO)) {
+            throw new IllegalArgumentException("Opción seleccionada inválida");
+        }
+
+        String userEmail = databaseHelper.getUserEmail();
+        String objetivoStr = databaseHelper.getUserGoal(userEmail);
+        Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
+
+        Class<?> activityClass;
+        switch (objetivo) {
+            case VOLUMEN:
+                activityClass = RutinasVolumenActivity.class;
+                break;
+            case DEFINICION:
+                activityClass = RutinasDefinicionActivity.class;
+                break;
+            default:
+                throw new IllegalArgumentException("Objetivo de usuario inválido");
+        }
+
+        return new Intent(this, activityClass);
     }
 }
