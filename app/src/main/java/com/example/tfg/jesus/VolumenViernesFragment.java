@@ -46,6 +46,8 @@ public class VolumenViernesFragment extends Fragment {
             ButtonSetupUtils.setupButton(this, view, BUTTON_IDS_VOLUMEN_VIERNES[i], urls[i]);
         }
 
+        ButtonSetupUtils.setupButton(this, view, R.id.imagenCheckVolumenViernes);
+
         for (int id : IMAGE_BUTTON_IDS_VOLUMEN_VIERNES) {
             ButtonSetupUtils.setupImageButton(view, id);
         }

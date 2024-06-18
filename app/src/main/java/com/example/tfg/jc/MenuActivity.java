@@ -1,7 +1,11 @@
 package com.example.tfg.jc;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +46,17 @@ public class MenuActivity extends AppCompatActivity {
 
         databaseHelper = new DatabaseHelper(this);
 
+        // Imprimir los nombres de las columnas
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM userData LIMIT 1", null);
+        String[] columnNames = cursor.getColumnNames();
+        for (String name : columnNames) {
+            Log.d("MenuActivity", "Column name: " + name); // Cambiado System.out.println por Log.d
+        }
+
+        // Cierra el cursor después de usarlo
+        cursor.close();
+
         for (Map.Entry<Integer, String> entry : buttonMap.entrySet()) {
             setupButton(entry.getKey(), entry.getValue());
         }
@@ -73,7 +88,13 @@ public class MenuActivity extends AppCompatActivity {
             throw new IllegalArgumentException("Opción seleccionada inválida");
         }
 
-        int userId = databaseHelper.getUserId();
+        SharedPreferences sharedPref = getSharedPreferences("tfg_preferences", MODE_PRIVATE);
+        int userId = sharedPref.getInt("user_id", -1); // -1 es el valor predeterminado si no se encuentra ningún ID de usuario
+
+        if (userId == -1) {
+            userId = databaseHelper.getUserId();
+        }
+
         String objetivoStr = databaseHelper.getUserGoal(userId);
         Objetivo objetivo = Objetivo.valueOf(objetivoStr.toUpperCase());
 

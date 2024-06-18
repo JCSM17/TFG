@@ -254,7 +254,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoPressPlanoMancuernas" />
 
-        <ImageButton
+        <Button
             android:id="@+id/botonVideoPressPlanoMancuernas"
             android:layout_width="80dp"
             android:layout_height="50dp"
@@ -315,7 +315,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoCrucePoleaBajaUnilateral" />
 
-        <ImageButton
+        <Button
             android:id="@+id/botonVideoCrucePoleaBajaUnilateral"
             android:layout_width="80dp"
             android:layout_height="50dp"

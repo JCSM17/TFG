@@ -50,6 +50,8 @@ public class VolumenMartesFragment extends Fragment {
             ButtonSetupUtils.setupButton(this, view, BUTTON_IDS_VOLUMEN_MARTES[i], urls[i]);
         }
 
+        ButtonSetupUtils.setupButton(this, view, R.id.imagenCheckVolumenMartes);
+
         for (int id : IMAGE_BUTTON_IDS_VOLUMEN_MARTES) {
             ButtonSetupUtils.setupImageButton(view, id);
         }
