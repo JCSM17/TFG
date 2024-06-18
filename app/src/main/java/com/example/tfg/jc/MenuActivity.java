@@ -3,13 +3,14 @@ package com.example.tfg.jc;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tfg.R;
 import com.example.tfg.javi.DatabaseHelper;
+import com.example.tfg.javi.TiendaActivity;
 import com.example.tfg.jesus.NutricionActivity;
+import com.example.tfg.jesus.PerfilActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,16 +57,16 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent;
         if (opcionSeleccionada.equals(NUTRICION)) {
             intent = new Intent(this, NutricionActivity.class);
+        } else if (opcionSeleccionada.equals("perfil")) {
+            intent = new Intent(this, PerfilActivity.class);
+        } else if (opcionSeleccionada.equals("tienda")) {
+            intent = new Intent(this, TiendaActivity.class);
         } else {
             intent = getRelevantIntent(opcionSeleccionada);
         }
 
-        if (intent != null) {
-            intent.putExtra(CATEGORIA_SELECCIONADA, opcionSeleccionada);
-            startActivity(intent);
-        } else {
-            Toast.makeText(this, ERROR_OBJETIVO_NO_RECONOCIDO, Toast.LENGTH_SHORT).show();
-        }
+        intent.putExtra(CATEGORIA_SELECCIONADA, opcionSeleccionada);
+        startActivity(intent);
     }
 
     private Intent getRelevantIntent(String opcionSeleccionada) {

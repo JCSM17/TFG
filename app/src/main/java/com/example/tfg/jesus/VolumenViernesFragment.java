@@ -1,24 +1,15 @@
 package com.example.tfg.jesus;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.os.Handler;
-import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
-import com.example.tfg.databinding.FragmentVolumenViernesBinding;
-import com.example.tfg.jc.MenuActivity;
-import com.example.tfg.jc.YoutubeUtils;
 
 public class VolumenViernesFragment extends Fragment {
 
@@ -40,13 +31,9 @@ public class VolumenViernesFragment extends Fragment {
             R.id.imagenExtTricepsPoleaViernes
     };
 
-    private final Handler handler = new Handler();
-    private FragmentVolumenViernesBinding binding;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentVolumenViernesBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+        return inflater.inflate(R.layout.fragment_volumen_viernes, container, false);
     }
 
     @Override
@@ -55,39 +42,12 @@ public class VolumenViernesFragment extends Fragment {
 
         String[] urls = getResources().getStringArray(R.array.urls_volumen_viernes);
 
-        setupButtons(urls);
-        setupImageButtons();
-    }
-
-    private void setupButtons(String[] urls) {
         for (int i = 0; i < BUTTON_IDS_VOLUMEN_VIERNES.length; i++) {
-            Button button = binding.getRoot().findViewById(BUTTON_IDS_VOLUMEN_VIERNES[i]);
-            int finalI = i;
-            button.setOnClickListener(v -> YoutubeUtils.openYoutubeVideo(getContext(), urls[finalI]));
+            ButtonSetupUtils.setupButton(this, view, BUTTON_IDS_VOLUMEN_VIERNES[i], urls[i]);
         }
 
-        binding.imagenCheckVolumenViernes.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), MenuActivity.class);
-            startActivity(intent);
-        });
-    }
-
-    private void startAnimation(ImageButton imageButton) {
-        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.rotate);
-        imageButton.startAnimation(animation);
-        handler.postDelayed(imageButton::clearAnimation, 3000);
-    }
-
-    private void setupImageButtons() {
         for (int id : IMAGE_BUTTON_IDS_VOLUMEN_VIERNES) {
-            ImageButton imageButton = binding.getRoot().findViewById(id);
-            imageButton.setOnClickListener(v -> startAnimation(imageButton));
+            ButtonSetupUtils.setupImageButton(view, id);
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 }

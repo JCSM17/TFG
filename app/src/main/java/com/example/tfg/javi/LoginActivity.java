@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                             showToast(getString(R.string.login_error));
                         }
 
-                        SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+                        SharedPreferences sharedPreferences = getSharedPreferences("tfg_preferences", Context.MODE_PRIVATE);
                         boolean pagado = sharedPreferences.getBoolean(PAGADO, false);
 
                         if (!pagado) {
