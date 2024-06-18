@@ -13,6 +13,7 @@
     <string name="login_success">¡Has iniciado sesión exitosamente!</string>
     <string name="no_subscription_days">No tienes días de suscripción disponibles</string>
     <string name="user_not_registered">El usuario no está registrado</string>
+    <string name="invalid_password">Contraseña inválida</string>
 
     <!-- Strings para el RegistroFragment -->
     <string name="dni_pattern">\\d{8}[a-zA-Z]</string>
@@ -399,8 +400,11 @@
     <string name="descripcion_boton_video_curl_isquios_tumbados">Video de Curl Isquios Tumbados</string>
     <string name="descripcion_boton_video_facepull">Video de Facepull</string>
     <string name="title_activity_perfil">PerfilActivity</string>
-    <!-- TODO: Remove or change this placeholder text -->
 
+    <!-- string para el menu hamburguesa -->
+    <string name="navigation_drawer_open">Abrir cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
+    <!-- TODO: Remove or change this placeholder text -->
 
 </resources>
 

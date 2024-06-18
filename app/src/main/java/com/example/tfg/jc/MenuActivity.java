@@ -18,7 +18,6 @@ import java.util.Map;
 public class MenuActivity extends AppCompatActivity {
 
     private static final String CATEGORIA_SELECCIONADA = "categoria_seleccionada";
-    private static final String ERROR_OBJETIVO_NO_RECONOCIDO = "Error: Objetivo no reconocido";
     private static final String ENTRENAMIENTO = "entrenamiento";
     private static final String NUTRICION = "nutricion";
 
