@@ -30,7 +30,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"/>
                 <TextView
-                    android:text="Dirección"
+                    android:text="Calorias"
                     android:textSize="16sp"
                     android:layout_margin="5dp"
                     android:textStyle="bold|normal"
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="España-Madrid"
+                    android:text="Tus Calorias"
                     android:textSize="17sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"

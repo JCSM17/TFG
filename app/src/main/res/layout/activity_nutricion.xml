@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".jesus.NutricionActivity">
 
+    <include
+        android:id="@+id/header"
+        layout="@layout/fragment_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/header">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,41 +27,35 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <include
-                android:id="@+id/header"
-                layout="@layout/fragment_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <!-- Resumen Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_background_blue"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/consumedCaloriesTextView"
+                    android:id="@+id/ConsumidasCaloriesTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
                     android:text="1769 kcal"
-                    android:textSize="36sp"
-                    android:textStyle="bold"
                     android:textColor="@android:color/white"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="16dp" />
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/totalCaloriesTextView"
+                    android:id="@+id/TotalCaloriasTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="de 2100 kcal"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/white"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_marginBottom="16dp"
+                    android:text="de Total kcal"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
 
                 <!-- Barra de Progreso -->
                 <ProgressBar
@@ -62,137 +63,137 @@
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="8dp"
-                    android:progress="84"
                     android:max="100"
+                    android:progress="84"
                     android:progressDrawable="@drawable/progressbar_custom" />
 
                 <!-- Textos de Calorías Restantes y Quemadas -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:layout_marginTop="8dp">
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:id="@+id/remainingCaloriesTextView"
-                        android:text="331\nRestantes"
-                        android:textSize="16sp"
-                        android:textColor="@android:color/white"
-                        android:gravity="center" />
-
-                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:id="@+id/burnedCaloriesTextView"
-                        android:text="267\nQuemadas"
-                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:text="331\nRestantes"
                         android:textColor="@android:color/white"
-                        android:gravity="center" />
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/burnedCaloriesTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="267\nQuemadas"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp" />
                 </LinearLayout>
                 <!-- Gráfico de Barras -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:layout_marginTop="16dp">
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Carbs"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
 
                         <ProgressBar
                             style="@android:style/Widget.ProgressBar.Horizontal"
                             android:layout_width="65dp"
                             android:layout_height="8dp"
-                            android:progress="78"
+                            android:layout_marginTop="4dp"
                             android:max="100"
-                            android:progressDrawable="@drawable/progressbar_custom"
-                            android:layout_marginTop="4dp" />
+                            android:progress="78"
+                            android:progressDrawable="@drawable/progressbar_custom" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
                             android:text="78/100g"
-                            android:textColor="@android:color/white"
-                            android:layout_marginTop="4dp" />
+                            android:textColor="@android:color/white" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Proteins"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
 
                         <ProgressBar
                             style="@android:style/Widget.ProgressBar.Horizontal"
                             android:layout_width="65dp"
                             android:layout_height="8dp"
-                            android:progress="23"
+                            android:layout_marginTop="4dp"
                             android:max="75"
-                            android:progressDrawable="@drawable/progressbar_custom"
-                            android:layout_marginTop="4dp" />
+                            android:progress="23"
+                            android:progressDrawable="@drawable/progressbar_custom" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
                             android:text="23/75g"
-                            android:textColor="@android:color/white"
-                            android:layout_marginTop="4dp" />
+                            android:textColor="@android:color/white" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Fat"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white" />
+                            android:textColor="@android:color/white"
+                            android:textStyle="bold" />
 
                         <ProgressBar
                             style="@android:style/Widget.ProgressBar.Horizontal"
                             android:layout_width="65dp"
                             android:layout_height="8dp"
-                            android:progress="31"
+                            android:layout_marginTop="4dp"
                             android:max="60"
-                            android:progressDrawable="@drawable/progressbar_custom"
-                            android:layout_marginTop="4dp" />
+                            android:progress="31"
+                            android:progressDrawable="@drawable/progressbar_custom" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
                             android:text="31/60g"
-                            android:textColor="@android:color/white"
-                            android:layout_marginTop="4dp" />
+                            android:textColor="@android:color/white" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -200,11 +201,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="Desayuno"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -228,9 +229,9 @@
                         android:id="@+id/desayunoTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Descripción del desayuno"
                         android:textAlignment="center"
-                        android:layout_marginTop="8dp"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
@@ -242,10 +243,11 @@
                         android:visibility="gone">
 
                         <TextView
+                            android:id="@+id/desayunoDescriptionText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Detalles del desayuno"
-                            android:layout_marginTop="8dp" />
+                            android:layout_marginTop="8dp"
+                            android:text="Detalles del desayuno" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -254,11 +256,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="Comida"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -282,9 +284,9 @@
                         android:id="@+id/comidaTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Descripción de la comida"
                         android:textAlignment="center"
-                        android:layout_marginTop="8dp"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
@@ -296,10 +298,11 @@
                         android:visibility="gone">
 
                         <TextView
+                            android:id="@+id/comidaDescriptionText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Detalles de la comida"
-                            android:layout_marginTop="8dp" />
+                            android:layout_marginTop="8dp"
+                            android:text="Detalles de la comida" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -308,11 +311,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="Merienda"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -336,9 +339,9 @@
                         android:id="@+id/meriendaTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Descripción de la merienda"
                         android:textAlignment="center"
-                        android:layout_marginTop="8dp"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
@@ -350,10 +353,11 @@
                         android:visibility="gone">
 
                         <TextView
+                            android:id="@+id/meriendaDescriptionText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Detalles de la merienda"
-                            android:layout_marginTop="8dp" />
+                            android:layout_marginTop="8dp"
+                            android:text="Detalles de la merienda" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -362,11 +366,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="Cena"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp" />
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -390,9 +394,9 @@
                         android:id="@+id/cenaTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="Descripción de la cena"
                         android:textAlignment="center"
-                        android:layout_marginTop="8dp"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
@@ -404,10 +408,11 @@
                         android:visibility="gone">
 
                         <TextView
+                            android:id="@+id/cenaDescriptionText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Detalles de la cena"
-                            android:layout_marginTop="8dp" />
+                            android:layout_marginTop="8dp"
+                            android:text="Detalles de la cena" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

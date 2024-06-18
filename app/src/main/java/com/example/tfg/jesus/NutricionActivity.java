@@ -1,6 +1,9 @@
 package com.example.tfg.jesus;
 
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -10,9 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.tfg.R;
+import com.example.tfg.javi.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.database.Cursor;
 
 public class NutricionActivity extends AppCompatActivity {
 
@@ -29,6 +34,7 @@ public class NutricionActivity extends AppCompatActivity {
     private TextView consumedCaloriesTextView;
     private TextView totalCaloriesTextView;
     private ProgressBar caloriesProgressBar;
+    private DatabaseHelper dbHelper;
 
     public NutricionActivity() {
         // Required empty public constructor
@@ -38,6 +44,17 @@ public class NutricionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutricion);
+        dbHelper = new DatabaseHelper(this);
+
+
+
+        // Imprimir los nombres de las columnas
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM userData LIMIT 1", null);
+        String[] columnNames = cursor.getColumnNames();
+        for (String name : columnNames) {
+            Log.d("NutricionActivity", "Column name: " + name); // Cambiado System.out.println por Log.d
+        }
 
         desayunoDescription = findViewById(R.id.desayunoDescription);
         comidaDescription = findViewById(R.id.comidaDescription);
@@ -49,8 +66,8 @@ public class NutricionActivity extends AppCompatActivity {
         meriendaViewPager = findViewById(R.id.meriendaViewPager);
         cenaViewPager = findViewById(R.id.cenaViewPager);
 
-        consumedCaloriesTextView = findViewById(R.id.consumedCaloriesTextView);
-        totalCaloriesTextView = findViewById(R.id.totalCaloriesTextView);
+        consumedCaloriesTextView = findViewById(R.id.TotalCaloriasTextView);
+        totalCaloriesTextView = findViewById(R.id.ConsumidasCaloriesTextView);
         caloriesProgressBar = findViewById(R.id.caloriesProgressBar);
 
         // Assuming you have methods to get the actual values
@@ -102,10 +119,43 @@ public class NutricionActivity extends AppCompatActivity {
         meriendaViewPager.setAdapter(meriendaAdapter);
         cenaViewPager.setAdapter(cenaAdapter);
 
-        findViewById(R.id.desayunoTitle).setOnClickListener(v -> toggleVisibility(desayunoDescription));
-        findViewById(R.id.comidaTitle).setOnClickListener(v -> toggleVisibility(comidaDescription));
-        findViewById(R.id.meriendaTitle).setOnClickListener(v -> toggleVisibility(meriendaDescription));
-        findViewById(R.id.cenaTitle).setOnClickListener(v -> toggleVisibility(cenaDescription));
+        findViewById(R.id.desayunoTitle).setOnClickListener(v -> {
+            toggleVisibility(desayunoDescription);
+            TextView description = desayunoDescription.findViewById(R.id.desayunoDescriptionText);
+            int currentItem = desayunoViewPager.getCurrentItem();
+            description.setText(desayunoItems.get(currentItem).getDescription());
+        });
+
+        findViewById(R.id.comidaTitle).setOnClickListener(v -> {
+            toggleVisibility(comidaDescription);
+            TextView description = comidaDescription.findViewById(R.id.comidaDescriptionText);
+            int currentItem = comidaViewPager.getCurrentItem();
+            description.setText(comidaItems.get(currentItem).getDescription());
+        });
+
+        findViewById(R.id.meriendaTitle).setOnClickListener(v -> {
+            toggleVisibility(meriendaDescription);
+            TextView description = meriendaDescription.findViewById(R.id.meriendaDescriptionText);
+            int currentItem = meriendaViewPager.getCurrentItem();
+            description.setText(meriendaItems.get(currentItem).getDescription());
+        });
+
+        findViewById(R.id.cenaTitle).setOnClickListener(v -> {
+            toggleVisibility(cenaDescription);
+            TextView description = cenaDescription.findViewById(R.id.cenaDescriptionText);
+            int currentItem = cenaViewPager.getCurrentItem();
+            description.setText(cenaItems.get(currentItem).getDescription());
+        });
+
+
+        consumedCaloriesTextView = findViewById(R.id.TotalCaloriasTextView);
+
+
+        SharedPreferences prefs = getSharedPreferences("tfg_preferences", MODE_PRIVATE);
+        int userId = prefs.getInt("userId", 0);
+        Log.d("NutricionActivity", "Recuperado userId de preferencias compartidas: " + userId);
+        int calories = getUserCalories(String.valueOf(userId));
+        consumedCaloriesTextView.setText(calories + " kcal");
     }
 
     private void toggleVisibility(View view) {
@@ -114,6 +164,16 @@ public class NutricionActivity extends AppCompatActivity {
         } else {
             view.setVisibility(View.VISIBLE);
         }
+    }
+    private int getUserCalories(String id) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT calorias FROM userData WHERE id = ?", new String[]{id});
+        int calories = 0;
+        if (cursor.moveToFirst()) {
+            calories = cursor.getInt(0);
+        }
+        cursor.close();
+        return calories;
     }
 
     private int getConsumedCalories() {
