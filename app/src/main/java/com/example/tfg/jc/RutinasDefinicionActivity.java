@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.javi.FragmentContainerActivity;
 import com.example.tfg.jesus.AbdominalesFragment;
+import com.example.tfg.jesus.DefinicionJuevesFragment;
 import com.example.tfg.jesus.DefinicionLunesFragment;
 import com.example.tfg.jesus.DefinicionMartesFragment;
+import com.example.tfg.jesus.DefinicionViernesFragment;
 
 public class RutinasDefinicionActivity extends AppCompatActivity {
 
@@ -20,21 +22,21 @@ public class RutinasDefinicionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rutinas_definicion);
 
         // Definition routines
-        setupFragmentView(R.id.cardLunesDefinicion, new DefinicionLunesFragment());
-        setupFragmentView(R.id.cardMartesDefinicion, new DefinicionMartesFragment());
-        setupFragmentView(R.id.cardMiercolesDefinicion, new AbdominalesFragment());
-        setupFragmentView(R.id.cardJuevesDefinicion, new DefinicionMartesFragment());
-        setupFragmentView(R.id.cardViernesDefinicion, new DefinicionMartesFragment());
+        setupFragmentView(R.id.cardLunesDefinicion, DefinicionLunesFragment.class.getName());
+        setupFragmentView(R.id.cardMartesDefinicion, DefinicionMartesFragment.class.getName());
+        setupFragmentView(R.id.cardMiercolesDefinicion, AbdominalesFragment.class.getName());
+        setupFragmentView(R.id.cardJuevesDefinicion, DefinicionJuevesFragment.class.getName());
+        setupFragmentView(R.id.cardViernesDefinicion, DefinicionViernesFragment.class.getName());
 
         setupActivityView(R.id.btnMainMenuDefinicion);
     }
 
-    private void setupFragmentView(int viewId, Fragment fragment) {
+    private void setupFragmentView(int viewId, String fragmentClassName) {
         View view = findViewById(viewId);
         view.setOnClickListener(v -> {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
+            Intent intent = new Intent(RutinasDefinicionActivity.this, FragmentContainerActivity.class);
+            intent.putExtra("fragmentName", fragmentClassName);
+            startActivity(intent);
         });
     }
 

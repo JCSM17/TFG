@@ -1,6 +1,7 @@
 package com.example.tfg.javi;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import com.example.tfg.jc.MenuActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String PREFS = "PREFS";
+    private static final String PREFERENCES_NAME = "tfg_preferences";
     private static final String PAGADO = "pagado";
 
     ActivityLoginBinding binding;
@@ -75,11 +76,11 @@ public class LoginActivity extends AppCompatActivity {
                             showToast(getString(R.string.login_error));
                         }
 
-                        SharedPreferences prefs = getSharedPreferences(PREFS, MODE_PRIVATE);
-                        boolean pagado = prefs.getBoolean(PAGADO, false);
+                        SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+                        boolean pagado = sharedPreferences.getBoolean(PAGADO, false);
 
                         if (!pagado) {
-                            SharedPreferences.Editor editor = prefs.edit();
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putBoolean(PAGADO, true);
                             editor.apply();
                         }

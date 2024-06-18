@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
+import com.example.tfg.javi.FragmentContainerActivity;
 import com.example.tfg.jesus.AbdominalesFragment;
 import com.example.tfg.jesus.VolumenJuevesFragment;
 import com.example.tfg.jesus.VolumenLunesFragment;
@@ -21,21 +21,21 @@ public class RutinasVolumenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rutinas_volumen);
 
-        setupFragmentView(R.id.cardLunesVolumen, new VolumenLunesFragment());
-        setupFragmentView(R.id.cardMartesVolumen, new VolumenMartesFragment());
-        setupFragmentView(R.id.cardMiercolesVolumen, new AbdominalesFragment());
-        setupFragmentView(R.id.cardJuevesVolumen, new VolumenJuevesFragment());
-        setupFragmentView(R.id.cardViernesVolumen, new VolumenViernesFragment());
+        setupFragmentView(R.id.cardLunesVolumen, VolumenLunesFragment.class.getName());
+        setupFragmentView(R.id.cardMartesVolumen, VolumenMartesFragment.class.getName());
+        setupFragmentView(R.id.cardMiercolesVolumen, AbdominalesFragment.class.getName());
+        setupFragmentView(R.id.cardJuevesVolumen, VolumenJuevesFragment.class.getName());
+        setupFragmentView(R.id.cardViernesVolumen, VolumenViernesFragment.class.getName());
 
         setupActivityView(R.id.btnMainMenuVolumen);
     }
 
-    private void setupFragmentView(int viewId, Fragment fragment) {
+    private void setupFragmentView(int viewId, String fragmentClassName) {
         View view = findViewById(viewId);
         view.setOnClickListener(v -> {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .commit();
+            Intent intent = new Intent(RutinasVolumenActivity.this, FragmentContainerActivity.class);
+            intent.putExtra("fragmentName", fragmentClassName);
+            startActivity(intent);
         });
     }
 
