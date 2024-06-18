@@ -191,7 +191,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-
     public long insertData(String table, ContentValues contentValues) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.insert(table, null, contentValues);

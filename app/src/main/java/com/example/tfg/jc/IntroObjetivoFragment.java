@@ -131,7 +131,7 @@ public class IntroObjetivoFragment extends Fragment {
                 }
             }
 
-            SharedPreferences sharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = requireContext().getSharedPreferences("tfg_preferences", Context.MODE_PRIVATE);
             int userId = sharedPreferences.getInt("userId", -1); // Obtén el userId directamente
 
             if (userId != -1) {

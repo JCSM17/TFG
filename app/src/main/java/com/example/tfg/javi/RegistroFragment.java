@@ -106,7 +106,7 @@ public class RegistroFragment extends Fragment {
             Toast.makeText(activity, getString(R.string.registration_success), Toast.LENGTH_SHORT).show();
 
             // Guardar el correo electrónico y el userId en las preferencias compartidas
-            SharedPreferences sharedPreferences = requireContext().getSharedPreferences("my_preferences", Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = requireContext().getSharedPreferences("tfg_preferences", Context.MODE_PRIVATE);
             sharedPreferences.edit().putString(EMAIL_KEY, email).apply();
             sharedPreferences.edit().putInt("userId", (int) userId).apply();
             Log.d("RegistroFragment", "Correo electrónico y userId guardados: " + email + ", " + userId);

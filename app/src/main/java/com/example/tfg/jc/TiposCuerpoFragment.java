@@ -23,7 +23,7 @@ public class TiposCuerpoFragment extends Fragment {
 
     private static final String TAG = "TiposCuerpoFragment";
     private static final String SELECTED_RADIO_BUTTON_ID_KEY = "selectedRadioButtonId";
-    private static final String PREFERENCES_NAME = "com.example.tfg.preferences";
+    private static final String PREFERENCES_NAME = "tfg_preferences";
     private String ERROR_BODY_TYPE_NOT_SELECTED;
     private String SELECT_BODY_TYPE_MESSAGE;
 
@@ -113,9 +113,19 @@ public class TiposCuerpoFragment extends Fragment {
             SharedPreferences sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
             int userId = sharedPreferences.getInt("userId", -1); // Obtén el ID del usuario usando las preferencias compartidas
 
-            // Si el userId no se encuentra en las preferencias compartidas, buscarlo en la base de datos
+            // Si userId es -1, intenta obtenerlo de la base de datos
             if (userId == -1) {
-                userId = databaseHelper.getUserIdById(userId);
+                String email = sharedPreferences.getString("email", null);
+                if (email != null) {
+                    userId = databaseHelper.getUserId(email);
+                }
+            }
+
+            // Verificar que se haya seleccionado un tipo de cuerpo
+            if (selectedId == -1) {
+                Log.e(TAG, "Error: No body type selected");
+                showToast("Error: No body type selected");
+                return false;
             }
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
