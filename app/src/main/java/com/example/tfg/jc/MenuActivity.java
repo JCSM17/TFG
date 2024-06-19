@@ -89,10 +89,14 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         SharedPreferences sharedPref = getSharedPreferences("tfg_preferences", MODE_PRIVATE);
-        int userId = sharedPref.getInt("user_id", -1); // -1 es el valor predeterminado si no se encuentra ningún ID de usuario
+        int userId = sharedPref.getInt("userId", -1); // Obtén el ID del usuario que ha iniciado sesión
 
         if (userId == -1) {
-            userId = databaseHelper.getUserId();
+            String userEmail = databaseHelper.getUserEmail();
+            userId = databaseHelper.getUserId(userEmail);
+            if (userId == -1) {
+                throw new IllegalArgumentException("No se ha iniciado sesión");
+            }
         }
 
         String objetivoStr = databaseHelper.getUserGoal(userId);

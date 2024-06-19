@@ -53,6 +53,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:text="@string/texto_dominadas_neutras_lastradas"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="@string/texto_remo_mancuerna_volumen"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp" />

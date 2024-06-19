@@ -102,7 +102,7 @@
             android:id="@+id/repsPressBancaPlano"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="212dp"
+            android:layout_marginTop="210dp"
             android:text="@string/reps_press_banca_plano_barra"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"

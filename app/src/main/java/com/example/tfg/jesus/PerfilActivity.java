@@ -1,15 +1,19 @@
 package com.example.tfg.jesus;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.tfg.R;
 import com.example.tfg.javi.DatabaseHelper;
+import com.example.tfg.jc.MenuActivity;
 
 public class PerfilActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
@@ -25,41 +29,46 @@ public class PerfilActivity extends AppCompatActivity {
         int userId = prefs.getInt("userId", 0);
         Log.d("PerfilActivity", "Recuperado userId de preferencias compartidas: " + userId);
 
-        TextView phoneTextView = findViewById(R.id.phoneTextView); // Asegúrate de que este ID coincide con el ID de tu TextView en el archivo XML
+        TextView phoneTextView = findViewById(R.id.phoneTextView);
         String phone = getUserPhone(String.valueOf(userId));
         phoneTextView.setText(phone);
 
-        TextView emailTextView = findViewById(R.id.emailTextView); // Reemplaza 'emailTextView' con el ID real de tu TextView para el correo electrónico
+        TextView emailTextView = findViewById(R.id.emailTextView);
         String email = getUserEmail(String.valueOf(userId));
         emailTextView.setText(email);
 
-        TextView bodyTypeTextView = findViewById(R.id.bodyTypeTextView); // Reemplaza 'bodyTypeTextView' con el ID real de tu TextView para el tipo de cuerpo
+        TextView bodyTypeTextView = findViewById(R.id.bodyTypeTextView);
         String bodyType = getUserBodyType(String.valueOf(userId));
         bodyTypeTextView.setText(bodyType);
 
-        TextView nombreTextView = findViewById(R.id.nombreTextView); // Reemplaza 'nombreTextView' con el ID real de tu TextView para el nombre
+        TextView nombreTextView = findViewById(R.id.nombreTextView);
         String nombre = getUserName(String.valueOf(userId));
         nombreTextView.setText(nombre);
 
-        TextView idTextView = findViewById(R.id.idTextView); // Reemplaza 'idTextView' con el ID real de tu TextView para el ID
+        TextView idTextView = findViewById(R.id.idTextView);
         String userIdFromDb = getUserId(String.valueOf(userId));
         idTextView.setText("ID: " + userIdFromDb);
 
-        TextView subscriptionTextView = findViewById(R.id.subscriptionTextView); // Reemplaza 'subscriptionTextView' con el ID real de tu TextView para la suscripción
+        TextView subscriptionTextView = findViewById(R.id.subscriptionTextView);
         String userSubscription = getUserSubscription(String.valueOf(userId));
         subscriptionTextView.setText(userSubscription);
 
-        TextView objectiveTextView = findViewById(R.id.objectiveTextView); // Reemplaza 'objectiveTextView' con el ID real de tu TextView para el objetivo
+        TextView objectiveTextView = findViewById(R.id.objectiveTextView);
         String userObjective = getUserObjective(String.valueOf(userId));
         objectiveTextView.setText(userObjective);
 
-        TextView apellidoTextView = findViewById(R.id.apellidoTextView); // Reemplaza 'apellidoTextView' con el ID real de tu TextView para el apellido
+        TextView apellidoTextView = findViewById(R.id.apellidoTextView);
         String apellido = getUserLastName(String.valueOf(userId));
         apellidoTextView.setText(apellido);
 
-
-
-
+        ImageView imageView = findViewById(R.id.ic_arrow_image);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PerfilActivity.this, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private String getUserPhone(String id) {
@@ -83,6 +92,7 @@ public class PerfilActivity extends AppCompatActivity {
         cursor.close();
         return email;
     }
+
     private String getUserBodyType(String id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_BODYTYPE + " FROM " + DatabaseHelper.TABLE_USERDATA + " WHERE " + DatabaseHelper.COLUMN_ID + " = ?", new String[]{id});
@@ -130,8 +140,6 @@ public class PerfilActivity extends AppCompatActivity {
         return userSubscription;
     }
 
-
-
     private String getUserObjective(String id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_OBJETIVO + " FROM " + DatabaseHelper.TABLE_USERDATA + " WHERE " + DatabaseHelper.COLUMN_ID + " = ?", new String[]{id});
@@ -140,8 +148,12 @@ public class PerfilActivity extends AppCompatActivity {
             userObjective = cursor.getString(0);
         }
         cursor.close();
+        if (!userObjective.isEmpty()) {
+            userObjective = userObjective.substring(0, 1).toUpperCase() + userObjective.substring(1).toLowerCase();
+        }
         return userObjective;
     }
+
     private String getUserLastName(String id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_APELLIDO + " FROM " + DatabaseHelper.TABLE_REGISTRO + " WHERE " + DatabaseHelper.COLUMN_ID + " = ?", new String[]{id});
@@ -152,5 +164,4 @@ public class PerfilActivity extends AppCompatActivity {
         cursor.close();
         return apellido;
     }
-
 }
