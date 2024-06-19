@@ -190,8 +190,7 @@
                         android:id="@+id/AccesoriosAvatar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
-                        app:srcCompat="@drawable/cat3" />
+                        />
 
                     <TextView
                         android:id="@+id/OcultoText"
@@ -213,8 +212,7 @@
                     <ImageView
                         android:id="@+id/ImageDuchaAvatar"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/cat4" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/DuchaText"
@@ -237,9 +235,7 @@
                         android:id="@+id/ImageVerTodo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-
-                        app:srcCompat="@drawable/cat5" />
+                        android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/VerTodoText"
@@ -349,6 +345,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/PerfilBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"

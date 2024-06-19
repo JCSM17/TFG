@@ -1,25 +1,22 @@
 package com.example.tfg.javi.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.example.tfg.javi.Activity.DetailActivity;
 import com.example.tfg.databinding.ViewholderPupListBinding;
 import com.example.tfg.javi.domain.PopularDomain;
-
 import java.util.ArrayList;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder>{
     ArrayList<PopularDomain> items;
     Context context;
-    ViewholderPupListBinding binding;
 
     public PopularAdapter(ArrayList<PopularDomain> items) {
         this.items = items;
@@ -28,22 +25,24 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding=ViewholderPupListBinding.inflate(LayoutInflater.from(parent.getContext()),parent, false);
+        ViewholderPupListBinding binding = ViewholderPupListBinding.inflate(LayoutInflater.from(parent.getContext()),parent, false);
         context = parent.getContext();
         return new Viewholder(binding);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+        ViewholderPupListBinding binding = holder.binding;
         binding.TitleText.setText(items.get(position).getTitleText());
         binding.FeeTxt.setText(items.get(position).getPrice()+"€");
         binding.ScoreTxt.setText("" + items.get(position).getScoreTxt());
         binding.ReviewTxt.setText(""+ items.get(position).getReviewTxt());
 
-        int drawableResourced =holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl()
-                , "drawable", holder.itemView.getContext().getPackageName());
+        String imageName = items.get(position).getPicUrl();
+        @SuppressLint("DiscouragedApi") int imageResId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
         Glide.with(context)
-                .load(drawableResourced)
+                .load(imageResId)
                 .transform(new GranularRoundedCorners(30, 30, 0, 0))
                 .into(binding.Pic1);
 
@@ -54,15 +53,17 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         });
     }
 
-
     @Override
     public int getItemCount() {
         return items.size();
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder {
+    public static class Viewholder extends RecyclerView.ViewHolder {
+        ViewholderPupListBinding binding;
+
         public Viewholder(ViewholderPupListBinding binding) {
             super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }
