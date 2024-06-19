@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".jesus.DefinicionLunesFragment">
+    tools:context=".jesus.VolumenLunesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toBottomOf="@id/header" />
 
         <include
-            layout="@layout/fragment_cronometro"
+            layout="@layout/fragment_child_container"
             android:layout_width="180dp"
             android:layout_height="205dp"
             android:layout_marginTop="25dp"
@@ -89,7 +89,7 @@
             android:id="@+id/textoDominadasNeutrasLastradas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="100dp"
             android:text="@string/texto_dominadas_neutras_lastradas"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -102,11 +102,11 @@
             android:id="@+id/repsDominadasNeutrasLastradas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="210dp"
+            android:layout_marginTop="226dp"
             android:text="@string/reps_dominadas_neutras_lastradas"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toEndOf="@+id/textoDominadasNeutrasLastradas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
