@@ -61,7 +61,7 @@ public class VolumenMartesFragment extends Fragment {
 
         // Usa el ChildFragmentManager para agregar el fragmento hijo
         getChildFragmentManager().beginTransaction()
-                .replace(R.id.child_fragment_container, countdownFragment)
+                .replace(R.id.cronometro_fragment_container, countdownFragment)
                 .commit();
     }
 }

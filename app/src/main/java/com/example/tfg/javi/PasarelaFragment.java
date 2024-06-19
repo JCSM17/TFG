@@ -58,29 +58,63 @@ public class PasarelaFragment extends Fragment {
     private static final String SIGNATURE_KEY = "eDpehY%YPYgsoludCSZhu*WLdmKBWfAo";
 
 
-
     private SynapPayButton paymentWidget;
     private FrameLayout synapForm;
     private Button synapButton;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_pasarela, container, false);
+        View view = null;
+        try {
+            view = inflater.inflate(R.layout.fragment_pasarela, container, false);
 
-        synapForm = view.findViewById(R.id.contenedorTarjetas);
-        synapForm.setVisibility(View.GONE);
+            synapForm = view.findViewById(R.id.contenedorTarjetas);
+            if (synapForm == null) {
+                // Maneja el caso en que synapForm es null
+                Toast.makeText(getContext(), "Error: synapForm es null.", Toast.LENGTH_SHORT).show();
+                return view;
+            }
+            synapForm.setVisibility(View.GONE);
 
-        synapButton = view.findViewById(R.id.btnPagar);
-        synapButton.setVisibility(View.GONE);
-        synapButton.setOnClickListener(v -> paymentWidget.pay());
+            synapButton = view.findViewById(R.id.btnPagar);
+            synapButton.setVisibility(View.GONE);
 
-        Button startPayment = view.findViewById(R.id.btnContinuar);
-        startPayment.setOnClickListener(v -> startPayment());
+            // Inicializa el objeto paymentWidget aquí
+            this.paymentWidget = SynapPayButton.create(synapForm);
 
-        Button btnFinalizar = view.findViewById(R.id.btnFinalizar);
-        btnFinalizar.setOnClickListener(v -> navigateToSuccessScreen());
+            synapButton.setOnClickListener(v -> {
+                try {
+                    if (paymentWidget != null) {
+                        paymentWidget.pay();
+                    } else {
+                        // Maneja el caso en que paymentWidget es null
+                        Toast.makeText(getContext(), "Error: El botón de pago no está inicializado.", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (NullPointerException e) {
+                    // Maneja la excepción aquí
+                    Toast.makeText(getContext(), "Error: Se produjo un error inesperado.", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            Button startPayment = view.findViewById(R.id.btnContinuar);
+            startPayment.setOnClickListener(v -> startPayment());
+
+            Button btnFinalizar = view.findViewById(R.id.btnFinalizar);
+            btnFinalizar.setOnClickListener(v -> navigateToSuccessScreen());
+        } catch (NullPointerException e) {
+            // Maneja la excepción aquí
+            Toast.makeText(getContext(), "Error: Se produjo un error inesperado.", Toast.LENGTH_SHORT).show();
+        }
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Inicializa el objeto paymentWidget aquí
+        this.paymentWidget = SynapPayButton.create(synapForm);
     }
 
     private void startPayment() {
