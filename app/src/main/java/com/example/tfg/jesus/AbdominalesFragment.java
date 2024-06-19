@@ -31,7 +31,7 @@ public class AbdominalesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_definicion_miercoles_abdominales, container, false);
+        return inflater.inflate(R.layout.fragment_miercoles_abdominales, container, false);
     }
 
     @Override
@@ -49,5 +49,12 @@ public class AbdominalesFragment extends Fragment {
         for (int id : IMAGE_BUTTON_IDS_ABDOMINALES) {
             ButtonSetupUtils.setupImageButton(view, id);
         }
+        // Crea una nueva instancia de CountdownFragment
+        CountdownFragment countdownFragment = new CountdownFragment();
+
+        // Usa el ChildFragmentManager para agregar el fragmento hijo
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.child_fragment_container, countdownFragment)
+                .commit();
     }
 }

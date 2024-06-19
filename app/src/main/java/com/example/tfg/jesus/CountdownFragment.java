@@ -1,6 +1,9 @@
 package com.example.tfg.jesus;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -34,6 +37,9 @@ public class CountdownFragment extends Fragment {
     private final float progressTime = clockTime / 1000.0f;
     private MediaPlayer mediaPlayer;
 
+    private BroadcastReceiver br;
+
+
     private enum TimerState {
         RESET, PLAY, PAUSE
     }
@@ -42,9 +48,14 @@ public class CountdownFragment extends Fragment {
     ImageButton actionButton;
     private com.example.tfg.jesus.CustomCountdownTimer customCountdownTimer;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cronometro, container, false);
+
+        // Iniciar el TimerService
+        Intent intent = new Intent(getActivity(), TimerService.class);
+        getActivity().startService(intent);
 
         customCountdownTimer = new CustomCountdownTimer(getContext(), clockTime, 1000);
         customCountdownTimer.setOnTick(millisUntilFinished -> {
@@ -120,6 +131,16 @@ public class CountdownFragment extends Fragment {
         circularProgressBar.setMax((int) progressTime);
         circularProgressBar.setProgress((int) progressTime);
 
+        // Establecer el BroadcastReceiver
+        br = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                long millisUntilFinished = intent.getLongExtra("countdown", 0);
+                int secondsLeft = (int) (millisUntilFinished / 1000);
+                timerFormat(secondsLeft, timeTxt);
+            }
+        };
+
         return view;
     }
 
@@ -145,14 +166,15 @@ public class CountdownFragment extends Fragment {
     }
 
     @Override
-    public void onPause() {
-        customCountdownTimer.pauseTimer();
-        super.onPause();
+    public void onResume() {
+        super.onResume();
+        getActivity().registerReceiver(br, new IntentFilter("com.example.tfg.jesus.COUNTDOWN_BR"));
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onPause() {
+        super.onPause();
+        getActivity().unregisterReceiver(br);
     }
 
     @Override

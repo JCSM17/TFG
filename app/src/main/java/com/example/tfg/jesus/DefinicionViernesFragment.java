@@ -53,5 +53,12 @@ public class DefinicionViernesFragment extends Fragment {
         for (int id : IMAGE_BUTTON_IDS_DEFINICION_VIERNES) {
             ButtonSetupUtils.setupImageButton(view, id);
         }
+        // Crea una nueva instancia de CountdownFragment
+        CountdownFragment countdownFragment = new CountdownFragment();
+
+        // Usa el ChildFragmentManager para agregar el fragmento hijo
+        getChildFragmentManager().beginTransaction()
+                .replace(R.id.child_fragment_container, countdownFragment)
+                .commit();
     }
 }

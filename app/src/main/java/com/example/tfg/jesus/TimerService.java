@@ -23,6 +23,11 @@ public class TimerService extends Service {
         long clockTime = countdownTime * 1000;
 
         customCountdownTimer = new CustomCountdownTimer(this, clockTime, 1000);
+        customCountdownTimer.setOnTick(millisUntilFinished -> {
+            Intent intent = new Intent("com.example.tfg.jesus.COUNTDOWN_BR");
+            intent.putExtra("countdown", millisUntilFinished);
+            sendBroadcast(intent);
+        });
         customCountdownTimer.startTimer();
     }
 

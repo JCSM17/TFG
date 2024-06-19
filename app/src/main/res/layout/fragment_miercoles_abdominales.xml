@@ -28,12 +28,12 @@
             app:layout_constraintTop_toBottomOf="@id/header" />
 
         <include
-            layout="@layout/fragment_cronometro"
+            layout="@layout/fragment_child_container"
             android:layout_width="180dp"
-            android:layout_height="205dp"
+            android:layout_height="210dp"
             android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento"
             app:layout_constraintTop_toTopOf="@+id/textoAbdominales" />
