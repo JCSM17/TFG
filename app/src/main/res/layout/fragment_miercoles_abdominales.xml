@@ -284,7 +284,7 @@
             android:text="@string/reps_giros_rusos_barra"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toEndOf="@+id/textoGirosRusosBarra"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />

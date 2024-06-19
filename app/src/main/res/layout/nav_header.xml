@@ -7,20 +7,20 @@
         android:id="@+id/profilepic"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/profilepic" />
+        android:src="@drawable/bulldog2" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/profilepic"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:text="Robin Singla"
+        android:text="JCSM"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
@@ -28,13 +28,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
-        android:layout_marginLeft="16dp"
-        android:text="@robin01"
+        android:layout_marginStart="16dp"
+        android:text="string/carlos_sanchez_17"
         android:textColor="@color/lighgrey"
         android:textSize="12sp" />
-
 
     <View
         style="@style/line"
         android:layout_width="match_parent" />
+
 </RelativeLayout>

@@ -1,8 +1,6 @@
 package com.example.tfg.javi;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -41,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     private void navigateToFragment(Fragment fragment) {
         Intent intent = new Intent(this, FragmentContainerActivity.class);
         intent.putExtra("fragmentName", fragment.getClass().getName());
-        Log.d("LoginActivity", "Fragment name: " + fragment.getClass().getName()); // Agrega esta línea
+        Log.d("LoginActivity", "Fragment name: " + fragment.getClass().getName());
         startActivity(intent);
     }
 
@@ -49,16 +47,19 @@ public class LoginActivity extends AppCompatActivity {
         String email = binding.entradaEmail.getText().toString();
         String password = binding.entradaContrasenia.getText().toString();
 
+        Log.d("LoginActivity", "Email ingresado: " + email);
+        Log.d("LoginActivity", "Contraseña ingresada: " + password);
+
         if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             showToast(getString(R.string.invalid_email));
         } else if (TextUtils.isEmpty(password)) {
             showToast(getString(R.string.empty_password));
         } else {
-            SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
-            String storedEmail = sharedPreferences.getString("email", null);
-            String storedPassword = sharedPreferences.getString("password", null);
+            String storedPassword = databaseHelper.getPasswordByEmail(email);
 
-            if (email.equals(storedEmail) && password.equals(storedPassword)) {
+            Log.d("LoginActivity", "Contraseña almacenada: " + storedPassword);
+
+            if (storedPassword != null && storedPassword.equals(databaseHelper.hashPassword(password))) {
                 navigateToActivity();
             } else {
                 String hashedPassword = databaseHelper.hashPassword(password);
@@ -66,9 +67,15 @@ public class LoginActivity extends AppCompatActivity {
                     Log.e("LoginActivity", "Error al hashear la contraseña");
                     return;
                 }
+                Log.d("LoginActivity", "Contraseña hasheada: " + hashedPassword);
+
                 Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
+                Log.d("LoginActivity", "Resultado de checkEmailPassword: " + checkCredentials);
+
                 if (checkCredentials) {
                     RegistroData registroData = databaseHelper.getRegistroByEmail(email);
+                    Log.d("LoginActivity", "RegistroData obtenido: " + registroData);
+
                     if (registroData != null) {
                         navigateToActivity();
                     } else {

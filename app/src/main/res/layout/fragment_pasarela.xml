@@ -15,35 +15,20 @@
     <ImageView
         android:id="@+id/LogoImagen"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         android:contentDescription="TODO"
-        android:src="@drawable/bulldog"
+        android:src="@drawable/bulldog2"
         tools:ignore="ContentDescription,HardcodedText" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-
-    <FrameLayout
-        android:id="@+id/contenedorTarjetas"
-        android:layout_width="320dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center_horizontal|center_vertical">
-
-    </FrameLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-    </Space>
-
     <Button
         android:id="@+id/btnPagar"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/ven"
+        android:backgroundTint="@color/grey"
         android:text="Pagar" />
 
     <Button
@@ -51,7 +36,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/ven"
+        android:backgroundTint="@color/grey"
         android:text="Continuar" />
 
     <Button
@@ -59,7 +44,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/ven"
+        android:backgroundTint="@color/grey"
         android:text="Finalizar" />
 
 </LinearLayout>

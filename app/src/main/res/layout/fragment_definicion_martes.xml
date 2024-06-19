@@ -290,11 +290,11 @@
             android:id="@+id/repsCrucePoleaBajaUnilateral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="@string/reps_cruce_polea_baja_unilateral"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toEndOf="@+id/textoCrucePoleaBajaUnilateral"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
@@ -352,11 +352,11 @@
             android:id="@+id/repsRemoNeutroPolea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="@string/reps_remo_neutro_polea"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.90"
             app:layout_constraintStart_toEndOf="@+id/textoRemoNeutroPolea"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
@@ -417,7 +417,7 @@
             android:text="@string/reps_laterales_polea_torso"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toEndOf="@+id/textoLaterales_Polea_Torso"
             app:layout_constraintTop_toTopOf="@+id/separador7" />
 

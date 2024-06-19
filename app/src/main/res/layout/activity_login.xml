@@ -110,7 +110,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:backgroundTint="@color/ven"
+            android:backgroundTint="@color/grey"
             android:text="Iniciar sesión"
             android:textSize="17sp"
             android:textStyle="bold"

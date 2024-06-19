@@ -8,6 +8,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.LayoutInflater;
@@ -36,9 +37,9 @@ public class CountdownFragment extends Fragment {
     private final long clockTime = countdownTime * 1000;
     private final float progressTime = clockTime / 1000.0f;
     private MediaPlayer mediaPlayer;
-
     private BroadcastReceiver br;
-
+    private static final int WAKELOCK_TIMEOUT = 60 * 1000; // 60 seconds
+    private PowerManager.WakeLock wakeLock;
 
     private enum TimerState {
         RESET, PLAY, PAUSE
@@ -96,16 +97,19 @@ public class CountdownFragment extends Fragment {
                     actionButton.setImageResource(R.drawable.icono_pause);
                     state = TimerState.PLAY;
                     customCountdownTimer.startTimer();
+                    startTimer(); // Acquire the WakeLock
                     break;
                 case PLAY:
                     customCountdownTimer.pauseTimer();
                     actionButton.setImageResource(R.drawable.icono_play);
                     state = TimerState.PAUSE;
+                    stopTimer(); // Release the WakeLock
                     break;
                 case PAUSE:
                     customCountdownTimer.resumeTimer();
                     actionButton.setImageResource(R.drawable.icono_pause);
                     state = TimerState.PLAY;
+                    startTimer(); // Acquire the WakeLock
                     break;
             }
         });
@@ -139,7 +143,28 @@ public class CountdownFragment extends Fragment {
             }
         };
 
+        // Create a new WakeLock
+        PowerManager powerManager = (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
+        if (powerManager != null) {
+            wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyApp::MyWakelockTag");
+        }
+
         return view;
+    }
+
+
+    private void startTimer() {
+        // Acquire the WakeLock
+        if (wakeLock != null && !wakeLock.isHeld()) {
+            wakeLock.acquire(WAKELOCK_TIMEOUT);
+        }
+    }
+
+    private void stopTimer() {
+        // Release the WakeLock
+        if (wakeLock != null && wakeLock.isHeld()) {
+            wakeLock.release();
+        }
     }
 
     private void onVibrate() {
@@ -182,6 +207,12 @@ public class CountdownFragment extends Fragment {
         }
 
         customCountdownTimer.destroyTimer();
+
+        // Release the WakeLock
+        if (wakeLock != null && wakeLock.isHeld()) {
+            wakeLock.release();
+        }
+
         super.onDestroy();
     }
 }
