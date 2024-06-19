@@ -1,6 +1,5 @@
 package com.example.tfg.javi;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -55,48 +54,31 @@ public class LoginActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(password)) {
             showToast(getString(R.string.empty_password));
         } else {
-            String hashedPassword = databaseHelper.hashPassword(password);
-            if (hashedPassword == null) {
-                Log.e("LoginActivity", "Error al hashear la contraseña");
-                return;
-            }
-            Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
-            if (checkCredentials) {
-                RegistroData registroData = databaseHelper.getRegistroByEmail(email);
-                if (registroData != null) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long subscriptionEndMillis = registroData.getFechaInicioSuscripcion() + registroData.getDuracionSuscripcion() * 24 * 60 * 60 * 1000;
-                    if (currentTimeMillis <= subscriptionEndMillis) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
-                        contentValues.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
-                        try {
-                            databaseHelper.insertData(DatabaseHelper.TABLE_REGISTRO, contentValues);
-                        } catch (android.database.SQLException e) {
-                            showToast(getString(R.string.login_error));
-                        }
+            SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
+            String storedEmail = sharedPreferences.getString("email", null);
+            String storedPassword = sharedPreferences.getString("password", null);
 
-                        SharedPreferences sharedPreferences = getSharedPreferences("tfg_preferences", Context.MODE_PRIVATE);
-                        boolean pagado = sharedPreferences.getBoolean(PAGADO, false);
-
-                        if (!pagado) {
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putBoolean(PAGADO, true);
-                            editor.apply();
-                        }
-
+            if (email.equals(storedEmail) && password.equals(storedPassword)) {
+                navigateToActivity();
+            } else {
+                String hashedPassword = databaseHelper.hashPassword(password);
+                if (hashedPassword == null) {
+                    Log.e("LoginActivity", "Error al hashear la contraseña");
+                    return;
+                }
+                Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
+                if (checkCredentials) {
+                    RegistroData registroData = databaseHelper.getRegistroByEmail(email);
+                    if (registroData != null) {
                         navigateToActivity();
                     } else {
-                        showToast(getString(R.string.no_subscription_days));
-                        navigateToFragment(new PlanesFragment());
+                        showToast(getString(R.string.user_not_registered));
+                        navigateToFragment(new RegistroFragment());
                     }
                 } else {
-                    showToast(getString(R.string.user_not_registered));
+                    showToast(getString(R.string.invalid_credentials));
                     navigateToFragment(new RegistroFragment());
                 }
-            } else {
-                showToast(getString(R.string.invalid_credentials));
-                navigateToFragment(new RegistroFragment());
             }
         }
     }

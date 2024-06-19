@@ -53,6 +53,7 @@ public class DefinicionLunesFragment extends Fragment {
         for (int id : IMAGE_BUTTON_IDS_DEFINICION_LUNES) {
             ButtonSetupUtils.setupImageButton(view, id);
         }
+
         // Crea una nueva instancia de CountdownFragment
         CountdownFragment countdownFragment = new CountdownFragment();
 
