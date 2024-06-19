@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="@drawable/gym_menu"
     android:orientation="vertical"
     tools:context=".jc.MenuActivity">
 
     <include
         android:id="@+id/jjjfit"
-        layout="@layout/fragment_jjjfit"
+        layout="@layout/fragment_jjjfit_blanco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -22,16 +22,13 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <ImageView
-                android:id="@+id/fotoJC"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/imageCarousel"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="430dp"
                 android:layout_marginBottom="8dp"
                 android:adjustViewBounds="true"
-                android:contentDescription="@string/descripcion_imagen_jalon_neutro_pecho"
-                android:maxHeight="550dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/foto_jc" />
+                android:maxHeight="400dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:contentDescription="@string/perfil"
+                        android:contentDescription="@string/entrenamiento"
                         android:src="@drawable/icono_perfil" />
 
                     <TextView
