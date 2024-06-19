@@ -163,6 +163,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return getRegistroByColumn(COLUMN_EMAIL, email);
     }
 
+    public String getPasswordByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_PASSWORD}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            int passwordIndex = cursor.getColumnIndex(COLUMN_PASSWORD);
+            if (passwordIndex != -1) {
+                String password = cursor.getString(passwordIndex);
+                cursor.close();
+                return password;
+            }
+        }
+        return null;
+    }
+
     // Usa el nuevo método para obtener un usuario por ID
     public RegistroData getRegistroPorId(long userId) {
         return getRegistroByColumn(COLUMN_ID, String.valueOf(userId));
