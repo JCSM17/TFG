@@ -168,7 +168,7 @@
 
 
     <!-- Strings para el fragmento Definicion Lunes Mujer -->
-    <string name="texto_semana_definicion">Semana 1 - Definición</string>
+    <string name="texto_semana_definicion">Definición</string>
     <string name="texto_lunes">Lunes</string>
     <string name="texto_pierna">TIRON + PIERNA</string>
     <string name="texto_dominadas">DOMINADAS (PUEDES LASTRARTE)</string>

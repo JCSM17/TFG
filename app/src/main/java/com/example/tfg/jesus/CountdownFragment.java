@@ -58,21 +58,21 @@ public class CountdownFragment extends Fragment {
         getActivity().startService(intent);
 
         customCountdownTimer = new CustomCountdownTimer(getContext(), clockTime, 1000);
+
+        // Crear el MediaPlayer una sola vez
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.end_timer_sound);
+
         customCountdownTimer.setOnTick(millisUntilFinished -> {
             int secondsLeft = (int) (millisUntilFinished / 1000);
             timerFormat(secondsLeft, timeTxt);
 
             // Si quedan 3 segundos
-            if (millisUntilFinished <= 4000) {
+            if (millisUntilFinished <= 4000 && !mediaPlayer.isPlaying()) {
                 // Reproduce el sonido
-                mediaPlayer = MediaPlayer.create(getActivity(), R.raw.end_timer_sound);
-                if (mediaPlayer != null) {
-                    mediaPlayer.start();
-                    mediaPlayer.setOnCompletionListener(mp -> {
-                        mp.release();
-                        mediaPlayer = null;
-                    });
-                }
+                mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(mp -> {
+                    // No liberar el MediaPlayer aquí
+                });
 
                 // Hace vibrar el dispositivo
                 onVibrate();
@@ -110,8 +110,6 @@ public class CountdownFragment extends Fragment {
             }
         });
 
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.end_timer_sound);
-
         customCountdownTimer.setOnFinish(new CustomCountdownTimer.OnFinish() {
             @Override
             public void onFinish() {
@@ -143,7 +141,6 @@ public class CountdownFragment extends Fragment {
 
         return view;
     }
-
 
     private void onVibrate() {
         if (getActivity() != null) {
