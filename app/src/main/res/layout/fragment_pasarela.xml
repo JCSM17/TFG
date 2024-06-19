@@ -1,65 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/backround02"
     tools:context=".javi.PasarelaFragment">
 
-    <include
-        android:id="@+id/jjjfit"
-        layout="@layout/fragment_jjjfit"
-        app:layout_constraintBottom_toTopOf="@+id/imagenLogo" />
-
-    <ImageView
-        android:id="@+id/LogoImagen"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:contentDescription="TODO"
-        android:src="@drawable/bulldog"
-        tools:ignore="ContentDescription,HardcodedText" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
-
-    <FrameLayout
-        android:id="@+id/contenedorTarjetas"
-        android:layout_width="320dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center_horizontal|center_vertical">
-
-    </FrameLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-    </Space>
-
-    <Button
-        android:id="@+id/btnPagar"
-        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/ven"
-        android:text="Pagar" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnContinuar"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/ven"
-        android:text="Continuar" />
+        <include
+            android:id="@+id/jjjfit"
+            layout="@layout/fragment_jjjfit_blanco"
+            app:layout_constraintBottom_toTopOf="@+id/imagenLogo" />
 
-    <Button
-        android:id="@+id/btnFinalizar"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/ven"
-        android:text="Finalizar" />
+        <ImageView
+            android:id="@+id/LogoImagen"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/bulldog2" />
 
-</LinearLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <FrameLayout
+            android:id="@+id/contenedorTarjetas"
+            android:layout_width="320dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center_horizontal|center_vertical">
+
+        </FrameLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/btnPagar"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/dark_gray"
+            android:text="Pagar" />
+
+        <Button
+            android:id="@+id/btnContinuar"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/dark_gray"
+            android:text="Continuar" />
+
+        <Button
+            android:id="@+id/btnFinalizar"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/dark_gray"
+            android:text="Finalizar" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+</ScrollView>

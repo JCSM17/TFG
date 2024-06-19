@@ -1,14 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/backround02"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".javi.PlanesFragment">
 
     <include
         android:id="@+id/jjjfit"
-        layout="@layout/fragment_jjjfit"
+        layout="@layout/fragment_jjjfit_blanco"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,25 +20,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jjjfit">
 
-        <GridLayout
-            android:id="@+id/gridLayout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="1"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <!-- Card for Plan Mensual -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardPlanMensual"
                 style="@style/CardViewRutinas.Purple"
-                android:layout_columnWeight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/white"
                 android:clickable="true"
                 android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -55,12 +57,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:gravity="center"
-
                         android:text="@string/rutinas"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -71,7 +73,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -82,7 +85,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -93,7 +97,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -104,7 +109,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -115,7 +121,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -134,13 +141,15 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardPlanAnual"
                 style="@style/CardViewRutinas.Purple"
-                android:layout_columnWeight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
                 android:clickable="true"
                 android:focusable="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -158,12 +167,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:gravity="center"
-
                         android:text="@string/rutinas"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -174,7 +183,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -185,7 +195,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -196,7 +207,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -207,7 +219,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -218,7 +231,8 @@
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:drawableLeftCompat="@drawable/baseline_check_24" />
+                        android:drawableLeft="@drawable/baseline_check_24"
+                        android:drawablePadding="8dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -232,6 +246,6 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-        </GridLayout>
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
