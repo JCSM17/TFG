@@ -17,7 +17,7 @@ public class VolumenJuevesFragment extends Fragment {
             R.id.botonVideoPressBanca,
             R.id.botonVideoFondos,
             R.id.botonVideoPolea,
-            R.id.buttonFrancesMancuerna,
+            R.id.botonFrancesMancuerna,
             R.id.botonVideoExtTriceps,
             R.id.botonVideoPressPalof
     };
@@ -25,7 +25,7 @@ public class VolumenJuevesFragment extends Fragment {
             R.id.imagenPBP,
             R.id.imagenFondos,
             R.id.imagenCruces,
-            R.id.imagePressFrances,
+            R.id.imagenPressFrances,
             R.id.imagenExtTriceps,
             R.id.imagenPalof
     };

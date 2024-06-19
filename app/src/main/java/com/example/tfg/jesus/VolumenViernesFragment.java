@@ -26,7 +26,7 @@ public class VolumenViernesFragment extends Fragment {
             R.id.imagenPronas,
             R.id.imagenPesoMuerto,
             R.id.imagenPressBancaMancuernas,
-            R.id.imageElevacionPolea,
+            R.id.imagenElevacionPolea,
             R.id.imagenInclinadoMancuernas,
             R.id.imagenExtTricepsPoleaViernes
     };

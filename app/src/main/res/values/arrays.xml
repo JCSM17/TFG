@@ -56,6 +56,7 @@
     <!-- Rutinas de VOLUMEN-->
 
     <string-array name="urls_volumen_lunes">
+        <item>https://www.youtube.com/shorts/ZDhA79Z111M</item>
         <item>https://www.youtube.com/shorts/w2evAoptdvc</item>
         <item>https://www.youtube.com/shorts/FfAPkQyUFmg</item>
         <item>https://www.youtube.com/shorts/7AcBBZNSx-I</item>

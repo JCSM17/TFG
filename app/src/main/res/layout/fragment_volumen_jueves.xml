@@ -307,7 +307,7 @@
 
         <!-- No encontre la imagen en formato webp, la que esta es gif -->
         <ImageButton
-            android:id="@+id/imagePressFrances"
+            android:id="@+id/imagenPressFrances"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
@@ -322,7 +322,7 @@
 
 
         <Button
-            android:id="@+id/buttonFrancesMancuerna"
+            android:id="@+id/botonFrancesMancuerna"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
@@ -331,7 +331,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagePressFrances"
+            app:layout_constraintStart_toEndOf="@+id/imagenPressFrances"
             app:layout_constraintTop_toBottomOf="@+id/repsPressFrances" />
 
         <View
@@ -340,7 +340,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagePressFrances" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPressFrances" />
 
         <TextView
             android:id="@+id/textoExtTriceps"
@@ -460,13 +460,14 @@
         <ImageButton
             android:id="@+id/imagenCheckVolumenJueves"
             android:layout_width="60dp"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_marginTop="52dp"
             android:layout_marginBottom="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
             android:scaleType="fitCenter"
             android:src="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

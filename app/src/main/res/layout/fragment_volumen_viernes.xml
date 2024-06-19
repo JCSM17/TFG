@@ -292,17 +292,17 @@
             android:id="@+id/repsPressFrances"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="@string/reps_laterales_p"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.96"
             app:layout_constraintStart_toEndOf="@+id/textoPressMancuerna"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
         <ImageButton
-            android:id="@+id/imageElevacionPolea"
+            android:id="@+id/imagenElevacionPolea"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
@@ -326,7 +326,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imageElevacionPolea"
+            app:layout_constraintStart_toEndOf="@+id/imagenElevacionPolea"
             app:layout_constraintTop_toBottomOf="@+id/repsPressFrances" />
 
         <View
@@ -335,7 +335,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imageElevacionPolea" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenElevacionPolea" />
 
         <TextView
             android:id="@+id/textoExtTriceps"
@@ -355,11 +355,11 @@
             android:id="@+id/repsExtensionTriceps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="@string/reps_curl_m"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.96"
             app:layout_constraintStart_toEndOf="@+id/textoExtTriceps"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separador6" />
@@ -455,13 +455,14 @@
         <ImageButton
             android:id="@+id/imagenCheckVolumenViernes"
             android:layout_width="60dp"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
             android:scaleType="fitCenter"
             android:src="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

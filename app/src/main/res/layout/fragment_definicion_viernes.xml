@@ -303,7 +303,7 @@
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
         <ImageButton
-            android:id="@+id/imagePatadaTricepsPolea"
+            android:id="@+id/imagenPatadaTricepsPolea"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
@@ -318,7 +318,7 @@
 
 
         <Button
-            android:id="@+id/buttonVideoPatadaTricepsPolea"
+            android:id="@+id/botonVideoPatadaTricepsPolea"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
@@ -327,7 +327,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imagePatadaTricepsPolea"
+            app:layout_constraintStart_toEndOf="@+id/imagenPatadaTricepsPolea"
             app:layout_constraintTop_toBottomOf="@+id/repsPatadaTricepsPolea" />
 
         <View
@@ -336,7 +336,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imagePatadaTricepsPolea" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenPatadaTricepsPolea" />
 
         <TextView
             android:id="@+id/textoCurlBicepsAlternoSentadoMancuernas"
@@ -455,13 +455,14 @@
         <ImageButton
             android:id="@+id/imagenCheckDefinicionViernes"
             android:layout_width="60dp"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
             android:scaleType="fitCenter"
             android:src="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

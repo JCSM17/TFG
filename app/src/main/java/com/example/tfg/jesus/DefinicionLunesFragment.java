@@ -17,7 +17,7 @@ public class DefinicionLunesFragment extends Fragment {
             R.id.botonVideoDominadas,
             R.id.botonVideoRemoMancuernas,
             R.id.botonVideoPesoMuertoRumano,
-            R.id.buttonVideoJalonPronoPecho,
+            R.id.botonVideoJalonPronoPecho,
             R.id.botonVideoFacePull,
             R.id.botonVideoCurlBarra
     };

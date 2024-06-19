@@ -302,7 +302,7 @@
             app:layout_constraintTop_toBottomOf="@+id/separador5" />
 
         <ImageButton
-            android:id="@+id/imageCrucePoleaBajaUnilateral"
+            android:id="@+id/imagenCrucePoleaBajaUnilateral"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_marginTop="20dp"
@@ -325,7 +325,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.50"
-            app:layout_constraintStart_toEndOf="@+id/imageCrucePoleaBajaUnilateral"
+            app:layout_constraintStart_toEndOf="@+id/imagenCrucePoleaBajaUnilateral"
             app:layout_constraintTop_toBottomOf="@+id/repsCrucePoleaBajaUnilateral" />
 
         <View
@@ -334,7 +334,7 @@
             android:layout_height="2dp"
             android:layout_marginTop="15dp"
             android:background="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imageCrucePoleaBajaUnilateral" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenCrucePoleaBajaUnilateral" />
 
         <TextView
             android:id="@+id/textoRemoNeutroPolea"
@@ -453,13 +453,14 @@
         <ImageButton
             android:id="@+id/imagenCheckDefinicionMartes"
             android:layout_width="60dp"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
             android:scaleType="fitCenter"
             android:src="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

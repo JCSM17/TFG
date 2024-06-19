@@ -317,7 +317,7 @@
 
 
         <Button
-            android:id="@+id/buttonVideoPressInclinadoMancuerna"
+            android:id="@+id/botonVideoPressInclinadoMancuerna"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="88dp"
@@ -454,13 +454,14 @@
         <ImageButton
             android:id="@+id/imagenCheckDefinicionJueves"
             android:layout_width="60dp"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/descripcion_imagen_check"
             android:scaleType="fitCenter"
             android:src="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

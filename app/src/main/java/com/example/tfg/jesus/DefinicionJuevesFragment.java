@@ -17,7 +17,7 @@ public class DefinicionJuevesFragment extends Fragment {
             R.id.botonVideoPressBancaPlano,
             R.id.botonVideoSentadilla,
             R.id.botonVideoPressmilitarmancuerna,
-            R.id.buttonVideoPressInclinadoMancuerna,
+            R.id.botonVideoPressInclinadoMancuerna,
             R.id.botonVideoCrucePoleaBaja,
             R.id.botonVideoelevacionlateral
     };

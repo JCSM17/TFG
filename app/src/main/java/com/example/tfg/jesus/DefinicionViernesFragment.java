@@ -17,7 +17,7 @@ public class DefinicionViernesFragment extends Fragment {
             R.id.botonVideoPesoMuertoViernes,
             R.id.botonVideoZancadaEstaticaMultipower,
             R.id.botonVideoPrensaInclinada,
-            R.id.buttonVideoPatadaTricepsPolea,
+            R.id.botonVideoPatadaTricepsPolea,
             R.id.botonVideoCurlBicepsAlternoSentadoMancuernas,
             R.id.botonVideoExtencionTricepsOverhead
     };
@@ -25,7 +25,7 @@ public class DefinicionViernesFragment extends Fragment {
             R.id.imagenPesoMuertoViernes,
             R.id.imagenZancadasEstaticasMultipower,
             R.id.imagenPrensaInclinada,
-            R.id.imagePatadaTricepsPolea,
+            R.id.imagenPatadaTricepsPolea,
             R.id.imagenCurlBicepsAlternoSentadoMancuernas,
             R.id.imagenExtencionTricepsOverhead
     };

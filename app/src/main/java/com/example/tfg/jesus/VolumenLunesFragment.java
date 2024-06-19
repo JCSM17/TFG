@@ -14,13 +14,15 @@ import com.example.tfg.R;
 public class VolumenLunesFragment extends Fragment {
 
     private static final int[] BUTTON_IDS_VOLUMEN_LUNES = {
+            R.id.botonVideoDominadasNeutrasLastradas,
             R.id.botonVideoRemoMancuernaVolumen,
             R.id.botonVideoJalonUnilateralSentado,
             R.id.botonVideoRemoNeutroPoleaVolumen,
-            R.id.buttonVideoCurlBicepsBarraZcott,
+            R.id.butonVideoCurlBicepsBarraZcott,
             R.id.botonVideoCurlPoleaAlta
     };
     private static final int[] IMAGE_BUTTON_IDS_VOLUMEN_LUNES = {
+            R.id.imagenDominadasNeutrasLastradas,
             R.id.imagenRemoMancuernaVolumen,
             R.id.imagenJalonUnilateralSentado,
             R.id.imagenRemoNeutroPoleaVolumen,

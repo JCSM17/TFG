@@ -89,10 +89,10 @@
     <string name="reset">Reset</string>
 
     <!-- Strings para el fragmento DEFINICION -->
-    <string name="texto_definicion">Definicion</string>
+    <string name="texto_definicion">Definición</string>
 
     <!-- Strings para el fragmento VOLUMEN -->
-    <string name="texto_volumen">Volumen:</string>
+    <string name="texto_volumen">Volumen</string>
 
     <!-- Strings para el fragmento Volumen Jueves -->
     <string name="texto_semana_volumen">Semana 1 - Volumen</string>
@@ -334,6 +334,8 @@
     <!-- Strings para el fragmento Lunes Volumen  -->
     <string name="texto_lunes_volumen">Lunes</string>
     <string name="texto_espalda_biceps_core">ESPALDA BICEPS CORE</string>
+    <string name="texto_dominadas_neutras_lastradas">DOMINADAS NEUTRAS LASTRADAS</string>
+    <string name="reps_dominadas_neutras_lastradas">4-6 x 15kg</string>
     <string name="texto_remo_mancuerna_volumen">REMO CON MANCUERNA</string>
     <string name="reps_remo_mancuerna_volumen">2x8-10</string>
     <string name="texto_jalon_unilateral_sentado">JALON UNILATERAL SENTADO</string>
@@ -347,6 +349,7 @@
 
 
     <!-- Descripcion para el Fragmento Volumen Descripcion-Imagen Lunes -->
+    <string name="descripcion_imagen_dominadas_neutras_lastradas">Descripción de la imagen de Dominadas Neutras Volumen</string>
     <string name="descripcion_imagen_remo_mancuerna_volumen">Descripción de la imagen de Remo con Mancuernas Volumen</string>
     <string name="descripcion_imagen_jalon_unilateral_sentado">Descripción de la imagen Jalon Unilateral Sentado</string>
     <string name="descripcion_imagen_remo_neutro_polea_volumen">Descripción de la imagen de Remo Neutro Polea Volumen</string>
@@ -355,6 +358,7 @@
 
 
     <!-- Descripcion para el Fragmento Volumen videos Lunes  -->
+    <string name="descripcion_boton_video_dominadas_neutras_lastradas">Video de Dominadas Neutras Volumen</string>
     <string name="descripcion_boton_video_remo_mancuerna_volumen">Video de Remo Mancuerna Volumen</string>
     <string name="descripcion_boton_video_jalon_unilateral_sentado">Video de Jalon unilateral Sentado</string>
     <string name="descripcion_boton_video_remo_neutro_polea_volumen">Video de Remo Neutro Polea</string>

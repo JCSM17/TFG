@@ -25,7 +25,7 @@ public class DefinicionMartesFragment extends Fragment {
             R.id.imagenPressMilitarBarra,
             R.id.imagenJalonNeutroPecho,
             R.id.imagenPressPlanoMancuernas,
-            R.id.imageCrucePoleaBajaUnilateral,
+            R.id.imagenCrucePoleaBajaUnilateral,
             R.id.imagenRemoNeutroPolea,
             R.id.imagenLateralesPoleaTorso
     };
