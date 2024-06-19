@@ -22,92 +22,96 @@ import java.util.Map;
 
 
 public class TinyDB {
-
-    private SharedPreferences preferences;
-    private String DEFAULT_APP_IMAGEDATA_DIRECTORY;
-    private String lastImagePath = "";
+    private SharedPreferences preferences; // Almacena las preferencias de la aplicación
+    private String DEFAULT_APP_IMAGEDATA_DIRECTORY; // Directorio predeterminado para datos de imágenes
+    private String lastImagePath = ""; // Última ruta de la imagen guardada
 
     public TinyDB(Context appContext) {
-        preferences = PreferenceManager.getDefaultSharedPreferences(appContext);
+        preferences = PreferenceManager.getDefaultSharedPreferences(appContext); // Inicializa las preferencias usando el contexto de la aplicación
     }
 
+    // Método para obtener una imagen desde una ruta de archivo
     public Bitmap getImage(String path) {
         Bitmap bitmapFromPath = null;
         try {
-            bitmapFromPath = BitmapFactory.decodeFile(path);
+            bitmapFromPath = BitmapFactory.decodeFile(path); // Decodifica el archivo de la ruta especificada
 
         } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
+            e.printStackTrace(); // Manejo de excepciones en caso de error durante la decodificación
         }
 
-        return bitmapFromPath;
+        return bitmapFromPath; // Retorna la imagen decodificada o null si hay un error
     }
 
+    // Método para obtener la última ruta de imagen guardada
     public String getSavedImagePath() {
         return lastImagePath;
     }
 
+    // Método para guardar una imagen en un directorio específico
     public String putImage(String theFolder, String theImageName, Bitmap theBitmap) {
         if (theFolder == null || theImageName == null || theBitmap == null)
-            return null;
+            return null; // Verifica que los parámetros no sean nulos
 
-        this.DEFAULT_APP_IMAGEDATA_DIRECTORY = theFolder;
-        String mFullPath = setupFullPath(theImageName);
+        this.DEFAULT_APP_IMAGEDATA_DIRECTORY = theFolder; // Establece el directorio predeterminado para los datos de imágenes
+        String mFullPath = setupFullPath(theImageName); // Configura la ruta completa de la imagen
 
         if (!mFullPath.equals("")) {
-            lastImagePath = mFullPath;
-            saveBitmap(mFullPath, theBitmap);
+            lastImagePath = mFullPath; // Actualiza la última ruta de imagen guardada
+            saveBitmap(mFullPath, theBitmap); // Guarda el bitmap en la ruta especificada
         }
 
-        return mFullPath;
+        return mFullPath; // Retorna la ruta completa donde se guardó la imagen
     }
 
+    // Método para guardar una imagen en una ruta completa especificada
     public boolean putImageWithFullPath(String fullPath, Bitmap theBitmap) {
-        return !(fullPath == null || theBitmap == null) && saveBitmap(fullPath, theBitmap);
+        return !(fullPath == null || theBitmap == null) && saveBitmap(fullPath, theBitmap); // Guarda el bitmap en la ruta completa especificada
     }
 
+    // Método privado para configurar la ruta completa de una imagen
     private String setupFullPath(String imageName) {
-        File mFolder = new File(Environment.getExternalStorageDirectory(), DEFAULT_APP_IMAGEDATA_DIRECTORY);
+        File mFolder = new File(Environment.getExternalStorageDirectory(), DEFAULT_APP_IMAGEDATA_DIRECTORY); // Crea una carpeta en el directorio externo si no existe
 
         if (isExternalStorageReadable() && isExternalStorageWritable() && !mFolder.exists()) {
             if (!mFolder.mkdirs()) {
-                Log.e("ERROR", "Failed to setup folder");
+                Log.e("ERROR", "Failed to setup folder"); // Muestra un mensaje de error si falla la creación de la carpeta
                 return "";
             }
         }
 
-        return mFolder.getPath() + '/' + imageName;
+        return mFolder.getPath() + '/' + imageName; // Retorna la ruta completa de la imagen
     }
 
+    // Método privado para guardar un bitmap en una ruta específica
     private boolean saveBitmap(String fullPath, Bitmap bitmap) {
         if (fullPath == null || bitmap == null)
-            return false;
+            return false; // Verifica que la ruta y el bitmap no sean nulos
 
         boolean fileCreated = false;
         boolean bitmapCompressed = false;
         boolean streamClosed = false;
 
-        File imageFile = new File(fullPath);
+        File imageFile = new File(fullPath); // Crea un archivo en la ruta completa especificada
 
         if (imageFile.exists())
             if (!imageFile.delete())
-                return false;
+                return false; // Elimina el archivo existente si falla la eliminación, retorna falso
 
         try {
-            fileCreated = imageFile.createNewFile();
+            fileCreated = imageFile.createNewFile(); // Crea un nuevo archivo para la imagen
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Manejo de excepciones si falla la creación del archivo
         }
 
         FileOutputStream out = null;
         try {
             out = new FileOutputStream(imageFile);
-            bitmapCompressed = bitmap.compress(CompressFormat.PNG, 100, out);
+            bitmapCompressed = bitmap.compress(CompressFormat.PNG, 100, out); // Comprime el bitmap en formato PNG
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Manejo de excepciones si falla la compresión del bitmap
             bitmapCompressed = false;
 
         } finally {
@@ -115,32 +119,32 @@ public class TinyDB {
                 try {
                     out.flush();
                     out.close();
-                    streamClosed = true;
+                    streamClosed = true;  // Cierra el flujo de salida correctamente
 
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    e.printStackTrace(); // Manejo de excepciones si falla el cierre del flujo de salida
                     streamClosed = false;
                 }
             }
         }
 
-        return (fileCreated && bitmapCompressed && streamClosed);
+        return (fileCreated && bitmapCompressed && streamClosed); // Retorna verdadero si todas las operaciones se realizaron con éxito
     }
 
-    // Getters
+    // Métodos para obtener valores de diferentes tipos desde las preferencias
     public int getInt(String key) {
-        return preferences.getInt(key, 0);
+        return preferences.getInt(key, 0); // Obtiene un entero desde las preferencias con un valor predeterminado de 0 si no existe
     }
 
     public ArrayList<Integer> getListInt(String key) {
-        String[] myList = TextUtils.split(preferences.getString(key, ""), "‚‗‚");
+        String[] myList = TextUtils.split(preferences.getString(key, ""), "‚‗‚"); // Obtiene una lista de enteros desde las preferencias
         ArrayList<String> arrayToList = new ArrayList<String>(Arrays.asList(myList));
         ArrayList<Integer> newList = new ArrayList<Integer>();
 
         for (String item : arrayToList)
-            newList.add(Integer.parseInt(item));
+            newList.add(Integer.parseInt(item)); // Convierte cada elemento de la lista de cadena a entero
 
-        return newList;
+        return newList; // Retorna la lista de enteros convertida
     }
 
     public long getLong(String key) {
@@ -208,14 +212,14 @@ public class TinyDB {
             }
         }
 
-        return newList;
+        return newList; // Retorna la lista de enteros convertida
     }
 
-
+    // Método para obtener una lista de objetos serializables desde las preferencias usando Gson
     public ArrayList<PopularDomain> getListObject(String key) {
         Gson gson = new Gson();
 
-        ArrayList<String> objStrings = getListString(key);
+        ArrayList<String> objStrings = getListString(key); // Obtiene una lista de cadenas desde las preferencias
         ArrayList<PopularDomain> playerList = new ArrayList<PopularDomain>();
 
         for (String jObjString : objStrings) {

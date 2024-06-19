@@ -23,12 +23,14 @@ public class PerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        dbHelper = new DatabaseHelper(this);
+        dbHelper = new DatabaseHelper(this); // Inicializa el helper de base de datos
 
+        // Recupera el userId almacenado en SharedPreferences
         SharedPreferences prefs = getSharedPreferences("tfg_preferences", MODE_PRIVATE);
         int userId = prefs.getInt("userId", 0);
         Log.d("PerfilActivity", "Recuperado userId de preferencias compartidas: " + userId);
 
+        // Configura y muestra la información del usuario en la actividad
         TextView phoneTextView = findViewById(R.id.phoneTextView);
         String phone = getUserPhone(String.valueOf(userId));
         phoneTextView.setText(phone);
@@ -61,6 +63,7 @@ public class PerfilActivity extends AppCompatActivity {
         String apellido = getUserLastName(String.valueOf(userId));
         apellidoTextView.setText(apellido);
 
+        // Configura un clic en la flecha de regreso al menú principal
         ImageView imageView = findViewById(R.id.ic_arrow_image);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +74,7 @@ public class PerfilActivity extends AppCompatActivity {
         });
     }
 
+    // Métodos para obtener la información del usuario desde la base de datos
     private String getUserPhone(String id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_TELEFONO + " FROM " + DatabaseHelper.TABLE_REGISTRO + " WHERE " + DatabaseHelper.COLUMN_ID + " = ?", new String[]{id});

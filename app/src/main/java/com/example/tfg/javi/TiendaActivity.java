@@ -27,6 +27,7 @@ public class TiendaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tienda);
 
+        // Configura el RecyclerView y su adaptador
         popularView = findViewById(R.id.PopularView);
         popularView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
@@ -53,6 +54,7 @@ public class TiendaActivity extends AppCompatActivity {
     }
 
     private ArrayList<PopularDomain> obtenerItems() {
+        // Crea y devuelve una lista de elementos de PopularDomain
         ArrayList<PopularDomain> items = new ArrayList<>();
         items.add(new PopularDomain("Whey Protein Xtreme", "item_1", 30, 5, 80, "Gold Standard 100% Whey es una mezcla de proteínas de suero de leche que contiene aislado de proteína de suero WPI, Concentrado de Proteína de Suero de Leche e Hidrolizado de Aislado de Suero con Chocolate. Esta mezcla de tres tipos de proteína, hacen de 100% Whey Gold Standard una de las formulaciones de proteína más puras, versátiles y preferidas por todo tipo de atleta en el mundo." +
                 "24 gramos de proteína (80%). 5,5 gramos de BCAA'S. 4 gramos de GlutaGLM y Ácido Glutámico. 1,1 gramos de carbohidrato. Repotenciado con enzimas digestivas (Lactasa). Endulzado con Sucralosa"));
@@ -63,7 +65,7 @@ public class TiendaActivity extends AppCompatActivity {
         return items;
     }
 
-    // Método para el clic del botón (definido en el XML)
+    // Método para el clic del botón definido en el XML para ir al menú principal
     public void irAPrincipal(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);

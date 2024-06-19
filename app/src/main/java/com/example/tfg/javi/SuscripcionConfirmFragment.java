@@ -41,12 +41,18 @@ public class SuscripcionConfirmFragment extends Fragment {
     }
 
     private void startIntroObjetivoFragment() {
+        // Crea una instancia del fragmento IntroObjetivoFragment
         IntroObjetivoFragment introObjetivoFragment = new IntroObjetivoFragment();
+
+        // Obtiene el FragmentManager desde la actividad requerida
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+
+        // Verifica que el FragmentManager no sea nulo antes de comenzar la transacción
         if (fragmentManager != null) {
+            // Inicia una transacción para reemplazar el fragmento actual con IntroObjetivoFragment
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, introObjetivoFragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.replace(R.id.fragment_container, introObjetivoFragment); // Reemplaza el fragmento actual
+            fragmentTransaction.commit(); // Aplica los cambios en la transacción
         }
     }
 }

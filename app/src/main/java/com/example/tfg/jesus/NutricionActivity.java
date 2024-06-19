@@ -37,7 +37,7 @@ public class NutricionActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
 
     public NutricionActivity() {
-        // Required empty public constructor
+        // Constructor vacío requerido
     }
 
     @Override
@@ -46,15 +46,15 @@ public class NutricionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nutricion);
         dbHelper = new DatabaseHelper(this);
 
-
-        // Imprimir los nombres de las columnas
+        // Consulta para imprimir los nombres de las columnas de la tabla userData
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM userData LIMIT 1", null);
         String[] columnNames = cursor.getColumnNames();
         for (String name : columnNames) {
-            Log.d("NutricionActivity", "Column name: " + name); // Cambiado System.out.println por Log.d
+            Log.d("NutricionActivity", "Column name: " + name); // Imprime los nombres de las columnas
         }
 
+        // Inicialización de vistas y asignación de adaptadores para ViewPager2
         desayunoDescription = findViewById(R.id.desayunoDescription);
         comidaDescription = findViewById(R.id.comidaDescription);
         meriendaDescription = findViewById(R.id.meriendaDescription);
@@ -69,25 +69,25 @@ public class NutricionActivity extends AppCompatActivity {
         consumedCaloriesTextView = findViewById(R.id.ConsumidasCaloriesTextView);
         caloriesProgressBar = findViewById(R.id.caloriesProgressBar);
 
-        // Assuming you have methods to get the actual values
+        // Obtiene y muestra las calorías totales y consumidas
         int consumedCalories = getConsumedCalories();
         int totalCalories = getTotalCalories();
-        int burnedCalories = getBurnedCalories();
-
         totalCaloriesTextView.setText(totalCalories + " kcal");
         consumedCaloriesTextView.setText(consumedCalories + " kcal");
 
-        int remainingCalories = totalCalories - consumedCalories;
+        // Calcula y establece el progreso de la barra de progreso de calorías
         int progress = (int) (((double) consumedCalories / totalCalories) * 100);
-
         caloriesProgressBar.setProgress(progress);
 
+        // Muestra las calorías restantes y quemadas
         TextView remainingCaloriesTextView = findViewById(R.id.remainingCaloriesTextView);
         TextView burnedCaloriesTextView = findViewById(R.id.burnedCaloriesTextView);
-
+        int remainingCalories = totalCalories - consumedCalories;
+        int burnedCalories = getBurnedCalories();
         remainingCaloriesTextView.setText(remainingCalories + "\nRestantes");
         burnedCaloriesTextView.setText(burnedCalories + "\nQuemadas");
 
+        // Configuración de los datos y adaptadores para los ViewPager2
         List<ImageItem> desayunoItems = new ArrayList<>();
         desayunoItems.add(new ImageItem(R.drawable.desayuno1avena, "Avena con Frutas y Nueces: 350 kcal, 6g de grasa, 58g de carbohidratos, 10g de proteína"));
         desayunoItems.add(new ImageItem(R.drawable.desayuno2yogurt, "Yogur Griego con Miel y Granola: 250 kcal, 8g de grasa, 28g de carbohidratos, 14g de proteína"));
@@ -118,6 +118,7 @@ public class NutricionActivity extends AppCompatActivity {
         meriendaViewPager.setAdapter(meriendaAdapter);
         cenaViewPager.setAdapter(cenaAdapter);
 
+        // Configura los listeners para los títulos de las secciones
         findViewById(R.id.desayunoTitle).setOnClickListener(v -> {
             toggleVisibility(desayunoDescription);
             TextView description = desayunoDescription.findViewById(R.id.desayunoDescriptionText);
@@ -146,19 +147,17 @@ public class NutricionActivity extends AppCompatActivity {
             description.setText(cenaItems.get(currentItem).getDescription());
         });
 
-
+        // Recupera y muestra las calorías totales del usuario
         totalCaloriesTextView = findViewById(R.id.TotalCaloriasTextView);
-
-
         SharedPreferences prefs = getSharedPreferences("tfg_preferences", MODE_PRIVATE);
         int userId = prefs.getInt("userId", 0);
         Log.d("NutricionActivity", "Recuperado userId de preferencias compartidas: " + userId);
         int calories = getUserCalories(String.valueOf(userId));
-        // Este es el que se imprime
         totalCaloriesTextView.setText("de " + calories + " kcal");
     }
 
     private void toggleVisibility(View view) {
+        // Método para alternar la visibilidad de una vista entre VISIBLE y GONE
         if (view.getVisibility() == View.VISIBLE) {
             view.setVisibility(View.GONE);
         } else {
@@ -167,6 +166,7 @@ public class NutricionActivity extends AppCompatActivity {
     }
 
     private int getUserCalories(String id) {
+        // Método para obtener las calorías del usuario desde la base de datos
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT calorias FROM userData WHERE id = ?", new String[]{id});
         int calories = 0;
@@ -178,17 +178,17 @@ public class NutricionActivity extends AppCompatActivity {
     }
 
     private int getConsumedCalories() {
-        // Replace this with actual logic to retrieve consumed calories
+        // Método temporal para devolver calorías consumidas (sustituir con lógica real)
         return 1769;
     }
 
     private int getTotalCalories() {
-        // Replace this with actual logic to retrieve total calories
+        // Método temporal para devolver calorías totales (sustituir con lógica real)
         return 2100;
     }
 
     private int getBurnedCalories() {
-        // Replace this with actual logic to retrieve burned calories
+        // Método temporal para devolver calorías quemadas (sustituir con lógica real)
         return 267;
     }
 }

@@ -13,6 +13,7 @@ import java.security.MessageDigest;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    // Constantes para el nombre de la base de datos y nombres de tablas
     public static final String DATABASE_NAME = "JJJFit.db";
     public static final String TABLE_REGISTRO = "registro";
     public static final String COLUMN_ID = "id";
@@ -40,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
-        Log.d("DatabaseHelper", "Creating tables...");
+        // Creación de la tabla 'registro'
         MyDatabase.execSQL("CREATE TABLE " + TABLE_REGISTRO + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_EMAIL + " TEXT UNIQUE NOT NULL," +
@@ -52,7 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "subscription_start_date INTEGER," +
                 "subscription_duration INTEGER)");
 
-        // Agrega una nueva tabla para los datos del usuario
+        // Creación de la tabla 'userData' con clave externa referenciando 'registro'
         MyDatabase.execSQL("CREATE TABLE " + TABLE_USERDATA + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY," +
                 COLUMN_ESTATURA + " REAL," +
@@ -62,9 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_OBJETIVO + " TEXT," +
                 COLUMN_BODYTYPE + " TEXT," +
                 COLUMN_CALORIAS + " REAL," + // Agrega el campo de calorías
-                "FOREIGN KEY(" + COLUMN_ID + ") REFERENCES " + TABLE_REGISTRO + "(" + COLUMN_ID + "))"); // Agrega la restricción de clave externa
-
-        Log.d("DatabaseHelper", "Tables created.");
+                "FOREIGN KEY(" + COLUMN_ID + ") REFERENCES " + TABLE_REGISTRO + "(" + COLUMN_ID + "))");
     }
 
     @Override
@@ -77,7 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int oldVersion, int newVersion) {
-        Log.d("DatabaseHelper", "Upgrading database from version " + oldVersion + " to " + newVersion);
+        // Actualización de la base de datos si la versión cambia
         if (oldVersion < 3) {
             MyDB.execSQL("ALTER TABLE " + TABLE_USERDATA + " ADD COLUMN " + COLUMN_EMAIL + " TEXT");
         }
@@ -90,6 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    // Método para actualizar el tipo de suscripción de un usuario
     public boolean updateSubscriptionType(long userId, String subscriptionType) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -99,6 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result > 0;
     }
 
+    // Método para obtener datos de registro por un valor de columna específico
     public RegistroData getRegistroByColumn(String columnName, String columnValue) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_REGISTRO, null, columnName + "=?", new String[]{columnValue}, null, null, null);
@@ -158,11 +159,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    // Usa el nuevo método para obtener un usuario por correo electrónico
+    // Método para obtener datos de registro por correo electrónico
     public RegistroData getRegistroByEmail(String email) {
         return getRegistroByColumn(COLUMN_EMAIL, email);
     }
 
+    // Método para obtener la contraseña por correo electrónico
     public String getPasswordByEmail(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_REGISTRO, new String[]{COLUMN_PASSWORD}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
@@ -177,11 +179,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    // Usa el nuevo método para obtener un usuario por ID
+    // Método para obtener datos de registro por ID
     public RegistroData getRegistroPorId(long userId) {
         return getRegistroByColumn(COLUMN_ID, String.valueOf(userId));
     }
 
+    // Método para insertar datos de usuario
     public long insertUserData(UserData userData) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -205,15 +208,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public long insertData(String table, ContentValues contentValues) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.insert(table, null, contentValues);
-        db.close();
-        return result;
-    }
-
+    // Método para obtener datos de usuario por ID
     public UserData getUserData(int userId) {
-        Log.d("DatabaseHelper", "getUserData() called with userId: " + userId);
         try (SQLiteDatabase db = this.getReadableDatabase(); Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USERDATA + " WHERE " + COLUMN_ID + " = ?", new String[]{String.valueOf(userId)})) {
             UserData userData = null;
             if (cursor.moveToFirst()) {
@@ -248,6 +244,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    // Método para obtener el correo electrónico del usuario
     public String getUserEmail() {
         String selectQuery = "SELECT " + COLUMN_EMAIL + " FROM " + TABLE_USERDATA;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -260,6 +257,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return email;
     }
 
+    // Método para obtener el objetivo del usuario por ID
     public String getUserGoal(int userId) {
         String selectQuery = "SELECT " + COLUMN_OBJETIVO + " FROM " + TABLE_USERDATA + " WHERE " + COLUMN_ID + " = ?";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -272,29 +270,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return objetivo;
     }
 
+    // Método para actualizar el tipo de cuerpo del usuario por ID
     public boolean updateUserBodyType(int userId, String bodyType) {
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_BODYTYPE, bodyType);
-        int result = MyDatabase.update(TABLE_USERDATA, contentValues, COLUMN_ID + " = ?", new String[]{String.valueOf(userId)});
-        MyDatabase.close();
+        int result = db.update(TABLE_USERDATA, contentValues, COLUMN_ID + " = ?", new String[]{String.valueOf(userId)});
+        db.close();
         return result > 0;
     }
 
+    // Método para verificar si existe un correo electrónico en la base de datos
     public boolean checkUserEmail(String email) {
-        try (SQLiteDatabase MyDatabase = this.getReadableDatabase();
-             Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL), new String[]{email})) {
+        try (SQLiteDatabase db = this.getReadableDatabase(); Cursor cursor = db.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL), new String[]{email})) {
             return cursor.getCount() > 0;
         }
     }
 
+    // Método para verificar si existe un ID de usuario en la base de datos
     public boolean checkUserId(int userId) {
-        try (SQLiteDatabase MyDatabase = this.getReadableDatabase();
-             Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_ID), new String[]{String.valueOf(userId)})) {
+        try (SQLiteDatabase db = this.getReadableDatabase(); Cursor cursor = db.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_ID), new String[]{String.valueOf(userId)})) {
             return cursor.getCount() > 0;
         }
     }
 
+    // Método para obtener el ID de usuario por correo electrónico
     public int getUserId(String... email) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor;
@@ -312,8 +312,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return userId;
     }
 
+    // Método para verificar si un correo electrónico y contraseña coinciden en la base de datos
     public boolean checkEmailPassword(String email, String password) {
-        try (SQLiteDatabase MyDatabase = this.getReadableDatabase()) {
+        try (SQLiteDatabase db = this.getReadableDatabase()) {
             String hashedPassword;
             try {
                 hashedPassword = hashPassword(password);
@@ -322,11 +323,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Log.e("DatabaseHelper", "Error al hacer hash de la contraseña", e);
                 return false;
             }
-            Cursor cursor = MyDatabase.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ?"), new String[]{email, hashedPassword});
+            Cursor cursor = db.rawQuery(String.format(SELECT_FROM_WHERE, TABLE_REGISTRO, COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ?"), new String[]{email, hashedPassword});
             return cursor.getCount() > 0;
         }
     }
 
+    // Método para verificar si la suscripción de un usuario es válida
     public boolean isSubscriptionValid(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_REGISTRO, new String[]{"subscription_start_date", "subscription_duration"}, COLUMN_EMAIL + "=?", new String[]{email}, null, null, null);
@@ -343,6 +345,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return isValid;
     }
 
+    // Método para hacer hash de una contraseña usando SHA-256
     public String hashPassword(String password) {
         MessageDigest md;
         try {

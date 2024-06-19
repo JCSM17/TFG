@@ -52,11 +52,11 @@ import java.util.List;
 
 public class PasarelaFragment extends Fragment {
 
+    // Constantes para el código de país, código de moneda, clave API y clave de firma
     private static final String COUNTRY_CODE = "PER";
     private static final String CURRENCY_CODE = "PEN";
     private static final String API_KEY = "ab254a10-ddc2-4d84-8f31-d3fab9d49520";
     private static final String SIGNATURE_KEY = "eDpehY%YPYgsoludCSZhu*WLdmKBWfAo";
-
 
     private SynapPayButton paymentWidget;
     private FrameLayout synapForm;
@@ -66,11 +66,12 @@ public class PasarelaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = null;
         try {
+            // Infla el diseño de la interfaz de usuario del fragmento
             view = inflater.inflate(R.layout.fragment_pasarela, container, false);
 
             synapForm = view.findViewById(R.id.contenedorTarjetas);
             if (synapForm == null) {
-                // Maneja el caso en que synapForm es null
+                // Maneja el caso en el que synapForm es nulo
                 Toast.makeText(getContext(), "Error: synapForm es null.", Toast.LENGTH_SHORT).show();
                 return view;
             }
@@ -82,12 +83,13 @@ public class PasarelaFragment extends Fragment {
             // Inicializa el objeto paymentWidget aquí
             this.paymentWidget = SynapPayButton.create(synapForm);
 
+            // Configura el botón de pago para iniciar el pago al hacer clic
             synapButton.setOnClickListener(v -> {
                 try {
                     if (paymentWidget != null) {
                         paymentWidget.pay();
                     } else {
-                        // Maneja el caso en que paymentWidget es null
+                        // Maneja el caso en el que paymentWidget es nulo
                         Toast.makeText(getContext(), "Error: El botón de pago no está inicializado.", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NullPointerException e) {
@@ -96,13 +98,15 @@ public class PasarelaFragment extends Fragment {
                 }
             });
 
+            // Configura el botón de "Continuar" para iniciar el proceso de pago
             Button startPayment = view.findViewById(R.id.btnContinuar);
             startPayment.setOnClickListener(v -> startPayment());
 
+            // Configura el botón de "Finalizar" para navegar a la pantalla de éxito
             Button btnFinalizar = view.findViewById(R.id.btnFinalizar);
             btnFinalizar.setOnClickListener(v -> navigateToSuccessScreen());
         } catch (NullPointerException e) {
-            // Maneja la excepción aquí
+            // Maneja la excepción aquí si ocurre algún error durante la creación de la vista
             Toast.makeText(getContext(), "Error: Se produjo un error inesperado.", Toast.LENGTH_SHORT).show();
         }
 
@@ -113,37 +117,45 @@ public class PasarelaFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Inicializa el objeto paymentWidget aquí
+        // Inicializa el objeto paymentWidget en onViewCreated para asegurar que esté listo
         this.paymentWidget = SynapPayButton.create(synapForm);
     }
 
+    // Método para iniciar el proceso de pago mostrando el formulario y el botón de pago
     private void startPayment() {
         synapForm.setVisibility(View.VISIBLE);
         synapButton.setVisibility(View.VISIBLE);
 
+        // Re-inicializa el objeto paymentWidget al iniciar el pago
         this.paymentWidget = SynapPayButton.create(synapForm);
 
+        // Configura el tema de la interfaz de usuario del widget de pago
         SynapTheme theme = new SynapLightTheme();
         SynapPayButton.setTheme(theme);
 
+        // Configura el ambiente del widget de pago (en este caso, sandbox para pruebas)
         SynapPayButton.setEnvironment(SynapPayButton.Environment.SANDBOX);
 
+        // Construye la transacción para enviar al servidor de pago
         SynapTransaction transaction = this.buildTransaction();
         SynapAuthenticator authenticator = this.buildAuthenticator(transaction);
 
+        // Configura el listener para manejar los eventos del widget de pago
         SynapPayButton.setListener(event -> {
             switch (event) {
                 case START_PAY:
-                    synapButton.setVisibility(View.GONE);
+                    synapButton.setVisibility(View.GONE); // Oculta el botón de pago al iniciar el proceso
                     break;
                 case INVALID_CARD_FORM:
-                    synapButton.setVisibility(View.VISIBLE);
+                    synapButton.setVisibility(View.VISIBLE); // Muestra el botón de pago si el formulario es inválido
                     break;
                 case VALID_CARD_FORM:
+                    // No se necesita ninguna acción específica para un formulario válido
                     break;
             }
         });
 
+        // Configura el widget de pago con la autenticación, transacción y handler de autorización
         this.paymentWidget.configure(
                 authenticator,
                 transaction,
@@ -159,9 +171,11 @@ public class PasarelaFragment extends Fragment {
                     }
                 }
         );
-        synapButton.setVisibility(View.VISIBLE);
+
+        synapButton.setVisibility(View.VISIBLE); // Asegura que el botón de pago esté visible
     }
 
+    // Método para mostrar un mensaje en un cuadro de diálogo
     private void showMessage(String message) {
         AlertDialog.Builder builder1 = new AlertDialog.Builder(requireContext());
         builder1.setMessage(message);
@@ -171,10 +185,11 @@ public class PasarelaFragment extends Fragment {
                 "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        // Usa un Handler para asegurar que la interfaz de usuario se actualice correctamente
                         Handler looper = new Handler(requireActivity().getApplicationContext().getMainLooper());
                         looper.post(() -> {
-                            synapForm.setVisibility(View.GONE);
-                            synapButton.setVisibility(View.GONE);
+                            synapForm.setVisibility(View.GONE); // Oculta el formulario de pago
+                            synapButton.setVisibility(View.GONE); // Oculta el botón de pago
                         });
                         dialog.cancel();
                     }
@@ -185,21 +200,23 @@ public class PasarelaFragment extends Fragment {
         alert11.show();
     }
 
+    // Método para manejar la respuesta del servidor después de realizar el pago
     private void handleResponse(boolean success, String message) {
-        Looper.prepare();
+        Looper.prepare(); // Prepara un Looper para mostrar un mensaje de manera sincronizada
+
         if (success) {
-            // Aquí puedes agregar el código que se ejecutará si el pago es exitoso.
-            // Por ejemplo, podrías redirigir al usuario a una pantalla de agradecimiento.
-            navigateToSuccessScreen();
+            // Realiza acciones adicionales si el pago fue exitoso
+            navigateToSuccessScreen(); // Navega a la pantalla de éxito
         } else {
-            // Aquí puedes agregar el código que se ejecutará si el pago falla.
-            // Por ejemplo, podrías mostrar un mensaje de error personalizado o dar al usuario la opción de intentarlo de nuevo.
-            navigateToFailureScreen();
+            // Realiza acciones si el pago falló
+            navigateToFailureScreen(); // Muestra un mensaje de error
         }
-        showMessage(message);
-        Looper.loop();
+        showMessage(message); // Muestra el mensaje recibido del servidor
+
+        Looper.loop(); // Inicia el bucle del Looper para mostrar el mensaje correctamente
     }
 
+    // Método para navegar a la pantalla de confirmación de suscripción
     private void navigateToSuccessScreen() {
         SuscripcionConfirmFragment suscripcionConfirmFragment = new SuscripcionConfirmFragment();
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
@@ -210,38 +227,31 @@ public class PasarelaFragment extends Fragment {
         }
     }
 
+    // Método para navegar a la pantalla de fallo en el pago
     private void navigateToFailureScreen() {
         // Muestra un mensaje de error en un Toast
         Toast.makeText(getContext(), "Error en el pago, por favor intenta de nuevo.", Toast.LENGTH_SHORT).show();
     }
 
+    // Método para construir y configurar los detalles de la transacción
     private SynapTransaction buildTransaction() {
-        // Genere el número de orden, este es solo un ejemplo
+        // Genera un número de orden único, en este caso se usa el tiempo actual
         String number = String.valueOf(System.currentTimeMillis());
 
-        // Seteo de los datos de transacción
-        // Referencie al objeto país
+        // Configura los datos de la transacción, incluyendo país, moneda, monto y detalles del cliente
         SynapCountry country = new SynapCountry();
-        // Seteo del código de país
         country.setCode("PER");
 
-        // Referencie al objeto moneda
         SynapCurrency currency = new SynapCurrency();
-        // Seteo del código de moneda
         currency.setCode("PEN");
 
-        //Seteo del monto
         String amount = "1.00";
 
-        // Referencie al objeto cliente
         SynapPerson customer = new SynapPerson();
-        // Seteo del cliente
         customer.setName("Javier");
         customer.setLastName("Pérez");
 
-        // Referencie al objeto dirección del cliente
         SynapAddress address = new SynapAddress();
-        // Seteo del pais (country), niveles de ubicación geográfica (levels), dirección (line1 y line2) y código postal (zip)
         address.setCountry("PER");
         address.setLevels(new ArrayList<String>());
         address.getLevels().add("150000");
@@ -251,50 +261,35 @@ public class PasarelaFragment extends Fragment {
         address.setZip("15036");
         customer.setAddress(address);
 
-        // Seteo del email y teléfono
         customer.setEmail("javier.perez@synapsolutions.com");
         customer.setPhone("999888777");
 
-        // Referencie al objeto documento del cliente
         SynapDocument document = new SynapDocument();
-        // Seteo del tipo y número de documento
         document.setType("DNI");
         document.setNumber("44556677");
         customer.setDocument(document);
 
-        // Seteo de los datos de envío
         SynapPerson shipping = customer;
-        // Seteo de los datos de facturación
         SynapPerson billing = customer;
 
-        // Referencie al objeto producto
         SynapProduct productItem = new SynapProduct();
-        // Seteo de los datos de producto
         productItem.setCode("123");
         productItem.setName("Llavero");
         productItem.setQuantity("1");
         productItem.setUnitAmount("1.00");
         productItem.setAmount("1.00");
 
-        // Referencie al objeto lista de producto
         List<SynapProduct> products = new ArrayList<>();
-        // Seteo de los datos de lista de producto
         products.add(productItem);
 
-        // Referencie al objeto metadata
         SynapMetadata metadataItem = new SynapMetadata();
-        // Seteo de los datos de metadata
         metadataItem.setName("nombre1");
         metadataItem.setValue("valor1");
 
-        // Referencie al objeto lista de metadata
         List<SynapMetadata> metadataList = new ArrayList<>();
-        // Seteo de los datos de lista de metadata
         metadataList.add(metadataItem);
 
-        // Referencie al objeto orden
         SynapOrder order = new SynapOrder();
-        // Seteo de los datos de orden
         order.setNumber(number);
         order.setAmount(amount);
         order.setCountry(country);
@@ -305,65 +300,40 @@ public class PasarelaFragment extends Fragment {
         order.setBilling(billing);
         order.setMetadata(metadataList);
 
-        // Referencie al objeto configuración
         SynapSettings settings = new SynapSettings();
-        // Seteo de los datos de configuración
         settings.setBrands(Arrays.asList(new String[]{"VISA", "MSCD", "AMEX", "DINC"}));
         settings.setLanguage("es_PE");
         settings.setBusinessService("MOB");
 
-        // Referencie al objeto transacción
         SynapTransaction transaction = new SynapTransaction();
-        // Seteo de los datos de transacción
         transaction.setOrder(order);
         transaction.setSettings(settings);
 
-        // Feature Card-Storage (Recordar Tarjeta)
         SynapFeatures features = new SynapFeatures();
         SynapCardStorage cardStorage = new SynapCardStorage();
-
-        // Omitir setUserIdentifier, si se trata de usuario anónimo
         cardStorage.setUserIdentifier("javier.perez@synapsolutions.com");
-
         features.setCardStorage(cardStorage);
+
         transaction.setFeatures(features);
 
         return transaction;
     }
 
+    // Método para construir el objeto SynapAuthenticator para autenticar la transacción
     private SynapAuthenticator buildAuthenticator(SynapTransaction transaction) {
         String apiKey = "ab254a10-ddc2-4d84-8f31-d3fab9d49520";
-
-        // La signatureKey y la función de generación de firma debe usarse e implementarse en el servidor del comercio utilizando la función criptográfica SHA-512
-        // solo con propósito de demostrar la funcionalidad, se implementará en el ejemplo
-        // (bajo ninguna circunstancia debe exponerse la signatureKey y la función de firma desde la aplicación porque compromete la seguridad)
         String signatureKey = "eDpehY%YPYgsoludCSZhu*WLdmKBWfAo";
 
         String signature = generateSignature(transaction, apiKey, signatureKey);
 
-        // El campo onBehalf es opcional y se usa cuando un comercio agrupa otros sub comercios
-        // la conexión con cada sub comercio se realiza con las credenciales del comercio agrupador
-        // y enviando el identificador del sub comercio en el campo onBehalf
-        //String onBehalf="cf747220-b471-4439-9130-d086d4ca83d4";
-
-        // Referencie el objeto de autenticación
         SynapAuthenticator authenticator = new SynapAuthenticator();
-
-        // Seteo de identificador del comercio (apiKey)
         authenticator.setIdentifier(apiKey);
-
-        // Seteo de firma, que permite verificar la integridad de la transacción
         authenticator.setSignature(signature);
-
-        // Seteo de identificador de sub comercio (solo si es un subcomercio)
-        //authenticator.setOnBehalf(onBehalf);
 
         return authenticator;
     }
 
-    // La signatureKey y la función de generación de firma debe usarse e implementarse en el servidor del comercio utilizando la función criptográfica SHA-512
-// solo con propósito de demostrar la funcionalidad, se implementará en el ejemplo
-// (bajo ninguna circunstancia debe exponerse la signatureKey y la función de firma desde la aplicación porque compromete la seguridad)
+    // Método para generar la firma usando SHA-512
     private String generateSignature(SynapTransaction transaction, String apiKey, String signatureKey) {
         String orderNumber = transaction.getOrder().getNumber();
         String currencyCode = transaction.getOrder().getCurrency().getCode();
@@ -374,6 +344,7 @@ public class PasarelaFragment extends Fragment {
         return signature;
     }
 
+    // Método para generar un hash SHA-512
     private String sha512Hex(String value) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -383,8 +354,8 @@ public class PasarelaFragment extends Fragment {
                 sb.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
             }
         } catch (Exception e) {
-            // Handle the exception in a way that makes sense for your application
-            throw new RuntimeException("Error generating SHA-512 hash", e);
+            // Maneja la excepción de forma adecuada para tu aplicación
+            throw new RuntimeException("Error generando hash SHA-512", e);
         }
         return sb.toString();
     }
