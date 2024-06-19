@@ -36,11 +36,14 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/actionBtn"
             android:layout_width="80dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:background="?android:attr/selectableItemBackground"
             android:contentDescription="Play"
-            android:textSize="14sp" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/icono_play" />
+
     </LinearLayout>
 </RelativeLayout>

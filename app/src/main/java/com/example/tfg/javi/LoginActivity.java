@@ -1,9 +1,6 @@
 package com.example.tfg.javi;
 
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -42,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     private void navigateToFragment(Fragment fragment) {
         Intent intent = new Intent(this, FragmentContainerActivity.class);
         intent.putExtra("fragmentName", fragment.getClass().getName());
-        Log.d("LoginActivity", "Fragment name: " + fragment.getClass().getName()); // Agrega esta línea
+        Log.d("LoginActivity", "Fragment name: " + fragment.getClass().getName());
         startActivity(intent);
     }
 
@@ -50,53 +47,45 @@ public class LoginActivity extends AppCompatActivity {
         String email = binding.entradaEmail.getText().toString();
         String password = binding.entradaContrasenia.getText().toString();
 
+        Log.d("LoginActivity", "Email ingresado: " + email);
+        Log.d("LoginActivity", "Contraseña ingresada: " + password);
+
         if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             showToast(getString(R.string.invalid_email));
         } else if (TextUtils.isEmpty(password)) {
             showToast(getString(R.string.empty_password));
         } else {
-            String hashedPassword = databaseHelper.hashPassword(password);
-            if (hashedPassword == null) {
-                Log.e("LoginActivity", "Error al hashear la contraseña");
-                return;
-            }
-            Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
-            if (checkCredentials) {
-                RegistroData registroData = databaseHelper.getRegistroByEmail(email);
-                if (registroData != null) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long subscriptionEndMillis = registroData.getFechaInicioSuscripcion() + registroData.getDuracionSuscripcion() * 24 * 60 * 60 * 1000;
-                    if (currentTimeMillis <= subscriptionEndMillis) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put(DatabaseHelper.COLUMN_EMAIL, email);
-                        contentValues.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
-                        try {
-                            databaseHelper.insertData(DatabaseHelper.TABLE_REGISTRO, contentValues);
-                        } catch (android.database.SQLException e) {
-                            showToast(getString(R.string.login_error));
-                        }
+            String storedPassword = databaseHelper.getPasswordByEmail(email);
 
-                        SharedPreferences sharedPreferences = getSharedPreferences("tfg_preferences", Context.MODE_PRIVATE);
-                        boolean pagado = sharedPreferences.getBoolean(PAGADO, false);
+            Log.d("LoginActivity", "Contraseña almacenada: " + storedPassword);
 
-                        if (!pagado) {
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putBoolean(PAGADO, true);
-                            editor.apply();
-                        }
+            if (storedPassword != null && storedPassword.equals(databaseHelper.hashPassword(password))) {
+                navigateToActivity();
+            } else {
+                String hashedPassword = databaseHelper.hashPassword(password);
+                if (hashedPassword == null) {
+                    Log.e("LoginActivity", "Error al hashear la contraseña");
+                    return;
+                }
+                Log.d("LoginActivity", "Contraseña hasheada: " + hashedPassword);
 
+                Boolean checkCredentials = databaseHelper.checkEmailPassword(email, hashedPassword);
+                Log.d("LoginActivity", "Resultado de checkEmailPassword: " + checkCredentials);
+
+                if (checkCredentials) {
+                    RegistroData registroData = databaseHelper.getRegistroByEmail(email);
+                    Log.d("LoginActivity", "RegistroData obtenido: " + registroData);
+
+                    if (registroData != null) {
                         navigateToActivity();
                     } else {
-                        showToast(getString(R.string.no_subscription_days));
-                        navigateToFragment(new PlanesFragment());
+                        showToast(getString(R.string.user_not_registered));
+                        navigateToFragment(new RegistroFragment());
                     }
                 } else {
-                    showToast(getString(R.string.user_not_registered));
+                    showToast(getString(R.string.invalid_credentials));
                     navigateToFragment(new RegistroFragment());
                 }
-            } else {
-                showToast(getString(R.string.invalid_credentials));
-                navigateToFragment(new RegistroFragment());
             }
         }
     }

@@ -4,7 +4,7 @@
     <style name="Theme.AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/underline</item>
-        <item name="colorPrimaryVariant">@color/ven</item>
+        <item name="colorPrimaryVariant">@color/dark_gray</item>
         <item name="colorOnPrimary">@color/black</item> <!-- Cambiado a negro -->
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -32,6 +32,7 @@
     </style>
 
     <style name="Circular">
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
 

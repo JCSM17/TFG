@@ -11,7 +11,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.tfg.R;
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashMap;
@@ -33,7 +32,7 @@ public class HeaderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_header, container, false);
-        MaterialToolbar toolbar = view.findViewById(R.id.optionsButton);
+        androidx.appcompat.widget.Toolbar toolbar = view.findViewById(R.id.toolbar);
         DrawerLayout drawerLayout = view.findViewById(R.id.drawer_layout);
         NavigationView navigationView = view.findViewById(R.id.navigation_view);
         toolbar.setNavigationOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));

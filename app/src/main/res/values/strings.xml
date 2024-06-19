@@ -3,7 +3,7 @@
 
     <string name="jjj_text">JJJ</string>
     <string name="fit_text">FIT</string>
-    <string name="food_text">FOOD</string>
+    <string name="carlos_sanchez_17">carlos_sanchez_17</string>
 
     <!-- Strings para el LoginActivity -->
     <string name="invalid_email">Por favor, introduce una dirección de correo electrónico válida</string>
@@ -16,9 +16,9 @@
     <string name="invalid_password">Contraseña inválida</string>
 
     <!-- Strings para el RegistroFragment -->
-    <string name="dni_pattern">\\d{8}[a-zA-Z]</string>
+    <string name="dni_pattern">\\d{8}[a&#8211;zA&#8211;Z]</string>
     <string name="telefono_pattern">\\d{9}</string>
-    <string name="email_pattern">[a-zA-Z0-9._%+-]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)</string>
+    <string name="email_pattern">[a&#8211;zA&#8211;Z0&#8211;9._%+&#8211;]+@(gmail|outlook|yahoo)\\.(com|es|net|org|edu|gov|info|biz|co\\.uk)</string>
     <string name="empty_field_message">Por favor, complete todos los campos</string>
     <string name="invalid_dni_message">Por favor, introduce un DNI válido</string>
     <string name="invalid_telefono_message">Introduce un número de teléfono válido</string>
@@ -95,17 +95,17 @@
     <string name="texto_volumen">Volumen</string>
 
     <!-- Strings para el fragmento Volumen Jueves -->
-    <string name="texto_semana_volumen">Semana 1 - Volumen</string>
+    <string name="texto_semana_volumen">Semana 1 &#8211; Volumen</string>
     <string name="texto_jueves">Jueves</string>
     <string name="texto_ptc">PECHO TRICEPS CORE</string>
     <string name="texto_press_banca_pesado">PRESS BANCA PESADO</string>
     <string name="reps_press_banca">3x4 RP</string>
     <string name="texto_fondos_cerrados">FONDOS CERRADOS EN PARALELAS</string>
-    <string name="reps_fondos">3x6-8 + 2DS</string>
+    <string name="reps_fondos">3x6&#8211;8 + 2DS</string>
     <string name="texto_cruce_polea">CRUCE DE POLEA BAJA</string>
-    <string name="reps_polea_baja">2x12-15 + 1xFALLO</string>
+    <string name="reps_polea_baja">2x12&#8211;15 + 1xFALLO</string>
     <string name="texto_press_frances_mancuerna">PRESS FRANCÉS MANCUERNA</string>
-    <string name="reps_press_frances">3x10-12</string>
+    <string name="reps_press_frances">3x10&#8211;12</string>
     <string name="texto_ext_triceps">EXT. TRICEPS EN POLEA</string>
     <string name="reps_extension_triceps">3x12 + 1XMYOREPS</string>
     <string name="texto_press_palof">PRESS PALOF</string>
@@ -135,13 +135,13 @@
     <string name="texto_viernes">Viernes</string>
     <string name="texto_ptc2">FULLBODY</string>
     <string name="texto_dominadas_pronas">DOMINADAS PRONAS</string>
-    <string name="reps_dominadas">3x10-15 </string>
+    <string name="reps_dominadas">3x10&#8211;15 </string>
     <string name="texto_peso_muerto">PESO MUERTO</string>
-    <string name="reps_peso">3x5 - 7</string>
+    <string name="reps_peso">3x5 &#8211; 7</string>
     <string name="texto_press_banca_mancuernas">PRESS BANCA MANCUERNAS</string>
-    <string name="reps_press_banca_m">3x8-10 + 1RP</string>
+    <string name="reps_press_banca_m">3x8&#8211;10 + 1RP</string>
     <string name="texto_laterales_polea">ELEVACIÓNES LATERALES EN POLEA</string>
-    <string name="reps_laterales_p">3x12-14 + 2DS</string>
+    <string name="reps_laterales_p">3x12&#8211;14 + 2DS</string>
     <string name="texto_curl_mancuernas">CURL INCLINADO MANCUERNAS</string>
     <string name="reps_curl_m">2x12 + 1XMYOREPS</string>
     <string name="texto_ext_polea">EXT.TRICEPS EN POLEA</string>
@@ -157,7 +157,7 @@
     <string name="descripcion_boton_video_extencion_triceps_polea">Video de Extencion de tricepes polea</string>
 
 
-    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Viernes Hombre-->
+    <!-- Descripcion para el Fragmento Definicion Descripcion&#8211;Imagen Viernes Hombre-->
     <string name="descripcion_imagen_peso_muerto">Descripción de la imagen de peso muerto</string>
     <string name="descripcion_imagen_polea">Descripción de la imagen Polea</string>
     <string name="descripcion_imagen_dominadas_p">Descripción de la imagen de dominas pronas</string>
@@ -168,24 +168,24 @@
 
 
     <!-- Strings para el fragmento Definicion Lunes Mujer -->
-    <string name="texto_semana_definicion">Semana 1 - Definición</string>
+    <string name="texto_semana_definicion">Definición</string>
     <string name="texto_lunes">Lunes</string>
     <string name="texto_pierna">TIRON + PIERNA</string>
     <string name="texto_dominadas">DOMINADAS (PUEDES LASTRARTE)</string>
-    <string name="reps_dominadas2">3x5 -7</string>
+    <string name="reps_dominadas2">3x5 &#8211;7</string>
     <string name="texto_remo_mancuerna">REMO MANCUERNA (APOYADO BANCO)</string>
-    <string name="reps_remo_mancuerna">3x8 -10</string>
+    <string name="reps_remo_mancuerna">3x8 &#8211;10</string>
     <string name="texto_peso_muerto_rumano">PESO MUERTO RUMANO</string>
-    <string name="reps_peso_muerto_rumano">3x8 -10</string>
+    <string name="reps_peso_muerto_rumano">3x8 &#8211;10</string>
     <string name="texto_jalon_prono_pecho">JALÓN PRONO AL PECHO</string>
-    <string name="reps_jalon_prono_pecho">3x10-12</string>
+    <string name="reps_jalon_prono_pecho">3x10&#8211;12</string>
     <string name="texto_face_pull">FACEPULL</string>
-    <string name="reps_press_facepull">2x13-15</string>
+    <string name="reps_press_facepull">2x13&#8211;15</string>
     <string name="texto_curl_barra">CURL BARRA</string>
-    <string name="reps_curl_barra">3x8-10</string>
+    <string name="reps_curl_barra">3x8&#8211;10</string>
 
 
-    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Lunes Mujer -->
+    <!-- Descripcion para el Fragmento Definicion Descripcion&#8211;Imagen Lunes Mujer -->
     <string name="descripcion_imagen_dominadas">Descripción de la imagen de dominas</string>
     <string name="descripcion_imagen_remo_mancuernas">Descripción de la imagen de remo mancuernas</string>
     <string name="descripcion_imagen_peso_muerto_rumano">Descripción de la imagen de peso muerto rumano</string>
@@ -207,19 +207,19 @@
     <string name="texto_martes">Martes</string>
     <string name="texto_torso">TORSO</string>
     <string name="texto_press_militar_barra">PRESS MILITAR BARRA</string>
-    <string name="reps_press_militar_barra">3x8 -10</string>
+    <string name="reps_press_militar_barra">3x8 &#8211;10</string>
     <string name="texto_jalon_neutro_pecho">JALÓN NEUTRO AL PECHO</string>
-    <string name="reps_jalon_neutro_pecho">3x10-12</string>
+    <string name="reps_jalon_neutro_pecho">3x10&#8211;12</string>
     <string name="texto_peso_press_plano_mancuerna">PRESS PLANO MANCUERNAS</string>
-    <string name="reps_press_plano_mancuerna">3x10 -12</string>
+    <string name="reps_press_plano_mancuerna">3x10 &#8211;12</string>
     <string name="texto_cruce_polea_baja_unilateral">CRUCE POLEA BAJA UNILATERAL</string>
-    <string name="reps_cruce_polea_baja_unilateral">3x15-20</string>
+    <string name="reps_cruce_polea_baja_unilateral">3x15&#8211;20</string>
     <string name="texto_remo_neutro_polea">REMO NEUTRO EN POLEA</string>
-    <string name="reps_remo_neutro_polea">3x12-14</string>
+    <string name="reps_remo_neutro_polea">3x12&#8211;14</string>
     <string name="texto_laterales_polea_torso">ELEV.LATERALES EN POLEA TORSO INCLINADO</string>
-    <string name="reps_laterales_polea_torso">3x12-14</string>
+    <string name="reps_laterales_polea_torso">3x12&#8211;14</string>
 
-    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Martes Mujer -->
+    <!-- Descripcion para el Fragmento Definicion Descripcion&#8211;Imagen Martes Mujer -->
     <string name="descripcion_imagen_press_militar_barra">Descripción de la imagen de Press Militar Barra</string>
     <string name="descripcion_imagen_jalon_neutro_pecho">Descripción de la imagen de Jalon Neutro al Pecho</string>
     <string name="descripcion_imagen_press_plano_mancuernas">Descripción de la imagen de Press Plano Mancuernas</string>
@@ -239,20 +239,20 @@
     <!-- Strings para el fragmento Definicion Jueves Mujer -->
     <string name="texto_empuje_pierna">EMPUJE + PIERNA</string>
     <string name="texto_press_banca_plano_barra">PRESS BANCA PLANO CON BARRA</string>
-    <string name="reps_press_banca_plano_barra">3x6 -8</string>
+    <string name="reps_press_banca_plano_barra">3x6 &#8211;8</string>
     <string name="texto_sentadilla">SENTADILLA</string>
-    <string name="reps_sentadilla">3x8-10</string>
+    <string name="reps_sentadilla">3x8&#8211;10</string>
     <string name="texto_press_militar_mancuerna">PRESS MILITAR MANCUERNA</string>
-    <string name="reps_press_militar_mancuerna">3x10 -12</string>
+    <string name="reps_press_militar_mancuerna">3x10 &#8211;12</string>
     <string name="texto_press_inclinado_mancuerna">PRESS INCLINADO MANCUERNAS</string>
-    <string name="reps_press_inclinado_mancuerna">2x10-12</string>
+    <string name="reps_press_inclinado_mancuerna">2x10&#8211;12</string>
     <string name="texto_cruce_polea_baja">CRUCE POLEA BAJA</string>
-    <string name="reps_cruce_polea_baja">2x3-15</string>
+    <string name="reps_cruce_polea_baja">2x3&#8211;15</string>
     <string name="texto_elevacion_lateral">ELEVACION LATERAL</string>
-    <string name="reps_elevacion_lateral">3x15-17</string>
+    <string name="reps_elevacion_lateral">3x15&#8211;17</string>
 
 
-    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Miercoles Mujer -->
+    <!-- Descripcion para el Fragmento Definicion Descripcion&#8211;Imagen Miercoles Mujer -->
     <string name="descripcion_imagen_press_banca_plano_barra">Descripción de la imagen de Press Plano con Barra</string>
     <string name="descripcion_imagen_sentadilla">Descripción de la imagen de Sentadilla</string>
     <string name="descripcion_imagen_press_militar_mancuerna">Descripción de la imagen de Press Militar Mancuerna</string>
@@ -276,18 +276,18 @@
     <string name="texto_peso_muerto_viernes">PESO MUERTO</string>
     <string name="reps_peso_muerto_viernes">3x5 7</string>
     <string name="texto_zancadas_estaticas_multipower">ZANCADAS ESTÁTICAS MULTIPOWER</string>
-    <string name="reps_zancadas_estaticas_multipower">3x10-12</string>
+    <string name="reps_zancadas_estaticas_multipower">3x10&#8211;12</string>
     <string name="texto_prensa_inclinada">PRENSA INCLINADA</string>
-    <string name="reps_prensa_inclinada">3x12 -14</string>
+    <string name="reps_prensa_inclinada">3x12 &#8211;14</string>
     <string name="texto_patada_triceps_polea">PATADA DE TRICEPS POLEA</string>
-    <string name="reps_patada_triceps_polea">2x15-20</string>
+    <string name="reps_patada_triceps_polea">2x15&#8211;20</string>
     <string name="texto_curl_biceps_alterno_sentado_mancuernas">CURL BICEPS ALTERNO SENTADO MANCUER.</string>
-    <string name="reps_curl_biceps_alterno_sentado_mancuernas">3x8-10</string>
+    <string name="reps_curl_biceps_alterno_sentado_mancuernas">3x8&#8211;10</string>
     <string name="texto_ext_triceps_overhead">EXT. TRICEPS OVERHEAD CON CUERDA POLEA</string>
-    <string name="reps_ext_triceps_overhead">3x12-14</string>
+    <string name="reps_ext_triceps_overhead">3x12&#8211;14</string>
 
 
-    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Jueves Mujer -->
+    <!-- Descripcion para el Fragmento Definicion Descripcion&#8211;Imagen Jueves Mujer -->
     <string name="descripcion_imagen_peso_muerto_viernes">Descripción de la imagen de PESO MUERTO</string>
     <string name="descripcion_imagen_zancadas_estaticas_multipower">Descripción de la imagen Zancadas Estaticas Multipower</string>
     <string name="descripcion_imagen_prensa_inclinada">Descripción de la imagen de Prensa Inclinada</string>
@@ -318,7 +318,7 @@
     <string name="reps_giros_rusos_barra">2x20 RP</string>
 
 
-    <!-- Descripcion para el Fragmento Definicion Descripcion-Imagen Jueves Mujer -->
+    <!-- Descripcion para el Fragmento Definicion Descripcion&#8211;Imagen Jueves Mujer -->
     <string name="descripcion_imagen_rueda_abs_pie">Descripción de la imagen de Rueda ABS de Pie</string>
     <string name="descripcion_imagen_dragon_flag">Descripción de la imagen Dragon Flag</string>
     <string name="descripcion_imagen_stir_the_pot">Descripción de la imagen stir the pot</string>
@@ -335,20 +335,20 @@
     <string name="texto_lunes_volumen">Lunes</string>
     <string name="texto_espalda_biceps_core">ESPALDA BICEPS CORE</string>
     <string name="texto_dominadas_neutras_lastradas">DOMINADAS NEUTRAS LASTRADAS</string>
-    <string name="reps_dominadas_neutras_lastradas">4-6 x 15kg</string>
+    <string name="reps_dominadas_neutras_lastradas">4&#8211;6 x 15kg</string>
     <string name="texto_remo_mancuerna_volumen">REMO CON MANCUERNA</string>
-    <string name="reps_remo_mancuerna_volumen">2x8-10</string>
+    <string name="reps_remo_mancuerna_volumen">2x8&#8211;10</string>
     <string name="texto_jalon_unilateral_sentado">JALON UNILATERAL SENTADO</string>
-    <string name="reps_jalon_unilateral_sentado">2x12-14 (+1RP)</string>
+    <string name="reps_jalon_unilateral_sentado">2x12&#8211;14 (+1RP)</string>
     <string name="texto_remo_neutro_polea_volumen">REMO NEUTRO EN POLEA</string>
-    <string name="reps_remo_neutro_polea_volumen">3x10 -12</string>
+    <string name="reps_remo_neutro_polea_volumen">3x10 &#8211;12</string>
     <string name="texto_curl_biceps_barra_z_scoot">CURL BICEPS BARRA Z SCOOT</string>
-    <string name="reps_curl_biceps_barra_zcoot">3x8-10</string>
+    <string name="reps_curl_biceps_barra_zcoot">3x8&#8211;10</string>
     <string name="texto_curl_polea_alta">CURL EN POLEA ALTA</string>
-    <string name="reps_curl_polea_alta">3x8-10</string>
+    <string name="reps_curl_polea_alta">3x8&#8211;10</string>
 
 
-    <!-- Descripcion para el Fragmento Volumen Descripcion-Imagen Lunes -->
+    <!-- Descripcion para el Fragmento Volumen Descripcion&#8211;Imagen Lunes -->
     <string name="descripcion_imagen_dominadas_neutras_lastradas">Descripción de la imagen de Dominadas Neutras Volumen</string>
     <string name="descripcion_imagen_remo_mancuerna_volumen">Descripción de la imagen de Remo con Mancuernas Volumen</string>
     <string name="descripcion_imagen_jalon_unilateral_sentado">Descripción de la imagen Jalon Unilateral Sentado</string>
@@ -376,18 +376,18 @@
     <string name="texto_sentadilla_con_barra">SENTADILLA CON BARRA</string>
     <string name="reps_sentadilla_con_barra">3x8 RP</string>
     <string name="texto_press_militar">PRESS MILITAR</string>
-    <string name="reps_press_militar">3x6 -8</string>
+    <string name="reps_press_militar">3x6 &#8211;8</string>
     <string name="texto_prensa_inclinadaa">PRENSA INCLINADA</string>
-    <string name="reps_prensa_inclinadaa">3x12 -14 +1RS</string>
+    <string name="reps_prensa_inclinadaa">3x12 &#8211;14 +1RS</string>
     <string name="texto_elevaciones_laterales_mancuerna">ELEVACIONES LATERALES MANCUERNA</string>
-    <string name="reps_elevaciones_laterales_mancuerna">3x12 -15 +2DS</string>
+    <string name="reps_elevaciones_laterales_mancuerna">3x12 &#8211;15 +2DS</string>
     <string name="texto_curl_isquios_tumbados">CURL ISQUIOS TUMBADOS</string>
-    <string name="reps_curl_isquios_tumbados">1x13-15 +1XMYOREPS</string>
+    <string name="reps_curl_isquios_tumbados">1x13&#8211;15 +1XMYOREPS</string>
     <string name="texto_facepull">FACEPULL</string>
     <string name="reps_facepull">3x15</string>
 
 
-    <!-- Descripcion para el Fragmento Volumen Descripcion-Imagen Martes -->
+    <!-- Descripcion para el Fragmento Volumen Descripcion&#8211;Imagen Martes -->
     <string name="descripcion_imagen_sentadilla_con_barra">Descripción de la imagen de Sentadilla con barra</string>
     <string name="descripcion_imagen_press_militar">Descripción de la imagen de Press Militar</string>
     <string name="descripcion_imagen_prensa_inclinadaa">Descripción de la imagen de Prensa Inclinada</string>

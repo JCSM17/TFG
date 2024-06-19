@@ -1,6 +1,7 @@
 package com.example.tfg.jesus;
 
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,6 @@ import com.example.tfg.javi.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.database.Cursor;
 
 public class NutricionActivity extends AppCompatActivity {
 
@@ -31,8 +31,8 @@ public class NutricionActivity extends AppCompatActivity {
     private ViewPager2 meriendaViewPager;
     private ViewPager2 cenaViewPager;
 
-    private TextView consumedCaloriesTextView;
     private TextView totalCaloriesTextView;
+    private TextView consumedCaloriesTextView;
     private ProgressBar caloriesProgressBar;
     private DatabaseHelper dbHelper;
 
@@ -45,7 +45,6 @@ public class NutricionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutricion);
         dbHelper = new DatabaseHelper(this);
-
 
 
         // Imprimir los nombres de las columnas
@@ -66,8 +65,8 @@ public class NutricionActivity extends AppCompatActivity {
         meriendaViewPager = findViewById(R.id.meriendaViewPager);
         cenaViewPager = findViewById(R.id.cenaViewPager);
 
-        consumedCaloriesTextView = findViewById(R.id.TotalCaloriasTextView);
-        totalCaloriesTextView = findViewById(R.id.ConsumidasCaloriesTextView);
+        totalCaloriesTextView = findViewById(R.id.TotalCaloriasTextView);
+        consumedCaloriesTextView = findViewById(R.id.ConsumidasCaloriesTextView);
         caloriesProgressBar = findViewById(R.id.caloriesProgressBar);
 
         // Assuming you have methods to get the actual values
@@ -75,8 +74,8 @@ public class NutricionActivity extends AppCompatActivity {
         int totalCalories = getTotalCalories();
         int burnedCalories = getBurnedCalories();
 
+        totalCaloriesTextView.setText(totalCalories + " kcal");
         consumedCaloriesTextView.setText(consumedCalories + " kcal");
-        totalCaloriesTextView.setText("de " + totalCalories + " kcal");
 
         int remainingCalories = totalCalories - consumedCalories;
         int progress = (int) (((double) consumedCalories / totalCalories) * 100);
@@ -148,14 +147,15 @@ public class NutricionActivity extends AppCompatActivity {
         });
 
 
-        consumedCaloriesTextView = findViewById(R.id.TotalCaloriasTextView);
+        totalCaloriesTextView = findViewById(R.id.TotalCaloriasTextView);
 
 
         SharedPreferences prefs = getSharedPreferences("tfg_preferences", MODE_PRIVATE);
         int userId = prefs.getInt("userId", 0);
         Log.d("NutricionActivity", "Recuperado userId de preferencias compartidas: " + userId);
         int calories = getUserCalories(String.valueOf(userId));
-        consumedCaloriesTextView.setText(calories + " kcal");
+        // Este es el que se imprime
+        totalCaloriesTextView.setText("de " + calories + " kcal");
     }
 
     private void toggleVisibility(View view) {
@@ -165,6 +165,7 @@ public class NutricionActivity extends AppCompatActivity {
             view.setVisibility(View.VISIBLE);
         }
     }
+
     private int getUserCalories(String id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT calorias FROM userData WHERE id = ?", new String[]{id});

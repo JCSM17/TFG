@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
@@ -13,6 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,7 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
-                android:background="@drawable/top_background"
+                android:background="@drawable/gray_background"
                 android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -105,7 +107,7 @@
                     android:layout_width="93dp"
                     android:layout_height="49dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@drawable/purple_background"
+                    android:background="@drawable/gray_background"
                     android:text="Comprar ahora"
                     android:textColor="@color/white"
                     android:textSize="16sp"
@@ -389,8 +391,20 @@
                         android:text="Explorar"
                         android:textAlignment="center" />
                 </LinearLayout>
+                <Button
+                    android:id="@+id/goToMainMenuButton"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:padding="8dp"
+                    android:text="Menu"
+                    android:textColor="#131313"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5" />
             </LinearLayout>
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

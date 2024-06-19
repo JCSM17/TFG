@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".jesus.DefinicionLunesFragment">
+    tools:context=".jesus.VolumenLunesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <include
-            android:id="@+id/header"
-            layout="@layout/fragment_header"
+            android:id="@+id/jjjfit"
+            layout="@layout/fragment_jjjfit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content" />
 
         <include
             android:id="@+id/datos_entrenamiento"
@@ -25,15 +23,15 @@
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header" />
+            app:layout_constraintTop_toBottomOf="@id/jjjfit" />
 
         <include
-            layout="@layout/fragment_cronometro"
+            layout="@layout/fragment_cronometro_container"
             android:layout_width="180dp"
-            android:layout_height="205dp"
+            android:layout_height="210dp"
             android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datos_entrenamiento"
             app:layout_constraintTop_toTopOf="@+id/textoSemanaVolumen" />
@@ -69,7 +67,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="12dp"
             android:text="@string/texto_espalda_biceps_core"
-            android:textSize="12sp"
+            android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoLunes" />
 
@@ -89,7 +87,7 @@
             android:id="@+id/textoDominadasNeutrasLastradas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="90dp"
             android:text="@string/texto_dominadas_neutras_lastradas"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -102,11 +100,11 @@
             android:id="@+id/repsDominadasNeutrasLastradas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="210dp"
+            android:layout_marginTop="222dp"
             android:text="@string/reps_dominadas_neutras_lastradas"
             android:textColor="#D00000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toEndOf="@+id/textoDominadasNeutrasLastradas"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textoSemanaVolumen" />
@@ -212,7 +210,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagenDominadasNeutrasLastradas" />
-
 
         <TextView
             android:id="@+id/textoJalonUnilateralSentado"
@@ -409,7 +406,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="@string/texto_curl_polea_alta"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.10"
