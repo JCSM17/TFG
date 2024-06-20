@@ -45,12 +45,6 @@ public class TiendaActivity extends AppCompatActivity {
             Intent intent = new Intent(TiendaActivity.this, PerfilActivity.class);
             startActivity(intent);
         });
-
-        // Configura el botón para ir al menú principal
-        findViewById(R.id.goToMainMenuButton).setOnClickListener(v -> {
-            Intent intent = new Intent(TiendaActivity.this, MenuActivity.class);
-            startActivity(intent);
-        });
     }
 
     private ArrayList<PopularDomain> obtenerItems() {
@@ -70,6 +64,4 @@ public class TiendaActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
-
-
 }
