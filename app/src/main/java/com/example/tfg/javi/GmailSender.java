@@ -6,7 +6,7 @@ import javax.mail.internet.*;
 
 public class GmailSender {
 
-    // Constantes para las claves de configuración SMTP
+    // Constantes para las claves de configuración SMTP.
     private static final String SMTP_AUTH_KEY = "mail.smtp.auth";
     private static final String SMTP_STARTTLS_KEY = "mail.smtp.starttls.enable";
     private static final String SMTP_HOST_KEY = "mail.smtp.host";

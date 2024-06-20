@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    // Navega a la actividad principal y finaliza la actividad actual
+    // Navega a la actividad principal y finaliza la actividad actual.
     private void navigateToActivity() {
         showToast(getString(R.string.login_success));
         Intent intent = new Intent(LoginActivity.this, MenuActivity.class);

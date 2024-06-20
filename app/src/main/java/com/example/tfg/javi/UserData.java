@@ -73,7 +73,7 @@ public class UserData {
     }
 
     public void setObjetivo(String objetivo) {
-        this.objetivo = objetivo; // Establece el objetivo del usuario
+        this.objetivo = objetivo; // Establece el objetivo del usuario.
     }
 
     public float getCalorias() {

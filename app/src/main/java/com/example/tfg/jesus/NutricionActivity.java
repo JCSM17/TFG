@@ -178,7 +178,7 @@ public class NutricionActivity extends AppCompatActivity {
     }
 
     private int getConsumedCalories() {
-        // Método temporal para devolver calorías consumidas (sustituir con lógica real)
+        // Método temporal para devolver calorías consumidas (sustituir con lógica real).
         return 1769;
     }
 

@@ -131,7 +131,7 @@ public class TinyDB {
         return (fileCreated && bitmapCompressed && streamClosed); // Retorna verdadero si todas las operaciones se realizaron con éxito
     }
 
-    // Métodos para obtener valores de diferentes tipos desde las preferencias
+    // Métodos para obtener valores de diferentes tipos desde las preferencias.
     public int getInt(String key) {
         return preferences.getInt(key, 0); // Obtiene un entero desde las preferencias con un valor predeterminado de 0 si no existe
     }

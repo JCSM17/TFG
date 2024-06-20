@@ -202,7 +202,7 @@ public class CountdownFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        // Liberar recursos al destruir el Fragment
+        // Liberar recursos al destruir el Fragment.
         if (mediaPlayer != null) {
             mediaPlayer.release();
             mediaPlayer = null;

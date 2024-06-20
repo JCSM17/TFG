@@ -55,7 +55,7 @@ public class VolumenMartesFragment extends Fragment {
 
         ButtonSetupUtils.setupButton(this, view, R.id.imagenCheckVolumenMartes); // Configura un botón de imagen usando ButtonSetupUtils
 
-        // Configura los botones de imagen usando ButtonSetupUtils
+        // Configura los botones de imagen usando ButtonSetupUtils.
         for (int id : IMAGE_BUTTON_IDS_VOLUMEN_MARTES) {
             ButtonSetupUtils.setupImageButton(view, id);
         }

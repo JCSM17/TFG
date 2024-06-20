@@ -25,7 +25,7 @@ public class PerfilActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this); // Inicializa el helper de base de datos
 
-        // Recupera el userId almacenado en SharedPreferences
+        // Recupera el userId almacenado en SharedPreferences.
         SharedPreferences prefs = getSharedPreferences("tfg_preferences", MODE_PRIVATE);
         int userId = prefs.getInt("userId", 0);
         Log.d("PerfilActivity", "Recuperado userId de preferencias compartidas: " + userId);

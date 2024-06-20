@@ -66,7 +66,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.Viewhold
 
     @Override
     public int getItemCount() {
-        return items.size(); // Retorna la cantidad de elementos en el carrito
+        return items.size(); // Retorna la cantidad de elementos en el carrito.
     }
 
     public class Viewholder extends RecyclerView.ViewHolder {

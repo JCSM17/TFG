@@ -64,7 +64,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
     }
 
     public static class Viewholder extends RecyclerView.ViewHolder {
-        ViewholderPupListBinding binding; // Binding para el ViewHolder
+        ViewholderPupListBinding binding; // Binding para el ViewHolder.
 
         public Viewholder(ViewholderPupListBinding binding) {
             super(binding.getRoot()); // Inicializa el ViewHolder con el binding raíz

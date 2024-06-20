@@ -45,7 +45,7 @@ public class DefinicionLunesFragment extends Fragment {
 
         String[] urls = getResources().getStringArray(R.array.urls_definicion_lunes); // Obtiene los URLs de los videos desde los recursos
 
-        // Configura los botones de video usando ButtonSetupUtils
+        // Configura los botones de video usando ButtonSetupUtils.
         for (int i = 0; i < BUTTON_IDS_DEFINICION_LUNES.length; i++) {
             ButtonSetupUtils.setupButton(this, view, BUTTON_IDS_DEFINICION_LUNES[i], urls[i]);
         }

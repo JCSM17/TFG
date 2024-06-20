@@ -11,7 +11,7 @@ public class RegistroData {
     private long fechaInicioSuscripcion;
     private int duracionSuscripcion;
 
-    // Clase de datos para almacenar información de registro de usuario
+    // Clase de datos para almacenar información de registro de usuario.
     // Getters and setters para acceder y modificar los atributos privados de la clase
 
     public int getId() {

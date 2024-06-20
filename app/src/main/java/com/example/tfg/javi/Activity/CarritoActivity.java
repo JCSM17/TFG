@@ -14,7 +14,7 @@ import com.example.tfg.R;
 import com.example.tfg.databinding.ActivityCarritoBinding;
 
 public class CarritoActivity extends AppCompatActivity {
-    private ManagmentCart managmentCart; // Instancia para manejar el carrito de compras
+    private ManagmentCart managmentCart; // Instancia para manejar el carrito de compras.
     ActivityCarritoBinding binding; // Binding para la actividad
     double percentTax; // Porcentaje de impuestos
     double delivery; // Costo de envío

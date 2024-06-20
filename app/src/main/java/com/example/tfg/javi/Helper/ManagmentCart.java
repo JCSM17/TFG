@@ -55,7 +55,7 @@ public class ManagmentCart {
         return fee; // Retorna el total calculado
     }
 
-    // Método para reducir la cantidad de un elemento en el carrito
+    // Método para reducir la cantidad de un elemento en el carrito.
     public void minusNumberItem(ArrayList<PopularDomain> listItem, int position, ChangeNumberItemsListener changeNumberItemsListener) {
         if (listItem.get(position).getNumberInCart() == 1) {
             listItem.remove(position); // Si la cantidad es 1, elimina el elemento del carrito

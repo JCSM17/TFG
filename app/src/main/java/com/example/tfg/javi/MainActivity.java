@@ -17,7 +17,7 @@ import com.example.tfg.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Constante para el retardo en milisegundos del splash screen
+    // Constante para el retardo en milisegundos del splash screen.
     private static final int SPLASH_SCREEN_DELAY = 1500;
 
     @Override

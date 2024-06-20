@@ -61,7 +61,7 @@ public class PopularDomain implements Serializable {
     }
 
     public int getNumberInCart() {
-        return NumberInCart; // Retorna el número de elementos en el carrito
+        return NumberInCart; // Retorna el número de elementos en el carrito.
     }
 
     public void setNumberInCart(int NumberInCart) {

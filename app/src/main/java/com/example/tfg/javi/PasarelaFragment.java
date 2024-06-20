@@ -344,7 +344,7 @@ public class PasarelaFragment extends Fragment {
         return signature;
     }
 
-    // Método para generar un hash SHA-512
+    // Método para generar un hash SHA-512.
     private String sha512Hex(String value) {
         StringBuilder sb = new StringBuilder();
         try {

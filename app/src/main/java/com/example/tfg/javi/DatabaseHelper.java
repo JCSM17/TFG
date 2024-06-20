@@ -345,7 +345,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return isValid;
     }
 
-    // Método para hacer hash de una contraseña usando SHA-256
+    // Método para hacer hash de una contraseña usando SHA-256.
     public String hashPassword(String password) {
         MessageDigest md;
         try {

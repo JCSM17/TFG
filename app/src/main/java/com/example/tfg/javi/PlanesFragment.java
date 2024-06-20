@@ -60,7 +60,7 @@ public class PlanesFragment extends Fragment {
         return view;
     }
 
-    // Método para reemplazar el fragmento actual por PasarelaFragment con el precio del plan
+    // Método para reemplazar el fragmento actual por PasarelaFragment con el precio del plan.
     private void replaceFragment(Fragment pasarelaFragment, double precioPlan) {
         Bundle bundle = new Bundle();
         bundle.putDouble("precioPlan", precioPlan); // Añade el precio del plan al Bundle

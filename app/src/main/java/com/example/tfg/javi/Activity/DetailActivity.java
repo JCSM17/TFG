@@ -14,7 +14,7 @@ import com.example.tfg.javi.domain.PopularDomain;
 
 public class DetailActivity extends AppCompatActivity {
     private ActivityDetailBinding binding; // Binding para la actividad
-    private PopularDomain object; // Objeto que representa el elemento popular
+    private PopularDomain object; // Objeto que representa el elemento popular.
     private int numberOrder = 1; // Número inicial de órdenes
     private ManagmentCart managmentCart; // Instancia para manejar el carrito de compras
 

@@ -12,7 +12,7 @@ import com.example.tfg.R;
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
-    private int[] images; // Arreglo que contiene los recursos de las imágenes a mostrar
+    private int[] images; // Arreglo que contiene los recursos de las imágenes a mostrar.
     private LayoutInflater inflater; // Objeto LayoutInflater para inflar el diseño de cada elemento
 
     public ImageAdapter(int[] images, Context context) {

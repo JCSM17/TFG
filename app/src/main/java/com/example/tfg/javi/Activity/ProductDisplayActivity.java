@@ -11,7 +11,7 @@ import com.example.tfg.R;
 import com.example.tfg.databinding.ActivityTiendaBinding;
 
 public class ProductDisplayActivity extends AppCompatActivity {
-    ActivityTiendaBinding binding; // Binding para la actividad
+    ActivityTiendaBinding binding; // Binding para la actividad.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

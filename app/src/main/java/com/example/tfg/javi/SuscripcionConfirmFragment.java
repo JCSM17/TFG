@@ -47,7 +47,7 @@ public class SuscripcionConfirmFragment extends Fragment {
         // Obtiene el FragmentManager desde la actividad requerida
         FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
 
-        // Verifica que el FragmentManager no sea nulo antes de comenzar la transacción
+        // Verifica que el FragmentManager no sea nulo antes de comenzar la transacción.
         if (fragmentManager != null) {
             // Inicia una transacción para reemplazar el fragmento actual con IntroObjetivoFragment
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

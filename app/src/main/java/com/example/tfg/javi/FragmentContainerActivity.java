@@ -15,7 +15,7 @@ public class FragmentContainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_container);
 
-        // Obtener el nombre del fragmento desde los extras del intent
+        // Obtener el nombre del fragmento desde los extras del intent.
         String fragmentName = getIntent().getStringExtra("fragmentName");
         Log.d("FragmentContainerActivity", "Fragment name: " + fragmentName); // Agrega esta línea para registrar el nombre del fragmento
 
